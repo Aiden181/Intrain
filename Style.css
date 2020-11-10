@@ -27,3 +27,8 @@ body {
 a:hover {
     color: black;
 }
+
+#promotion-box{
+    position: relative;
+    top: 200px;
+}
