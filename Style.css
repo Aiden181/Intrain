@@ -1,0 +1,29 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
+}
+
+.jumbotron {
+    background-color:#3e3e3e;
+    margin: -70px;
+}
+
+.jumbotron h1 {
+    color: whitesmoke;
+}
+
+.navbar {
+    position: relative;
+    margin: -85px;
+    background-color:#3e3e3e;
+}
+
+.nav-item, #navbardrop {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+a:hover {
+    color: black;
+}
