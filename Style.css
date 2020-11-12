@@ -1,5 +1,5 @@
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 25px;
 }
 
@@ -12,6 +12,7 @@ body {
     color: whitesmoke;
 }
 
+/*Navigation Bar */
 .navbar {
     position: relative;
     margin: -85px;
@@ -31,4 +32,19 @@ a:hover {
 #promotion-box{
     position: relative;
     top: 200px;
+}
+
+
+/*Footer Section */
+footer {
+    background-color: #3e3e3e;
+    position: relative;
+    bottom: -420px;
+    text-align: center;
+}
+
+.fa {
+    color: white;
+    padding: 10px;
+    margin: 5px;
 }
