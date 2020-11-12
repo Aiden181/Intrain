@@ -34,6 +34,12 @@ a:hover {
     top: 200px;
 }
 
+/*Major Content*/
+#section-two{
+    position: relative;
+    top: 300px;
+    display: block;
+}
 
 /*Footer Section */
 footer {
