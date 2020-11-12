@@ -35,10 +35,24 @@ a:hover {
 }
 
 /*Major Content*/
-#section-two{
+#left-content{
     position: relative;
     top: 300px;
-    display: block;
+}
+
+#left-content p, h2{
+    width: 480px;
+    text-align: justify;
+}
+
+#right-content{
+    position: relative;
+    top: 300px;
+}
+
+#right-content p, h2{
+    width: 480px;
+    text-align: justify;
 }
 
 /*Footer Section */
