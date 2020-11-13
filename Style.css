@@ -38,6 +38,7 @@ a:hover {
 #left-content{
     position: relative;
     top: 300px;
+    padding-top: 50px;
 }
 
 #left-content p, h2{
@@ -48,6 +49,8 @@ a:hover {
 #right-content{
     position: relative;
     top: 300px;
+    padding-left: 590px;
+    padding-top: 50px
 }
 
 #right-content p, h2{
