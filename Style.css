@@ -5,7 +5,7 @@ body {
 
 .jumbotron {
     background-color:#3e3e3e;
-    margin: -70px;
+    margin-top: -70px;
 }
 
 .jumbotron h1 {
@@ -15,7 +15,7 @@ body {
 /*Navigation Bar */
 .navbar {
     position: relative;
-    margin: -85px;
+    margin-top: -85px;
     background-color:#3e3e3e;
 }
 
