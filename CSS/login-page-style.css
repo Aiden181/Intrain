@@ -33,3 +33,10 @@ body{
     padding: 20px;
     border-radius: 10px 10px 10px 10px;
 }
+
+#login-form i{
+    position: absolute;
+    right: 430px;
+    top: 30px;
+    color: black;
+}

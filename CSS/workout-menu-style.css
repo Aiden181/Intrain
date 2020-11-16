@@ -33,10 +33,11 @@ a:hover {
 #main-menu{
     position: relative;
     top: 120px;
+    margin-bottom: -130px;
 }
 
 .col img{
-    padding: 35px;
+    filter: grayscale(100%);
 }
 
 /*Footer Section */
