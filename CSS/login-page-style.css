@@ -1,0 +1,19 @@
+body{
+    background: #e35869;
+}
+
+.container-sm{
+    border: solid 1px;
+    background: #fff;
+}
+
+#login-form{
+    width: 500px;
+    height: 280px;
+    margin: 65px auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px 10px 10px 10px;
+}
