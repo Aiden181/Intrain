@@ -1,10 +1,15 @@
 body{
-    background: #e35869;
+    background-image: url(../Picture/Login-Page-Wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: 110%;
+    
 }
 
 .container-sm{
     border: solid 1px;
     background: #fff;
+    position: relative;
+    top: 150px;
 }
 
 .container-sm h1{
@@ -13,7 +18,7 @@ body{
 }
 
 .container-sm button{
-    background-color: #3e3e3e;
+    background-color:black;
     color: white;
     width: 210px;
 }
