@@ -10,22 +10,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="../CSS/login-page-style.css">
-    <title>Login</title>
+    <link rel="stylesheet" href="../CSS/sign-up-style.css">
+    <title>Sign Up</title>
 </head>
 
 <body>
-    <div class="container-sm" id="login-form">
-        <form action="">  
-            <h1>Login</h1>
+    <div class="container-sm" id="signup-form">
+        <form action="">
+            <h1>Sign Up</h1>
             <a href="../Intrain.html"><i class="fa fa-arrow-left" style="font-size:32px"></i></a>
+            <div class="form-group">
+                <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name" pattern="^[A-Za-z]+$" required>
+            </div>
             <div class="form-group">
                 <input type="email" name="email" id="email" class="form-control" placeholder="Enter email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="pwd" name="pswd" placeholder="Enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                <input type="password" class="form-control" id="pwd" name="pswd" placeholder="Enter password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
             </div>
-            <button type="submit" class="btn">Log In</button>
+            <button type="submit" class="btn">Sign Up</button>
         </form>
     </div>
 
