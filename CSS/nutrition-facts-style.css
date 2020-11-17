@@ -29,6 +29,30 @@ a:hover {
     color: black;
 }
 
+/*Major Content*/
+#left-content{
+    position: relative;
+    top: 300px;
+    padding-top: 50px;
+}
+
+#left-content p, h2{
+    width: 480px;
+    text-align: justify;
+}
+
+#right-content{
+    position: relative;
+    top: 300px;
+    padding-left: 590px;
+    padding-top: 50px
+}
+
+#right-content p, h2{
+    width: 480px;
+    text-align: justify;
+}
+
 /*Footer Section */
 footer {
     background-color: #3e3e3e;

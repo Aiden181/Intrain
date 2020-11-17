@@ -30,17 +30,21 @@ a:hover {
 }
 
 .container-sm{
-    padding: 20px;
+    padding: 30px;
     background-color: whitesmoke;
     position: relative;
     top: 50px;
+}
+
+.container-sm p{
+    text-align: justify;
 }
 
 /*Footer Section */
 footer {
     background-color: #3e3e3e;
     position: relative;
-    bottom: -567px;
+    bottom: -600px;
     text-align: center;
     padding: 10px;
 }
