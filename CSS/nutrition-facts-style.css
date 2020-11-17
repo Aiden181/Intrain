@@ -32,7 +32,7 @@ a:hover {
 /*Major Content*/
 #left-content{
     position: relative;
-    top: 300px;
+    top: 50px;
     padding-top: 50px;
 }
 
@@ -43,7 +43,7 @@ a:hover {
 
 #right-content{
     position: relative;
-    top: 300px;
+    top: 90px;
     padding-left: 590px;
     padding-top: 50px
 }
