@@ -1,6 +1,10 @@
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 25px;
+    font-size: 22px;
+}
+
+.navbar{
+    font-size: 26px;
 }
 
 .jumbotron {
