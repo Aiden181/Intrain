@@ -17,7 +17,7 @@ body{
     padding-bottom: 10px;
 }
 
-.container-sm button{
+.container-sm #log-in-btn{
     background-color:black;
     color: white;
     width: 210px;

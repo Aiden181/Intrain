@@ -16,19 +16,26 @@
 
 <body>
     <div class="container-sm" id="login-form">
-        <form action="">  
+        <form action="">
             <h1>Login</h1>
-            <a href="../Intrain.html"><i class="fa fa-arrow-left" style="font-size:32px"></i></a>
+            <button onclick="goBack()"><i class="fa fa-arrow-left" style="font-size:32px"></i></button>
             <div class="form-group">
-                <input type="email" name="email" id="email" class="form-control" placeholder="Enter email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Enter email"
+                    pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="pwd" name="pswd" placeholder="Enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                <input type="password" class="form-control" id="pwd" name="pswd" placeholder="Enter password"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
             </div>
-            <button type="submit" class="btn">Log In</button>
+            <button type="submit" class="btn" id="log-in-btn">Log In</button>
         </form>
     </div>
 
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>

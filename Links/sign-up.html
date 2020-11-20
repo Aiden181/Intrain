@@ -18,7 +18,7 @@
     <div class="container-sm" id="signup-form">
         <form action="">
             <h1>Sign Up</h1>
-            <a href="../Intrain.html"><i class="fa fa-arrow-left" style="font-size:32px"></i></a>
+            <button onclick="goBack()" id="go-back-btn"><i class="fa fa-arrow-left" style="font-size:32px"></i></button>
             <div class="form-group">
                 <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name" pattern="^[A-Za-z]+$" required>
             </div>
@@ -28,7 +28,7 @@
             <div class="form-group">
                 <input type="password" class="form-control" id="pwd" name="pswd" placeholder="Enter password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
             </div>
-            <button type="submit" class="btn">Sign Up</button>
+            <button type="submit" class="btn" id="sign-up-btn">Sign Up</button>
         </form>
     </div>
 
