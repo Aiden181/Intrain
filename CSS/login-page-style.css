@@ -23,6 +23,12 @@ body{
     width: 210px;
 }
 
+#go-back-btn{
+    border: none;
+    padding: 0;
+    background: none;
+}
+
 #login-form{
     width: 500px;
     height: 280px;

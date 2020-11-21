@@ -40,3 +40,9 @@ body{
     top: 30px;
     color: black;
 }
+
+#go-back-btn{
+    border: none;
+    padding: 0;
+    background: none;
+}
