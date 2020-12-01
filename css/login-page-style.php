@@ -1,3 +1,7 @@
+<?php
+    header("Content-type: text/css");
+?>
+
 body{
     background-image: url(../Picture/Login-Page-Wallpaper.jpg);
     background-repeat: no-repeat;
@@ -17,15 +21,21 @@ body{
     padding-bottom: 10px;
 }
 
-.container-sm #sign-up-btn{
+.container-sm #log-in-btn{
     background-color:black;
     color: white;
     width: 210px;
 }
 
-#signup-form{
+#go-back-btn{
+    border: none;
+    padding: 0;
+    background: none;
+}
+
+#login-form{
     width: 500px;
-    height: 330px;
+    height: 280px;
     margin: 65px auto;
     display: flex;
     align-items: center;
@@ -34,15 +44,9 @@ body{
     border-radius: 10px 10px 10px 10px;
 }
 
-#signup-form i{
+#login-form i{
     position: absolute;
     right: 430px;
     top: 30px;
     color: black;
-}
-
-#go-back-btn{
-    border: none;
-    padding: 0;
-    background: none;
 }

@@ -1,3 +1,7 @@
+<?php
+    header("Content-type: text/css");
+?>
+
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 22px;
@@ -33,14 +37,27 @@ a:hover {
     color: black;
 }
 
-.container-sm{
-    padding: 30px;
-    background-color: whitesmoke;
+/*Major Content*/
+#left-content{
     position: relative;
     top: 50px;
+    padding-top: 50px;
 }
 
-.container-sm p{
+#left-content p, h2{
+    width: 480px;
+    text-align: justify;
+}
+
+#right-content{
+    position: relative;
+    top: 90px;
+    padding-left: 590px;
+    padding-top: 50px
+}
+
+#right-content p, h2{
+    width: 480px;
     text-align: justify;
 }
 
@@ -48,7 +65,7 @@ a:hover {
 footer {
     background-color: #3e3e3e;
     position: relative;
-    bottom: -600px;
+    bottom: -567px;
     text-align: center;
     padding: 10px;
 }

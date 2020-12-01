@@ -1,3 +1,7 @@
+<?php
+    header("Content-type: text/css");
+?>
+
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 22px;
@@ -33,49 +37,22 @@ a:hover {
     color: black;
 }
 
-/*Introduction*/
-#introduction{
+/*Main Menu*/
+#main-menu{
     position: relative;
-    top: 100px;
-    padding: 50px;
-    text-align: center;
-    background-color: whitesmoke;
+    top: 120px;
+    margin-bottom: -130px;
 }
 
-#promotion-box{
-    position: relative;
-    top: 200px;
-}
-
-/*Major Content*/
-#left-content{
-    position: relative;
-    top: 300px;
-    padding-top: 50px;
-}
-
-#left-content p, h2{
-    width: 480px;
-    text-align: justify;
-}
-
-#right-content{
-    position: relative;
-    top: 300px;
-    padding-left: 590px;
-    padding-top: 50px
-}
-
-#right-content p, h2{
-    width: 480px;
-    text-align: justify;
+.col img{
+    filter: grayscale(100%);
 }
 
 /*Footer Section */
 footer {
     background-color: #3e3e3e;
     position: relative;
-    bottom: -420px;
+    bottom: -567px;
     text-align: center;
     padding: 10px;
 }

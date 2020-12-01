@@ -1,3 +1,7 @@
+<?php
+    header("Content-type: text/css");
+?>
+
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 22px;
@@ -33,22 +37,22 @@ a:hover {
     color: black;
 }
 
-/*Main Menu*/
-#main-menu{
+.container-sm{
+    padding: 30px;
+    background-color: whitesmoke;
     position: relative;
-    top: 120px;
-    margin-bottom: -130px;
+    top: 50px;
 }
 
-.col img{
-    filter: grayscale(100%);
+.container-sm p{
+    text-align: justify;
 }
 
 /*Footer Section */
 footer {
     background-color: #3e3e3e;
     position: relative;
-    bottom: -567px;
+    bottom: -600px;
     text-align: center;
     padding: 10px;
 }
