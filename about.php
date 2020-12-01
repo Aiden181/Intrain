@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" <title></title>
-    <link rel="stylesheet" href="../CSS/about-us.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/about-us.css">
     <title>About</title>
 </head>
 
@@ -19,7 +19,7 @@
     <!--Jumbotron-->
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <a href="../Intrain.html"><img src="../Logo/Intrain.png" style="width: 140px; height: 140px;"
+            <a href="./index.php"><img src="./images/Intrain.png" style="width: 140px; height: 140px;"
                     alt="Intrain Logo"></a>
         </div>
     </div>
@@ -33,18 +33,18 @@
                         Programs
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="upper-body.html">Upper Body Workout</a>
-                        <a class="dropdown-item" href="lower-body.html">Lower Body Workout</a </div>
+                        <a class="dropdown-item" href="upper-body.php">Upper Body Workout</a>
+                        <a class="dropdown-item" href="lower-body.php">Lower Body Workout</a>
                 </li>
-                <a class="nav-item nav-link active" href="about.html">About</a>
-                <a class="nav-item nav-link active" href="nutrition.html">Nutrition Facts</a>
+                <a class="nav-item nav-link active" href="about.php">About</a>
+                <a class="nav-item nav-link active" href="nutrition.php">Nutrition Facts</a>
 
             </div>
             <div class="navbar-nav justify-content-end">
-                <a class="nav-item nav-link active" href="login-form.html">
+                <a class="nav-item nav-link active" href="login-form.php">
                     <i class="fas fa-user"></i> Login
                 </a>
-                <a class="nav-item nav-link active" href="sign-up.html">
+                <a class="nav-item nav-link active" href="sign-up.php">
                     <i class="ml-23 fas fa-check"></i> Sign Up
                 </a>
             </div>
