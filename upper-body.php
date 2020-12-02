@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/workout-menu-style.php" type="text/css" media="screen">
 
+    <!-- website icon -->
+    <link rel="icon" href="./images/Intrain.png">
+
     <title>Upper Body</title>
 </head>
 
