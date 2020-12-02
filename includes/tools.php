@@ -2,7 +2,7 @@
 session_start();
 
 // Include database file
-require_once "database.php";
+// require_once "database.php";
 
 
 ?>
