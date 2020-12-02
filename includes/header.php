@@ -24,10 +24,10 @@
 
         </div>
         <div class="navbar-nav justify-content-end">
-            <a class="nav-item nav-link active" href="./login-form.php">
+            <a class="nav-item nav-link active" href="./login.php">
                 <i class="fas fa-user"></i> Login
             </a>
-            <a class="nav-item nav-link active" href="./sign-up.php">
+            <a class="nav-item nav-link active" href="./signup.php">
                 <i class="ml-23 fas fa-check"></i> Sign Up
             </a>
         </div>
