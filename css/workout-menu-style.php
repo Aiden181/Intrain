@@ -62,3 +62,9 @@ footer {
     padding: 10px;
     margin: 5px;
 }
+
+section > a > img
+{
+    width: 450px;
+    height: 300px;
+}
