@@ -1,3 +1,4 @@
+<?php include('./includes/tools.php'); ?>
 <!--Jumbotron-->
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
