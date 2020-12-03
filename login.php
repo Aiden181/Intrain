@@ -74,7 +74,9 @@
             <h1>Login</h1>
             <button type="button" id="go-back-btn"><a href="./index.php"><i class="fa fa-arrow-left"></i></a></button>
             <div class="form-group">
-                <input type="text" id="username" name="username" class="form-control fadeIn first" placeholder="Enter username">
+                <!-- php code in value='' means echo user's inputted username
+                after user tries to log in but with wrong login credentials -->
+                <input type="text" id="username" name="username" class="form-control fadeIn first" placeholder="Enter username" value = <?php echo isset($_POST['username']) ? test_input($_POST['username']) : ''; ?>>
             </div>
             <div class="form-group">
                 <input type="password" id="password" name="password" class="form-control fadeIn second" placeholder="Enter password">
