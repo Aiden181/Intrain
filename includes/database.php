@@ -2,8 +2,7 @@
 $host = "localhost";
 $port = "3306";
 $username = "root";
-$password = "";
-$db = "InTrain";
+$db = "intrain";
 
 // Create connection
 $conn = mysqli_connect($host, $username, $password, $db, $port);
@@ -17,7 +16,8 @@ if ($conn -> connect_error) {
 // }
 
 // drop table query for testing
-// $conn->query("DROP TABLE IF EXISTS customer");
+// $conn->query("DROP TABLE IF EXISTS `customer`");
+// $conn->query("DROP TABLE IF EXISTS `admin`");
 
 // --------------------------------- //
 // ----- create customer table ----- //
@@ -29,15 +29,43 @@ if ($conn -> connect_error) {
 // phone_number : customer phone number
 // username : customer username
 // password : customer password
-$sql = "CREATE TABLE IF NOT EXISTS customer (
-    id VARCHAR(20) NOT NULL PRIMARY KEY,
-    last_name VARCHAR(128) NOT NULL,
-    first_name VARCHAR(128) NOT NULL,
-    email VARCHAR(128) NOT NULL,
-    phone_number VARCHAR(128) NOT NULL,
-    username VARCHAR(128) NOT NULL,
-    password VARCHAR(128) NOT NULL
+$sql = "CREATE TABLE IF NOT EXISTS `customer` (
+    `id` INT(11) NOT NULL auto_increment,
+    `last_name` VARCHAR(128) NOT NULL,
+    `first_name` VARCHAR(128) NOT NULL,
+    `email` VARCHAR(128) NOT NULL,
+    `phone_number` VARCHAR(128) NOT NULL,
+    `username` VARCHAR(128) NOT NULL UNIQUE,
+    `password` VARCHAR(128) NOT NULL,
+    PRIMARY KEY (`id`)
 )";
+$conn->query($sql);
+
+// --------------------------------- //
+// ----- create admin table -------- //
+// --------------------------------- //
+// id : admin id
+// last_name : admin last name
+// first_name : admin first name
+// email : admin email
+// phone_number : admin phone number
+// username : admin username
+// password : admin password
+$sql = "CREATE TABLE IF NOT EXISTS `admin` (
+    `id` INT(11) NOT NULL auto_increment,
+    `last_name` VARCHAR(128) NOT NULL,
+    `first_name` VARCHAR(128) NOT NULL,
+    `email` VARCHAR(128) NOT NULL,
+    `phone_number` VARCHAR(128) NOT NULL,
+    `username` VARCHAR(128) NOT NULL UNIQUE,
+    `password` VARCHAR(128) NOT NULL,
+    PRIMARY KEY (`id`)
+)";
+$conn->query($sql);
+
+
+// automatically add root admin
+$sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) VALUES ('','', '', '','root', PASSWORD('1ntrainr00t!'))";
 $conn->query($sql);
 
 // if (isset($_POST["name"], $_POST["email"], $_POST["password"])) {
