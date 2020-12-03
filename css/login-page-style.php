@@ -26,12 +26,6 @@ body {
     width: 210px;
 }
 
-#go-back-btn {
-    border: none;
-    padding: 0;
-    background: none;
-}
-
 #login-form {
     width: 500px;
     height: 280px;
@@ -43,13 +37,18 @@ body {
     border-radius: 10px 10px 10px 10px;
 }
 
-/* go back button */
 #login-form i {
     font-size: 32px;
     position: absolute;
     right: 430px;
     top: 30px;
     color: black;
+}
+
+#go-back-btn {
+    border: none;
+    padding: 0;
+    background: none;
 }
 
 /* ---------- */

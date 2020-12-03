@@ -26,7 +26,7 @@
     <div class="container-sm fadeInDown" id="signup-form">
         <form action="signup.php" method="post" id="customer-signup">
             <h1>Sign Up</h1>
-            <button onclick="goBack()" id="go-back-btn"><i class="fa fa-arrow-left"></i></button>
+            <button type="button" onclick="goBack()" id="go-back-btn"><i class="fa fa-arrow-left"></i></button>
             <div class="form-group">
                 <input type="text" name="name" id="name" class="form-control fadeIn first" placeholder="Enter your name" pattern="^[A-Za-z]+$" required>
             </div>
@@ -36,7 +36,7 @@
             <div class="form-group">
                 <input type="password" class="form-control fadeIn third" id="password" name="password" placeholder="Enter password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
             </div>
-            <button onclick="register()" type="submit" class="btn fadeIn fourth" id="sign-up-btn">Sign Up</button>
+            <input onclick="register()" type="submit" class="btn fadeIn fourth" id="sign-up-btn" value="Sign Up"></input>
         </form>
     </div>
     <?php include('./includes/javascript.php'); ?>

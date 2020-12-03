@@ -6,7 +6,6 @@ body {
     background-image: url(../images/Login-Page-Wallpaper.jpg);
     background-repeat: no-repeat;
     background-size: 120%;
-    
 }
 
 .container-sm {
