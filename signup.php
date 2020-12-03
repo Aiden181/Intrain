@@ -21,20 +21,22 @@
 </head>
 
 <body>
-    <div class="container-sm" id="signup-form">
-        <form method="post" id="customer-signup" action="">
+    <?php include('./includes/tools.php') ?>
+    
+    <div class="container-sm fadeInDown" id="signup-form">
+        <form action="signup.php" method="post" id="customer-signup">
             <h1>Sign Up</h1>
-            <button onclick="goBack()" id="go-back-btn"><i class="fa fa-arrow-left" style="font-size:32px"></i></button>
+            <button onclick="goBack()" id="go-back-btn"><i class="fa fa-arrow-left"></i></button>
             <div class="form-group">
-                <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name" pattern="^[A-Za-z]+$" required>
+                <input type="text" name="name" id="name" class="form-control fadeIn first" placeholder="Enter your name" pattern="^[A-Za-z]+$" required>
             </div>
             <div class="form-group">
-                <input type="email" name="email" id="email" class="form-control" placeholder="Enter email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+                <input type="email" name="email" id="email" class="form-control fadeIn second" placeholder="Enter email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                <input type="password" class="form-control fadeIn third" id="password" name="password" placeholder="Enter password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
             </div>
-            <button onclick="register()" type="submit" class="btn" id="sign-up-btn">Sign Up</button>
+            <button onclick="register()" type="submit" class="btn fadeIn fourth" id="sign-up-btn">Sign Up</button>
         </form>
     </div>
     <?php include('./includes/javascript.php'); ?>
