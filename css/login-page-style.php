@@ -28,7 +28,6 @@ body {
 
 #login-form {
     width: 500px;
-    height: 280px;
     margin: 65px auto;
     display: flex;
     align-items: center;
