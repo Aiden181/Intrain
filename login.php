@@ -59,8 +59,7 @@
                 }
                 // no results returned
                 else {
-                    $Msg = "<span style='color: red'> Invalid Login Details </span>";
-                    echo $Msg;
+                    $Msg = "<span> Username or password is incorrect! </span>";
                 }
             } else {
                 echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
@@ -86,6 +85,13 @@
             <!-- reset login button for debug -->
             <input type="submit" name="reset-login" value="reset login">
         </form>
+        <?php
+        if (isset($_POST['username'])) {
+            echo "<div class=\"form-group\" id=\"error-message\">";
+            echo $Msg;
+            echo "</div>";
+        }
+        ?>
     </div>
 
     <?php include('./includes/javascript.php'); ?>

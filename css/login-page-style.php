@@ -51,6 +51,13 @@ body {
     background: none;
 }
 
+#error-message {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: center;
+  color: red;
+}
+
 /* ---------- */
 /* ANIMATIONS */
 /* ---------- */
