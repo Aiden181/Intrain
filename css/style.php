@@ -23,7 +23,7 @@ body {
 /*Navigation Bar */
 .navbar {
     position: relative;
-    margin-top: -85px;
+    margin-top: -100px;
     background-color:#3e3e3e;
 }
 
@@ -31,10 +31,16 @@ body {
     position: relative;
     text-align: center;
     color: white;
+    margin-right: 15px;
 }
 
 a:hover {
     color: black;
+}
+
+#header-image {
+    width: 140px;
+    height: 140px;
 }
 
 /*Introduction*/
