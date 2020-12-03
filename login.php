@@ -35,23 +35,39 @@
     }
 
     // after user presses log in button
-    if (isset($_POST['login'])) {
-        // if username and password in $_POST are set then assign those values to the variable
-        $username = isset($_POST['username']) ? $_POST['username'] : '';
-        $password = isset($_POST['password']) ? $_POST['password'] : '';
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // 'login' is in $_POST (after user presses Log In button)
+        if (isset($_POST['login'])) {
+            // if username and password in $_POST are set then remove 
+            // malicious characters and assign those values to the variable
+            $username = isset($_POST['username']) ? test_input($_POST['username']) : '';
+            $password = isset($_POST['password']) ? test_input($_POST['password']) : '';
+            
+            // GET username and password from user's inputs
+            $sql = "SELECT `username`, `password` FROM `admin` WHERE username='$username' AND password=PASSWORD('$password')";
+            
+            // run mysql query and store results to $result
+            if ($result = mysqli_query($conn, $sql)) {
+                // has at least 1 result
+                if (mysqli_num_rows($result) > 0) {
+                    // add user to session
+                    $_SESSION['User']['username'] = $username;
 
-        // if username is in the admin account list and password matches, add to session and 
-        // redirects to index.php
-        if (isset($login[$username]) && $login[$username] == $password) {
-            // add to session
-            $_SESSION['User']['username'] = $username;
+                    // Free result set (free up memory)
+                    mysqli_free_result($result);
 
-            // redirects to index.php upon successful login
-            header("location: index.php");
-            exit;
-        } else { // login failed, show error message
-            $Msg = "<span style='color: red'> Invalid Login Details </span>";
-            echo $Msg;
+                    // redirects to index.php upon successful login
+                    header("location: index.php");
+                    exit;
+                }
+                // no results returned
+                else {
+                    $Msg = "<span style='color: red'> Invalid Login Details </span>";
+                    echo $Msg;
+                }
+            } else {
+                echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+            }
         }
     }
     ?>
@@ -59,15 +75,14 @@
     <div class="container-sm fadeInDown" id="login-form">
         <form action="login.php" method="post">
             <h1>Login</h1>
-            <button onclick="goBack()" id="go-back-btn"><i class="fa fa-arrow-left"></i></button>
+            <button type="button" id="go-back-btn"><a href="./index.php"><i class="fa fa-arrow-left"></i></a></button>
             <div class="form-group">
-                <!-- <input type="email" id="email" name="email" class="form-control" placeholder="Enter email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required> -->
-                <input type="text" id="username" name="username" class="form-control fadeIn first" placeholder="Enter username" required>
+                <input type="text" id="username" name="username" class="form-control fadeIn first" placeholder="Enter username">
             </div>
             <div class="form-group">
-                <input type="password" id="password" class="form-control fadeIn second" name="pswd" placeholder="Enter password" required>
+                <input type="password" id="password" name="password" class="form-control fadeIn second" placeholder="Enter password">
             </div>
-            <button type="submit" name="login" class="btn fadeIn third" id="log-in-btn">Log In</button>
+            <input type="submit" name="login" class="btn fadeIn third" id="log-in-btn" value="Log In"></input>
 
             <!-- reset login button for debug -->
             <!-- <input type="submit" name="reset-login" value="reset login"> -->
