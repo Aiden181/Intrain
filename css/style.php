@@ -109,7 +109,6 @@ a:hover {
 footer {
     background-color: #3e3e3e;
     position: relative;
-    bottom: -100px;
     text-align: center;
     padding: 10px;
 }
