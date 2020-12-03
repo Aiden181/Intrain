@@ -46,7 +46,6 @@ a:hover {
 
 .col img{
     filter: grayscale(100%);
-    padding-left
 }
 
 /*Footer Section */
