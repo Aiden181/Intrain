@@ -27,28 +27,22 @@
 <body>
     <?php include('./includes/header.php') ?>
 
-    <div class="container-sm" id="introduction">
-        <p>
-            Workout videos for Absolute Beginners. Absolutely Free.
-        </p>
-    </div>
-
     <!--Top Three Reason to choose Intrain-->
     <div class="container-sm" id="promotion-box">
         <div class="row row-cols-3">
             <section class="col">
-                <img src="./images/Pic01.jpg" style="width: 300px; height: 350px;" alt="">
-                <h4>High-Quality Contents</h4>
+                <img src="./images/Pic01.jpg" style="width: 300px; height: 300px;" alt="">
+                <h4>Workout During LockDown</h4>
                 <p></p>
             </section>
             <section class="col">
-                <img src="./images/Pic02.jpg" style="width: 300px; height: 350px;" alt="">
-                <h4>High-Quality Contents</h4>
+                <img src="./images/Pic02.jpg" style="width: 300px; height: 300px;" alt="">
+                <h4>Anywhere, anytime you want</h4>
                 <p></p>
             </section>
             <section class="col">
-                <img src="./images/Pic03.jpg" style="width: 300px; height: 350px;" alt="">
-                <h4>High-Quality Contents</h4>
+                <img src="./images/Pic03.jpg" style="width: 300px; height: 300px;" alt="">
+                <h4>Huge Lessons Library</h4>
                 <p></p>
             </section>
         </div>
@@ -57,11 +51,14 @@
     <!--Section 2-->
     <section>
         <div class="container-sm" id="left-content">
-            <h2>Workout At Home For Free</h2>
+            <h2 style="text-align: center;">Workout At Home For Free</h2>
             <p>We believe that workout and fitness should be accessible to everyone, everywhere, and every time.
                 Therefore, with just some dumbbells on your hand. You can train in the place and the time as you see
                 fit.
             </p>
+        </div>
+        <div>
+            <img src="" alt="">
         </div>
     </section>
 
@@ -74,12 +71,13 @@
                 weeks. Therefore, we have gone out and made some fun facts to keep our users entertained and find some
                 joy as well as some information while they are learning as well and somewhat know more about their body.
             </p>
-        </div>
+            <img class="img-fluid" src="./images/Pic05.jpg" id="left-img" alt="" style="width: 530px; height: 320px;">
+        </div>    
     </section>
 
     <!--Section 4-->
     <section>
-        <div class="container-sm" id="left-content">
+        <div class="container-sm" id="left-content-2">
             <h2>Not sure where to start?
             </h2>
             <p>Many people have asked this question. But before you start your own intense workout routine, burn some
@@ -88,7 +86,8 @@
                 healthy. Therefore, our program is to show you first how to exercise correctly, and that is where we
                 recommend you start.
             </p>
-        </div>
+            <img class="img-fluid" src="./images/Pic06.jpg" style="width: 530px; height: 350px;" alt=""" id="right-img">
+        </div>   
     </section>
 
     <!--Footer-->

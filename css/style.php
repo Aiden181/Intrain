@@ -50,19 +50,35 @@ a:hover {
 
 #promotion-box{
     position: relative;
-    top: 200px;
+    top: 100px;
 }
 
 /*Major Content*/
 #left-content{
     position: relative;
-    top: 300px;
-    padding-top: 50px;
+    top: 220px;
+    left: 300px;
+}
+
+#left-content-2{
+    position: relative;
+    padding-top: 80px;
 }
 
 #left-content p, h2{
     width: 480px;
+    text-align: center;
+}
+
+#left-content-2 p, h2{
+    width: 480px;
     text-align: justify;
+}
+
+#left-img{
+    position: relative;
+    right: 600px;
+    bottom: 345px;
 }
 
 #right-content{
@@ -77,11 +93,17 @@ a:hover {
     text-align: justify;
 }
 
+#right-img{
+    position: relative;
+    left: 600px;
+    bottom: 370px;
+}
+
 /*Footer Section */
 footer {
     background-color: #3e3e3e;
     position: relative;
-    bottom: -420px;
+    bottom: -100px;
     text-align: center;
     padding: 10px;
 }
