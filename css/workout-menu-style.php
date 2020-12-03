@@ -68,3 +68,8 @@ section > a > img
     width: 450px;
     height: 300px;
 }
+
+section > h3
+{
+    text-align: center;
+}
