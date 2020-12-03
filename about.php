@@ -28,19 +28,23 @@
     <?php include('./includes/header.php') ?>
 
     <!--Main Content-->
-    <div class="container-sm">
-        <p>
-            After going through numerous websites and apps about workout. We’ve discovered that many of them are very
-            strict and intense even for beginners. This led to many people deciding to give up due to pressure and
-            stress because that could not follow the program well or their body failed out and caused pain in the
-            process. Therefore, we have decided to make a website that is both easy, fun and free for new users to come
-            in the workout world. This website will be perfect for anyone that has not exercised before, for “Absolute
-            Beginners”.
-        </p>
+    <br>
+    <div class="about-us-container">
+        <h1><b><u>About Us</u></b></h1>
+        <div class="container-sm">
+            <p>
+                After going through numerous websites and apps about workout. We’ve discovered that many of them are very
+                strict and intense even for beginners. This led to many people deciding to give up due to pressure and
+                stress because that could not follow the program well or their body failed out and caused pain in the
+                process. Therefore, we have decided to make a website that is both easy, fun and free for new users to come
+                in the workout world. This website will be perfect for anyone that has not exercised before, for “Absolute
+                Beginners”.
+            </p>
+        </div>
     </div>
 
     <!--Footer-->
-    <?php include('./includes/footer.php')?>
+    <?php include('./includes/footer.php') ?>
 </body>
 
 </html>
