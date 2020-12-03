@@ -3,9 +3,9 @@
 ?>
 
 body{
-    background-image: url(../Picture/Login-Page-Wallpaper.jpg);
+    background-image: url(../images/Login-Page-Wallpaper.jpg);
     background-repeat: no-repeat;
-    background-size: 110%;
+    background-size: 120%;
     
 }
 

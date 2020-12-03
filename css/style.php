@@ -44,6 +44,8 @@ a:hover {
     padding: 50px;
     text-align: center;
     background-color: whitesmoke;
+    font-size: 28px;
+    height: auto;
 }
 
 #promotion-box{

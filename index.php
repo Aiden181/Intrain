@@ -29,7 +29,7 @@
 
     <div class="container-sm" id="introduction">
         <p>
-            "Workout videos for Absolute Beginners. Absolutely Free.
+            Workout videos for Absolute Beginners. Absolutely Free.
         </p>
     </div>
 

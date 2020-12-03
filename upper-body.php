@@ -30,7 +30,7 @@
         <div class="row row-cols-3">
             <section class="col">
                 <a href=""><img src="./images/Chest-Workout.jpg" alt="ripped chest"></a>
-                <h3 style="text-align: center;">Chest</h3>
+                <h3 style="text-align: center">Chest</h3>
             </section>
             <section class="col">
                 <a href=""><img src="./images/Forearm-Workout.jpg" alt="ripped forearm"></a>
@@ -45,11 +45,11 @@
                 <h3 style="text-align: center;">Triceps</h3>
             </section>
             <section class="col">
-                <a href=""><img src="./images/Shoulder - Workout.jpg" alt="ripped shoulder"></a>
+                <a href=""><img src="./images/Shoulder-Workout.jpg" alt="ripped shoulder"></a>
                 <h3 style="text-align: center;">Shoulder</h3>
             </section>
             <section class="col">
-                <a href=""><img src="./images/Back-Workout.jpg" alt="ripped back"></a>
+                <a href=""><img src="./images/Back - Workout.jpg" alt="ripped back"></a>
                 <h3 style="text-align: center;">Back</h3>
             </section>
         </div>
