@@ -42,10 +42,7 @@ a:hover {
     background-color: whitesmoke;
     position: relative;
     top: 50px;
-}
-
-.container-sm p{
-    text-align: justify;
+    text-align: center;
 }
 
 /*Footer Section */

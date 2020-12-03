@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,7 +19,7 @@
 
     <!-- website icon -->
     <link rel="icon" href="./images/Intrain.png">
-    
+
     <title>About</title>
 </head>
 
@@ -29,12 +29,12 @@
     <!--Main Content-->
     <div class="container-sm">
         <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus PageMaker including versions of Lorem Ipsum.
+            After going through numerous websites and apps about workout. We’ve discovered that many of them are very
+            strict and intense even for beginners. This led to many people deciding to give up due to pressure and
+            stress because that could not follow the program well or their body failed out and caused pain in the
+            process. Therefore, we have decided to make a website that is both easy, fun and free for new users to come
+            in the workout world. This website will be perfect for anyone that has not exercised before, for “Absolute
+            Beginners”.
         </p>
     </div>
 

@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
@@ -20,7 +20,7 @@
 
     <!-- website icon -->
     <link rel="icon" href="./images/Intrain.png">
-    
+
     <title>Intrain Home</title>
 </head>
 
@@ -29,11 +29,7 @@
 
     <div class="container-sm" id="introduction">
         <p>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum."
+            "Workout videos for Absolute Beginners. Absolutely Free.
         </p>
     </div>
 
@@ -61,64 +57,37 @@
     <!--Section 2-->
     <section>
         <div class="container-sm" id="left-content">
-            <h2>Title</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                into
-                electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-                release of
-                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-                Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <h2>Workout At Home For Free</h2>
+            <p>We believe that workout and fitness should be accessible to everyone, everywhere, and every time.
+                Therefore, with just some dumbbells on your hand. You can train in the place and the time as you see
+                fit.
+            </p>
         </div>
     </section>
 
     <!--Section 3-->
     <section>
         <div class="container-sm" id="right-content">
-            <h2>Title</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                into
-                electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-                release of
-                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-                Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <h2>Fun Facts</h2>
+            <p>Through many websites that contain serious programs, videos, and deadlines. We can see that many users
+                who have started the program can find themselves under pressure and decided to quit after 2 or 3 three
+                weeks. Therefore, we have gone out and made some fun facts to keep our users entertained and find some
+                joy as well as some information while they are learning as well and somewhat know more about their body.
+            </p>
         </div>
     </section>
 
     <!--Section 4-->
     <section>
         <div class="container-sm" id="left-content">
-            <h2>Title</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                into
-                electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-                release of
-                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-                Aldus PageMaker including versions of Lorem Ipsum.</p>
-        </div>
-    </section>
-
-    <!--Section 5-->
-    <section>
-        <div class="container-sm" id="right-content">
-            <h2>Title</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                into
-                electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-                release of
-                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-                Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <h2>Not sure where to start?
+            </h2>
+            <p>Many people have asked this question. But before you start your own intense workout routine, burn some
+                calories, lose your belly fat, and gain some muscle. You must first know how to exercise your body; if
+                you do ten push-ups or 20 crunches wrong, you will end up damaging your body then making it strong and
+                healthy. Therefore, our program is to show you first how to exercise correctly, and that is where we
+                recommend you start.
+            </p>
         </div>
     </section>
 
