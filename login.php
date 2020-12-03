@@ -26,9 +26,6 @@
     <?php include('./includes/tools.php') ?>
     
     <?php
-    // admin account list (username and password)
-    $login = array('admin1' => 'admin1', 'admin2' => 'admin2');
-
     // reset login
     if (isset($_POST['reset-login'])) {
         unset($_SESSION['User']);
@@ -85,7 +82,7 @@
             <input type="submit" name="login" class="btn fadeIn third" id="log-in-btn" value="Log In"></input>
 
             <!-- reset login button for debug -->
-            <!-- <input type="submit" name="reset-login" value="reset login"> -->
+            <input type="submit" name="reset-login" value="reset login">
         </form>
     </div>
 
