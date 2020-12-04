@@ -45,7 +45,7 @@ if (!$db) {
 // username : customer username
 // password : customer password
 $sql = "CREATE TABLE IF NOT EXISTS `customer` (
-    `id` INT(11) NOT NULL auto_increment,
+    `id` INT(11) NOT NULL,
     `last_name` VARCHAR(64) NOT NULL,
     `first_name` VARCHAR(64) NOT NULL,
     `email` VARCHAR(64) NOT NULL,
@@ -68,7 +68,7 @@ $conn->query($sql);
 // password : admin password
 // flag: admin flag (e.g. z = root power, a = create, b = read, c = update, etc...)
 $sql = "CREATE TABLE IF NOT EXISTS `admin` (
-    `id` INT(11) NOT NULL auto_increment,
+    `id` INT(11) NOT NULL,
     `last_name` VARCHAR(64) NOT NULL,
     `first_name` VARCHAR(64) NOT NULL,
     `email` VARCHAR(64) NOT NULL,
@@ -82,11 +82,17 @@ $conn->query($sql);
 
 
 // automatically add root admin
-$sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) VALUES ('', '', '', '','root', PASSWORD('1ntrainr00t!'), 'z')";
+$sql = "INSERT INTO `admin`(`id`, `last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) VALUES (1, '', '', '', '','root', PASSWORD('1ntrainr00t!'), 'z')";
 $conn->query($sql);
 
 // add a user for debug
-$sql = "INSERT INTO `customer`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) VALUES ('john', 'doe', 'john.doe@ahamail.com', '0901234567','user1', PASSWORD('12345'))";
+$sql = "INSERT INTO `customer`(`id`, `last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) VALUES (1, 'john', 'doe', 'john.doe@ahamail.com', '0901234567','user1', PASSWORD('12345'))";
+$conn->query($sql);
+
+$sql = "ALTER TABLE `customer` MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;";
+$conn->query($sql);
+
+$sql = "ALTER TABLE `admin` MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;";
 $conn->query($sql);
 
 ?>
