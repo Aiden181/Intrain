@@ -27,8 +27,7 @@ body {
 }
 
 #signup-form {
-    width: 500px;
-    height: 330px;
+    width: 600px;
     margin: 65px auto;
     display: flex;
     align-items: center;
@@ -46,9 +45,25 @@ body {
 }
 
 #go-back-btn {
+    position: relative;
+    left: 400px;
+    bottom: 80px;
     border: none;
     padding: 0;
     background: none;
+}
+
+#username, #password {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+}
+
+#sign-up-btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ---------- */
