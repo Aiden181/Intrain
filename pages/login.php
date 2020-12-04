@@ -24,16 +24,16 @@
 
 <body>
     <div class="container-sm fadeInDown" id="login-form">
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" onsubmit="checkLogin(event)">
+        <form action="index.php?p=login" method="post" onsubmit="checkLogin(event)">
             <h1>Login</h1>
             <button type="button" id="go-back-btn"><a href="index.php?p=home"><i class="fa fa-arrow-left"></i></a></button>
             <div class="form-group">
                 <!-- php code in value='' means echo user's inputted username
                 after user tries to log in but with wrong login credentials -->
-                <input type="text" id="username" name="username" class="form-control fadeIn first" placeholder="Enter username" value = <?php echo isset($_POST['username']) ? test_input($_POST['username']) : ''; ?>>
+                <input type="text" id="username" name="username" class="form-control fadeIn first" placeholder="Enter username" value="<?php echo isset($_POST['username']) ? test_input($_POST['username']) : ''; ?>" required>
             </div>
             <div class="form-group">
-                <input type="password" id="password" name="password" class="form-control fadeIn second" placeholder="Enter password">
+                <input type="password" id="password" name="password" class="form-control fadeIn second" placeholder="Enter password" required>
             </div>
             <input type="submit" name="login" class="btn fadeIn third" id="log-in-btn" value="Log In">
 

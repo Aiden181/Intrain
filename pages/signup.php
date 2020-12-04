@@ -30,30 +30,30 @@
 
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <input type="text" name="first_name" id="first_name" class="form-control fadeIn first" placeholder="Enter your first name" value="<?php echo isset($_POST['first_name']) ? test_input($_POST['first_name']) : ''; ?>" >
+                    <input type="text" name="first_name" id="first_name" class="form-control fadeIn first" placeholder="Enter your first name" value="<?php echo isset($_POST['first_name']) ? test_input($_POST['first_name']) : ''; ?>" pattern="^[A-Za-z]+$" required>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <input type="text" name="last_name" id="last_name" class="form-control fadeIn first" placeholder="Enter your last name" value="<?php echo isset($_POST['last_name']) ? test_input($_POST['last_name']) : ''; ?>" >
+                    <input type="text" name="last_name" id="last_name" class="form-control fadeIn first" placeholder="Enter your last name" value="<?php echo isset($_POST['last_name']) ? test_input($_POST['last_name']) : ''; ?>" pattern="^[A-Za-z]+$" required>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <!-- <label for="firstName">Email</label> -->
-                    <input type="email" name="email" id="email" class="form-control fadeIn second" placeholder="Enter your email" value="<?php echo isset($_POST['email']) ? test_input($_POST['email']) : ''; ?>" >
+                    <input type="email" name="email" id="email" class="form-control fadeIn second" placeholder="Enter your email" value="<?php echo isset($_POST['email']) ? test_input($_POST['email']) : ''; ?>" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
                 </div>
                 <div class="col-md-6 mb-3">
                     <!-- <label for="lastName">Phone number</label> -->
-                    <input type="phone_number" name="phone" id="phone" class="form-control fadeIn second" placeholder="Enter your phone number" value="<?php echo isset($_POST['phone']) ? test_input($_POST['phone']) : ''; ?>" >
+                    <input type="phone_number" name="phone" id="phone" class="form-control fadeIn second" placeholder="Enter your phone number" value="<?php echo isset($_POST['phone']) ? test_input($_POST['phone']) : ''; ?>" pattern="^\+?\d{0,13}" required>
                 </div>
             </div>
 
             <div class="form-group">
-                <input type="username" name="username" id="username" class="form-control fadeIn second" placeholder="Enter username" value="<?php echo isset($_POST['username']) ? test_input($_POST['username']) : ''; ?>" >
+                <input type="username" name="username" id="username" class="form-control fadeIn second" placeholder="Enter username" value="<?php echo isset($_POST['username']) ? test_input($_POST['username']) : ''; ?>" required>
             </div>
 
             <div class="form-group">
-                <input type="password" class="form-control fadeIn third" id="password" name="password" placeholder="Enter password" >
+                <input type="password" class="form-control fadeIn third" id="password" name="password" placeholder="Enter password" required>
             </div>
 
             <input type="submit" name="signup" class="btn fadeIn third" id="sign-up-btn" value="Sign Up">
