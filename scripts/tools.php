@@ -56,6 +56,10 @@ function prePrintArray($arr, $returnAsString=false ) {
 $error_message = "";
 $invalid_login = false;
 
+// signup error messages
+$first_name_valid = $last_name_valid = $email_valid = $phone_valid = $username_valid = $password_valid = false;
+$nameError = $emailError = $phoneError = $usernameError = $passwordError = "";
+
 // when a POST form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ------------------------------------ //
@@ -149,6 +153,120 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // --- END OF LOGIN AUTHENTICATION SECTION --- //
     // ------------------------------------------- //
 
+
+    // --------------------------------- //
+    // --- SIGNUP VALIDATION SECTION --- //
+    // --------------------------------- //
+    else if (isset($_POST['signup'])) {
+        // Validate first name
+        if (empty($_POST["first_name"])) {
+            $nameError = "First Name is required!";
+        } else {
+            if (isset($_POST["first_name"])) {
+                $first_name = test_input($_POST["first_name"]);
+                // not matching regex, format error message
+                if (!preg_match("/^[A-Za-z][A-Za-z\'\-]+([\ A-Za-z][A-Za-z\'\-]+)*/", $first_name)) {
+                    $nameError = "Please enter an appropriate name!";
+                } else {  
+                    $first_name_valid = true;
+                }
+            }
+        }
+
+        // Validate last name
+        if (empty($_POST["last_name"])) {
+            $nameError = "Last Name is required!";
+        } else {
+            if (isset($_POST["last_name"])) {
+                $last_name = test_input($_POST["last_name"]);
+                // not matching regex, format error message
+                if (!preg_match("/^[A-Za-z][A-Za-z\'\-]+([\ A-Za-z][A-Za-z\'\-]+)*/", $last_name)) {
+                    $nameError = "Please enter an appropriate name!";
+                } else {  
+                    $last_name_valid = true;
+                }
+            }
+        }
+
+        // Validate email
+        if (empty($_POST["email"])) {
+            $emailError = "Email is required!";
+        } else {
+            if (isset($_POST["email"])) {
+                if (!empty($_POST["email"])) {
+                    $email = test_input($_POST["email"]);
+                    // check if e-mail address is well-formed
+                    if (!is_valid_email($email)) {
+                        $emailError = "Invalid email format!";
+                    } else {
+                        $email_valid = true;
+                    }
+                }
+            }
+        }
+
+        // Validate phone number
+        if (empty($_POST["phone"])) {
+            $phoneError = "Phone number is required!";
+        } else {
+        // field not empty, check if data is not null 
+        if (isset($_POST["phone"])) {
+                $phone = test_input($_POST["phone"]);
+                // not matching regex, format error message
+                if (!preg_match("/^\+?\d{0,13}/", $phone)) {
+                    $phoneError = "Invalid phone number";
+                } else {
+                    $phone_valid = true;
+                }
+            }
+        }
+
+        // Validate username
+        if (empty($_POST["username"])) {
+            $usernameError = "Username is required!";
+        } else {
+            // field not empty, check if data is not null 
+            if (isset($_POST["username"])) {
+                $username = test_input($_POST["username"]);
+                
+                $sql = "SELECT `username` FROM `customer` WHERE username='$username'";
+                
+                // run mysql query and store results to $result
+                if ($result = mysqli_query($conn, $sql)) {
+                    // has at least 1 result
+                    if (mysqli_num_rows($result) > 0) {
+                        $usernameError = "Username has been taken!";
+                    } else {
+                        $username_valid = true;
+                    }
+                }
+                else {
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                }
+            }
+        }
+
+        // Validate password
+        if (empty($_POST["password"])) {
+            $passwordError = "Password is required!";
+        } else {
+            // field not empty, check if data is not null
+            if (isset($_POST["password"])) {
+                $password = test_input($_POST["password"]);
+                $password_valid = true;
+            }
+        }
+
+        if ($first_name_valid && $last_name_valid && $email_valid && $phone_valid && $username_valid && $password_valid) {
+            $sql = "INSERT INTO `customer`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) VALUES ('$last_name', '$first_name', '$email', '$phone','$username', PASSWORD('$password'))";
+            $conn->query($sql);
+            header("Location: index.php?=home");
+            exit();
+        }
+    }
+    // ---------------------------------------- //
+    // --- END OF SIGNUP VALIDATION SECTION --- //
+    // ---------------------------------------- //
 }
 
 // unset($_SESSION);
