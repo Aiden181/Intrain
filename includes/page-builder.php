@@ -27,6 +27,18 @@ switch ($_GET['p']) {
     case "admin":
         $page = PAGES_PATH . "/admin.php";
         break;
+    case "admin-create":
+        $page = PAGES_PATH . "/admin.create.php";
+        break;
+    case "admin-update":
+        $page = PAGES_PATH . "/admin.update.php";
+        break;
+    case "admin-delete":
+        $page = PAGES_PATH . "/admin.delete.php";
+        break;
+    case "admin-error":
+        $page = PAGES_PATH . "/admin.error.php";
+        break;
     default:
         $page = PAGES_PATH . "/index.php";
         $_GET['p'] = "home";
