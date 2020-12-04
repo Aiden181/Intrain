@@ -8,8 +8,6 @@
     <title>Error</title>
 
     <?php
-    include('../includes/tools.php');
-
     if (!isset($_SESSION['Admin'])) {
         die("You should not be here. Only follow links!");
     }
@@ -18,6 +16,6 @@
 <body>
     <div>Hello, this is an error page, you probably put something wrong in your input fields or went to a place you're not supposed to.</div>
     <div>This is awkward...</div>
-    <a href="../admin.php">Click here to go back to the admin panel page</a>
+    <a href="index.php?p=admin">Click here to go back to the admin panel page</a>
 </body>
 </html>
