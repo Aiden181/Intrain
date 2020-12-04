@@ -21,7 +21,7 @@
     <!-- website icon -->
     <link rel="icon" href="./images/Intrain.png">
 
-    <title>Admin Panel</title>
+    <title>Admin Management</title>
 </head>
 
 <body>
