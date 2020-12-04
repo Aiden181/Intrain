@@ -1,4 +1,5 @@
 <?php include('./includes/tools.php'); ?>
+
 <!--Jumbotron-->
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
@@ -22,13 +23,34 @@
             </li>
             <a class="nav-item nav-link active" href="./nutrition.php">Nutrition Facts</a>
         </div>
-        <div class="navbar-nav justify-content-end">
-            <a class="nav-item nav-link active" href="./login.php"><i class="fas fa-user"></i>
-            Login
-            </a>
-            <a class="nav-item nav-link active" href="./signup.php"><i class="ml-23 fas fa-check"></i>
-            Sign Up
-            </a>
-        </div>
+        <?php
+        if (isset($_SESSION['Admin'])) {
+            echo "<div class=\"navbar-nav justify-content-end\">";
+            // show icon with username and log out button instead of Login and Sign up
+            // redirects to admin page if user is admin
+            echo "<a class=\"nav-item nav-link active\" href=\"./admin.php\" style=\"position: relative; top: 9px;\"><i class=\"fas fa-user\"></i>";
+            echo " " . $_SESSION['Admin'];
+            echo "</a>";
+            echo "<a class=\"nav-item nav-link active\" href=\"./logout.php\"><i class=\"fa fa-sign-out\"></i>Log out</a>";
+            echo "</div>";
+        }
+        else if (isset($_SESSION['Customer'])) {
+            echo "<div class=\"navbar-nav justify-content-end\">";
+            // show icon with username and log out button instead of Login and Sign up
+            // redirects to user management page if is a regular user
+            echo "<a class=\"nav-item nav-link active\" href=\"./admin.php\" style=\"position: relative; top: 9px;\"><i class=\"fas fa-user\"></i>";
+            echo " " .  $_SESSION['Customer'];
+            echo "</a>";
+            echo "<a class=\"nav-item nav-link active\" href=\"./logout.php\"><i class=\"fa fa-sign-out\"></i>Log out</a>";
+            echo "</div>";
+        }
+        else {
+            echo "<div class=\"navbar-nav justify-content-end\">";
+            echo "<a class=\"nav-item nav-link active\" href=\"./login.php\"><i class=\"fa fa-sign-in\"></i> Login";
+            echo "</a>";
+            echo "<a class=\"nav-item nav-link active\" href=\"./signup.php\"><i class=\"ml-23 fa fa-user-plus\"></i>Sign Up</a>";
+            echo "</div>";
+        }
+        ?>
     </div>
 </nav>
