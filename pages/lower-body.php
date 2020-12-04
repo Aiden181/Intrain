@@ -20,12 +20,10 @@
     <!-- website icon -->
     <link rel="icon" href="./images/Intrain.png">
 
-    <title>Upper Body</title>
+    <title>Lower Body</title>
 </head>
 
 <body>
-    <?php include('./includes/header.php') ?>
-
     <!--Main Menu-->
     <div class="container-sm" id="main-menu">
         <div class="row row-cols-3">
@@ -55,9 +53,6 @@
             </section>
         </div>
     </div>
-
-    <!--Footer-->
-    <?php include('./includes/footer.php') ?>
 </body>
 
 </html>

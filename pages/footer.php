@@ -8,5 +8,4 @@
         <i class="fa fa-envelope" style="font-size:36px"></i>
         <p style="color: white;"><b>&copy; INTRAIN Design</b></p>
     </div>
-    <?php include('./includes/javascript.php'); ?>
 </footer>

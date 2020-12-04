@@ -26,15 +26,12 @@
 
 <body>
     <?php
-    include('./includes/tools.php');
-
     if (!isset($_SESSION['Admin'])) {
         die("You should not be here. Only follow links!");
     }
     ?>
 
-    <!--Footer-->
-    <?php include('./includes/footer.php') ?>
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 </body>
 
 </html>

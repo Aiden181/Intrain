@@ -1,12 +1,34 @@
 <?php
-session_start();
+/**
+ * Logs out the admin by removing cookies and killing the session
+ *
+ * @return true.
+ */
+function logout() {
+    $_SESSION = array();
+    session_destroy();
+    return true;
+}
 
-// Include database file
-// require_once "database.php";
+/**
+* Check if selected email has valid email format
+*
+* @param string $user_email Email address
+* @return boolean
+*/
+function is_valid_email($user_email) {
+    $chars = EMAIL_FORMAT;
+    if (strstr($user_email, '@') && strstr($user_email, '.')) {
+        return (boolean) preg_match($chars, $user_email);
+    }
+    return false;
+}
 
-/*
-** strip all potentially malicious
-** characters from user input
+/**
+* Strip all potentially malicious characters from user input
+*
+* @param string $data user input
+* @return string
 */
 function test_input($data) {
     $data = trim($data);
@@ -15,15 +37,19 @@ function test_input($data) {
     return $data;
 }
 
-/*
-** for printing array data
+/**
+* For printing array data
+*
+* @param string $arr array
+* @param string $returnAsString if true, return the string
+* @return string
 */
-function prePrintArray( $arr, $returnAsString=false ) {
+function prePrintArray($arr, $returnAsString=false ) {
     $ret  = '<pre>' . print_r($arr, true) . '</pre>';
     if ($returnAsString)
         return $ret;
     else
-        echo $ret; 
+        echo $ret;
 }
 
 // login auth variables
@@ -125,13 +151,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 }
 
+// unset($_SESSION);
+// unset($_SESSION['cart']);
+
 // debug print outs
+// echo '$_FILES array';
+// prePrintArray($_FILES);
 // echo '$_GET array';
 // prePrintArray($_GET);
 // echo '$_POST array';
 // prePrintArray($_POST);
-// echo '$_FILES array';
-// prePrintArray($_FILES);
 // echo '$_SESSION array';
 // prePrintArray($_SESSION);
 

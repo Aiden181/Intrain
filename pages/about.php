@@ -25,8 +25,6 @@
 </head>
 
 <body>
-    <?php include('./includes/header.php') ?>
-
     <!--Main Content-->
     <br>
     <div class="about-us-container">
@@ -42,9 +40,6 @@
             </p>
         </div>
     </div>
-
-    <!--Footer-->
-    <?php include('./includes/footer.php') ?>
 </body>
 
 </html>

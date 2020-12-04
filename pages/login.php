@@ -23,12 +23,10 @@
 </head>
 
 <body>
-    <?php include('./includes/tools.php') ?>
-
     <div class="container-sm fadeInDown" id="login-form">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" onsubmit="checkLogin(event)">
             <h1>Login</h1>
-            <button type="button" id="go-back-btn"><a href="./index.php"><i class="fa fa-arrow-left"></i></a></button>
+            <button type="button" id="go-back-btn"><a href="index.php?p=home"><i class="fa fa-arrow-left"></i></a></button>
             <div class="form-group">
                 <!-- php code in value='' means echo user's inputted username
                 after user tries to log in but with wrong login credentials -->
@@ -50,8 +48,6 @@
         }
         ?>
     </div>
-
-    <?php include('./includes/javascript.php'); ?>
 </body>
 
 </html>

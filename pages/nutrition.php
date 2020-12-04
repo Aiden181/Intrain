@@ -25,8 +25,6 @@
 </head>
 
 <body>
-    <?php include('./includes/header.php') ?>
-
     <!--Section 2-->
     <section>
         <div class="container-sm" id="left-content">
@@ -90,10 +88,6 @@
                 Aldus PageMaker including versions of Lorem Ipsum.</p>
         </div>
     </section>
-
-    <!--Footer-->
-    <?php include('./includes/footer.php')?>
-
 </body>
 
 </html>
