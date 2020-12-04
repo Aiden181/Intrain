@@ -27,6 +27,9 @@ switch ($_GET['p']) {
     case "admin":
         $page = PAGES_PATH . "/admin.php";
         break;
+    case "customer":
+        $page = PAGES_PATH . "/customer.php";
+        break;
     default:
         $page = PAGES_PATH . "/index.php";
         $_GET['p'] = "home";
