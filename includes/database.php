@@ -31,11 +31,11 @@ if ($conn -> connect_error) {
 // password : customer password
 $sql = "CREATE TABLE IF NOT EXISTS `customer` (
     `id` INT(11) NOT NULL auto_increment,
-    `last_name` VARCHAR(128) NOT NULL,
-    `first_name` VARCHAR(128) NOT NULL,
-    `email` VARCHAR(128) NOT NULL,
-    `phone_number` VARCHAR(128) NOT NULL,
-    `username` VARCHAR(128) NOT NULL UNIQUE,
+    `last_name` VARCHAR(64) NOT NULL,
+    `first_name` VARCHAR(64) NOT NULL,
+    `email` VARCHAR(64) NOT NULL,
+    `phone_number` VARCHAR(32) NOT NULL,
+    `username` VARCHAR(32) NOT NULL UNIQUE,
     `password` VARCHAR(128) NOT NULL,
     PRIMARY KEY (`id`)
 )";
@@ -51,14 +51,16 @@ $conn->query($sql);
 // phone_number : admin phone number
 // username : admin username
 // password : admin password
+// flag: admin flag (e.g. z = root power, a = create, b = read, c = update, etc...)
 $sql = "CREATE TABLE IF NOT EXISTS `admin` (
     `id` INT(11) NOT NULL auto_increment,
-    `last_name` VARCHAR(128) NOT NULL,
-    `first_name` VARCHAR(128) NOT NULL,
-    `email` VARCHAR(128) NOT NULL,
-    `phone_number` VARCHAR(128) NOT NULL,
-    `username` VARCHAR(128) NOT NULL UNIQUE,
+    `last_name` VARCHAR(64) NOT NULL,
+    `first_name` VARCHAR(64) NOT NULL,
+    `email` VARCHAR(64) NOT NULL,
+    `phone_number` VARCHAR(32) NOT NULL,
+    `username` VARCHAR(32) NOT NULL UNIQUE,
     `password` VARCHAR(128) NOT NULL,
+    `flag` VARCHAR(16) NOT NULL,
     PRIMARY KEY (`id`)
 )";
 $conn->query($sql);
