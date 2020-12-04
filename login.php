@@ -24,49 +24,6 @@
 
 <body>
     <?php include('./includes/tools.php') ?>
-    
-    <?php
-    // reset login
-    if (isset($_POST['reset-login'])) {
-        unset($_SESSION['User']);
-    }
-
-    // after user presses log in button
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // 'login' is in $_POST (after user presses Log In button)
-        if (isset($_POST['login'])) {
-            // if username and password in $_POST are set then remove 
-            // malicious characters and assign those values to the variable
-            $username = isset($_POST['username']) ? test_input($_POST['username']) : '';
-            $password = isset($_POST['password']) ? test_input($_POST['password']) : '';
-            
-            // GET username and password from user's inputs
-            $sql = "SELECT `username`, `password` FROM `admin` WHERE username='$username' AND password=PASSWORD('$password')";
-            
-            // run mysql query and store results to $result
-            if ($result = mysqli_query($conn, $sql)) {
-                // has at least 1 result
-                if (mysqli_num_rows($result) > 0) {
-                    // add user to session
-                    $_SESSION['User']['username'] = $username;
-
-                    // Free result set (free up memory)
-                    mysqli_free_result($result);
-
-                    // redirects to index.php upon successful login
-                    header("location: index.php");
-                    exit;
-                }
-                // no results returned
-                else {
-                    $Msg = "<span> Username or password is incorrect! </span>";
-                }
-            } else {
-                echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-            }
-        }
-    }
-    ?>
 
     <div class="container-sm fadeInDown" id="login-form">
         <form action="login.php" method="post">
