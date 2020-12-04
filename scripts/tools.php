@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // 'login' is in $_POST (after user presses Log In button)
-    if (isset($_POST['login'])) {
+    else if (isset($_POST['login'])) {
         // none of the fields are empty and have value other than NULL
         if ((!empty($_POST['username']) && isset($_POST['username'])) && (!empty($_POST['password']) && isset($_POST['password']))) {
             // remove malicious characters then assign those values to the variable
@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     mysqli_free_result($result);
 
                     // redirects to index.php upon successful login
-                    header("Location: ./index.php");
+                    header("Location: index.php?p=home");
                     exit;
                 }
                 else {
@@ -121,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     mysqli_free_result($result);
 
                     // redirects to index.php upon successful login
-                    header("Location: ./index.php");
+                    header("Location: index.php?p=home");
                     exit;
                 }
                 else {
