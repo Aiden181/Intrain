@@ -33,64 +33,66 @@ switch ($_GET['p']) {
         break;
 }
 
-// admin management pages
-$_GET['c'] = isset($_GET['c']) ? $_GET['c'] : 'default';
-$_GET['c'] = trim($_GET['c']);
-switch ($_GET['c']) {
-    case "admins":
-        $page = PAGES_PATH . "/admin.admin.php";
-        break;
-    case "customers":
-        $page = PAGES_PATH . "/admin.customer.php";
-        break;
-    default:
-        $page = PAGES_PATH . "/admin.php";
-        $_GET['p'] = "admin";
-        break;
-}
-
-// admin management pages
-$_GET['o'] = isset($_GET['o']) ? $_GET['o'] : 'default';
-$_GET['o'] = trim($_GET['o']);
-switch ($_GET['o']) {
-    case "create":
-        if ($_GET['c'] == 'admins') {
-            $page = PAGES_PATH . "/admin.admin.create.php";
-            break;
-        }
-        else if ($_GET['c'] == 'customers') {
-            $page = PAGES_PATH . "/admin.customer.create.php";
-            break;
-        }
-    case "update":
-        if ($_GET['c'] == 'admins') {
-            $page = PAGES_PATH . "/admin.admin.update.php";
-            break;
-        }
-        else if ($_GET['c'] == 'customers') {
-            $page = PAGES_PATH . "/admin.customer.update.php";
-            break;
-        }
-    case "delete":
-        if ($_GET['c'] == 'admins') {
-            $page = PAGES_PATH . "/admin.admin.delete.php";
-            break;
-        }
-        else if ($_GET['c'] == 'customers') {
-            $page = PAGES_PATH . "/admin.customer.delete.php";
-            break;
-        }
-    default:
-        if ($_GET['c'] == 'admins') {
+if (isset($_SESSION['Admin'])) {
+    // admin management pages
+    $_GET['c'] = isset($_GET['c']) ? $_GET['c'] : 'default';
+    $_GET['c'] = trim($_GET['c']);
+    switch ($_GET['c']) {
+        case "admins":
             $page = PAGES_PATH . "/admin.admin.php";
-            $_GET['c'] = "admins";
             break;
-        }
-        else if ($_GET['c'] == 'customers') {
+        case "customers":
             $page = PAGES_PATH . "/admin.customer.php";
-            $_GET['c'] = "customers";
             break;
-        }
+        default:
+            $page = PAGES_PATH . "/admin.php";
+            $_GET['p'] = "admin";
+            break;
+    }
+
+    // admin management pages
+    $_GET['o'] = isset($_GET['o']) ? $_GET['o'] : 'default';
+    $_GET['o'] = trim($_GET['o']);
+    switch ($_GET['o']) {
+        case "create":
+            if ($_GET['c'] == 'admins') {
+                $page = PAGES_PATH . "/admin.admin.create.php";
+                break;
+            }
+            else if ($_GET['c'] == 'customers') {
+                $page = PAGES_PATH . "/admin.customer.create.php";
+                break;
+            }
+        case "update":
+            if ($_GET['c'] == 'admins') {
+                $page = PAGES_PATH . "/admin.admin.update.php";
+                break;
+            }
+            else if ($_GET['c'] == 'customers') {
+                $page = PAGES_PATH . "/admin.customer.update.php";
+                break;
+            }
+        case "delete":
+            if ($_GET['c'] == 'admins') {
+                $page = PAGES_PATH . "/admin.admin.delete.php";
+                break;
+            }
+            else if ($_GET['c'] == 'customers') {
+                $page = PAGES_PATH . "/admin.customer.delete.php";
+                break;
+            }
+        default:
+            if ($_GET['c'] == 'admins') {
+                $page = PAGES_PATH . "/admin.admin.php";
+                $_GET['c'] = "admins";
+                break;
+            }
+            else if ($_GET['c'] == 'customers') {
+                $page = PAGES_PATH . "/admin.customer.php";
+                $_GET['c'] = "customers";
+                break;
+            }
+    }
 }
 
 if (!empty($page)) {
