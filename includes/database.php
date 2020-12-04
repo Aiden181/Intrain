@@ -67,18 +67,11 @@ $conn->query($sql);
 
 
 // automatically add root admin
-$sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) VALUES ('','', '', '','root', PASSWORD('1ntrainr00t!'), 'z')";
+$sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) VALUES ('', '', '', '','root', PASSWORD('1ntrainr00t!'), 'z')";
 $conn->query($sql);
 
-// if (isset($_POST["name"], $_POST["email"], $_POST["password"])) {
+// add a user for debug
+$sql = "INSERT INTO `customer`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) VALUES ('john', 'doe', 'john.doe@ahamail.com', '0901234567','user1', PASSWORD('12345'))";
+$conn->query($sql);
 
-//     $name = mysqli_real_escape_string($connect, $_POST["name"]);
-//     $email = mysqli_real_escape_string($connect, $_POST["email"]);
-//     $password = mysqli_real_escape_string($connect, $_POST["password"]);
-
-//     $query = "INSERT INTO customer_data(`name`, `email`, `password`) VALUES ('$name', '$email', '$password')";
-//     if (mysqli_query($connect, $query)) {
-//         echo 'Data Inserted';
-//     }
-// }
 ?>
