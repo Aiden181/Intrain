@@ -67,7 +67,7 @@ $conn->query($sql);
 
 
 // automatically add root admin
-$sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) VALUES ('','', '', '','root', PASSWORD('1ntrainr00t!'))";
+$sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) VALUES ('','', '', '','root', PASSWORD('1ntrainr00t!'), 'z')";
 $conn->query($sql);
 
 // if (isset($_POST["name"], $_POST["email"], $_POST["password"])) {
