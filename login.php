@@ -26,7 +26,7 @@
     <?php include('./includes/tools.php') ?>
 
     <div class="container-sm fadeInDown" id="login-form">
-        <form action="login.php" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" onsubmit="checkLogin(event)">
             <h1>Login</h1>
             <button type="button" id="go-back-btn"><a href="./index.php"><i class="fa fa-arrow-left"></i></a></button>
             <div class="form-group">
@@ -37,15 +37,15 @@
             <div class="form-group">
                 <input type="password" id="password" name="password" class="form-control fadeIn second" placeholder="Enter password">
             </div>
-            <input type="submit" name="login" class="btn fadeIn third" id="log-in-btn" value="Log In"></input>
+            <input type="submit" name="login" class="btn fadeIn third" id="log-in-btn" value="Log In">
 
             <!-- reset login button for debug -->
-            <input type="submit" name="reset-login" value="reset login">
+            <!-- <input type="submit" name="reset-login" value="reset login"> -->
         </form>
         <?php
-        if (isset($_POST['username'])) {
+        if ($invalid_login) {
             echo "<div class=\"form-group\" id=\"error-message\">";
-            echo $Msg;
+            echo $error_message;
             echo "</div>";
         }
         ?>
