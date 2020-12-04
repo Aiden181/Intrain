@@ -7,7 +7,7 @@ switch ($_GET['p']) {
         break;
     case "logout":
         logout();
-        Header("Location: index.php?=home");
+        Header("Location: index.php?p=home");
         break;
     case "signup":
         $page = PAGES_PATH . "/signup.php";
