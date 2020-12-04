@@ -22,6 +22,40 @@
     <link rel="icon" href="./images/Intrain.png">
 
     <title>Admin Panel</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            color: white;
+            background-color: #3e3e3e;
+        }
+        tr:first-child {
+            background-color:#565656;
+        }
+        th, td {
+            max-width: 50px;
+        }
+        th {
+            text-transform: uppercase;
+            text-align: center;
+            padding: 15px;
+            background-color:#565656;
+            border-right: solid 10px #3e3e3e;
+        }
+        th:nth-child(3) {
+            border-right: none;
+        }
+        tr:nth-child(3), tr:nth-child(4) {
+            border: none;
+            background-color: white;
+        }
+        td {
+            padding-left: 9px;
+            padding-top: 5px;
+        }
+        tr > td {
+            padding-bottom: 60px;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,8 +65,40 @@
         die("You should not be here. Only follow links!");
     }
     ?>
+    
+    <p style="text-align: center; color: red; font-weight: bold">!!!!!!!!!!!!!!! WORK IN PROGRESS !!!!!!!!!!!!!!!</p>
+    
+    <br>
+    <div class="container">
+        <table style="width:100%">
+            <!-- 1st "table" -->
+            <tr>
+                <th>Edit account details</th>
+                <th>Manage customers</th>
+                <th>Manage admins</th>
+            </tr>
+            <tr>
+                <td>Edit account details button here</td>
+                <td>Manage customers button here</td>
+                <td>Manage admins button here</td>
+            </tr>
+        </table>
+        <p></p>
+        <table style="width:100%">
+            <!-- 2nd "table" -->
+            <tr>
+                <th>Account Information</th>
+                <th>Admin Information</th>
+                <th>Customer Information</th>
+            </tr>
+            <tr>
+                <td>aaaaaaaa</td>
+                <td>Total admins: </td>
+                <td>Total customer accounts:</td>
+            </tr>
+        </table>
+    </div>
 
     <br>
-
 </body>
 </html>
