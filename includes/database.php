@@ -1,11 +1,11 @@
 <?php
 $host = "localhost";
-$port = "3306";
 $username = "root";
-$db = "intrain";
+$password = "root";
+
 
 // Create connection
-$conn = mysqli_connect($host, $username, $password, $db, $port);
+$conn = mysqli_connect($host, $username, $password);
 
 // Check connection
 if ($conn -> connect_error) {
@@ -14,6 +14,21 @@ if ($conn -> connect_error) {
 // else {
 //     echo "<p>Connected successfully</p>";
 // }
+
+
+// Make intrain the current database
+$db = mysqli_select_db($conn, "intrain");
+
+if (!$db) {
+    // If we couldn't, then it either doesn't exist or we can't see it
+    $sql = 'CREATE DATABASE `intrain`';
+
+    if (mysqli_query($conn, $sql)) {
+        // echo "Database intrain created successfully\n";
+    } else {
+        echo 'Error creating database: ' . mysqli_error($conn) . "\n";
+    }
+}
 
 // drop table query for testing
 // $conn->query("DROP TABLE IF EXISTS `customer`");
