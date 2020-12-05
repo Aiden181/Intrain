@@ -61,7 +61,7 @@ else if (isset($_GET['c'])) {
         case "admins":
             $page = PAGES_PATH . "/admin.admin.php";
             break;
-        case "customers":
+        case "users":
             $page = PAGES_PATH . "/admin.user.php";
             break;
         default:
@@ -79,7 +79,7 @@ else if (isset($_GET['c'])) {
                     $page = PAGES_PATH . "/admin.admin.create.php";
                     break;
                 }
-                else if ($_GET['c'] == 'customers') {
+                else if ($_GET['c'] == 'users') {
                     $page = PAGES_PATH . "/admin.user.create.php";
                     break;
                 }
@@ -88,7 +88,7 @@ else if (isset($_GET['c'])) {
                     $page = PAGES_PATH . "/admin.admin.update.php";
                     break;
                 }
-                else if ($_GET['c'] == 'customers') {
+                else if ($_GET['c'] == 'users') {
                     $page = PAGES_PATH . "/admin.user.update.php";
                     break;
                 }
@@ -97,7 +97,7 @@ else if (isset($_GET['c'])) {
                     $page = PAGES_PATH . "/admin.admin.delete.php";
                     break;
                 }
-                else if ($_GET['c'] == 'customers') {
+                else if ($_GET['c'] == 'users') {
                     $page = PAGES_PATH . "/admin.user.delete.php";
                     break;
                 }
@@ -107,9 +107,9 @@ else if (isset($_GET['c'])) {
                     $_GET['c'] = "admins";
                     break;
                 }
-                else if ($_GET['c'] == 'customers') {
+                else if ($_GET['c'] == 'users') {
                     $page = PAGES_PATH . "/admin.user.php";
-                    $_GET['c'] = "customers";
+                    $_GET['c'] = "users";
                     break;
                 }
         }

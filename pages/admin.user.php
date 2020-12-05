@@ -39,7 +39,7 @@
                 if ($result = mysqli_query($conn, $sql)) {
                 ?>
                     <h2 class="pull-left" style="font-weight: bold">Customers (<?php echo mysqli_num_rows($result) ?>)</h2>
-                    <a href="index.php?p=admin&c=customers&o=create" class="btn btn-success pull-right" style="background-color:#FF3036; border: none; font-weight: bold">Add a customer</a>
+                    <a href="index.php?p=admin&c=users&o=create" class="btn btn-success pull-right" style="background-color:#FF3036; border: none; font-weight: bold">Add a customer</a>
                 </div>
                 <?php
                     if (mysqli_num_rows($result) > 0) {

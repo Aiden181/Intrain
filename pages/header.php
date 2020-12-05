@@ -43,7 +43,7 @@
             echo "</a>";
             // drop-down menu items
             echo "<div class=\"dropdown-menu\">";
-            echo "<a class=\"dropdown-item\" href=\"index.php?p=admin&c=customers\">Manage customers</a>";
+            echo "<a class=\"dropdown-item\" href=\"index.php?p=admin&c=users\">Manage customers</a>";
             echo "<a class=\"dropdown-item\" href=\"index.php?p=admin&c=admins\">Manage admins</a>";
             echo "</div>";
             echo "</li>";
@@ -61,8 +61,8 @@
             echo "</a>";
             // drop-down menu items
             echo "<div class=\"dropdown-menu\">";
-            echo "<a class=\"dropdown-item\" href=\"index.php?p=customer&b=edit\">Edit account details</a>";
-            echo "<a class=\"dropdown-item\" href=\"index.php?p=customer&b=video\">Videos</a>";
+            echo "<a class=\"dropdown-item\" href=\"index.php?p=user&b=edit\">Edit account details</a>";
+            echo "<a class=\"dropdown-item\" href=\"index.php?p=user&b=video\">Videos</a>";
             echo "</div>";
             echo "</li>";
             // log out button
