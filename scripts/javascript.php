@@ -102,17 +102,17 @@
 
     function UpdateCheckBox(tgl, start, stop)
     {
-        console.log("aaaaaaaaaaa");
         for(var i = start;i <= stop; i++)
         {
-            if($('p' + i))
+            if(document.getElementById('p' + i))
             {
-                if($('p' + tgl).checked == true)
-                    $('p' + i).checked = true;
-                else
-                    $('p' + i).checked = false;
+                if(document.getElementById('p' + tgl).checked == true) {
+                    document.getElementById('p' + i).checked = true;
+                }
+                else {
+                    document.getElementById('p' + i).checked = false;
+                }
             }
-            console.log("bbbbbbbbbbbb");
         }
 
         // Other Arguments is individual items not available in the range
