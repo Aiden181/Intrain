@@ -52,7 +52,7 @@
                 </div>
                 <br>
                 <div id="signup-form">
-                    <form action="index.php?p=admin&c=admins&o=create" method="post" onsubmit="checkSignup(event)" id="customer-signup">
+                    <form action="index.php?p=admin&c=users&o=create" method="post" onsubmit="checkSignup(event)" id="customer-signup">
                         <table>
     
                         <div class="row">
