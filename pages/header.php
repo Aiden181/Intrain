@@ -29,6 +29,9 @@
             if (isset($_SESSION['Admin'])) {
                 echo "<a class=\"nav-item nav-link active\" href=\"index.php?p=admin\">Admin Panel</a>";
             }
+            else if (isset($_SESSION['Customer'])) {
+                echo "<a class=\"nav-item nav-link active\" href=\"index.php?p=user\">User Panel</a>";
+            }
             ?>
         </div>
         <?php
