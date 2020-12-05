@@ -17,84 +17,122 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.php" type="text/css" media="screen">
+    <link rel="stylesheet" href="./css/admin-panel.php" type="text/css" media="screen">
 
     <!-- website icon -->
     <link rel="icon" href="./images/Intrain.png">
 
     <title>Admin Panel</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            color: white;
-            background-color: #3e3e3e;
-        }
-        tr:first-child {
-            background-color:#565656;
-        }
-        th, td {
-            max-width: 50px;
-        }
-        th {
-            text-transform: uppercase;
-            text-align: center;
-            padding: 15px;
-            background-color:#565656;
-            border-right: solid 10px #3e3e3e;
-        }
-        th:nth-child(3) {
-            border-right: none;
-        }
-        tr:nth-child(3), tr:nth-child(4) {
-            border: none;
-            background-color: white;
-        }
-        td {
-            padding-left: 9px;
-            padding-top: 5px;
-        }
-        tr > td {
-            padding-bottom: 60px;
-        }
-    </style>
 </head>
 
 <body>
     <?php
-    // only allow logged in admins
-    if (!isset($_SESSION['Admin'])) {
-        die("You should not be here. Only follow links!");
+    // Get accout information
+    $last_name = $first_name = $email = $phone_number = $username = "";
+    $username = $_SESSION['Admin'];
+    $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number` FROM `admin` WHERE username='$username'";
+    
+    // run mysql query and store results to $result
+    if ($result = mysqli_query($conn, $sql)) {
+        // has at least 1 result
+        if (mysqli_num_rows($result) > 0) {
+            while($row = mysqli_fetch_array($result)) {
+                $last_name = $row['last_name'];
+                $first_name = $row['first_name'];
+                $email = $row['email'];
+                $phone_number = $row['phone_number'];
+            }
+
+            // Free result set (free up memory)
+            mysqli_free_result($result);
+        }
+    }
+
+    // get total amount of admins
+    // not using count(*) because can't echo $result
+    $total_admins = $total_users = 0;
+    $sql = "SELECT * FROM `admin`";
+    if ($result = mysqli_query($conn, $sql)) {
+        // has at least 1 result
+        if (mysqli_num_rows($result) > 0) {
+            $total_admins = mysqli_num_rows($result);
+        }
+
+        // Free result set (free up memory)
+        mysqli_free_result($result);
+    }
+    
+    $sql = "SELECT * FROM `customer`";
+    if ($result = mysqli_query($conn, $sql)) {
+        // has at least 1 result
+        if (mysqli_num_rows($result) > 0) {
+            $total_users = mysqli_num_rows($result);
+        }
+
+        // Free result set (free up memory)
+        mysqli_free_result($result);
     }
     ?>
-    
-    <p style="text-align: center; color: red; font-weight: bold">!!!!!!!!!!!!!!! WORK IN PROGRESS !!!!!!!!!!!!!!!</p>
     
     <br>
     <div class="container">
         <table style="width:100%">
-            <!-- 1st "table" -->
             <tr>
+                <!-- Table headers -->
                 <th>Edit account details</th>
                 <th>Manage customers</th>
                 <th>Manage admins</th>
             </tr>
             <tr>
-                <td>Edit account details button here</td>
-                <td>Manage customers button here</td>
-                <td>Manage admins button here</td>
+                <!-- Edit account details table cells -->
+                <!-- Manage customers table cells -->
+                <td style="text-align: center;">
+                    <a href="index.php?p=admin&c=users">
+                        <i class="fa fa-user-circle-o" id="account-icon" aria-hidden="true">
+                            <i id="pencil-edit-icon" class="fa fa-pencil" aria-hidden="true"></i>
+                        </i>
+                    </a>
+                    <div>Edit account details</div>
+                </td>
+
+                <!-- Manage customers table cells -->
+                <td style="text-align: center;">
+                    <a href="index.php?p=admin&c=users">
+                        <i class="fa fa-user-circle-o" id="customer-icon" aria-hidden="true">
+                            <i id="pencil-edit-icon" class="fa fa-pencil" aria-hidden="true"></i>
+                        </i>
+                    </a>
+                    <div>Edit Customer accounts</div>
+                </td>
+                
+                <!-- Manage admins table cells -->
+                <td style="text-align: center;">
+                    <a href="index.php?p=admin&c=admins">
+                        <i class="fa fa-user-circle-o" id="admin-icon" aria-hidden="true">
+                            <i id="pencil-edit-icon" class="fa fa-pencil" aria-hidden="true"></i>
+                        </i>
+                    </a>
+                    <div>Edit Admin accounts</div>
+                </td>
             </tr>
         </table>
         <p></p>
         <table style="width:100%">
-            <!-- 2nd "table" -->
             <tr>
+                <!-- Table headers -->
                 <th>Account Information</th>
                 <th>Admin Information</th>
                 <th>Customer Information</th>
             </tr>
             <tr>
-                <td>aaaaaaaa</td>
-                <td>Total admins: </td>
-                <td>Total customer accounts:</td>
+                <!-- Table cells -->
+                <td>
+                    <div><?php echo "Name: " . $first_name . " " . $last_name; ?></div>
+                    <div><?php echo "Email: " . $email; ?></div>
+                    <div><?php echo "Phone number: " . $phone_number; ?></div>
+                </td>
+                <td>Total admins: <?php echo $total_admins; ?></td>
+                <td>Total customer accounts: <?php echo $total_users; ?></td>
             </tr>
         </table>
     </div>
