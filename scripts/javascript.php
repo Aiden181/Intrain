@@ -44,7 +44,7 @@
             e.preventDefault();
             return false;
         } else if (name_regex.test(first_name) == false || name_regex.test(last_name) == false) {
-            alert("your name should be in alphabet");
+            alert("Invalid name!");
             e.preventDefault();
             return false;
         } else {
@@ -70,7 +70,7 @@
             e.preventDefault();
             return false;
         } else if (phone_regex.test(phone) == false ) {
-            alert("Invalid phone number");
+            alert("Invalid phone number!");
             e.preventDefault();
             return false;
         } else {
