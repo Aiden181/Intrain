@@ -117,50 +117,68 @@ else if (isset($_GET['c'])) {
 }
 
 if (!empty($page)) {
-    // login and signup pages don't have header and footer
-    if ($_GET['p'] == "login" || $_GET['p'] == "signup") {
-        include $page;
+    // logged in as an admin
+    if (isset($_SESSION['Admin'])) {
+        // redirect to admin panel if they try to go to login or signup page
+        if ($_GET['p'] == "login" || $_GET['p'] == "signup") {
+            $page = PAGES_PATH . "/admin.php";
+            $_GET['p'] = "admin";
+            Header("Location: index.php?p=admin");
+        }
+        // redirect to home page if they try to access customer management pages
+        else if ($_GET['p'] == "user" || isset($_GET['b'])) {
+            Header("Location: index.php?p=home");
+        }
+        // other pages, build page like normal
+        else {
+            include_once(PAGES_PATH . "/header.php");
+            include $page;
+            include_once(PAGES_PATH . '/footer.php');
+        }
     }
+    // logged in as a customer
+    else if (isset($_SESSION['Customer'])) {
+        // redirect to customer management if they try to go to login or signup page
+        if ($_GET['p'] == "login" || $_GET['p'] == "signup") {
+            $page = PAGES_PATH . "/user.php";
+            $_GET['p'] = "user";
+            Header("Location: index.php?p=user");
+        }
+        // redirect to home page if they try to access admin management pages
+        else if ($_GET['p'] == "admin" || isset($_GET['c'])) {
+            Header("Location: index.php?p=home");
+        }
+        // other pages, build page like normal
+        else {
+            include_once(PAGES_PATH . "/header.php");
+            include $page;
+            include_once(PAGES_PATH . '/footer.php');
+        }
+    }
+    // not logged in
     else {
-        if ($_GET['p'] == "admin") {
-            // only allow logged in admins
-            if (isset($_SESSION['Customer'])) {
-                Header("Location: index.php?p=home");
-            }
-            else if (!isset($_SESSION['Admin']) && !isset($_SESSION['Customer'])) {
-                Header("Location: index.php?p=login");
-            }
+        // login and signup pages don't have header and footer
+        if ($_GET['p'] == "login" || $_GET['p'] == "signup") {
+            include $page;
         }
-        else if (isset($_GET['c'])) {
-            // only allow logged in admins
-            if (isset($_SESSION['Customer'])) {
-                Header("Location: index.php?p=home");
-            }
-            else if (!isset($_SESSION['Admin']) && !isset($_SESSION['Customer'])) {
-                Header("Location: index.php?p=login");
-            }
-        }
+        // redirect to home page if they try to access customer and admin management pages
         else if ($_GET['p'] == "user") {
-            // only allow logged in customers
-            if (isset($_SESSION['Admin'])) {
-                Header("Location: index.php?p=home");
-            }
-            else {
-                Header("Location: index.php?p=login");
-            }
+            Header("Location: index.php?p=home");
         }
         else if (isset($_GET['b'])) {
-            // only allow logged in customers
-            if (isset($_SESSION['Admin'])) {
-                Header("Location: index.php?p=home");
-            }
-            else {
-                Header("Location: index.php?p=login");
-            }
+            Header("Location: index.php?p=home");
         }
-
-        include_once(PAGES_PATH . "/header.php");
-        include $page;
-        include_once(PAGES_PATH . '/footer.php');
+        else if ($_GET['p'] == "admin") {
+            Header("Location: index.php?p=home");
+        }
+        else if (isset($_GET['c'])) {
+            Header("Location: index.php?p=home");
+        }
+        // other pages, build page like normal
+        else {
+            include_once(PAGES_PATH . "/header.php");
+            include $page;
+            include_once(PAGES_PATH . '/footer.php');
+        }
     }
 }
