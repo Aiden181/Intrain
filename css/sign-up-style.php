@@ -20,10 +20,13 @@ body {
     padding-bottom: 10px;
 }
 
-.container-sm #sign-up-btn {
+#sign-up-btn {
     background-color:black;
     color: white;
     width: 210px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #signup-form {
@@ -58,12 +61,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 250px;
-}
-
-#sign-up-btn {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* ---------- */
