@@ -197,14 +197,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $emailError = "Email is required!";
         } else {
             if (isset($_POST["email"])) {
-                if (!empty($_POST["email"])) {
-                    $email = test_input($_POST["email"]);
-                    // check if e-mail address is well-formed
-                    if (!is_valid_email($email)) {
-                        $emailError = "Invalid email format!";
-                    } else {
-                        $email_valid = true;
-                    }
+                $email = test_input($_POST["email"]);
+                // check if e-mail address is well-formed
+                if (!is_valid_email($email)) {
+                    $emailError = "Invalid email format!";
+                } else {
+                    $email_valid = true;
                 }
             }
         }
@@ -312,14 +310,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $emailError = "Email is required!";
         } else {
             if (isset($_POST["email"])) {
-                if (!empty($_POST["email"])) {
-                    $email = test_input($_POST["email"]);
-                    // check if e-mail address is well-formed
-                    if (!is_valid_email($email)) {
-                        $emailError = "Invalid email format!";
-                    } else {
-                        $email_valid = true;
-                    }
+                $email = test_input($_POST["email"]);
+                // check if e-mail address is well-formed
+                if (!is_valid_email($email)) {
+                    $emailError = "Invalid email format!";
+                } else {
+                    $email_valid = true;
                 }
             }
         }
