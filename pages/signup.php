@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <!-- <label for="firstName">Email</label> -->
-                    <input type="email" name="email" id="email" class="form-control fadeIn second" placeholder="Enter your email" value="<?php echo isset($_POST['email']) ? test_input($_POST['email']) : ''; ?>" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+                    <input type="email" name="email" id="email" class="form-control fadeIn second" placeholder="Enter your email" value="<?php echo isset($_POST['email']) ? test_input($_POST['email']) : ''; ?>" pattern="^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$" required>
                 </div>
                 <div class="col-md-6 mb-3">
                     <!-- <label for="lastName">Phone number</label> -->
