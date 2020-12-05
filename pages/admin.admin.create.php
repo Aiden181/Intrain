@@ -50,7 +50,8 @@
                     </table>
                 </div>
                 <br>
-                <!-- credential fields -->
+
+                <!-- credentials -->
                 <div id="signup-form">
                     <form action="index.php?p=admin&c=admins&o=create" method="post" onsubmit="checkSignup(event)" id="customer-signup">
                         <table>
@@ -107,10 +108,13 @@
                             echo "<div style=\"color: red\"> $usernameError </div>";
                         if (!$password_valid)
                             echo "<div style=\"color: red\"> $passwordError </div>";
+                        if (!$flag_valid)
+                            echo "<div style=\"color: red\"> $flagError </div>";
                     ?>
                 </div>
                 <br>
-                <!--  -->
+
+                <!-- flags -->
                 <div class="page-header clearfix">
                     <table style="width: 100%; background-color: #565656; border: 2px solid white">
                         <th style="padding: 10px 10px 6px 10px; max-height: 100px;">
@@ -124,75 +128,65 @@
                         <td>
                             <table width="95%" style="margin-left: auto; margin-right: auto;">
                                 <tbody>
-                                <tr>
-                                    <td colspan="2" class="tablerow-root">Root Admin (Full Admin Access)</td>
-                                    <td class="tablerow-root"><input type="checkbox" name="p2" id="p2" onclick="UpdateCheckBox(2, 3, 12);" value="z"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="tableheader">Manage Admins </td>
-                                    <td class="tableheader"><input type="checkbox" name="p3" id="p3" onclick="UpdateCheckBox(3, 4, 7);"></td>
-                                </tr>
-                                <tr class="tablerow">
-                                    <td width="15%">&nbsp;</td>
-                                    <td class="tablerow">List Admins </td>
-                                    <td class="tablerow"><input type="checkbox" name="p4" id="p4" value="e"></td>
-                                </tr>
-                                <tr class="tablerow">
-                                    <td width="15%">&nbsp;</td>
-                                    <td class="tablerow">Add New Admins</td>
-                                    <td class="tablerow"><input type="checkbox" name="p5" id="p5" value="f"></td>
-                                </tr>
-                                <tr class="tablerow">
-                                    <td width="15%">&nbsp;</td>
-                                    <td class="tablerow">Edit Admins</td>
-                                    <td class="tablerow"><input type="checkbox" name="p6" id="p6" value="g"></td>
-                                </tr>
-                                <tr class="tablerow">
-                                    <td width="15%">&nbsp;</td>
-                                    <td class="tablerow">Delete Admins</td>
-                                    <td class="tablerow"><input type="checkbox" name="p7" id="p7" value="h"></td>
-                                </tr>
-                                <!-- add space between sections -->
-                                <tr><td style="visibility: hidden;">a</td></tr>
-                                <tr class="tableheader">
-                                    <td colspan="2" class="tableheader">Manage Customers </td>
-                                    <td class="tableheader"><input type="checkbox" name="p8" id="p8" onclick="UpdateCheckBox(8, 9, 12);"></td>
-                                </tr>
-                                <tr class="tablerow">
-                                    <td width="15%">&nbsp;</td>
-                                    <td class="tablerow">List Customers </td>
-                                    <td class="tablerow"><input type="checkbox" name="p9" id="p9" value="a"></td>
-                                </tr>
-                                <tr class="tablerow">
-                                    <td width="15%">&nbsp;</td>
-                                    <td class="tablerow">Add New Customers </td>
-                                    <td class="tablerow"><input type="checkbox" name="p10" id="p10" value="b"></td>
-                                </tr>
-                                <tr class="tablerow">
-                                    <td width="15%">&nbsp;</td>
-                                    <td class="tablerow">Edit Customers </td>
-                                    <td class="tablerow"><input type="checkbox" name="p11" id="p11" value="c"></td>
-                                </tr>
-                                <tr class="tablerow">
-                                    <td width="15%">&nbsp;</td>
-                                    <td class="tablerow">Delete Customers </td>
-                                    <td class="tablerow"><input type="checkbox" name="p12" id="p12" value="d"></td>
-                                </tr>
+                                    <tr>
+                                        <td colspan="2" class="tablerow-root">Root Admin (Full Admin Access)</td>
+                                        <td class="tablerow-root"><input type="checkbox" name="flag" id="p2" onclick="UpdateCheckBox(2, 3, 12);" value="z"></td>
+                                    </tr>
+                                    <tr class="tableheader">
+                                        <td colspan="2" class="tableheader">Manage Customers </td>
+                                        <td class="tableheader"><input type="checkbox" name="flag" id="p3" onclick="UpdateCheckBox(3, 4, 7);" value=""></td>
+                                    </tr>
+                                    <tr class="tablerow">
+                                        <td width="15%">&nbsp;</td>
+                                        <td class="tablerow">List Customers </td>
+                                        <td class="tablerow"><input type="checkbox" name="flag" id="p4" value="a"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+                                        <td width="15%">&nbsp;</td>
+                                        <td class="tablerow">Add New Customers </td>
+                                        <td class="tablerow"><input type="checkbox" name="flag" id="p5" value="b"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+                                        <td width="15%">&nbsp;</td>
+                                        <td class="tablerow">Edit Customers </td>
+                                        <td class="tablerow"><input type="checkbox" name="flag" id="p6" value="c"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+                                        <td width="15%">&nbsp;</td>
+                                        <td class="tablerow">Delete Customers </td>
+                                        <td class="tablerow"><input type="checkbox" name="flag" id="p7" value="d"></td>
+                                    </tr>
+                                    <!-- add space between sections -->
+                                    <tr><td style="visibility: hidden;">a</td></tr>
+                                    <tr>
+                                        <td colspan="2" class="tableheader">Manage Admins </td>
+                                        <td class="tableheader"><input type="checkbox" name="flag" id="p8" onclick="UpdateCheckBox(8, 9, 12);" value=""></td>
+                                    </tr>
+                                    <tr class="tablerow">
+                                        <td width="15%">&nbsp;</td>
+                                        <td class="tablerow">List Admins </td>
+                                        <td class="tablerow"><input type="checkbox" name="flag" id="p9" value="e"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+                                        <td width="15%">&nbsp;</td>
+                                        <td class="tablerow">Add New Admins</td>
+                                        <td class="tablerow"><input type="checkbox" name="flag" id="p10" value="f"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+                                        <td width="15%">&nbsp;</td>
+                                        <td class="tablerow">Edit Admins</td>
+                                        <td class="tablerow"><input type="checkbox" name="flag" id="p11" value="g"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+                                        <td width="15%">&nbsp;</td>
+                                        <td class="tablerow">Delete Admins</td>
+                                        <td class="tablerow"><input type="checkbox" name="flag" id="p12" value="h"></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </td>
                     </tr>
                 </div>
-                <!-- <div>
-                    <label class="col-lg-4 mb-2" for="vehicle1">I have a bike</label>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <br>
-                    <label class="col-lg-4 mb-2" for="vehicle2">I have a car</label>
-                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                    <br>
-                    <label class="col-lg-4 mb-2" for="vehicle3">I have a boat</label>
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                </div> -->
                 <br>
                 <br>
                     <input type="submit" name="add-admin" class="btn" id="sign-up-btn" value="Add admin">
