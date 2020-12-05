@@ -25,14 +25,6 @@
 </head>
 
 <body>
-    <?php
-    // only allow logged in admins
-    if (!isset($_SESSION['Admin'])) {
-        die("You should not be here. Only follow links!");
-    }
-    ?>
-
     <br>
-
 </body>
 </html>

@@ -25,12 +25,6 @@
 </head>
 
 <body>
-    <?php
-    // only allow logged in admins
-    if (!isset($_SESSION['Admin'])) {
-        die("You should not be here. Only follow links!");
-    }
-    ?>
     <br>
     <div class="container">
         <div class="row">
@@ -92,6 +86,7 @@
             </div>
         </div>
     </div>
+    <br>
 </body>
 
 </html>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,18 +20,8 @@
     <!-- website icon -->
     <link rel="icon" href="./images/Intrain.png">
 
-    <title>Remove Customer</title>
+    <title>Exclusive Videos</title>
 </head>
-
 <body>
-    <?php
-    // only allow logged in admins
-    if (!isset($_SESSION['Admin'])) {
-        die("You should not be here. Only follow links!");
-    }
-    ?>
-
-    <br>
-
 </body>
 </html>

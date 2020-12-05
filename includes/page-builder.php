@@ -27,8 +27,8 @@ switch ($_GET['p']) {
     case "admin":
         $page = PAGES_PATH . "/admin.php";
         break;
-    case "customer":
-        $page = PAGES_PATH . "/customer.php";
+    case "user":
+        $page = PAGES_PATH . "/user.php";
         break;
     default:
         $page = PAGES_PATH . "/index.php";
@@ -36,32 +36,33 @@ switch ($_GET['p']) {
         break;
 }
 
-if(isset($_GET['b'])){
+// customer management pages
+if(isset($_GET['b'])) {
     // customer management pages
     $_GET['b'] = trim($_GET['b']);
     switch ($_GET['b']) {
         case "edit":
-            $page = PAGES_PATH . "/customer.edit.php";
+            $page = PAGES_PATH . "/user.edit.php";
             break;
         case "video":
-            $page = PAGES_PATH . "/customer.video.php";
+            $page = PAGES_PATH . "/user.video.php";
             break;
         default:
-            $page = PAGES_PATH . "/customer.php";
-            $_GET['p'] = "customer";
+            $page = PAGES_PATH . "/user.php";
+            $_GET['p'] = "user";
             break;
     }
 }
 
-if (isset($_GET['c'])) {
-    // admin management pages
+// admin management pages
+else if (isset($_GET['c'])) {
     $_GET['c'] = trim($_GET['c']);
     switch ($_GET['c']) {
         case "admins":
             $page = PAGES_PATH . "/admin.admin.php";
             break;
         case "customers":
-            $page = PAGES_PATH . "/admin.customer.php";
+            $page = PAGES_PATH . "/admin.user.php";
             break;
         default:
             $page = PAGES_PATH . "/admin.php";
@@ -79,7 +80,7 @@ if (isset($_GET['c'])) {
                     break;
                 }
                 else if ($_GET['c'] == 'customers') {
-                    $page = PAGES_PATH . "/admin.customer.create.php";
+                    $page = PAGES_PATH . "/admin.user.create.php";
                     break;
                 }
             case "update":
@@ -88,7 +89,7 @@ if (isset($_GET['c'])) {
                     break;
                 }
                 else if ($_GET['c'] == 'customers') {
-                    $page = PAGES_PATH . "/admin.customer.update.php";
+                    $page = PAGES_PATH . "/admin.user.update.php";
                     break;
                 }
             case "delete":
@@ -97,7 +98,7 @@ if (isset($_GET['c'])) {
                     break;
                 }
                 else if ($_GET['c'] == 'customers') {
-                    $page = PAGES_PATH . "/admin.customer.delete.php";
+                    $page = PAGES_PATH . "/admin.user.delete.php";
                     break;
                 }
             default:
@@ -107,7 +108,7 @@ if (isset($_GET['c'])) {
                     break;
                 }
                 else if ($_GET['c'] == 'customers') {
-                    $page = PAGES_PATH . "/admin.customer.php";
+                    $page = PAGES_PATH . "/admin.user.php";
                     $_GET['c'] = "customers";
                     break;
                 }
@@ -117,9 +118,47 @@ if (isset($_GET['c'])) {
 
 if (!empty($page)) {
     // login and signup pages don't have header and footer
-    if ($page == PAGES_PATH . "/login.php" || $page == PAGES_PATH . "/signup.php")
+    if ($_GET['p'] == "login" || $_GET['p'] == "signup") {
         include $page;
+    }
     else {
+        if ($_GET['p'] == "admin") {
+            // only allow logged in admins
+            if (isset($_SESSION['Customer'])) {
+                Header("Location: index.php?p=home");
+            }
+            else if (!isset($_SESSION['Admin']) && !isset($_SESSION['Customer'])) {
+                Header("Location: index.php?p=login");
+            }
+        }
+        else if (isset($_GET['c'])) {
+            // only allow logged in admins
+            if (isset($_SESSION['Customer'])) {
+                Header("Location: index.php?p=home");
+            }
+            else if (!isset($_SESSION['Admin']) && !isset($_SESSION['Customer'])) {
+                Header("Location: index.php?p=login");
+            }
+        }
+        else if ($_GET['p'] == "user") {
+            // only allow logged in customers
+            if (isset($_SESSION['Admin'])) {
+                Header("Location: index.php?p=home");
+            }
+            else {
+                Header("Location: index.php?p=login");
+            }
+        }
+        else if (isset($_GET['b'])) {
+            // only allow logged in customers
+            if (isset($_SESSION['Admin'])) {
+                Header("Location: index.php?p=home");
+            }
+            else {
+                Header("Location: index.php?p=login");
+            }
+        }
+
         include_once(PAGES_PATH . "/header.php");
         include $page;
         include_once(PAGES_PATH . '/footer.php');

@@ -21,19 +21,10 @@
     <!-- website icon -->
     <link rel="icon" href="./images/Intrain.png">
 
-    <title>Customer Panel</title>
+    <title>Add Customer</title>
 </head>
 
 <body>
-    <?php
-    // only allow logged in admins
-    if (!isset($_SESSION['Customer'])) {
-        die("You should not be here. Only follow links!");
-    }
-    ?>
-
-    Customer page
     <br>
-
 </body>
 </html>
