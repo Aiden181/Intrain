@@ -130,57 +130,57 @@
                                 <tbody>
                                     <tr>
                                         <td colspan="2" class="tablerow-root">Root Admin (Full Admin Access)</td>
-                                        <td class="tablerow-root"><input type="checkbox" name="flag" id="p2" onclick="UpdateCheckBox(2, 3, 12);" value="z"></td>
+                                        <td class="tablerow-root"><input type="checkbox" id="p2" onclick="UpdateCheckBox(2, 3, 12);" value=""></td>
                                     </tr>
                                     <tr class="tableheader">
                                         <td colspan="2" class="tableheader">Manage Customers </td>
-                                        <td class="tableheader"><input type="checkbox" name="flag" id="p3" onclick="UpdateCheckBox(3, 4, 7);" value=""></td>
+                                        <td class="tableheader"><input type="checkbox" id="p3" onclick="UpdateCheckBox(3, 4, 7);" value=""></td>
                                     </tr>
                                     <tr class="tablerow">
                                         <td width="15%">&nbsp;</td>
                                         <td class="tablerow">List Customers </td>
-                                        <td class="tablerow"><input type="checkbox" name="flag" id="p4" value="a"></td>
+                                        <td class="tablerow"><input type="checkbox" name="flag[]" id="p4" value="a"></td>
                                     </tr>
                                     <tr class="tablerow">
                                         <td width="15%">&nbsp;</td>
                                         <td class="tablerow">Add New Customers </td>
-                                        <td class="tablerow"><input type="checkbox" name="flag" id="p5" value="b"></td>
+                                        <td class="tablerow"><input type="checkbox" name="flag[]" id="p5" value="b"></td>
                                     </tr>
                                     <tr class="tablerow">
                                         <td width="15%">&nbsp;</td>
                                         <td class="tablerow">Edit Customers </td>
-                                        <td class="tablerow"><input type="checkbox" name="flag" id="p6" value="c"></td>
+                                        <td class="tablerow"><input type="checkbox" name="flag[]" id="p6" value="c"></td>
                                     </tr>
                                     <tr class="tablerow">
                                         <td width="15%">&nbsp;</td>
                                         <td class="tablerow">Delete Customers </td>
-                                        <td class="tablerow"><input type="checkbox" name="flag" id="p7" value="d"></td>
+                                        <td class="tablerow"><input type="checkbox" name="flag[]" id="p7" value="d"></td>
                                     </tr>
                                     <!-- add space between sections -->
                                     <tr><td style="visibility: hidden;">a</td></tr>
                                     <tr>
                                         <td colspan="2" class="tableheader">Manage Admins </td>
-                                        <td class="tableheader"><input type="checkbox" name="flag" id="p8" onclick="UpdateCheckBox(8, 9, 12);" value=""></td>
+                                        <td class="tableheader"><input type="checkbox" id="p8" onclick="UpdateCheckBox(8, 9, 12);" value=""></td>
                                     </tr>
                                     <tr class="tablerow">
                                         <td width="15%">&nbsp;</td>
                                         <td class="tablerow">List Admins </td>
-                                        <td class="tablerow"><input type="checkbox" name="flag" id="p9" value="e"></td>
+                                        <td class="tablerow"><input type="checkbox" name="flag[]" id="p9" value="e"></td>
                                     </tr>
                                     <tr class="tablerow">
                                         <td width="15%">&nbsp;</td>
                                         <td class="tablerow">Add New Admins</td>
-                                        <td class="tablerow"><input type="checkbox" name="flag" id="p10" value="f"></td>
+                                        <td class="tablerow"><input type="checkbox" name="flag[]" id="p10" value="f"></td>
                                     </tr>
                                     <tr class="tablerow">
                                         <td width="15%">&nbsp;</td>
                                         <td class="tablerow">Edit Admins</td>
-                                        <td class="tablerow"><input type="checkbox" name="flag" id="p11" value="g"></td>
+                                        <td class="tablerow"><input type="checkbox" name="flag[]" id="p11" value="g"></td>
                                     </tr>
                                     <tr class="tablerow">
                                         <td width="15%">&nbsp;</td>
                                         <td class="tablerow">Delete Admins</td>
-                                        <td class="tablerow"><input type="checkbox" name="flag" id="p12" value="h"></td>
+                                        <td class="tablerow"><input type="checkbox" name="flag[]" id="p12" value="h"></td>
                                     </tr>
                                 </tbody>
                             </table>

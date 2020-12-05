@@ -376,25 +376,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
-        $flags = [ROOT_ADMIN, LIST_CUSTOMERS, ADD_CUSTOMERS, EDIT_CUSTOMERS, DELETE_CUSTOMERS, LIST_ADMINS, ADD_ADMINS, EDIT_ADMINS, DELETE_ADMINS];
+        $flags = [LIST_CUSTOMERS, ADD_CUSTOMERS, EDIT_CUSTOMERS, DELETE_CUSTOMERS, LIST_ADMINS, ADD_ADMINS, EDIT_ADMINS, DELETE_ADMINS];
+        $flag = array();
+        $flag_string = "";
+        
         // Validate flag
         if (empty($_POST["flag"])) {
             $flagError = "Flag is required!";
         } else {
             // field not empty, check if data is not null
             if (isset($_POST["flag"])) {
-                $flag = test_input($_POST["flag"]);
-                // check if flag is in the flag list
-                if (in_array($flag, $flags))
+                // remove malicious characters and add each data to $flag array
+                for ($i = 0; $i < sizeof($_POST["flag"]); $i++) {
+                    $flag[$i] = test_input($_POST["flag"][$i]);
+                    $flag_string .= $flag[$i];
+                }
+                // all flags selected, set flag string to root admin flag
+                if ($flag_string == "abcdefgh") {
+                    $flag_string = ROOT_ADMIN;
                     $flag_valid = true;
-                else
-                    $flagError = "Invalid flag!";
+                }
+                // custom set of flags
+                else {
+                    // check if each flag is in the flag list
+                    for ($i = 0; $i < sizeof($flag); $i++) {
+                        if (in_array($flag[$i], $flags))
+                            $flag_valid = true;
+                        else {
+                            $flagError = "Invalid flag!";
+                            break;
+                        }
+                    }
+                }
             }
-
         }
 
         if ($first_name_valid && $last_name_valid && $email_valid && $phone_valid && $username_valid && $password_valid && $flag_valid) {
-            $sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) VALUES ('$last_name', '$first_name', '$email', '$phone','$username', PASSWORD('$password'), '$flag')";
+            $sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) VALUES ('$last_name', '$first_name', '$email', '$phone','$username', PASSWORD('$password'), '$flag_string')";
             $conn->query($sql);
             Header("Location: index.php?p=admin&c=admins");
             exit();
