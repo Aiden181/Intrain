@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.php" type="text/css" media="screen">
+    <link rel="stylesheet" href="./css/admin-admin.php" type="text/css" media="screen">
 
     <!-- website icon -->
     <link rel="icon" href="./images/Intrain.png">
@@ -25,50 +26,58 @@
 </head>
 
 <body>
-    <br>
     <div class="container">
+        <p></p>
+        <h2 style="position: relative; right: 12px; font-weight: bold;">Admin management</h2>
         <div class="row">
-            <div class="col-md-12">
-                aaaaaaaaaaaaaaaaaaa
+            <div class="column left">
+                <div id="admin-page-menu">
+                    <ul>
+                        <li class="active"><a href="index.php?p=admin&c=admins"> List admins</a></li>
+                        <li><a href="index.php?p=admin&c=admins&o=create"> Add new admin</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-md-12">
+
+            <!-- right column content -->
+            <div class="column right" style="background-color: #3e3e3e; padding: 20px;">
                 <div class="page-header clearfix">
                 <?php
                 $sql = "SELECT * FROM `admin`";
                 // execute query and store results in $result
                 if ($result = mysqli_query($conn, $sql)) {
                 ?>
-                    <h2 class="pull-left" style="font-weight: bold">Admins (<?php echo mysqli_num_rows($result) ?>)</h2>
-                    <a href="index.php?p=admin&c=admins&o=create" class="btn btn-success pull-right" style="background-color:#FF3036; border: none; font-weight: bold">Add an admin</a>
+                <table style="width: 100%; background-color: #565656; border: 2px solid white">
+                    <th style="padding: 10px 10px 6px 10px; max-height: 100px;">
+                        <h5 class="pull-left" style="color: white; font-weight: bold">Admins (<?php echo mysqli_num_rows($result) ?>)</h2>
+                    </th>
+                </table>
                 </div>
+                <br>
                 <?php
                     if (mysqli_num_rows($result) > 0) {
                 ?>
-                    <table class='table table-bordered table-striped'>
+                    <table class="table table-hover table-striped">
                             <thead>
-                                <tr style="background-color: #FF3036; color: white; font-weight: bold">
+                                <tr id="table-headers" class="table-bordered">
                                     <th>ID</th>
+                                    <th>Username</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone number</th>
-                                    <th>Username</th>
-                                    <th>Actions</th>
+                                    <th>Flags</th>
                                 </tr>
                             </thead>
                         <tbody>
                         <?php
                         while ($row = mysqli_fetch_array($result)) {
-                        echo "<tr>";
+                        echo "<tr style=\"font-size: 16px; color: white\">";
                             echo "<td>" . $row['id'] . "</td>";
+                            echo "<td>" . $row['username'] . "</td>";
                             echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
                             echo "<td>" . $row['email'] . "</td>";
                             echo "<td>" . $row['phone_number'] . "</td>";
-                            echo "<td>" . $row['username'] . "</td>";
-                            echo "<td>";
-                                echo "<a href='index.php?p=admin&c=read&id=" . $row['id'] . "' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
-                                echo "<a href='index.php?p=admin&c=update&id=" . $row['id'] . "' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
-                                echo "<a href='index.php?p=admin&c=delete&id=" . $row['id'] . "' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
-                            echo "</td>";
+                            echo "<td>" . $row['flag'] . "</td>";
                         echo "</tr>";
                     }
                     echo "</tbody>";
@@ -84,8 +93,10 @@
                 echo "<br>";
                 ?>
             </div>
+            <!-- end of right column content -->
         </div>
     </div>
+    <br>
     <br>
 </body>
 

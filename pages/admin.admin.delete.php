@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.php" type="text/css" media="screen">
+    <link rel="stylesheet" href="./css/admin-admin.php" type="text/css" media="screen">
 
     <!-- website icon -->
     <link rel="icon" href="./images/Intrain.png">
@@ -25,6 +26,21 @@
 </head>
 
 <body>
+    <div class="container">
+        <p></p>
+        <h2 style="position: relative; right: 12px; font-weight: bold;">Remove admin</h2>
+        <div class="row">
+            <div class="column left">
+                <div id="admin-page-menu">
+                    <ul>
+                        <li><a href="index.php?p=admin&c=admins"> List admins</a></li>
+                        <li><a href="index.php?p=admin&c=admins&o=create"> Add new admin</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
     <br>
 </body>
 </html>
