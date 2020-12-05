@@ -36,6 +36,23 @@ switch ($_GET['p']) {
         break;
 }
 
+if(isset($_GET['b'])){
+    // customer management pages
+    $_GET['b'] = trim($_GET['b']);
+    switch ($_GET['b']) {
+        case "edit":
+            $page = PAGES_PATH . "/customer.edit.php";
+            break;
+        case "video":
+            $page = PAGES_PATH . "/customer.video.php";
+            break;
+        default:
+            $page = PAGES_PATH . "/customer.php";
+            $_GET['p'] = "customer";
+            break;
+    }
+}
+
 if (isset($_GET['c'])) {
     // admin management pages
     $_GET['c'] = trim($_GET['c']);
