@@ -81,6 +81,41 @@
                     style="width: 480px; height: 340px;" alt="">
             </div>
         </section>
+
+        <!--Section 6-->
+        <section>
+            <div class="container-sm" id="left-content-3">
+                <h2>Calories Count — But You Don’t Necessarily Need to Count Them</h2>
+                <p>Calories are important.
+                    Obesity is a matter of excess stored energy, or calories, accumulating in the form of body fat.
+                    However, this doesn’t mean you need to monitor everything that enters your body and track or count
+                    calories.
+                    Though calorie counting works for a lot of people, you can do many things to lose weight — without
+                    ever having to count a single calorie.
+                </p>
+                <img id="right-img-3" src="<?php echo IMG_LOCATION . '/nutrition-5.jpg' ?>"
+                    style="width: 350px; height: 340px;" alt="">
+            </div>
+        </section>
+
+        <!--Section 7-->
+        <section>
+            <div class="container-sm" id="right-content-3">
+                <h2>Neither Fat nor Carbs Make You Fat</h2>
+                <p>Fat has often been blamed for obesity, as it has more calories per gram than protein and carbs. Yet,
+                    people who eat a diet high in fat — but low in carbs — end up eating fewer calories than people on
+                    low-fat, high-carb diets. This has conversely led many people to blame carbs for obesity — which is
+                    incorrect as well. Plenty of populations throughout history have eaten high-carb diets but remained
+                    healthy. As with almost everything in nutrition science, the issue depends on the context.
+                    Both fat and carbs can be fattening — it all depends on the rest of your diet and your overall
+                    lifestyle.
+                </p>
+                <img id="left-img-3" src="<?php echo IMG_LOCATION . '/nutrition-6.1.jpg' ?>"
+                    style="width: 480px; height: 340px;" alt="">
+                <img id="left-img-3-1" src="<?php echo IMG_LOCATION . '/nutrition-6.2.jpg' ?>"
+                    style="width: 480px; height: 340px;" alt="">
+            </div>
+        </section>
     </div>
 </body>
 
