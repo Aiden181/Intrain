@@ -54,15 +54,13 @@
                 <div id="signup-form">
                     <form action="index.php?p=admin&c=users&o=create" method="post" onsubmit="checkSignup(event)" id="customer-signup">
                         <table>
-    
                         <div class="row">
                             <div class="col-lg-4 mb-2">Customer name:</div>
-                                <div class="col-lg-4 mb-2">
-                                    <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First name" value="<?php echo isset($_POST['first_name']) ? test_input($_POST['first_name']) : ''; ?>" pattern="^[A-Za-z]+$" required>
-                                </div>
-                                <div class="col-lg-4 mb-2">
-                                    <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last name" value="<?php echo isset($_POST['last_name']) ? test_input($_POST['last_name']) : ''; ?>" pattern="^[A-Za-z]+$" required>
-                                </div>
+                            <div class="col-lg-4 mb-2">
+                                <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First name" value="<?php echo isset($_POST['first_name']) ? test_input($_POST['first_name']) : ''; ?>" pattern="^[A-Za-z]+$" required>
+                            </div>
+                            <div class="col-lg-4 mb-2">
+                                <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last name" value="<?php echo isset($_POST['last_name']) ? test_input($_POST['last_name']) : ''; ?>" pattern="^[A-Za-z]+$" required>
                             </div>
                         </div>
 
@@ -83,16 +81,14 @@
                         <div class="row">
                             <div class="col-lg-4 mb-2">Customer username:</div>
                             <div class="col-lg-4 mb-2">
-                                    <input type="username" name="username" id="username" class="form-control" placeholder="Username" value="<?php echo isset($_POST['username']) ? test_input($_POST['username']) : ''; ?>" required>
-                                </div>
+                                <input type="username" name="username" id="username" class="form-control" placeholder="Username" value="<?php echo isset($_POST['username']) ? test_input($_POST['username']) : ''; ?>" required>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-lg-4 mb-2">Customer password:</div>
                             <div class="col-lg-4 mb-2">
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-                                </div>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                             </div>
                         </div>
                         </table>

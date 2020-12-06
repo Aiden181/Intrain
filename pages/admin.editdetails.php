@@ -57,43 +57,37 @@
                     <table>
                         <div class="row" style="color: white;">
                             <div class="col-lg-4 mb-2">Name:</div>
-                                <div class="col-lg-4 mb-2">
-                                    <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First name" value="<?php echo $first_name ?>" disabled>
-                                </div>
-                                <div class="col-lg-4 mb-2">
-                                    <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last name" value="<?php echo $last_name ?>" disabled>
-                                </div>
+                            <div class="col-lg-4 mb-2">
+                                <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First name" value="<?php echo $first_name ?>">
+                            </div>
+                            <div class="col-lg-4 mb-2">
+                                <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last name" value="<?php echo $last_name ?>">
                             </div>
                         </div>
-
                         <div class="row" style="color: white;">
                             <div class="col-lg-4 mb-2">Email:</div>
                             <div class="col-lg-4 mb-2">
                                 <input type="email" name="email" id="email" class="form-control" placeholder="Email" value="<?php echo $email ?>" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
                             </div>
                         </div>
-
                         <div class="row" style="color: white;">
                             <div class="col-lg-4 mb-2">Phone number:</div>
                             <div class="col-lg-4 mb-2">
                                 <input type="phone_number" name="phone" id="phone" class="form-control" placeholder="Phone number" value="<?php echo $phone_number ?>" pattern="^\+?\d{0,13}" required>
                             </div>
                         </div>
-
                         <div class="row" style="color: white;">
                             <div class="col-lg-4 mb-2">Current password:</div>
                             <div class="col-lg-4 mb-2">
                                 <input type="password" class="form-control" id="password" name="oldpassword" placeholder="Current Password">
                             </div>
                         </div>
-
                         <div class="row" style="color: white;">
                             <div class="col-lg-4 mb-2">New password:</div>
                             <div class="col-lg-4 mb-2">
                                 <input type="password" class="form-control" id="password" name="newpassword" placeholder="New Password">
                             </div>
                         </div>
-
                         <div class="row" style="color: white;">
                             <div class="col-lg-4 mb-2">Re-type new password:</div>
                             <div class="col-lg-4 mb-2">
@@ -102,6 +96,8 @@
                         </div>
                     </table>
                     <?php
+                        if (!$first_name_valid || !$last_name_valid)
+                            echo "<div style=\"color: red\"> $nameError </div>";
                         if (!$email_valid)
                             echo "<div style=\"color: red\"> $emailError </div>";
                         if (!$phone_valid)
@@ -109,6 +105,10 @@
                         if (!$password_valid)
                             echo "<div style=\"color: red\"> $passwordError </div>";
                         
+                        if ($editFirstNameSuccess)
+                            echo "<div style=\"color: green\"> $firstNameSuccess </div>";
+                        if ($editLastNameSuccess)
+                            echo "<div style=\"color: green\"> $lastNameSuccess </div>";
                         if ($editEmailSuccess)
                             echo "<div style=\"color: green\"> $emailSuccess </div>";
                         if ($editPhoneSuccess)

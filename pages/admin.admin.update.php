@@ -158,8 +158,10 @@
                         if (!$password_valid)
                             echo "<div style=\"color: red\"> $passwordError </div>";
                         
-                        if ($editFirstNameSuccess && $editLastNameSuccess)
-                            echo "<div style=\"color: green\"> $nameSuccess </div>";
+                        if ($editFirstNameSuccess)
+                            echo "<div style=\"color: green\"> $firstNameSuccess </div>";
+                        if ($editLastNameSuccess)
+                            echo "<div style=\"color: green\"> $lastNameSuccess </div>";
                         if ($editEmailSuccess)
                             echo "<div style=\"color: green\"> $emailSuccess </div>";
                         if ($editPhoneSuccess)

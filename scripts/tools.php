@@ -73,7 +73,7 @@ $emailSuccess = $phoneSuccess = $passwordSuccess = "";
 
 // admin update accounts error variables
 $editFirstNameSuccess = $editLastNameSuccess = true;
-$nameSuccess = "";
+$lastNameSuccess = $firstNameSuccess = "";
 
 // when a POST form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -97,55 +97,73 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $password = test_input($_POST['password']);
             
             // GET username and password from user's inputs from admin table
-            $sql = "SELECT `username`, `password` FROM `admin` WHERE username='$username' AND password=PASSWORD('$password')";
-            
-            // run mysql query and store results to $result
-            if ($result = mysqli_query($conn, $sql)) {
-                // has at least 1 result
-                if (mysqli_num_rows($result) > 0) {
-                    // add admin to session
-                    $_SESSION['Admin'] = $username;
+            $sql = "SELECT `username`, `password` FROM `admin` WHERE username=? AND password=PASSWORD(?)";
+            if ($stmt = $conn->prepare($sql)) {
+                // Bind variables to the prepared statement as parameters
+                $stmt->bind_param('ss', $username, $password);
+                // execute query
+                $stmt->execute();
+                // store result in $result
+                if ($result = $stmt->get_result()) {
+                    if ($result->num_rows > 0) {
+                        // add admin to session
+                        $_SESSION['Admin'] = $username;
 
-                    // Free result set (free up memory)
-                    mysqli_free_result($result);
+                        // Free memory
+                        $result->free_result();
+                        // Close statement
+                        $stmt->close();
 
-                    // redirects to index.php upon successful login
-                    header("Location: index.php?p=home");
-                    exit;
+                        // redirects to index.php upon successful login
+                        header("Location: index.php?p=home");
+                        exit;
+                    }
+                    else {
+                        $invalid_login = true;
+                        $error_message = "<span style='color: red'> Username or password is incorrect! </span>";
+                    }
                 }
                 else {
-                    $invalid_login = true;
-                    $error_message = "<span style='color: red'> Username or password is incorrect! </span>";
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
                 }
             }
             else {
-                echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                echo trigger_error($this->mysqli->error, E_USER_ERROR);
             }
             
             // GET username and password from user's inputs customer table
-            $sql = "SELECT `username`, `password` FROM `customer` WHERE username='$username' AND password=PASSWORD('$password')";
-            
-            // run mysql query and store results to $result
-            if ($result = mysqli_query($conn, $sql)) {
-                // has at least 1 result
-                if (mysqli_num_rows($result) > 0) {
-                    // add customer to session
-                    $_SESSION['Customer'] = $username;
+            $sql = "SELECT `username`, `password` FROM `customer` WHERE username=? AND password=PASSWORD(?)";
+            if ($stmt = $conn->prepare($sql)) {
+                // Bind variables to the prepared statement as parameters
+                $stmt->bind_param('ss', $username, $password);
+                // execute query
+                $stmt->execute();
+                // store result in $result
+                if ($result = $stmt->get_result()) {
+                    if ($result->num_rows > 0) {
+                        // add customer to session
+                        $_SESSION['Customer'] = $username;
 
-                    // Free result set (free up memory)
-                    mysqli_free_result($result);
+                        // Free memory
+                        $result->free_result();
+                        // Close statement
+                        $stmt->close();
 
-                    // redirects to index.php upon successful login
-                    header("Location: index.php?p=home");
-                    exit;
+                        // redirects to index.php upon successful login
+                        header("Location: index.php?p=home");
+                        exit;
+                    }
+                    else {
+                        $invalid_login = true;
+                        $error_message = "<span style='color: red'> Username or password is incorrect! </span>";
+                    }
                 }
                 else {
-                    $invalid_login = true;
-                    $error_message = "<span style='color: red'> Username or password is incorrect! </span>";
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
                 }
             }
             else {
-                echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                echo trigger_error($this->mysqli->error, E_USER_ERROR);
             }
         }
         // fields empty
@@ -214,21 +232,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (!is_valid_email($email)) {
                     $emailError = "Invalid email format!";
                 } else {
-                    $sql = "SELECT `email` FROM `customer` WHERE username='$username'";
-                
-                    // run mysql query and store results to $result
-                    if ($result = mysqli_query($conn, $sql)) {
-                        // has at least 1 result
-                        if (mysqli_num_rows($result) > 0) {
-                            $emailError = "This email is already registered!";
-                        } else {
-                            $email_valid = true;
+                    $sql = "SELECT `email` FROM `customer` WHERE username=?";
+                    if ($stmt = $conn->prepare($sql)) {
+                        // Bind variables to the prepared statement as parameters
+                        $stmt->bind_param('s', $username);
+                        // execute query
+                        $stmt->execute();
+                        // store result in $result
+                        if ($result = $stmt->get_result()) {
+                            if ($result->num_rows > 0) {
+                                $emailError = "This email is already registered!";
+                            } else {
+                                $email_valid = true;
+                            }
+                            // Free memory
+                            $result->free_result();
+                            // Close statement
+                            $stmt->close();
                         }
-                        // Free result set (free up memory)
-                        mysqli_free_result($result);
+                        else {
+                            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                        }
                     }
                     else {
-                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                        echo trigger_error($this->mysqli->error, E_USER_ERROR);
                     }
                 }
             }
@@ -258,19 +285,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["username"])) {
                 $username = test_input($_POST["username"]);
                 
-                $sql = "SELECT `username` FROM `customer` WHERE username='$username'";
-                
-                // run mysql query and store results to $result
-                if ($result = mysqli_query($conn, $sql)) {
-                    // has at least 1 result
-                    if (mysqli_num_rows($result) > 0) {
-                        $usernameError = "Username has been taken!";
-                        
-                    } else {
-                        $username_valid = true;
+                $sql = "SELECT `username` FROM `customer` WHERE username=?";
+                if ($stmt = $conn->prepare($sql)) {
+                    // Bind variables to the prepared statement as parameters
+                    $stmt->bind_param('s', $username);
+                    // execute query
+                    $stmt->execute();
+                    // store result in $result
+                    if ($result = $stmt->get_result()) {
+                        if ($result->num_rows > 0) {
+                            $usernameError = "Username has been taken!";
+                        }
+                        else {
+                            $username_valid = true;
+                        }
+                        // Free memory
+                        $result->free_result();
+                        // Close statement
+                        $stmt->close();
                     }
-                    // Free result set (free up memory)
-                    mysqli_free_result($result);
+                    else {
+                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    }
                 }
                 else {
                     echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
@@ -290,9 +326,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         if ($first_name_valid && $last_name_valid && $email_valid && $phone_valid && $username_valid && $password_valid) {
-            $sql = "INSERT INTO `customer`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) VALUES ('$last_name', '$first_name', '$email', '$phone_number','$username', PASSWORD('$password'))";
-            $conn->query($sql);
-            if (isset($_SESSION['Admin'])) {
+            $sql = "INSERT INTO `customer`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) VALUES (?, ?, ?, ?,?, PASSWORD(?))";
+            if ($stmt = $conn->prepare($sql)) {
+                // Bind variables to the prepared statement as parameters
+                $stmt->bind_param('ssssss', $last_name, $first_name, $email, $phone_number, $username, $password);
+                // execute query
+                $status = $stmt->execute();
+                if (!$status) {
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                }
+                // Close statement
+                $stmt->close();
+            }
+            else {
+                echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+            }
+            
+            if (isset($_POST['add-customer'])) {
                 Header("Location: index.php?p=admin&c=users");
                 exit();
             }
@@ -374,21 +424,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["username"])) {
                 $username = test_input($_POST["username"]);
                 
-                $sql = "SELECT `username` FROM `admin` WHERE username='$username'";
-                
-                // run mysql query and store results to $result
-                if ($result = mysqli_query($conn, $sql)) {
-                    // has at least 1 result
-                    if (mysqli_num_rows($result) > 0) {
-                        $usernameError = "Username has been taken!";
-                    } else {
-                        $username_valid = true;
+                $sql = "SELECT `username` FROM `admin` WHERE username=?";
+                if ($stmt = $conn->prepare($sql)) {
+                    // Bind variables to the prepared statement as parameters
+                    $stmt->bind_param('s', $username);
+                    // execute query
+                    $stmt->execute();
+                    // store result in $result
+                    if ($result = $stmt->get_result()) {
+                        if ($result->num_rows > 0) {
+                            $usernameError = "Username has been taken!";
+                        } else {
+                            $username_valid = true;
+                        }
+                        // Free memory
+                        $result->free_result();
+                        // Close statement
+                        $stmt->close();
                     }
-                    // Free result set (free up memory)
-                    mysqli_free_result($result);
+                    else {
+                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    }
                 }
                 else {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    echo trigger_error($this->mysqli->error, E_USER_ERROR);
                 }
             }
         }
@@ -455,35 +514,83 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ---------------------------------------- //
 
     
-    // ---------------------------------------------- //
-    // --- USER UPDATE DETAILS VALIDATION SECTION --- //
-    // ---------------------------------------------- //
-    // user update details from user management page
+    // -------------------------------------------------- //
+    // --- USER UPDATE OWN DETAILS VALIDATION SECTION --- //
+    // -------------------------------------------------- //
+    // user/admin update details from user/admin edit details page
     else if (isset($_POST['update-user']) || isset($_POST['update-admin'])) {
         if (isset($_POST['update-user']))
             $username = $_SESSION['Customer'];
         else if (isset($_POST['update-admin']))
             $username = $_SESSION['Admin'];
 
-        $email = $phone_number = $password = "";
+        $last_name = $first_name = $email = $phone_number = $password = "";
         if (isset($_POST['update-user']))
-            $sql = "SELECT `email`, `phone_number`, `password` FROM `customer` WHERE username='$username'";
+            $sql = "SELECT `email`, `phone_number`, `password` FROM `customer` WHERE username=?";
         if (isset($_POST['update-admin']))
-            $sql = "SELECT `email`, `phone_number`, `password` FROM `admin` WHERE username='$username'";
-        // execute query and store results in $result
-        if ($result = mysqli_query($conn, $sql)) {
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {
-                    $email = $row['email'];
+            $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number`, `password` FROM `admin` WHERE username=?";
+        
+        if ($stmt = $conn->prepare($sql)) {
+            // Bind variables to the prepared statement as parameters
+            $stmt->bind_param('s', $username);
+            // execute query
+            $stmt->execute();
+            // store result in $result
+            if ($result = $stmt->get_result()) {
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $last_name = $row['last_name'];
+                        $first_name = $row['first_name'];
+                        $email = $row['email'];
                         $phone_number = $row['phone_number'];
                         $password = $row['password'];
-                // Free result set (free up memory)
-                mysqli_free_result($result);
+                    }
+                    // Free memory
+                    $result->free_result();
+                    // Close statement
+                    $stmt->close();
+                    
+                } else {
+                    echo "<p><em>$sql: No records were found.</em></p>";
+                }
             } else {
-                echo "<p><em>No records were found.</em></p>";
+                echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
             }
-        } else {
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+        }
+        else {
+            echo trigger_error($this->mysqli->error, E_USER_ERROR);
+        }
+        
+        if (isset($_POST['update-admin'])) {
+            // Validate first name
+            if (!empty($_POST["first_name"]) && isset($_POST["first_name"])) {
+                $first_name_new = test_input($_POST["first_name"]);
+                if ($first_name_new != $first_name) {
+                    // not matching regex, format error message
+                    if (!preg_match("/^[A-Za-z]+$/", $first_name_new)) {
+                        $nameError = "Please enter an appropriate name!";
+                        $editFirstNameSuccess = false;
+                    } else {
+                        $firstNameSuccess = "First name updated.";
+                        $first_name_valid = true;
+                    }
+                }
+            }
+
+            // Validate last name
+            if (!empty($_POST["last_name"]) && isset($_POST["last_name"])) {
+                $last_name_new = test_input($_POST["last_name"]);
+                if ($last_name_new != $last_name) {
+                    // not matching regex, format error message
+                    if (!preg_match("/^[A-Za-z]+$/", $last_name_new)) {
+                        $nameError = "Please enter an appropriate name!";
+                        $editLastNameSuccess = false;
+                    } else {
+                        $lastNameSuccess = "Last name updated.";
+                        $last_name_valid = true;
+                    }
+                }
+            }
         }
 
         // Validate email
@@ -537,26 +644,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if (!empty($_POST["renewpassword"]) && isset($_POST["renewpassword"])) {
                         $renewpassword = test_input($_POST["renewpassword"]);
                         if ($renewpassword == $newpassword) {
-                            // run sql to check if new password is same with old password
-                            if (isset($_POST['update-user']))
-                                $sql = "SELECT `id` FROM `customer` WHERE username='$username' AND password=PASSWORD('$renewpassword')";
-                            if (isset($_POST['update-admin']))
-                                $sql = "SELECT `id` FROM `admin` WHERE username='$username' AND password=PASSWORD('$renewpassword')";
-
-                                // execute query and store results in $result
-                            if ($result = mysqli_query($conn, $sql)) {
-                                // no results in query
-                                if (mysqli_num_rows($result) > 0) {
-                                    $passwordError = "New password is the same as old password";
-                                    $editPasswordSuccess = false;
-                                    // Free result set (free up memory)
-                                    mysqli_free_result($result);
-                                } else {
-                                    $passwordSuccess = "Password updated.";
-                                    $renewpassword_valid = true;
-                                }
+                            if ($renewpassword == $currentpassword) {
+                                $passwordError = "New password is the same as old password";
+                                $editPasswordSuccess = false;
                             } else {
-                                echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                                $passwordSuccess = "Password updated.";
+                                $renewpassword_valid = true;
                             }
                         } else {
                             $passwordError = "New password in fields don't match!";
@@ -583,77 +676,119 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $editPasswordSuccess = false;
         }
         
+        if (isset($_POST['update-admin'])) {
+            if ($first_name_valid) {
+                $sql = "UPDATE `admin` SET `first_name`=? WHERE username=?;";
+                if ($stmt = $conn->prepare($sql)) {
+                    // Bind variables to the prepared statement as parameters
+                    $stmt->bind_param('ss', $first_name_new, $username);
+
+                    // execute query
+                    $status = $stmt->execute();
+                    if (!$status) {
+                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    }
+                    // Close statement
+                    $stmt->close();
+                }
+                else {
+                    echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                }
+            }
+            
+            if ($last_name_valid) {
+                $sql = "UPDATE `admin` SET `last_name`=? WHERE username=?;";
+                if ($stmt = $conn->prepare($sql)) {
+                    // Bind variables to the prepared statement as parameters
+                    $stmt->bind_param('ss', $last_name_new, $username);
+
+                    // execute query
+                    $status = $stmt->execute();
+                    if (!$status) {
+                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    }
+                    // Close statement
+                    $stmt->close();
+                }
+                else {
+                    echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                }
+            }
+        }
+        
         if ($email_valid) {
             if (isset($_POST['update-user']))
                 $sql = "UPDATE `customer` SET `email`=? WHERE username=?;";
-            if (isset($_POST['update-admin']))
+            else if (isset($_POST['update-admin']))
                 $sql = "UPDATE `admin` SET `email`=? WHERE username=?;";
-            if ($stmt = mysqli_prepare($conn, $sql)) {
+            
+            if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                mysqli_stmt_bind_param($stmt, 'ss', $param_email, $param_username);
+                $stmt->bind_param('ss', $email_new, $username);
 
-                // Set parameters
-                $param_email = $email_new;
-                $param_username = $username;
-
+                // execute query
+                $status = $stmt->execute();
                 // Attempt to execute the prepared statement
-                if (!mysqli_stmt_execute($stmt)) {
+                if (!$status) {
                     echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
                 }
-
                 // Close statement
-                mysqli_stmt_close($stmt);
+                $stmt->close();
+            }
+            else {
+                echo trigger_error($this->mysqli->error, E_USER_ERROR);
             }
         }
         if ($phone_valid) {
             if (isset($_POST['update-user']))
                 $sql = "UPDATE `customer` SET `phone_number`=? WHERE username=?";
-            if (isset($_POST['update-admin']))
+            else if (isset($_POST['update-admin']))
                 $sql = "UPDATE `admin` SET `phone_number`=? WHERE username=?";
-            if ($stmt = mysqli_prepare($conn, $sql)) {
+            
+            if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                mysqli_stmt_bind_param($stmt, 'ss', $param_phone, $param_username);
+                $stmt->bind_param('ss', $phone_number_new, $username);
 
-                // Set parameters
-                $param_phone = $phone_new;
-                $param_username = $username;
-
+                // execute query
+                $status = $stmt->execute();
                 // Attempt to execute the prepared statement
-                if (!mysqli_stmt_execute($stmt)) {
+                if (!$status) {
                     echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
                 }
-
                 // Close statement
-                mysqli_stmt_close($stmt);
+                $stmt->close();
+            }
+            else {
+                echo trigger_error($this->mysqli->error, E_USER_ERROR);
             }
         }
 
         if ($currentpassword_valid && $newpassword_valid && $renewpassword_valid) {
             if (isset($_POST['update-user']))
                 $sql = "UPDATE `customer` SET `password`=PASSWORD(?) WHERE username=?;";
-            if (isset($_POST['update-admin']))
+            else if (isset($_POST['update-admin']))
                 $sql = "UPDATE `admin` SET `password`=PASSWORD(?) WHERE username=?;";
-            if ($stmt = mysqli_prepare($conn, $sql)) {
+            
+            if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                mysqli_stmt_bind_param($stmt, 'ss', $param_password, $param_username);
+                $stmt->bind_param('ss', $renewpassword, $username);
 
-                // Set parameters
-                $param_password = $renewpassword;
-                $param_username = $username;
-
-                // Attempt to execute the prepared statement
-                if (!mysqli_stmt_execute($stmt)) {
+                // execute query
+                $status = $stmt->execute();
+                if (!$status) {
                     echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
                 }
-
                 // Close statement
-                mysqli_stmt_close($stmt);
+                $stmt->close();
+            }
+            else {
+                echo trigger_error($this->mysqli->error, E_USER_ERROR);
             }
         }
     }
-    // ----------------------------------------------------- //
-    // --- END OF USER UPDATE DETAILS VALIDATION SECTION --- //
-    // ----------------------------------------------------- //
+    // --------------------------------------------------------- //
+    // --- END OF USER UPDATE OWN DETAILS VALIDATION SECTION --- //
+    // --------------------------------------------------------- //
 
     // ------------------------------------------------------------------ //
     // --- ADMIN UPDATE CUSTOMER AND ADMIN DETAILS VALIDATION SECTION --- //
@@ -704,9 +839,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // not matching regex, format error message
                 if (!preg_match("/^[A-Za-z]+$/", $first_name_new)) {
                     $nameError = "Please enter an appropriate name!";
-                    $nameSuccess = false;
+                    $editFirstNameSuccess = false;
                 } else {
-                    $editFirstNameSuccess = "Last name updated.";
+                    $firstNameSuccess = "First name updated.";
                     $first_name_valid = true;
                 }
             }
@@ -719,9 +854,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // not matching regex, format error message
                 if (!preg_match("/^[A-Za-z]+$/", $last_name_new)) {
                     $nameError = "Please enter an appropriate name!";
-                    $nameSuccess = false;
+                    $editLastNameSuccess = false;
                 } else {
-                    $editLastNameSuccess = "Last name updated.";
+                    $lastNameSuccess = "Last name updated.";
                     $last_name_valid = true;
                 }
             }
@@ -778,26 +913,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if (!empty($_POST["renewpassword"]) && isset($_POST["renewpassword"])) {
                         $renewpassword = test_input($_POST["renewpassword"]);
                         if ($renewpassword == $newpassword) {
-                            // run sql to check if new password is same with old password
-                            if (isset($_POST['admin-update-customer-details']))
-                                $sql = "SELECT `id` FROM `customer` WHERE username='$username' AND password=PASSWORD('$renewpassword')";
-                            if (isset($_POST['admin-update-admin-details']))
-                                $sql = "SELECT `id` FROM `admin` WHERE username='$username' AND password=PASSWORD('$renewpassword')";
-
-                                // execute query and store results in $result
-                            if ($result = mysqli_query($conn, $sql)) {
-                                // no results in query
-                                if (mysqli_num_rows($result) > 0) {
-                                    $passwordError = "New password is the same as old password";
-                                    $editPasswordSuccess = false;
-                                    // Free result set (free up memory)
-                                    mysqli_free_result($result);
-                                } else {
-                                    $passwordSuccess = "Password updated.";
-                                    $renewpassword_valid = true;
-                                }
+                            if ($renewpassword == $currentpassword) {
+                                $passwordError = "New password is the same as old password";
+                                $editPasswordSuccess = false;
                             } else {
-                                echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                                $passwordSuccess = "Password updated.";
+                                $renewpassword_valid = true;
                             }
                         } else {
                             $passwordError = "New password in fields don't match!";
@@ -829,7 +950,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $sql = "UPDATE `customer` SET `first_name`=? WHERE id=?;";
             else if (isset($_POST['admin-update-admin-details']))
                 $sql = "UPDATE `admin` SET `first_name`=? WHERE id=?;";
-            if ($stmt = mysqli_prepare($conn, $sql)) {
+            if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
                 $stmt->bind_param('si', $first_name_new, $id);
 
@@ -841,6 +962,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Close statement
                 $stmt->close();
             }
+            else {
+                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+            }
         }
         
         if ($last_name_valid) {
@@ -848,7 +972,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $sql = "UPDATE `customer` SET `last_name`=? WHERE id=?;";
             else if (isset($_POST['admin-update-admin-details']))
                 $sql = "UPDATE `admin` SET `last_name`=? WHERE id=?;";
-            if ($stmt = mysqli_prepare($conn, $sql)) {
+            if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
                 $stmt->bind_param('si', $last_name_new, $id);
 
@@ -859,6 +983,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
                 // Close statement
                 $stmt->close();
+            }
+            else {
+                echo trigger_error($this->mysqli->error, E_USER_ERROR);
             }
         }
         
@@ -879,6 +1006,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Close statement
                 $stmt->close();
             }
+            else {
+                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+            }
         }
         if ($phone_valid) {
             if (isset($_POST['admin-update-customer-details']))
@@ -897,6 +1027,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Close statement
                 $stmt->close();
             }
+            else {
+                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+            }
         }
 
         if ($currentpassword_valid && $newpassword_valid && $renewpassword_valid) {
@@ -904,7 +1037,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $sql = "UPDATE `customer` SET `password`=PASSWORD(?) WHERE id=?;";
             else if (isset($_POST['admin-update-admin-details']))
                 $sql = "UPDATE `admin` SET `password`=PASSWORD(?) WHERE id=?;";
-            if ($stmt = mysqli_prepare($conn, $sql)) {
+            if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
                 $stmt->bind_param('si', $renewpassword, $id);
 
@@ -915,6 +1048,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
                 // Close statement
                 $stmt->close();
+            }
+            else {
+                echo trigger_error($this->mysqli->error, E_USER_ERROR);
             }
         }
     }
