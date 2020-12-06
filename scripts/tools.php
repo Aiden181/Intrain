@@ -71,6 +71,10 @@ $currentpassword_valid = $newpassword_valid = $renewpassword_valid = false;
 $editEmailSuccess = $editPhoneSuccess = $editPasswordSuccess = true;
 $emailSuccess = $phoneSuccess = $passwordSuccess = "";
 
+// admin update accounts error variables
+$editFirstNameSuccess = $editLastNameSuccess = true;
+$nameSuccess = "";
+
 // when a POST form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ------------------------------------ //
@@ -651,6 +655,273 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ----------------------------------------------------- //
     // --- END OF USER UPDATE DETAILS VALIDATION SECTION --- //
     // ----------------------------------------------------- //
+
+    // ------------------------------------------------------------------ //
+    // --- ADMIN UPDATE CUSTOMER AND ADMIN DETAILS VALIDATION SECTION --- //
+    // ------------------------------------------------------------------ //
+    // user/admin update details from user/admin edit details page
+    else if (isset($_POST['admin-update-customer-details']) || isset($_POST['admin-update-admin-details'])) {
+        // Get id
+        if (!empty($_GET["id"]) && isset($_GET["id"])) {
+            $id =  test_input($_GET["id"]);
+            $first_name = $last_name = $email = $phone_number = $username = $password = "";
+            if (isset($_POST['admin-update-customer-details']))
+                $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number`, `password`, `username` FROM `customer` WHERE id=?";
+            if (isset($_POST['admin-update-admin-details']))
+                $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number`, `password`, `username` FROM `admin` WHERE id=?";
+            
+            if ($stmt = $conn->prepare($sql)) {
+                // Bind variables to the prepared statement as parameters
+                $stmt->bind_param('i', $id);
+                // execute query
+                $stmt->execute();
+                // store result in $result
+                if ($result = $stmt->get_result()) {
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $first_name = $row['first_name'];
+                            $last_name = $row['last_name'];
+                            $email = $row['email'];
+                            $phone_number = $row['phone_number'];
+                            $password = $row['password'];
+                        }
+                        // Free memory
+                        $result->free_result();
+                        // Close statement
+                        $stmt->close();
+                    } else {
+                        echo "<p><em>$sql: No records were found.</em></p>";
+                    }
+                } else {
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                }
+            }
+        }
+        
+        // Validate first name
+        if (!empty($_POST["first_name"]) && isset($_POST["first_name"])) {
+            $first_name_new = test_input($_POST["first_name"]);
+            if ($first_name_new != $first_name) {
+                // not matching regex, format error message
+                if (!preg_match("/^[A-Za-z]+$/", $first_name_new)) {
+                    $nameError = "Please enter an appropriate name!";
+                    $nameSuccess = false;
+                } else {
+                    $editFirstNameSuccess = "Last name updated.";
+                    $first_name_valid = true;
+                }
+            }
+        }
+
+        // Validate last name
+        if (!empty($_POST["last_name"]) && isset($_POST["last_name"])) {
+            $last_name_new = test_input($_POST["last_name"]);
+            if ($last_name_new != $last_name) {
+                // not matching regex, format error message
+                if (!preg_match("/^[A-Za-z]+$/", $last_name_new)) {
+                    $nameError = "Please enter an appropriate name!";
+                    $nameSuccess = false;
+                } else {
+                    $editLastNameSuccess = "Last name updated.";
+                    $last_name_valid = true;
+                }
+            }
+        }
+
+        // Validate email
+        if (!empty($_POST["email"]) && isset($_POST["email"])) {
+            $email_new = test_input($_POST["email"]);
+            if ($email_new != $email) {
+                // check if e-mail address is well-formed
+                if (!is_valid_email($email_new)) {
+                    $emailError = "Invalid email format!";
+                    $editEmailSuccess = false;
+                } else {
+                    $emailSuccess = "Email updated.";
+                    $email_valid = true;
+                }
+            }
+        }
+
+        // Validate phone number
+        if (!empty($_POST["phone"]) && isset($_POST["phone"])) {
+            $phone_number_new = test_input($_POST["phone"]);
+            if ($phone_number_new != $phone_number) {
+                // not matching regex, format error message
+                if (!preg_match("/^\+?\d{0,13}/", $phone_number_new)) {
+                    $phoneError = "Invalid phone number";
+                    $editPhoneSuccess = false;
+                } else {
+                    $phoneSuccess = "Phone number updated.";
+                    $phone_valid = true;
+                }
+            }
+        }
+
+        // Validate password
+        // if 'current password' field has value
+        if (!empty($_POST["oldpassword"]) && isset($_POST["oldpassword"])) {
+            $currentpassword = test_input($_POST["oldpassword"]);
+            if ($currentpassword == $password) {
+                $passwordError = "Current password is incorrect!";
+                $editPasswordSuccess = false;
+            }
+            else {
+                $currentpassword_valid = true;
+            }
+
+            if ($currentpassword_valid) {
+                // 'new password' field has value
+                if (!empty($_POST["newpassword"]) && isset($_POST["newpassword"])) {
+                    $newpassword = test_input($_POST["newpassword"]);
+                    $newpassword_valid = true;
+                    // field not empty, check if data is not null
+                    if (!empty($_POST["renewpassword"]) && isset($_POST["renewpassword"])) {
+                        $renewpassword = test_input($_POST["renewpassword"]);
+                        if ($renewpassword == $newpassword) {
+                            // run sql to check if new password is same with old password
+                            if (isset($_POST['admin-update-customer-details']))
+                                $sql = "SELECT `id` FROM `customer` WHERE username='$username' AND password=PASSWORD('$renewpassword')";
+                            if (isset($_POST['admin-update-admin-details']))
+                                $sql = "SELECT `id` FROM `admin` WHERE username='$username' AND password=PASSWORD('$renewpassword')";
+
+                                // execute query and store results in $result
+                            if ($result = mysqli_query($conn, $sql)) {
+                                // no results in query
+                                if (mysqli_num_rows($result) > 0) {
+                                    $passwordError = "New password is the same as old password";
+                                    $editPasswordSuccess = false;
+                                    // Free result set (free up memory)
+                                    mysqli_free_result($result);
+                                } else {
+                                    $passwordSuccess = "Password updated.";
+                                    $renewpassword_valid = true;
+                                }
+                            } else {
+                                echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                            }
+                        } else {
+                            $passwordError = "New password in fields don't match!";
+                            $editPasswordSuccess = false;
+                        }
+                    } else {
+                        $passwordError = "Please re-type your new password!";
+                        $editPasswordSuccess = false;
+                    }
+                }
+                // no value in new password field, store error message
+                else {
+                    $passwordError = "New password is required!";
+                    $editPasswordSuccess = false;
+                }
+            }
+        }
+        else if (!empty($_POST["newpassword"]) && isset($_POST["newpassword"])) {
+            $passwordError = "Please enter your current password!";
+            $editPasswordSuccess = false;
+        }
+        else if (!empty($_POST["renewpassword"]) && isset($_POST["renewpassword"])) {
+            $passwordError = "Please enter your current and new password!";
+            $editPasswordSuccess = false;
+        }
+        
+        if ($first_name_valid) {
+            if (isset($_POST['admin-update-customer-details']))
+                $sql = "UPDATE `customer` SET `first_name`=? WHERE id=?;";
+            else if (isset($_POST['admin-update-admin-details']))
+                $sql = "UPDATE `admin` SET `first_name`=? WHERE id=?;";
+            if ($stmt = mysqli_prepare($conn, $sql)) {
+                // Bind variables to the prepared statement as parameters
+                $stmt->bind_param('si', $first_name_new, $id);
+
+                // execute query
+                $status = $stmt->execute();
+                if (!$status) {
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                }
+                // Close statement
+                $stmt->close();
+            }
+        }
+        
+        if ($last_name_valid) {
+            if (isset($_POST['admin-update-customer-details']))
+                $sql = "UPDATE `customer` SET `last_name`=? WHERE id=?;";
+            else if (isset($_POST['admin-update-admin-details']))
+                $sql = "UPDATE `admin` SET `last_name`=? WHERE id=?;";
+            if ($stmt = mysqli_prepare($conn, $sql)) {
+                // Bind variables to the prepared statement as parameters
+                $stmt->bind_param('si', $last_name_new, $id);
+
+                // execute query
+                $status = $stmt->execute();
+                if (!$status) {
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                }
+                // Close statement
+                $stmt->close();
+            }
+        }
+        
+        if ($email_valid) {
+            if (isset($_POST['admin-update-customer-details']))
+                $sql = "UPDATE `customer` SET `email`=? WHERE id=?;";
+            else if (isset($_POST['admin-update-admin-details']))
+                $sql = "UPDATE `admin` SET `email`=? WHERE id=?;";
+            if ($stmt = $conn->prepare($sql)) {
+                // Bind variables to the prepared statement as parameters
+                $stmt->bind_param('si', $email_new, $id);
+
+                // execute query
+                $status = $stmt->execute();
+                if (!$status) {
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                }
+                // Close statement
+                $stmt->close();
+            }
+        }
+        if ($phone_valid) {
+            if (isset($_POST['admin-update-customer-details']))
+                $sql = "UPDATE `customer` SET `phone_number`=? WHERE id=?";
+            else if (isset($_POST['admin-update-admin-details']))
+                $sql = "UPDATE `admin` SET `phone_number`=? WHERE id=?";
+            if ($stmt = $conn->prepare($sql)) {
+                // Bind variables to the prepared statement as parameters
+                $stmt->bind_param('si', $phone_number_new, $id);
+
+                // execute query
+                $status = $stmt->execute();
+                if (!$status) {
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                }
+                // Close statement
+                $stmt->close();
+            }
+        }
+
+        if ($currentpassword_valid && $newpassword_valid && $renewpassword_valid) {
+            if (isset($_POST['admin-update-customer-details']))
+                $sql = "UPDATE `customer` SET `password`=PASSWORD(?) WHERE id=?;";
+            else if (isset($_POST['admin-update-admin-details']))
+                $sql = "UPDATE `admin` SET `password`=PASSWORD(?) WHERE id=?;";
+            if ($stmt = mysqli_prepare($conn, $sql)) {
+                // Bind variables to the prepared statement as parameters
+                $stmt->bind_param('si', $renewpassword, $id);
+
+                // execute query
+                $status = $stmt->execute();
+                if (!$status) {
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                }
+                // Close statement
+                $stmt->close();
+            }
+        }
+    }
+    // ------------------------------------------------------------------------- //
+    // --- END OF ADMIN UPDATE CUSTOMER AND ADMIN DETAILS VALIDATION SECTION --- //
+    // ------------------------------------------------------------------------- //
 }
 
 // unset($_SESSION);

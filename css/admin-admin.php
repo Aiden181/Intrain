@@ -124,3 +124,12 @@
     padding-right: 20px;
     text-decoration: none;
 }
+
+.info-row, .info-row td {
+    font-size: 16px;
+    color: white;
+}
+.info-row:hover {
+    color:white;
+    cursor: pointer;
+}

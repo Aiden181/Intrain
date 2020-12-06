@@ -70,14 +70,14 @@
                         <tbody>
                         <?php
                         while ($row = mysqli_fetch_array($result)) {
-                        echo "<tr style=\"font-size: 16px; color: white\">";
-                            echo "<td>" . $row['id'] . "</td>";
-                            echo "<td>" . $row['username'] . "</td>";
-                            echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
-                            echo "<td>" . $row['email'] . "</td>";
-                            echo "<td>" . $row['phone_number'] . "</td>";
-                        echo "</tr>";
-                    }
+                            echo "<tr class=\"info-row\" onclick=\"window.location='index.php?p=admin&c=users&o=edit&id=" . $row['id'] . "'\">";
+                                echo "<td>" . $row['id'] . "</td>";
+                                echo "<td>" . $row['username'] . "</td>";
+                                echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
+                                echo "<td>" . $row['email'] . "</td>";
+                                echo "<td>" . $row['phone_number'] . "</td>";
+                            echo "</tr>";
+                        }
                     echo "</tbody>";
                 echo "</table>";
                         // Free result set
