@@ -410,9 +410,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($first_name_valid && $last_name_valid && $email_valid && $phone_valid && $username_valid && $password_valid && $flag_valid) {
             $sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) VALUES ('$last_name', '$first_name', '$email', '$phone','$username', PASSWORD('$password'), '$flag_string')";
-            $conn->query($sql);
-            Header("Location: index.php?p=admin&c=admins");
-            exit();
+            if (mysqli_query($conn, $sql)) {
+                Header("Location: index.php?p=admin&c=admins");
+                exit();
+            }
+            else {
+                echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+            }
         }
     }
     // ---------------------------------------- //
