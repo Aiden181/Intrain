@@ -3,16 +3,21 @@
 ?>
 
 /*Major Content*/
+#main-content{
+    width: 920px;
+
+}
+
 #left-content{
     position: relative;
-    left: 15px;
+    left: -150px;
     top: 50px;
     padding: 50px;
 }
 
 #left-content-2{
     position: relative;
-    left: 50px;
+    left: -100px;
     top: -480px;
 }
 
@@ -27,20 +32,26 @@
     bottom: 360px;
 }
 
+#left-img-2{
+    position: relative;
+    right: 590px;
+    bottom: 330px;
+}
+
 #right-content{
     position: relative;
-    left: 70px;
+    left: -90px;
     top: -170px;
 }
 
 #right-content-2{
     position: relative;
-    left: 35%;
-    bottom: 400px;
+    left: 57%;
+    bottom: 700px;
 }
 
 #right-content-2 p , h2{
-    width: 480px;
+    width: 350px;
     text-align: justify;
 }
 
@@ -52,10 +63,15 @@
 #right-img{
     position: relative;
     bottom: 260px;
+}
 
+#right-img-2{
+    position: relative;
+    left: 68%;
+    bottom: 370px;
 }
 
 /* footer spacing */
 footer {
-    bottom: -100px;
+
 }

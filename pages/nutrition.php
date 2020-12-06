@@ -25,54 +25,62 @@
 </head>
 
 <body>
-    <!--Section 2-->
-    <section>
-        <div class="container-sm" id="left-content">
-            <h2>You Don’t Need to Eat Every 2–3 Hours</h2>
-            <p>Some people believe that having smaller, more frequent meals may help them lose weight.
-                However, some studies suggest that meal size and frequency have no effect on fat burning or body weight.
-            </p>
-            <img id="right-img" src="/images/nutrition-1.jpg" style="width: 320px; height: 320px;" alt="">
-        </div>
-    </section>
+    <div class="container" id="main-content">
+        <!--Section 2-->
+        <section>
+            <div class="container-sm" id="left-content">
+                <h2>You Don’t Need to Eat Every 2–3 Hours</h2>
+                <p>Some people believe that having smaller, more frequent meals may help them lose weight.
+                    However, some studies suggest that meal size and frequency have no effect on fat burning or body
+                    weight.
+                </p>
+                <img id="right-img" src="<?php echo IMG_LOCATION . '/nutrition-1.jpg' ?>"
+                    style="width: 320px; height: 320px;" alt="">
+            </div>
+        </section>
 
-    <!--Section 3-->
-    <section>
-        <div class="container-sm" id="right-content">
-            <h2>Eggs Are One of the Healthiest Foods You Can Eat</h2>
-            <p>Eggs have been unfairly demonized because their yolks are high in cholesterol.
-                However, studies show that cholesterol from eggs doesn’t raise blood cholesterol in the majority of
-                people.
-            </p>
-            <img id="left-img" src="/images/nutrition-2.jpg" style="width: 480px; height: 340px;" alt="">
-        </div>
-    </section>
+        <!--Section 3-->
+        <section>
+            <div class="container-sm" id="right-content">
+                <h2>Eggs Are One of the Healthiest Foods You Can Eat</h2>
+                <p>Eggs have been unfairly demonized because their yolks are high in cholesterol.
+                    However, studies show that cholesterol from eggs doesn’t raise blood cholesterol in the majority of
+                    people.
+                </p>
+                <img id="left-img" src="<?php echo IMG_LOCATION . '/nutrition-2.jpg' ?>"
+                    style="width: 480px; height: 340px;" alt="">
+            </div>
+        </section>
 
-    <!--Section 4-->
-    <section>
-        <div class="container-sm" id="left-content-2">
-            <h2>Weight Loss Supplements Rarely Work</h2>
-            <p>There are many different weight loss supplements on the market — and they almost never work.
-                They’re claimed to lead to magical results but fail when put to the test in studies.
-                Even for the few that work — like glucomannan — the effect is too small to really make a noticeable
-                difference.
-            </p>
-        </div>
-        <img src="/images/nutrition-3.jpg" alt="">
-    </section>
+        <!--Section 4-->
+        <section>
+            <div class="container-sm" id="left-content-2">
+                <h2>Weight Loss Supplements Rarely Work</h2>
+                <p>There are many different weight loss supplements on the market — and they almost never work.
+                    They’re claimed to lead to magical results but fail when put to the test in studies.
+                    Even for the few that work — like glucomannan — the effect is too small to really make a noticeable
+                    difference.
+                </p>
+                <img id="right-img-2" src="<?php echo IMG_LOCATION . '/nutrition-3.jpg' ?>"
+                    style="width: 350px; height: 340px;" alt="">
+            </div>
+        </section>
 
-    <!--Section 5-->
-    <section>
-        <div class="container-sm" id="right-content-2">
-            <h2>Fruit Juice Isn’t That Different From Sugary Soft Drinks
-            </h2>
-            <p>Many people believe that fruit juices are healthy, as they come from fruit.
-                Though fresh fruit juice may provide some of the antioxidants found in fruit, it contains just as much
-                sugar as sugary soft drinks like Coca-Cola.
-            </p>
-        </div>
-        <img src="/images/nutrition-4.jpg" alt="">
-    </section>
+        <!--Section 5-->
+        <section>
+            <div class="container-sm" id="right-content-2">
+                <h2>Fruit Juice Isn’t That Different From Sugary Soft Drinks
+                </h2>
+                <p>Many people believe that fruit juices are healthy, as they come from fruit.
+                    Though fresh fruit juice may provide some of the antioxidants found in fruit, it contains just as
+                    much
+                    sugar as sugary soft drinks like Coca-Cola.
+                </p>
+                <img id="left-img-2" src="<?php echo IMG_LOCATION . '/nutrition-4.jpg' ?>"
+                    style="width: 480px; height: 340px;" alt="">
+            </div>
+        </section>
+    </div>
 </body>
 
 </html>
