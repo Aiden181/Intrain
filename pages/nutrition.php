@@ -55,11 +55,12 @@
         <!--Section 4-->
         <section>
             <div class="container-sm" id="left-content-2">
-                <h2>Weight Loss Supplements Rarely Work</h2>
-                <p>There are many different weight loss supplements on the market — and they almost never work.
-                    They’re claimed to lead to magical results but fail when put to the test in studies.
-                    Even for the few that work — like glucomannan — the effect is too small to really make a noticeable
-                    difference.
+                <h2>Health Is About More Than Your Weight</h2>
+                <p>Most people focus too much on weight gain or loss. The truth is that health goes way beyond that.
+                    Many obese people are metabolically healthy, while many normal-weight people have the same metabolic
+                    problems associated with obesity.
+                    Focusing just on body weight is counterproductive. It’s possible to improve health without losing
+                    weight — and vice versa.
                 </p>
                 <img id="right-img-2" src="<?php echo IMG_LOCATION . '/nutrition-3.jpg' ?>"
                     style="width: 350px; height: 340px;" alt="">
