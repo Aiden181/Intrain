@@ -240,9 +240,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
         // field not empty, check if data is not null 
         if (isset($_POST["phone"])) {
-                $phone = test_input($_POST["phone"]);
+                $phone_number = test_input($_POST["phone"]);
                 // not matching regex, format error message
-                if (!preg_match("/^\+?\d{0,13}/", $phone)) {
+                if (!preg_match("/^\+?\d{0,13}/", $phone_number)) {
                     $phoneError = "Invalid phone number";
                 } else {
                     $phone_valid = true;
@@ -290,7 +290,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         if ($first_name_valid && $last_name_valid && $email_valid && $phone_valid && $username_valid && $password_valid) {
-            $sql = "INSERT INTO `customer`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) VALUES ('$last_name', '$first_name', '$email', '$phone','$username', PASSWORD('$password'))";
+            $sql = "INSERT INTO `customer`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) VALUES ('$last_name', '$first_name', '$email', '$phone_number','$username', PASSWORD('$password'))";
             $conn->query($sql);
             if (isset($_SESSION['Admin'])) {
                 Header("Location: index.php?p=admin&c=users");
@@ -356,9 +356,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
         // field not empty, check if data is not null 
         if (isset($_POST["phone"])) {
-                $phone = test_input($_POST["phone"]);
+                $phone_number = test_input($_POST["phone"]);
                 // not matching regex, format error message
-                if (!preg_match("/^\+?\d{0,13}/", $phone)) {
+                if (!preg_match("/^\+?\d{0,13}/", $phone_number)) {
                     $phoneError = "Invalid phone number";
                 } else {
                     $phone_valid = true;
@@ -440,7 +440,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         if ($first_name_valid && $last_name_valid && $email_valid && $phone_valid && $username_valid && $password_valid && $flag_valid) {
-            $sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) VALUES ('$last_name', '$first_name', '$email', '$phone','$username', PASSWORD('$password'), '$flag_string')";
+            $sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) VALUES ('$last_name', '$first_name', '$email', '$phone_number','$username', PASSWORD('$password'), '$flag_string')";
             if (mysqli_query($conn, $sql)) {
                 Header("Location: index.php?p=admin&c=admins");
                 exit();
@@ -465,7 +465,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         else if (isset($_POST['update-admin']))
             $username = $_SESSION['Admin'];
 
-        $email = $phone = $password = "";
+        $email = $phone_number = $password = "";
         if (isset($_POST['update-user']))
             $sql = "SELECT `email`, `phone_number`, `password` FROM `customer` WHERE username='$username'";
         if (isset($_POST['update-admin']))
@@ -475,9 +475,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                     $email = $row['email'];
-                    $phone = $row['phone_number'];
-                    $password = $row['password'];
-                }
+                        $phone_number = $row['phone_number'];
+                        $password = $row['password'];
                 // Free result set (free up memory)
                 mysqli_free_result($result);
             } else {
@@ -492,7 +491,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email_new = test_input($_POST["email"]);
             if ($email_new != $email) {
                 // check if e-mail address is well-formed
-                if (!is_valid_email($email)) {
+                if (!is_valid_email($email_new)) {
                     $emailError = "Invalid email format!";
                     $editEmailSuccess = false;
                 } else {
@@ -504,10 +503,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Validate phone number
         if (!empty($_POST["phone"]) && isset($_POST["phone"])) {
-            $phone_new = test_input($_POST["phone"]);
-            if ($phone_new != $phone) {
+            $phone_number_new = test_input($_POST["phone"]);
+            if ($phone_number_new != $phone_number) {
                 // not matching regex, format error message
-                if (!preg_match("/^\+?\d{0,13}/", $phone)) {
+                if (!preg_match("/^\+?\d{0,13}/", $phone_number_new)) {
                     $phoneError = "Invalid phone number";
                     $editPhoneSuccess = false;
                 } else {
