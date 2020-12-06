@@ -57,5 +57,5 @@
 
 /* footer spacing */
 footer {
-    bottom: -500px;
+    bottom: -100px;
 }
