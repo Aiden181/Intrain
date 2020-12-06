@@ -42,11 +42,11 @@
                         $email = $row['email'];
                         $phone_number = $row['phone_number'];
                 }
-                    // Free result set
-                    mysqli_free_result($result);
                 } else {
                     echo "<p><em>No records were found.</em></p>";
                 }
+                // Free result set
+                mysqli_free_result($result);
             } else {
                 echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
             }
