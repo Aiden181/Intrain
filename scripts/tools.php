@@ -56,10 +56,11 @@ function prePrintArray($arr, $returnAsString=false ) {
 $error_message = "";
 $invalid_login = false;
 
-// signup error messages
+// signup error variables
 $first_name_valid = $last_name_valid = $email_valid = $phone_valid = $username_valid = $password_valid = false;
 $nameError = $emailError = $phoneError = $usernameError = $passwordError = "";
-// add admin error messages
+
+// add admin error variables
 $flag_valid = false;
 $flagError = "";
 
@@ -417,6 +418,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ---------------------------------------- //
     // --- END OF SIGNUP VALIDATION SECTION --- //
     // ---------------------------------------- //
+
+    
+    // ---------------------------------------------- //
+    // --- USER UPDATE DETAILS VALIDATION SECTION --- //
+    // ---------------------------------------------- //
+    // user update details from user management page
+    else if (isset($_POST['update-user'])) {
+        $username = $_SESSION['Customer'];
+
+        $email_old = $phone_old = "";
+        $sql = "SELECT `email`, `phone_number` FROM `customer` WHERE username='$username'";
+        // execute query and store results in $result
+        if ($result = mysqli_query($conn, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_array($result)) {
+                    $email_old = $row['email'];
+                    $phone_old = $row['phone_number'];
+            }
+                // Free result set
+                mysqli_free_result($result);
+            } else {
+                echo "<p><em>No records were found.</em></p>";
+            }
+        } else {
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+        }
+
+
+        // Validate email
+        if (isset($_POST["email"])) {
+            $email = test_input($_POST["email"]);
+            if ($email != $email_old) {
+                // check if e-mail address is well-formed
+                if (!is_valid_email($email)) {
+                    $emailError = "Invalid email format!";
+                }
+            }
+        }
+
+        // Validate phone number
+        if (isset($_POST["phone"])) {
+            $phone = test_input($_POST["phone"]);
+            // not matching regex, format error message
+            if ($phone != $phone_old) {
+                if (!preg_match("/^\+?\d{0,13}/", $phone)) {
+                    $phoneError = "Invalid phone number";
+                }
+            }
+        }
+
+        $sql = "UPDATE `customer` SET `email`='$email', `phone_number`='$phone' WHERE username='$username'";
+        if (!mysqli_query($conn, $sql)) {
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+        }
+        else {
+            Header("Location: index.php?p=user");
+            exit();
+        }
+    }
+    // ----------------------------------------------------- //
+    // --- END OF USER UPDATE DETAILS VALIDATION SECTION --- //
+    // ----------------------------------------------------- //
 }
 
 // unset($_SESSION);

@@ -64,6 +64,7 @@
             echo "</a>";
             // drop-down menu items
             echo "<div class=\"dropdown-menu\">";
+            echo "<a class=\"dropdown-item\" href=\"index.php?p=user\">View account info</a>";
             echo "<a class=\"dropdown-item\" href=\"index.php?p=user&b=edit\">Edit account details</a>";
             echo "<a class=\"dropdown-item\" href=\"index.php?p=user&b=video\">Videos</a>";
             echo "</div>";
