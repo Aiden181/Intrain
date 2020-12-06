@@ -203,7 +203,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (!is_valid_email($email)) {
                     $emailError = "Invalid email format!";
                 } else {
-                    $email_valid = true;
+                    $sql = "SELECT `email` FROM `customer` WHERE username='$username'";
+                
+                    // run mysql query and store results to $result
+                    if ($result = mysqli_query($conn, $sql)) {
+                        // has at least 1 result
+                        if (mysqli_num_rows($result) > 0) {
+                            $emailError = "This email is already registered!";
+                        } else {
+                            $email_valid = true;
+                        }
+                        // Free result set (free up memory)
+                        mysqli_free_result($result);
+                    }
+                    else {
+                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    }
                 }
             }
         }
@@ -239,9 +254,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // has at least 1 result
                     if (mysqli_num_rows($result) > 0) {
                         $usernameError = "Username has been taken!";
+                        
                     } else {
                         $username_valid = true;
                     }
+                    // Free result set (free up memory)
+                    mysqli_free_result($result);
                 }
                 else {
                     echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
@@ -355,6 +373,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     } else {
                         $username_valid = true;
                     }
+                    // Free result set (free up memory)
+                    mysqli_free_result($result);
                 }
                 else {
                     echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
