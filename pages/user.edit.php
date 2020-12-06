@@ -90,12 +90,42 @@
                                 <input type="phone_number" name="phone" id="phone" class="form-control" placeholder="Phone number" value="<?php echo $phone_number ?>" pattern="^\+?\d{0,13}" required>
                             </div>
                         </div>
+
+                        <div class="row" style="color: white;">
+                            <div class="col-lg-4 mb-2">Current password:</div>
+                            <div class="col-lg-4 mb-2">
+                                <input type="password" class="form-control" id="password" name="oldpassword" placeholder="Current Password">
+                            </div>
+                        </div>
+
+                        <div class="row" style="color: white;">
+                            <div class="col-lg-4 mb-2">New password:</div>
+                            <div class="col-lg-4 mb-2">
+                                <input type="password" class="form-control" id="password" name="newpassword" placeholder="New Password">
+                            </div>
+                        </div>
+
+                        <div class="row" style="color: white;">
+                            <div class="col-lg-4 mb-2">Re-type new password:</div>
+                            <div class="col-lg-4 mb-2">
+                                <input type="password" class="form-control" id="password" name="renewpassword" placeholder="Re-type new Password" oninput="">
+                            </div>
+                        </div>
                     </table>
                     <?php
                         if (!$email_valid)
                             echo "<div style=\"color: red\"> $emailError </div>";
                         if (!$phone_valid)
                             echo "<div style=\"color: red\"> $phoneError </div>";
+                        if (!$password_valid)
+                            echo "<div style=\"color: red\"> $passwordError </div>";
+                        
+                        if ($editEmailSuccess)
+                            echo "<div style=\"color: green\"> $emailSuccess </div>";
+                        if ($editPhoneSuccess)
+                            echo "<div style=\"color: green\"> $phoneSuccess </div>";
+                        if ($editPasswordSuccess)
+                            echo "<div style=\"color: green\"> $passwordSuccess </div>";
                     ?>
                     <br>
                     <input type="submit" name="update-user" class="btn" id="sign-up-btn" value="Update details">
