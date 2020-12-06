@@ -87,7 +87,7 @@
                 <!-- Edit account details table cells -->
                 <!-- Manage customers table cells -->
                 <td style="text-align: center;">
-                    <a href="index.php?p=admin&c=users">
+                    <a href="index.php?p=admineditdetails">
                         <i class="fa fa-user-circle-o" id="account-icon" aria-hidden="true">
                             <i id="pencil-edit-icon" class="fa fa-pencil" aria-hidden="true"></i>
                         </i>

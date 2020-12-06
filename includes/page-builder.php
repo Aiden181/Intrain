@@ -27,6 +27,9 @@ switch ($_GET['p']) {
     case "admin":
         $page = PAGES_PATH . "/admin.php";
         break;
+    case "admineditdetails":
+        $page = PAGES_PATH . "/admin.editdetails.php";
+        break;
     case "user":
         $page = PAGES_PATH . "/user.php";
         break;

@@ -46,6 +46,7 @@
             echo "</a>";
             // drop-down menu items
             echo "<div class=\"dropdown-menu\">";
+            echo "<a class=\"dropdown-item\" href=\"index.php?p=admineditdetails\">Edit account details</a>";
             echo "<a class=\"dropdown-item\" href=\"index.php?p=admin&c=users\">Manage customers</a>";
             echo "<a class=\"dropdown-item\" href=\"index.php?p=admin&c=admins\">Manage admins</a>";
             echo "</div>";

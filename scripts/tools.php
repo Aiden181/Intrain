@@ -455,11 +455,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // --- USER UPDATE DETAILS VALIDATION SECTION --- //
     // ---------------------------------------------- //
     // user update details from user management page
-    else if (isset($_POST['update-user'])) {
-        $username = $_SESSION['Customer'];
+    else if (isset($_POST['update-user']) || isset($_POST['update-admin'])) {
+        if (isset($_POST['update-user']))
+            $username = $_SESSION['Customer'];
+        else if (isset($_POST['update-admin']))
+            $username = $_SESSION['Admin'];
 
         $email = $phone = $password = "";
-        $sql = "SELECT `email`, `phone_number`, `password` FROM `customer` WHERE username='$username'";
+        if (isset($_POST['update-user']))
+            $sql = "SELECT `email`, `phone_number`, `password` FROM `customer` WHERE username='$username'";
+        if (isset($_POST['update-admin']))
+            $sql = "SELECT `email`, `phone_number`, `password` FROM `admin` WHERE username='$username'";
         // execute query and store results in $result
         if ($result = mysqli_query($conn, $sql)) {
             if (mysqli_num_rows($result) > 0) {
@@ -529,8 +535,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $renewpassword = test_input($_POST["renewpassword"]);
                         if ($renewpassword == $newpassword) {
                             // run sql to check if new password is same with old password
-                            $sql = "SELECT `id` FROM `customer` WHERE username='$username' AND password=PASSWORD('$renewpassword')";
-                            // execute query and store results in $result
+                            if (isset($_POST['update-user']))
+                                $sql = "SELECT `id` FROM `customer` WHERE username='$username' AND password=PASSWORD('$renewpassword')";
+                            if (isset($_POST['update-admin']))
+                                $sql = "SELECT `id` FROM `admin` WHERE username='$username' AND password=PASSWORD('$renewpassword')";
+
+                                // execute query and store results in $result
                             if ($result = mysqli_query($conn, $sql)) {
                                 // no results in query
                                 if (mysqli_num_rows($result) > 0) {
@@ -571,7 +581,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         
         if ($email_valid) {
-            $sql = "UPDATE `customer` SET `email`=? WHERE username=?;";
+            if (isset($_POST['update-user']))
+                $sql = "UPDATE `customer` SET `email`=? WHERE username=?;";
+            if (isset($_POST['update-admin']))
+                $sql = "UPDATE `admin` SET `email`=? WHERE username=?;";
             if ($stmt = mysqli_prepare($conn, $sql)) {
                 // Bind variables to the prepared statement as parameters
                 mysqli_stmt_bind_param($stmt, 'ss', $param_email, $param_username);
@@ -588,13 +601,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Close statement
                 mysqli_stmt_close($stmt);
             }
-            // $stmt = $conn->prepare($sql);
-            // $stmt->bind_param("ss", $email, $username);
-            // $stmt->execute();
-            // $stmt->close();
         }
         if ($phone_valid) {
-            $sql = "UPDATE `customer` SET `phone_number`=? WHERE username=?";
+            if (isset($_POST['update-user']))
+                $sql = "UPDATE `customer` SET `phone_number`=? WHERE username=?";
+            if (isset($_POST['update-admin']))
+                $sql = "UPDATE `admin` SET `phone_number`=? WHERE username=?";
             if ($stmt = mysqli_prepare($conn, $sql)) {
                 // Bind variables to the prepared statement as parameters
                 mysqli_stmt_bind_param($stmt, 'ss', $param_phone, $param_username);
@@ -614,7 +626,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         if ($currentpassword_valid && $newpassword_valid && $renewpassword_valid) {
-            $sql = "UPDATE `customer` SET `password`=PASSWORD(?) WHERE username=?;";
+            if (isset($_POST['update-user']))
+                $sql = "UPDATE `customer` SET `password`=PASSWORD(?) WHERE username=?;";
+            if (isset($_POST['update-admin']))
+                $sql = "UPDATE `admin` SET `password`=PASSWORD(?) WHERE username=?;";
             if ($stmt = mysqli_prepare($conn, $sql)) {
                 // Bind variables to the prepared statement as parameters
                 mysqli_stmt_bind_param($stmt, 'ss', $param_password, $param_username);

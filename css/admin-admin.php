@@ -61,6 +61,7 @@
 }
 #admin-page-menu ul li.active {}
 
+
 /* ********************* */
 /* * Admin create page * */
 /* ********************* */
@@ -104,3 +105,22 @@
 /* **************************** */
 /* * End of admin create page * */
 /* **************************** */
+
+
+/* Admin edit account details page */
+#admin-panel-button {
+    float: right;
+    display: inline;
+    position: relative;
+    bottom: 29px;
+    right: 165px;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    background-color: orangered;
+    border: none;
+    border-radius: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+}
