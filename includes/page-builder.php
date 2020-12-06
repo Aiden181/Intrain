@@ -86,7 +86,7 @@ else if (isset($_GET['c'])) {
                     $page = PAGES_PATH . "/admin.user.create.php";
                     break;
                 }
-            case "update":
+            case "edit":
                 if ($_GET['c'] == 'admins') {
                     $page = PAGES_PATH . "/admin.admin.update.php";
                     break;
