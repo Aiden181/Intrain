@@ -45,20 +45,24 @@ define('DELETE_ADMINS', "h");
 // ----------------- //
 // ---- Session ---- //
 // ----------------- //
-// 30 minutes in seconds
-$inactive = 1800;
-ini_set('session.gc_maxlifetime', $inactive); // set the session max lifetime to 30 minutes
+// 60 minutes in seconds
+$inactive = 3600;
+ini_set('session.gc_maxlifetime', $inactive); // set the session max lifetime to 60 minutes
 
 session_start();
 
 if (isset($_SESSION['Admin']) || isset($_SESSION['Customer'])) {
-    // last request was more than 30 minutes
+    // last request was more than 60 minutes
     if (isset($_SESSION['session']) && (time() - $_SESSION['session'] > $inactive)) {
         unset($_SESSION);
         $_SESSION = array();
         session_destroy();
+        Header('Location: index.php?p=login');
+        exit();
     }
-    $_SESSION['session'] = time(); // Update session
+    else {
+        $_SESSION['session'] = time(); // Update session
+    }
 }
 
 
