@@ -41,11 +41,7 @@
             <!-- <input type="submit" name="reset-login" value="reset login"> -->
         </form>
         <?php
-        if ($invalid_login) {
-            echo "<div class=\"form-group\" id=\"error-message\">";
-            echo $error_message;
-            echo "</div>";
-        }
+        if ($invalid_login) { echo "<div class=\"form-group\" id=\"error-message\">$error_message</div>"; }
         ?>
     </div>
 </body>
