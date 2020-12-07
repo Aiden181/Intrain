@@ -1126,6 +1126,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ------------------------------------------------------------------------- //
     // --- END OF ADMIN UPDATE CUSTOMER AND ADMIN DETAILS VALIDATION SECTION --- //
     // ------------------------------------------------------------------------- //
+
+    // --------------------------------- //
+    // --- ADMIN DELETE USER SECTION --- //
+    // --------------------------------- //
+    else if (isset($_POST['delete-user'])) {
+        if (!empty($_GET["id"]) && isset($_GET["id"])) {
+            $id =  test_input($_GET["id"]);
+            if ($_GET["c"] == "admins")
+                $sql = "DELETE FROM `admin` WHERE id=?;";
+            if ($_GET["c"] == "users")
+                $sql = "DELETE FROM `customer` WHERE id=?;";
+            if ($stmt = $conn->prepare($sql)) {
+                // Bind variables to the prepared statement as parameters
+                $stmt->bind_param('i', $id);
+
+                // execute query
+                $status = $stmt->execute();
+                if (!$status) {
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                }
+                // Close statement
+                $stmt->close();
+            }
+            else {
+                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+            }
+        }
+    }
+    // ---------------------------------------- //
+    // --- END OF ADMIN DELETE USER SECTION --- //
+    // ---------------------------------------- //
 }
 
 // unset($_SESSION);
