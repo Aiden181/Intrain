@@ -106,11 +106,17 @@ a:hover {
 }
 
 /*Footer Section */
-footer {
+footer, footer i {
     background-color: #3e3e3e;
     position: relative;
     text-align: center;
     padding: 10px;
+    font-size: 36px;
+}
+footer div {
+    color: white;
+    text-align: center;
+    font-size: 26px;
 }
 
 .fa {
