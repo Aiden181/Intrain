@@ -627,50 +627,85 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // if 'current password' field has value
         if (!empty($_POST["oldpassword"]) && isset($_POST["oldpassword"])) {
             $currentpassword = test_input($_POST["oldpassword"]);
-            if ($currentpassword == $password) {
-                $passwordError = "Current password is incorrect!";
-                $editPasswordSuccess = false;
-            }
-            else {
-                $currentpassword_valid = true;
-            }
 
-            if ($currentpassword_valid) {
-                // 'new password' field has value
-                if (!empty($_POST["newpassword"]) && isset($_POST["newpassword"])) {
-                    $newpassword = test_input($_POST["newpassword"]);
-                    $newpassword_valid = true;
-                    // field not empty, check if data is not null
-                    if (!empty($_POST["renewpassword"]) && isset($_POST["renewpassword"])) {
-                        $renewpassword = test_input($_POST["renewpassword"]);
-                        if ($renewpassword == $newpassword) {
-                            if ($renewpassword == $currentpassword) {
-                                $passwordError = "New password is the same as old password";
-                                $editPasswordSuccess = false;
-                            } else {
-                                $passwordSuccess = "Password updated.";
-                                $renewpassword_valid = true;
-                            }
-                        } else {
-                            $passwordError = "New password in fields don't match!";
-                            $editPasswordSuccess = false;
-                        }
-                    } else {
-                        $passwordError = "Please re-type your new password!";
+            // prepare a SELECT sql query to validate 'current password' field
+            if (isset($_POST['admin-update-customer-details']))
+                $sql = "SELECT `password` FROM `customer` WHERE username=? AND password=PASSWORD(?)";
+            if (isset($_POST['admin-update-admin-details']))
+                $sql = "SELECT `password` FROM `admin` WHERE username=? AND password=PASSWORD(?)";
+            
+            if ($stmt = $conn->prepare($sql)) {
+                // Bind variables to the prepared statement as parameters
+                $stmt->bind_param('ss', $username, $currentpassword);
+                // execute query
+                $stmt->execute();
+                // store result in $result
+                if ($result = $stmt->get_result()) {
+                    // no rows returned, 'current password' field is incorrect
+                    if ($result->num_rows == 0) {
+                        $passwordError = "Current password is incorrect!";
                         $editPasswordSuccess = false;
                     }
+                    else {
+                        $currentpassword_valid = true;
+                        // 'new password' field has value
+                        if (!empty($_POST["newpassword"]) && isset($_POST["newpassword"])) {
+                            $newpassword = test_input($_POST["newpassword"]);
+                            $newpassword_valid = true;
+                            // field not empty, check if data is not null
+                            if (!empty($_POST["renewpassword"]) && isset($_POST["renewpassword"])) {
+                                $renewpassword = test_input($_POST["renewpassword"]);
+
+                                // 're-type new password' field and 'new password' field are the same
+                                if ($renewpassword == $newpassword) {
+                                    // new password same as old password
+                                    if ($renewpassword == $currentpassword) {
+                                        $passwordError = "New password is the same as old password";
+                                        $editPasswordSuccess = false;
+                                    }
+                                    // update password
+                                    else {
+                                        $passwordSuccess = "Password updated.";
+                                        $renewpassword_valid = true;
+                                    }
+                                }
+                                // 'new password' and 're-type new password' fields don't match, store error message
+                                else {
+                                    $passwordError = "New password in fields don't match!";
+                                    $editPasswordSuccess = false;
+                                }
+                            }
+                            // no value in 're-type new password' field, store error message
+                            else {
+                                $passwordError = "Please re-type your new password!";
+                                $editPasswordSuccess = false;
+                            }
+                        }
+                        // no value in 'new password' field, store error message
+                        else {
+                            $passwordError = "New password is required!";
+                            $editPasswordSuccess = false;
+                        }
+                    }
+                    // Free memory
+                    $result->free_result();
+                    // Close statement
+                    $stmt->close();
                 }
-                // no value in new password field, store error message
                 else {
-                    $passwordError = "New password is required!";
-                    $editPasswordSuccess = false;
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
                 }
             }
+            else {
+                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+            }
         }
+        // only 'new password' field is filled
         else if (!empty($_POST["newpassword"]) && isset($_POST["newpassword"])) {
             $passwordError = "Please enter your current password!";
             $editPasswordSuccess = false;
         }
+        // only 're-type new password' field is filled
         else if (!empty($_POST["renewpassword"]) && isset($_POST["renewpassword"])) {
             $passwordError = "Please enter your current and new password!";
             $editPasswordSuccess = false;
@@ -798,11 +833,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Get id
         if (!empty($_GET["id"]) && isset($_GET["id"])) {
             $id =  test_input($_GET["id"]);
-            $first_name = $last_name = $email = $phone_number = $username = $password = "";
+            $first_name = $last_name = $email = $phone_number = $username = "";
             if (isset($_POST['admin-update-customer-details']))
-                $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number`, `password`, `username` FROM `customer` WHERE id=?";
+                $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number`, `username` FROM `customer` WHERE id=?";
             if (isset($_POST['admin-update-admin-details']))
-                $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number`, `password`, `username` FROM `admin` WHERE id=?";
+                $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number`, `username` FROM `admin` WHERE id=?";
             
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
@@ -817,7 +852,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $last_name = $row['last_name'];
                             $email = $row['email'];
                             $phone_number = $row['phone_number'];
-                            $password = $row['password'];
                         }
                         // Free memory
                         $result->free_result();
@@ -896,50 +930,85 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // if 'current password' field has value
         if (!empty($_POST["oldpassword"]) && isset($_POST["oldpassword"])) {
             $currentpassword = test_input($_POST["oldpassword"]);
-            if ($currentpassword == $password) {
-                $passwordError = "Current password is incorrect!";
-                $editPasswordSuccess = false;
-            }
-            else {
-                $currentpassword_valid = true;
-            }
 
-            if ($currentpassword_valid) {
-                // 'new password' field has value
-                if (!empty($_POST["newpassword"]) && isset($_POST["newpassword"])) {
-                    $newpassword = test_input($_POST["newpassword"]);
-                    $newpassword_valid = true;
-                    // field not empty, check if data is not null
-                    if (!empty($_POST["renewpassword"]) && isset($_POST["renewpassword"])) {
-                        $renewpassword = test_input($_POST["renewpassword"]);
-                        if ($renewpassword == $newpassword) {
-                            if ($renewpassword == $currentpassword) {
-                                $passwordError = "New password is the same as old password";
-                                $editPasswordSuccess = false;
-                            } else {
-                                $passwordSuccess = "Password updated.";
-                                $renewpassword_valid = true;
-                            }
-                        } else {
-                            $passwordError = "New password in fields don't match!";
-                            $editPasswordSuccess = false;
-                        }
-                    } else {
-                        $passwordError = "Please re-type your new password!";
+            // prepare a SELECT sql query to validate 'current password' field
+            if (isset($_POST['admin-update-customer-details']))
+                $sql = "SELECT `password` FROM `customer` WHERE id=? AND password=PASSWORD(?)";
+            if (isset($_POST['admin-update-admin-details']))
+                $sql = "SELECT `password` FROM `admin` WHERE id=? AND password=PASSWORD(?)";
+            
+            if ($stmt = $conn->prepare($sql)) {
+                // Bind variables to the prepared statement as parameters
+                $stmt->bind_param('is', $id, $currentpassword);
+                // execute query
+                $stmt->execute();
+                // store result in $result
+                if ($result = $stmt->get_result()) {
+                    // no rows returned, 'current password' field is incorrect
+                    if ($result->num_rows == 0) {
+                        $passwordError = "Current password is incorrect!";
                         $editPasswordSuccess = false;
                     }
+                    else {
+                        $currentpassword_valid = true;
+                        // 'new password' field has value
+                        if (!empty($_POST["newpassword"]) && isset($_POST["newpassword"])) {
+                            $newpassword = test_input($_POST["newpassword"]);
+                            $newpassword_valid = true;
+                            // field not empty, check if data is not null
+                            if (!empty($_POST["renewpassword"]) && isset($_POST["renewpassword"])) {
+                                $renewpassword = test_input($_POST["renewpassword"]);
+
+                                // 're-type new password' field and 'new password' field are the same
+                                if ($renewpassword == $newpassword) {
+                                    // new password same as old password
+                                    if ($renewpassword == $currentpassword) {
+                                        $passwordError = "New password is the same as old password";
+                                        $editPasswordSuccess = false;
+                                    }
+                                    // update password
+                                    else {
+                                        $passwordSuccess = "Password updated.";
+                                        $renewpassword_valid = true;
+                                    }
+                                }
+                                // 'new password' and 're-type new password' fields don't match, store error message
+                                else {
+                                    $passwordError = "New password in fields don't match!";
+                                    $editPasswordSuccess = false;
+                                }
+                            }
+                            // no value in 're-type new password' field, store error message
+                            else {
+                                $passwordError = "Please re-type your new password!";
+                                $editPasswordSuccess = false;
+                            }
+                        }
+                        // no value in 'new password' field, store error message
+                        else {
+                            $passwordError = "New password is required!";
+                            $editPasswordSuccess = false;
+                        }
+                    }
+                    // Free memory
+                    $result->free_result();
+                    // Close statement
+                    $stmt->close();
                 }
-                // no value in new password field, store error message
                 else {
-                    $passwordError = "New password is required!";
-                    $editPasswordSuccess = false;
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
                 }
             }
+            else {
+                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+            }
         }
+        // only 'new password' field is filled
         else if (!empty($_POST["newpassword"]) && isset($_POST["newpassword"])) {
             $passwordError = "Please enter your current password!";
             $editPasswordSuccess = false;
         }
+        // only 're-type new password' field is filled
         else if (!empty($_POST["renewpassword"]) && isset($_POST["renewpassword"])) {
             $passwordError = "Please enter your current and new password!";
             $editPasswordSuccess = false;
