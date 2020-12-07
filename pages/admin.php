@@ -80,8 +80,8 @@
             <tr>
                 <!-- Table headers -->
                 <th>Edit account details</th>
-                <th>Manage customers</th>
                 <th>Manage admins</th>
+                <th>Manage customers</th>
             </tr>
             <tr>
                 <!-- Edit account details table cells -->
@@ -94,16 +94,6 @@
                     </a>
                     <div>Edit account details</div>
                 </td>
-
-                <!-- Manage customers table cells -->
-                <td style="text-align: center;">
-                    <a href="index.php?p=admin&c=users">
-                        <i class="fa fa-user-circle-o" id="customer-icon" aria-hidden="true">
-                            <i id="pencil-edit-icon" class="fa fa-pencil" aria-hidden="true"></i>
-                        </i>
-                    </a>
-                    <div>Edit Customer accounts</div>
-                </td>
                 
                 <!-- Manage admins table cells -->
                 <td style="text-align: center;">
@@ -113,6 +103,16 @@
                         </i>
                     </a>
                     <div>Edit Admin accounts</div>
+                </td>
+
+                <!-- Manage customers table cells -->
+                <td style="text-align: center;">
+                    <a href="index.php?p=admin&c=users">
+                        <i class="fa fa-user-circle-o" id="customer-icon" aria-hidden="true">
+                            <i id="pencil-edit-icon" class="fa fa-pencil" aria-hidden="true"></i>
+                        </i>
+                    </a>
+                    <div>Edit Customer accounts</div>
                 </td>
             </tr>
         </table>
