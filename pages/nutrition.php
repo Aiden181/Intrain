@@ -25,36 +25,34 @@
 </head>
 
 <body>
-    <div class="container" id="main-content">
-        <!--Section 2-->
-        <section>
-            <div class="container-sm" id="left-content">
+    <div class="container-sm" id="facts">
+        <div class="row row-cols-2">
+            <!--Section 1-->
+            <section class="col" id="lf-content">
                 <h2>You Don’t Need to Eat Every 2–3 Hours</h2>
                 <p>Some people believe that having smaller, more frequent meals may help them lose weight.
                     However, some studies suggest that meal size and frequency have no effect on fat burning or body
                     weight.
                 </p>
-                <img id="right-img" src="<?php echo IMG_LOCATION . '/nutrition-1.jpg' ?>"
-                    style="width: 320px; height: 320px;" alt="">
-            </div>
-        </section>
+            </section>
+            <section class="col" id="rg-img">
+                <img src="<?php echo IMG_LOCATION . '/nutrition-1.jpg' ?>" style="width: 380px; height: 380px;" alt="">
+            </section>
 
-        <!--Section 3-->
-        <section>
-            <div class="container-sm" id="right-content">
+            <!--Section 2-->
+            <section class="col" id="lf-img">
+                <img src="<?php echo IMG_LOCATION . '/nutrition-2.jpg' ?>" style="width: 480px; height: 340px;" alt="">
+            </section>
+            <section class="col" id="rg-content">
                 <h2>Eggs Are One of the Healthiest Foods You Can Eat</h2>
                 <p>Eggs have been unfairly demonized because their yolks are high in cholesterol.
                     However, studies show that cholesterol from eggs doesn’t raise blood cholesterol in the majority of
                     people.
                 </p>
-                <img id="left-img" src="<?php echo IMG_LOCATION . '/nutrition-2.jpg' ?>"
-                    style="width: 480px; height: 340px;" alt="">
-            </div>
-        </section>
+            </section>
 
-        <!--Section 4-->
-        <section>
-            <div class="container-sm" id="left-content-2">
+            <!--Section 3-->
+            <section class="col" id="lf-content">
                 <h2>Health Is About More Than Your Weight</h2>
                 <p>Most people focus too much on weight gain or loss. The truth is that health goes way beyond that.
                     Many obese people are metabolically healthy, while many normal-weight people have the same metabolic
@@ -62,29 +60,25 @@
                     Focusing just on body weight is counterproductive. It’s possible to improve health without losing
                     weight — and vice versa.
                 </p>
-                <img id="right-img-2" src="<?php echo IMG_LOCATION . '/nutrition-3.jpg' ?>"
-                    style="width: 350px; height: 340px;" alt="">
-            </div>
-        </section>
+            </section>
+            <section class="col" id="rg-img">
+                <img src="<?php echo IMG_LOCATION . '/nutrition-3.jpg' ?>" style="width: 380px; height: 380px;" alt="">
+            </section>
 
-        <!--Section 5-->
-        <section>
-            <div class="container-sm" id="right-content-2">
-                <h2>Fruit Juice Isn’t That Different From Sugary Soft Drinks
-                </h2>
+            <!--Section 4-->
+            <section class="col" id="lf-img">
+                <img src="<?php echo IMG_LOCATION . '/nutrition-4.jpg' ?>" style="width: 480px; height: 340px;" alt="">
+            </section>
+            <section class="col" id="rg-content">
+                <h2>Fruit Juice Isn’t That Different From Sugary Soft Drinks</h2>
                 <p>Many people believe that fruit juices are healthy, as they come from fruit.
                     Though fresh fruit juice may provide some of the antioxidants found in fruit, it contains just as
-                    much
-                    sugar as sugary soft drinks like Coca-Cola.
+                    much sugar as sugary soft drinks like Coca-Cola.
                 </p>
-                <img id="left-img-2" src="<?php echo IMG_LOCATION . '/nutrition-4.jpg' ?>"
-                    style="width: 480px; height: 340px;" alt="">
-            </div>
-        </section>
+            </section>
 
-        <!--Section 6-->
-        <section>
-            <div class="container-sm" id="left-content-3">
+            <!--Section 5-->
+            <section class="col" id="lf-content">
                 <h2>Calories Count — But You Don’t Necessarily Need to Count Them</h2>
                 <p>Calories are important.
                     Obesity is a matter of excess stored energy, or calories, accumulating in the form of body fat.
@@ -93,14 +87,17 @@
                     Though calorie counting works for a lot of people, you can do many things to lose weight — without
                     ever having to count a single calorie.
                 </p>
-                <img id="right-img-3" src="<?php echo IMG_LOCATION . '/nutrition-5.jpg' ?>"
-                    style="width: 350px; height: 340px;" alt="">
-            </div>
-        </section>
+            </section>
+            <section class="col" id="rg-img">
+                <img src="<?php echo IMG_LOCATION . '/nutrition-5.jpg' ?>" style="width: 380px; height: 380px;" alt="">
+            </section>
 
-        <!--Section 7-->
-        <section>
-            <div class="container-sm" id="right-content-3">
+            <!--Section 6-->
+            <section class="col" id="lf-img">
+                <img id="lf-img-6.1" src="<?php echo IMG_LOCATION . '/nutrition-6.1.jpg' ?>" style="width: 480px; height: 300px;" alt="">
+                <img src="<?php echo IMG_LOCATION . '/nutrition-6.2.jpg' ?>" style="width: 480px; height: 300px;" alt="">
+            </section>
+            <section class="col" id="rg-bottom-content">
                 <h2>Neither Fat nor Carbs Make You Fat</h2>
                 <p>Fat has often been blamed for obesity, as it has more calories per gram than protein and carbs. Yet,
                     people who eat a diet high in fat — but low in carbs — end up eating fewer calories than people on
@@ -110,12 +107,8 @@
                     Both fat and carbs can be fattening — it all depends on the rest of your diet and your overall
                     lifestyle.
                 </p>
-                <img id="left-img-3" src="<?php echo IMG_LOCATION . '/nutrition-6.1.jpg' ?>"
-                    style="width: 480px; height: 340px;" alt="">
-                <img id="left-img-3-1" src="<?php echo IMG_LOCATION . '/nutrition-6.2.jpg' ?>"
-                    style="width: 480px; height: 340px;" alt="">
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
 </body>
 

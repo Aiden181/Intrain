@@ -1,117 +1,50 @@
 <?php
-header("Content-type: text/css");
+    header("Content-type: text/css");
 ?>
-/*Major Content*/
-#main-content{
-width: 920px;
-margin-bottom: 0px;3
+
+/*Left Content */
+#lf-content{
+    padding-top: 50px;
+    padding-left: 5%;
 }
 
-/* Left & Right Content*/
-#left-content{
-position: relative;
-left: -150px;
-top: 50px;
-padding: 50px;
+#lf-content h2, p{
+    width: 480px;
+    text-align: justify;
 }
 
-#left-content-2{
-position: relative;
-left: -100px;
-top: -480px;
+/*Left Content Images*/
+#rg-img{
+    padding-top: 50px;
+    padding-left: 7%;
 }
 
-#left-content-3{
-position: relative;
-left: -80px;
-bottom: 900px;
+/*Right Content */
+#rg-content{
+    padding-top: 65px;
+    padding-left: 7%;
 }
 
-#left-content p, h2{
-width: 480px;
-text-align: justify;
+#rg-content h2, p{
+    width: 380px;
+    text-align: justify;
 }
 
-#left-content-3 p, h2{
-width: 480px;
-text-align: justify;
+#rg-bottom-content{
+    padding-top: 65px;
+    padding-bottom: 200px;
+    padding-left: 7%;
 }
 
-#right-content{
-position: relative;
-left: -90px;
-top: -170px;
+#rg-bottom-content h2, p{
+    width: 380px;
+    text-align: justify;
 }
 
-#right-content-2{
-position: relative;
-left: 57%;
-bottom: 700px;
+/*Right Content Images*/
+#lf-img{
+    padding-top: 70px;
+    padding-left: 5%;
 }
 
-#right-content-3{
-position: relative;
-left: 57%;
-bottom: 31cm;
-}
 
-#right-content-2 p , h2{
-width: 350px;
-text-align: justify;
-}
-
-#right-content p, h2{
-width: 320px;
-text-align: justify;
-}
-
-#right-content-3 p, h2{
-width: 320px;
-text-align: justify;
-}
-
-/* Left & Right Images*/
-#left-img{
-position: relative;
-right: 590px;
-bottom: 360px;
-}
-
-#left-img-2{
-position: relative;
-right: 590px;
-bottom: 330px;
-}
-
-#left-img-3{
-position: relative;
-right: 590px;
-bottom: 720px;
-}
-
-#left-img-3-1{
-position: relative;
-right: 590px;
-bottom: 710px;
-}
-
-#right-img{
-position: relative;
-bottom: 260px;
-}
-
-#right-img-2{
-position: relative;
-left: 68%;
-bottom: 370px;
-}
-
-#right-img-3{
-position: relative;
-bottom: 400px;
-left: 69%;
-}
-
-/* footer spacing */
-footer {
-}
