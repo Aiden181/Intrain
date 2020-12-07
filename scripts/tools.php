@@ -5,6 +5,7 @@
  * @return true.
  */
 function logout() {
+    unset($_SESSION);
     $_SESSION = array();
     session_destroy();
     return true;
@@ -1159,16 +1160,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ---------------------------------------- //
 }
 
-// unset($_SESSION);
-
 // debug print outs
 // echo '$_FILES array';
 // prePrintArray($_FILES);
 // echo '$_GET array';
 // prePrintArray($_GET);
-// echo '$_POST array';
-// prePrintArray($_POST);
-// echo '$_SESSION array';
-// prePrintArray($_SESSION);
+echo '$_POST array';
+prePrintArray($_POST);
+echo '$_SESSION array';
+prePrintArray($_SESSION);
 
 ?>
