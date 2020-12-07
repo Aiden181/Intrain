@@ -17,8 +17,6 @@ define('ADMIN_PATH', ROOT . 'admin');
 define('IMG_LOCATION', 'images');
 define('CSS_LOCATION', ROOT . 'css');
 
-require_once(INCLUDES_PATH.'/SessionManager.php');
-
 
 // --------------------------- //
 // ---- Regex definitions ---- //
@@ -47,7 +45,6 @@ define('DELETE_ADMINS', "h");
 // ----------------- //
 // ---- Session ---- //
 // ----------------- //
-// SessionManager::sessionStart('Intrain');
 // 30 minutes in seconds
 $inactive = 1800;
 ini_set('session.gc_maxlifetime', $inactive); // set the session max lifetime to 30 minutes
