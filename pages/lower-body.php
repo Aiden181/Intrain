@@ -28,28 +28,20 @@
     <div class="container-sm" id="main-menu">
         <div class="row row-cols-3">
             <section class="col">
-                <a href=""><img src="./images/Chest-Workout.jpg" alt="ripped chest"></a>
-                <h3>Chest</h3>
+                <a href=""><img src="<?php echo IMG_LOCATION . '/Hamstring - Workout.jpg' ?>" alt=""></a>
+                <h3>Hamstrings</h3>
             </section>
             <section class="col">
-                <a href=""><img src="./images/Forearm-Workout.jpg" alt="ripped forearm"></a>
-                <h3>Forearm</h3>
+                <a href=""><img src="<?php echo IMG_LOCATION . '/Calves - Workout.jpg' ?>" alt=""></a>
+                <h3>Calves</h3>
             </section>
             <section class="col">
-                <a href=""><img src="./images/Biceps-Workout.jpg" alt="riped bicep"></a>
-                <h3>Biceps</h3>
+                <a href=""><img src="<?php echo IMG_LOCATION . '/Quads - Workout.jpg' ?>" alt=""></a>
+                <h3>Quads</h3>
             </section>
             <section class="col">
-                <a href=""><img src="./images/Triceps-Workout.jpg" alt="ripped tricep"></a>
-                <h3>Triceps</h3>
-            </section>
-            <section class="col">
-                <a href=""><img src="./images/Shoulder-Workout.jpg" alt="ripped shoulder"></a>
-                <h3>Shoulder</h3>
-            </section>
-            <section class="col">
-                <a href=""><img src="./images/Back-Workout.jpg" alt="ripped back"></a>
-                <h3>Back</h3>
+                <a href=""><img src="<?php echo IMG_LOCATION . '/Glute - Workout.jpg' ?>" alt=""></a>
+                <h3>Glute</h3>
             </section>
         </div>
     </div>

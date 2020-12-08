@@ -28,28 +28,36 @@
     <div class="container-sm" id="main-menu">
         <div class="row row-cols-3">
             <section class="col">
-                <a href=""><img src="./images/Chest-Workout.jpg" alt="ripped chest"></a>
+                <a href="<?php echo WORKOUT_PATH . '/chest.php' ?>"><img src="<?php echo IMG_LOCATION . '/Chest-Workout.jpg' ?>" alt="ripped chest"></a>
                 <h3>Chest</h3>
             </section>
             <section class="col">
-                <a href=""><img src="./images/Forearm-Workout.jpg" alt="ripped forearm"></a>
+                <a href="<?php echo WORKOUT_PATH . '/forearm.php' ?>"><img src="<?php echo IMG_LOCATION  . '/Forearm-Workout.jpg' ?>" alt="ripped forearm"></a>
                 <h3>Forearm</h3>
             </section>
             <section class="col">
-                <a href=""><img src="./images/Biceps-Workout.jpg" alt="riped bicep"></a>
+                <a href="<?php echo WORKOUT_PATH . '/biceps.php' ?>"><img src="<?php echo IMG_LOCATION . '/Biceps-Workout.jpg' ?>" alt="riped bicep"></a>
                 <h3>Biceps</h3>
             </section>
             <section class="col">
-                <a href=""><img src="./images/Triceps-Workout.jpg" alt="ripped tricep"></a>
+                <a href="<?php echo WORKOUT_PATH . '/triceps.php' ?>"><img src="<?php echo IMG_LOCATION . '/Triceps-Workout.jpg' ?>" alt="ripped tricep"></a>
                 <h3>Triceps</h3>
             </section>
             <section class="col">
-                <a href=""><img src="./images/Shoulder-Workout.jpg" alt="ripped shoulder"></a>
+                <a href="<?php echo WORKOUT_PATH . '/shoulder.php' ?>"><img src="<?php echo IMG_LOCATION  . '/Shoulder-Workout.jpg' ?>" alt="ripped shoulder"></a>
                 <h3>Shoulder</h3>
             </section>
             <section class="col">
-                <a href=""><img src="./images/Back-Workout.jpg" alt="ripped back"></a>
+                <a href="<?php echo WORKOUT_PATH . '/back.php' ?>"><img src="<?php echo IMG_LOCATION . '/Back-Workout.jpg' ?>" alt="ripped back"></a>
                 <h3>Back</h3>
+            </section>
+            <section class="col">
+                <a href="<?php echo WORKOUT_PATH . '/abs.php' ?>"><img src="<?php echo IMG_LOCATION . '/Abs-Workout.jpg' ?>" alt="ripped back"></a>
+                <h3>Abs</h3>
+            </section>
+            <section class="col">
+                <a href="<?php echo WORKOUT_PATH . '/traps.php' ?>"><img src="<?php echo IMG_LOCATION . '/Traps-Workout.jpg' ?>" alt="ripped back"></a>
+                <h3>Traps</h3>
             </section>
         </div>
     </div>

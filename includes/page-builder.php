@@ -21,6 +21,9 @@ switch ($_GET['p']) {
     case "upper-body":
         $page = PAGES_PATH ."/upper-body.php";
         break;
+    case "chest":
+        $page = WORKOUT_PATH . "/chest.php";
+        break;
     case "lower-body":
         $page = PAGES_PATH ."/lower-body.php";
         break;
