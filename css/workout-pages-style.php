@@ -11,6 +11,9 @@ section h2{
 
 #last-section{
     margin-bottom: 200px;
+    position: relative;
+    left: 30px;
+    bottom: 50px;
 }
 
 video{
@@ -28,7 +31,7 @@ video{
     left: 30px;
 }
 
-img{
+#content-background{
     width: 1000px;
     opacity: 0.5;
 }

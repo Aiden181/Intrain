@@ -31,7 +31,7 @@
                 <h2><b>Crunches</b></h2>
                 <video src="<?php echo VID_LOCATION . '/Crunches.mp4'?>" width="1000px" height="500px" controls></video>
                 <div class="container" id="content">
-                    <img src="<?php echo IMG_LOCATION . '/Abs-Background.jpg' ?>" alt="">
+                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Abs-Background.jpg' ?>" alt="">
                     <div class="text-block">
                         <ol id="instruction">
                             <li>Lay straight on your back with your knees bent and your feet entirely touching the
@@ -52,8 +52,8 @@
                 <h2><b>Laying Leg Raises</b></h2>
                 <video src="<?php echo VID_LOCATION . '/Laying Leg Raises.mp4'?>" width="1000px" height="500px"
                     controls></video>
-                <div class="container">
-                    <img src="<?php echo IMG_LOCATION . '/Abs-Background.jpg' ?>" alt="">
+                <div class="container" id="content">
+                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Abs-Background.jpg' ?>" alt="">
                     <div class="text-block">
                         <ol id="instruction">
                             <li>Lay straight on your back with your arms and hands flat down on both sides.</li>
@@ -64,7 +64,6 @@
                         </ol>
                     </div>
                 </div>
-
             </section>
 
             <!--Section 3 -->
@@ -73,7 +72,7 @@
                 <video src="<?php echo VID_LOCATION . '/Knee Raises.mp4'?>" width="1000px" height="500px"
                     controls></video>
                 <div class="container" id="last-section">
-                    <img src="<?php echo IMG_LOCATION . '/Abs-Background.jpg' ?>" alt="">
+                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Abs-Background.jpg' ?>" alt="">
                     <div class="text-block">
                         <ol id="instruction">
                             <li>Find two chairs or any objects that you can lift youself up with.</li>
