@@ -21,9 +21,6 @@ switch ($_GET['p']) {
     case "upper-body":
         $page = PAGES_PATH ."/upper-body.php";
         break;
-    case "chest":
-        $page = WORKOUT_PATH . "/chest.php";
-        break;
     case "lower-body":
         $page = PAGES_PATH ."/lower-body.php";
         break;
@@ -35,6 +32,32 @@ switch ($_GET['p']) {
         break;
     case "user":
         $page = PAGES_PATH . "/user.php";
+        break;
+    
+    // workout pages
+    case "abs":
+        $page = WORKOUT_PATH . "/abs.php";
+        break;
+    case "back":
+        $page = WORKOUT_PATH . "/back.php";
+        break;
+    case "biceps":
+        $page = WORKOUT_PATH . "/biceps.php";
+        break;
+    case "chest":
+        $page = WORKOUT_PATH . "/chest.php";
+        break;
+    case "forearm":
+        $page = WORKOUT_PATH . "/forearm.php";
+        break;
+    case "shoulder":
+        $page = WORKOUT_PATH . "/shoulder.php";
+        break;
+    case "traps":
+        $page = WORKOUT_PATH . "/traps.php";
+        break;
+    case "triceps":
+        $page = WORKOUT_PATH . "/triceps.php";
         break;
     default:
         $page = PAGES_PATH . "/index.php";
