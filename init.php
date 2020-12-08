@@ -36,11 +36,13 @@ define('LIST_CUSTOMERS', "a");
 define('ADD_CUSTOMERS', "b");
 define('EDIT_CUSTOMERS', "c");
 define('DELETE_CUSTOMERS', "d");
+define('CRUD_CUSTOMERS', LIST_CUSTOMERS.ADD_CUSTOMERS.EDIT_CUSTOMERS.DELETE_CUSTOMERS);
 // CRUD admins
 define('LIST_ADMINS', "e");
 define('ADD_ADMINS', "f");
 define('EDIT_ADMINS', "g");
 define('DELETE_ADMINS', "h");
+define('CRUD_ADMINS', LIST_ADMINS.ADD_ADMINS.EDIT_ADMINS.DELETE_ADMINS);
 
 
 // ----------------- //
