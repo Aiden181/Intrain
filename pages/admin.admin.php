@@ -34,7 +34,16 @@
                 <div id="admin-page-menu">
                     <ul>
                         <li class="active"><a href="index.php?p=admin&c=admins"> List admins</a></li>
-                        <li><a href="index.php?p=admin&c=admins&o=create"> Add new admin</a></li>
+                        <?php
+                        // loop through each character in admin flag string to check flag
+                        $flags = $_SESSION['flag'];
+                        for ($i = 0; $i < strlen($flags); $i++) {
+                            // if flag is root or add admins
+                            if ($flags[$i] === ROOT_ADMIN || $flags[$i] === ADD_ADMINS) {
+                                echo "<li><a href=\"index.php?p=admin&c=admins&o=create\"> Add new admin</a></li>";
+                            }
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -62,10 +71,20 @@
                                 <tr id="table-headers" class="table-bordered">
                                     <th>ID</th>
                                     <th>Username</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone number</th>
-                                    <th>Flags</th>
+                                    <?php
+                                    // loop through each character in admin flag string to check flag
+                                    $flags = $_SESSION['flag'];
+                                    for ($i = 0; $i < strlen($flags); $i++) {
+                                        // if flag is root or list admins
+                                        if ($flags[$i] === ROOT_ADMIN || $flags[$i] === LIST_ADMINS) {
+                                            // show more information
+                                            echo "<th>Name</th>\n";
+                                            echo "<th>Email</th>\n";
+                                            echo "<th>Phone number</th>\n";
+                                            echo "<th>Flags</th>";
+                                        }
+                                    }
+                                    ?>
                                 </tr>
                             </thead>
                         <tbody>
@@ -74,10 +93,18 @@
                                 echo "<tr class=\"info-row\" onclick=\"window.location='index.php?p=admin&c=admins&o=edit&id=" . $row['id'] . "'\">";
                                 echo "<td>" . $row['id'] . "</td>";
                                 echo "<td>" . $row['username'] . "</td>";
-                                echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
-                                echo "<td>" . $row['email'] . "</td>";
-                                echo "<td>" . $row['phone_number'] . "</td>";
-                                echo "<td>" . $row['flag'] . "</td>";
+                                // loop through each character in admin flag string to check flag
+                                $flags = $_SESSION['flag'];
+                                for ($i = 0; $i < strlen($flags); $i++) {
+                                    // if flag is root or list admins
+                                    if ($flags[$i] === ROOT_ADMIN || $flags[$i] === LIST_ADMINS) {
+                                        // show more information
+                                        echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
+                                        echo "<td>" . $row['email'] . "</td>";
+                                        echo "<td>" . $row['phone_number'] . "</td>";
+                                        echo "<td>" . $row['flag'] . "</td>";
+                                    }
+                                }
                             echo "</tr>";
                         }
                     echo "</tbody>";

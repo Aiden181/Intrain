@@ -80,8 +80,20 @@
             <tr>
                 <!-- Table headers -->
                 <th>Edit account details</th>
-                <th>Manage admins</th>
-                <th>Manage customers</th>
+                <?php
+                // loop through each character in admin flag string to check flag
+                $flags = $_SESSION['flag'];
+                for ($i = 0; $i < strlen($flags); $i++) {
+                    // if flag is root or in CRUD admins list
+                    if ($flags[$i] === ROOT_ADMIN || stristr(CRUD_ADMINS, $flags[$i])) {
+                        echo "<th>Manage admins</th>";
+                    }
+                    // if flag is root or in CRUD customers list
+                    if ($flags[$i] === ROOT_ADMIN || stristr(CRUD_CUSTOMERS, $flags[$i])) {
+                        echo "<th>Manage customers</th>";
+                    }
+                }
+                ?>
             </tr>
             <tr>
                 <!-- Edit account details table cells -->
@@ -95,25 +107,32 @@
                     <div>Edit account details</div>
                 </td>
                 
-                <!-- Manage admins table cells -->
-                <td style="text-align: center;">
-                    <a href="index.php?p=admin&c=admins">
-                        <i class="fa fa-user-circle-o" id="admin-icon" aria-hidden="true">
-                            <i id="pencil-edit-icon" class="fa fa-pencil" aria-hidden="true"></i>
-                        </i>
-                    </a>
-                    <div>Edit Admin accounts</div>
-                </td>
+                <?php
+                if ($_SESSION['flag'] === ROOT_ADMIN || stristr ($_SESSION['flag'], CRUD_ADMINS)) {
+                    // Manage admin table cells
+                    echo "<td style=\"text-align: center;\">\n";
+                    echo "    <a href=\"index.php?p=admin&c=admins\">\n";
+                    echo "        <i class=\"fa fa-user-circle-o\" id=\"admin-icon\" aria-hidden=\"true\">\n";
+                    echo "            <i id=\"pencil-edit-icon\" class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\n";
+                    echo "        </i>\n";
+                    echo "    </a>\n";
+                    echo "    <div>Edit Admin accounts</div>\n";
+                    echo "</td>\n";
+                    echo "\n";
+                }
+                if ($_SESSION['flag'] === ROOT_ADMIN || stristr ($_SESSION['flag'], CRUD_CUSTOMERS)) {
+                    // Manage customers table cells
+                    echo "<td style=\"text-align: center;\">\n";
+                    echo "    <a href=\"index.php?p=admin&c=users\">\n";
+                    echo "        <i class=\"fa fa-user-circle-o\" id=\"customer-icon\" aria-hidden=\"true\">\n";
+                    echo "            <i id=\"pencil-edit-icon\" class=\"fa fa-pencil\" aria-hidden=\"true\"></i>\n";
+                    echo "        </i>\n";
+                    echo "    </a>\n";
+                    echo "    <div>Edit Customer accounts</div>\n";
+                    echo "</td>";
+                }
+                ?>
 
-                <!-- Manage customers table cells -->
-                <td style="text-align: center;">
-                    <a href="index.php?p=admin&c=users">
-                        <i class="fa fa-user-circle-o" id="customer-icon" aria-hidden="true">
-                            <i id="pencil-edit-icon" class="fa fa-pencil" aria-hidden="true"></i>
-                        </i>
-                    </a>
-                    <div>Edit Customer accounts</div>
-                </td>
             </tr>
         </table>
         <p></p>

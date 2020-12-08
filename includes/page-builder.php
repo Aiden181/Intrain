@@ -162,12 +162,32 @@ if (!empty($page)) {
         else if ($_GET['p'] == "user" || isset($_GET['b'])) {
             Header("Location: index.php?p=home");
         }
-        // other pages, build page like normal
-        else {
-            include_once(PAGES_PATH . "/header.php");
-            include $page;
-            include_once(PAGES_PATH . '/footer.php');
+        
+        // flag authentication
+        // loop through each character in admin flag string to check flag
+        $flags = $_SESSION['flag'];
+        for ($i = 0; $i < strlen($flags); $i++) {
+            // if flag is not root and not add admins
+            if ($flags[$i] != ROOT_ADMIN && $flags[$i] != ADD_ADMINS) {
+                if ((isset($_GET['c']) && isset($_GET['o'])) && ($_GET['c'] == "admins" && $_GET['o'] == "create")) {
+                    $page = PAGES_PATH . "/admin.php";
+                    $_GET['p'] = "admin";
+                    Header("Location: index.php?p=admin");
+                }
+            }
+            // if flag is not root and not add customers
+            else if ($flags[$i] != ROOT_ADMIN && $flags[$i] != ADD_CUSTOMERS) {
+                if ((isset($_GET['c']) && isset($_GET['o'])) && ($_GET['c'] == "users" && $_GET['o'] == "create")) {
+                    $page = PAGES_PATH . "/admin.php";
+                    $_GET['p'] = "admin";
+                    Header("Location: index.php?p=admin");
+                }
+            }
         }
+        // other pages, build page like normal
+        include_once(PAGES_PATH . "/header.php");
+        include $page;
+        include_once(PAGES_PATH . '/footer.php');
     }
     // logged in as a customer
     else if (isset($_SESSION['Customer'])) {
