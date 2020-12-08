@@ -12,11 +12,10 @@ $_COOKIE = filter_input_array(INPUT_COOKIE, FILTER_SANITIZE_STRING);
 define('ROOT', dirname(__FILE__) . "/");
 define('SCRIPT_PATH', ROOT . 'scripts');
 define('PAGES_PATH', ROOT . 'pages');
-define('WORKOUT_PATH', PAGES_PATH . 'workouts');
+define('WORKOUT_PATH', PAGES_PATH . '/workouts');
 define('INCLUDES_PATH', ROOT . 'includes');
-define('ADMIN_PATH', ROOT . 'admin');
 define('IMG_LOCATION', 'images');
-define('CSS_LOCATION', ROOT . 'css');
+define('CSS_LOCATION', 'css');
 define('VID_LOCATION', ROOT . 'videos');
 
 
