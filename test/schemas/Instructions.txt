@@ -1,0 +1,9 @@
+*** Connect to a host first before testing ***
+
+Use MySQL Workbench or whatever that can read .sql files and execute the SQL queries.
+
+Run the files in the following order:
+1. table.sql
+2. insert.sql
+3. update.sql
+4. delete.sql

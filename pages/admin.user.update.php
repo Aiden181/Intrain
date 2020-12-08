@@ -40,7 +40,7 @@
             </div>
             <!-- right column content -->
             <div class="column right" style="background-color: #3e3e3e; padding: 20px;">
-                <div class="page-header clearfix">
+                <div class="page-header">
                     <table style="width: 100%; background-color: #565656; border: 2px solid white">
                         <th style="padding: 10px 10px 6px 10px; max-height: 100px;">
                             <h5 class="pull-left" style="color: white; font-weight: bold">Customer details</h2>
@@ -129,19 +129,19 @@
                             <div class="row">
                                 <div class="col-lg-4 mb-2">Current password:</div>
                                 <div class="col-lg-4 mb-2">
-                                    <input type="password" class="form-control" id="password" name="oldpassword" placeholder="Current Password">
+                                    <input type="password" class="form-control" id="password_old" name="oldpassword" placeholder="Current Password">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-4 mb-2">New password:</div>
                                 <div class="col-lg-4 mb-2">
-                                    <input type="password" class="form-control" id="password" name="newpassword" placeholder="New Password">
+                                    <input type="password" class="form-control" id="password_new" name="newpassword" placeholder="New Password">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-4 mb-2">Re-type new password:</div>
                                 <div class="col-lg-4 mb-2">
-                                    <input type="password" class="form-control" id="password" name="renewpassword" placeholder="Re-type new Password" oninput="">
+                                    <input type="password" class="form-control" id="password_new_retype" name="renewpassword" placeholder="Re-type new Password" oninput="">
                                 </div>
                             </div>
                         </table>
@@ -169,6 +169,25 @@
                         if ($editPasswordSuccess)
                             echo "<div style=\"color: green\"> $passwordSuccess </div>";
                     ?>
+
+                    <br>
+                    <br>
+                    
+                    <div class="page-header" style="background: rgba(0,0,0, 0.25); padding-bottom: 20px">
+                        <table style="width: 100%; background-color: rgba(255,25,25); border: 2px solid white">
+                            <th style="padding: 10px 10px 6px 10px; max-height: 100px;">
+                                <h5 class="pull-left" style="color: white; font-weight: bold">Danger zone</h2>
+                            </th>
+                        </table>
+                        <p></p>
+                        <table>
+                            <th style="padding: 0 0 0 10px;">
+                                <form action="index.php?p=admin&c=users&o=edit&id=<?php echo $id?>" method="post">
+                                    <button type="button" class="delete-user-button" name="delete-user" onclick="confirmDeleteUser(event)" value="Delete user">Delete user</button>
+                                </form>
+                            </th>
+                        </table>
+                    </div>
                 </div>
             </div>
             <!-- end of right column content -->

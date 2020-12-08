@@ -1,8 +1,3 @@
-<?php
-// if (!defined("IN_SB"))
-//     die("You should not be here. Only follow links!");
-?>
-
 <!--Jumbotron-->
 <div class="jumbotron jumbotron-fluid">
     <div class="container">

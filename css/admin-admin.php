@@ -62,9 +62,9 @@
 #admin-page-menu ul li.active {}
 
 
-/* ********************* */
-/* * Admin create page * */
-/* ********************* */
+/* ***************************** */
+/* * Admin create account page * */
+/* ***************************** */
 #sign-up-btn {
     background-color: green;
     color: white;
@@ -102,9 +102,9 @@
     padding: 6px;
     color: #fff;
 }
-/* **************************** */
-/* * End of admin create page * */
-/* **************************** */
+/* ************************************ */
+/* * End of admin create account page * */
+/* ************************************ */
 
 
 /* Admin edit account details page */
@@ -125,6 +125,22 @@
     text-decoration: none;
 }
 
+.delete-user-button {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(255,25,25);
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-decoration: none;
+}
+/* *********************************** */
+/* * End of admin list accounts page * */
+/* *********************************** */
 .info-row, .info-row td {
     font-size: 16px;
     color: white;
@@ -133,3 +149,6 @@
     color:white;
     cursor: pointer;
 }
+/* *********************************** */
+/* * End of admin list accounts page * */
+/* *********************************** */

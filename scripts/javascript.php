@@ -127,4 +127,14 @@
             }
         }
     }
+    
+    function confirmDeleteUser(e) {
+        if (confirm("Do you want to remove user?") == false) {
+            e.preventDefault();
+        }
+        else {
+            e.target.type = "submit";
+            e.target.submit();
+        }
+    }
 </script>

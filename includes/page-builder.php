@@ -90,21 +90,13 @@ else if (isset($_GET['c'])) {
                     break;
                 }
             case "edit":
+            case "delete":
                 if ($_GET['c'] == 'admins') {
                     $page = PAGES_PATH . "/admin.admin.update.php";
                     break;
                 }
                 else if ($_GET['c'] == 'users') {
                     $page = PAGES_PATH . "/admin.user.update.php";
-                    break;
-                }
-            case "delete":
-                if ($_GET['c'] == 'admins') {
-                    $page = PAGES_PATH . "/admin.admin.delete.php";
-                    break;
-                }
-                else if ($_GET['c'] == 'users') {
-                    $page = PAGES_PATH . "/admin.user.delete.php";
                     break;
                 }
             default:
