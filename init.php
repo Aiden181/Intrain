@@ -16,7 +16,7 @@ define('WORKOUT_PATH', PAGES_PATH . '/workouts');
 define('INCLUDES_PATH', ROOT . 'includes');
 define('IMG_LOCATION', 'images');
 define('CSS_LOCATION', 'css');
-define('VID_LOCATION', ROOT . 'videos');
+define('VID_LOCATION', 'videos');
 
 
 // --------------------------- //
