@@ -28,19 +28,19 @@
     <div class="container-sm" id="main-menu">
         <div class="row row-cols-3">
             <section class="col">
-                <a href=""><img src="<?php echo IMG_LOCATION . '/Hamstring - Workout.jpg' ?>" alt=""></a>
+                <a href="index.php?p=hamstrings"><img src="<?php echo IMG_LOCATION . '/Hamstring - Workout.jpg' ?>" alt=""></a>
                 <h3>Hamstrings</h3>
             </section>
             <section class="col">
-                <a href=""><img src="<?php echo IMG_LOCATION . '/Calves - Workout.jpg' ?>" alt=""></a>
+                <a href="index.php?p=calves"><img src="<?php echo IMG_LOCATION . '/Calves - Workout.jpg' ?>" alt=""></a>
                 <h3>Calves</h3>
             </section>
             <section class="col">
-                <a href=""><img src="<?php echo IMG_LOCATION . '/Quads - Workout.jpg' ?>" alt=""></a>
+                <a href="index.php?p=quads"><img src="<?php echo IMG_LOCATION . '/Quads - Workout.jpg' ?>" alt=""></a>
                 <h3>Quads</h3>
             </section>
             <section class="col">
-                <a href=""><img src="<?php echo IMG_LOCATION . '/Glute - Workout.jpg' ?>" alt=""></a>
+                <a href="index.php?p=glutes"><img src="<?php echo IMG_LOCATION . '/Glute - Workout.jpg' ?>" alt=""></a>
                 <h3>Glute</h3>
             </section>
         </div>

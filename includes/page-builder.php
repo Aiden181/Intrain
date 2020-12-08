@@ -59,6 +59,18 @@ switch ($_GET['p']) {
     case "triceps":
         $page = WORKOUT_PATH . "/triceps.php";
         break;
+    case "hamstrings":
+        $page = WORKOUT_PATH . "/hamstrings.php";
+        break;
+    case "calves":
+        $page = WORKOUT_PATH . "/calves.php";
+        break;
+    case "quads":
+        $page = WORKOUT_PATH . "/quads.php";
+        break;
+    case "glutes":
+        $page = WORKOUT_PATH . "/glutes.php";
+        break;
     default:
         $page = PAGES_PATH . "/index.php";
         $_GET['p'] = "home";
