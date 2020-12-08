@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $password = test_input($_POST['password']);
             
             // GET username and password from user's inputs from admin table
-            $sql = "SELECT `username`, `password` FROM `admin` WHERE username=? AND password=PASSWORD(?)";
+            $sql = "SELECT `username`, `password`, `flag` FROM `admin` WHERE username=? AND password=PASSWORD(?)";
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
                 $temp = $stmt->bind_param('ss', $username, $password);
@@ -121,6 +121,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if ($result->num_rows > 0) {
                         // add admin to session
                         $_SESSION['Admin'] = $username;
+                        while ($row = $result->fetch_assoc()) {
+                            $_SESSION['flag'] = $row['flag'];
+                        }
 
                         // Free memory
                         $result->free_result();
