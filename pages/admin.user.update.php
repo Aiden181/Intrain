@@ -41,6 +41,7 @@
                             // if flag is root or add customers
                             if ($flags[$i] === ROOT_ADMIN || $flags[$i] === ADD_CUSTOMERS) {
                                 echo "<li><a href=\"index.php?p=admin&c=users&o=create\"> Add new customer</a></li>";
+                                break;
                             }
                         }
                         ?>

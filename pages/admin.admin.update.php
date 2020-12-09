@@ -41,6 +41,7 @@
                             // if flag is root or add admins
                             if ($flags[$i] === ROOT_ADMIN || $flags[$i] === ADD_ADMINS) {
                                 echo "<li><a href=\"index.php?p=admin&c=admins&o=create\"> Add new admin</a></li>";
+                                break;
                             }
                         }
                         ?>

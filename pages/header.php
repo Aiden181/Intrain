@@ -49,11 +49,13 @@
                 if ($flags[$i] === ROOT_ADMIN || stristr(CRUD_CUSTOMERS, $flags[$i])) {
                     // show "Manage customer" in list
                     echo "<a class=\"dropdown-item\" href=\"index.php?p=admin&c=users\">Manage customers</a>";
+                    break;
                 }
                 // if flag is root or in CRUD admins
                 if ($flags[$i] === ROOT_ADMIN || stristr(CRUD_ADMINS, $flags[$i])) {
                     // show "Manage admin" in list
                     echo "<a class=\"dropdown-item\" href=\"index.php?p=admin&c=admins\">Manage admins</a>";
+                    break;
                 }
             }
             echo "</div>";

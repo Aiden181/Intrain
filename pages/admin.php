@@ -86,11 +86,15 @@
                 for ($i = 0; $i < strlen($flags); $i++) {
                     // if flag is root or in CRUD admins list
                     if ($flags[$i] === ROOT_ADMIN || stristr(CRUD_ADMINS, $flags[$i])) {
+                        // show manage admins
                         echo "<th>Manage admins</th>";
+                        break;
                     }
                     // if flag is root or in CRUD customers list
                     if ($flags[$i] === ROOT_ADMIN || stristr(CRUD_CUSTOMERS, $flags[$i])) {
+                        // show manage customers
                         echo "<th>Manage customers</th>";
+                        break;
                     }
                 }
                 ?>
@@ -108,7 +112,7 @@
                 </td>
                 
                 <?php
-                if ($_SESSION['flag'] === ROOT_ADMIN || stristr ($_SESSION['flag'], CRUD_ADMINS)) {
+                if ($_SESSION['flag'] === ROOT_ADMIN || stristr($_SESSION['flag'], CRUD_ADMINS)) {
                     // Manage admin table cells
                     echo "<td style=\"text-align: center;\">\n";
                     echo "    <a href=\"index.php?p=admin&c=admins\">\n";
@@ -120,7 +124,7 @@
                     echo "</td>\n";
                     echo "\n";
                 }
-                if ($_SESSION['flag'] === ROOT_ADMIN || stristr ($_SESSION['flag'], CRUD_CUSTOMERS)) {
+                if ($_SESSION['flag'] === ROOT_ADMIN || stristr($_SESSION['flag'], CRUD_CUSTOMERS)) {
                     // Manage customers table cells
                     echo "<td style=\"text-align: center;\">\n";
                     echo "    <a href=\"index.php?p=admin&c=users\">\n";
