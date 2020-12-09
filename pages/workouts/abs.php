@@ -32,7 +32,7 @@
                 <video src="<?php echo VID_LOCATION . '/Crunches.mp4'?>" width="1000px" height="500px" controls></video>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Abs-Background.jpg' ?>" alt="">
-                    <div class="text-block">
+                    <div class="text-block" style="position: relative; bottom: 500px; left: 350px">
                         <ol id="instruction">
                             <li>Lay straight on your back with your knees bent and your feet entirely touching the
                                 ground.</li>
@@ -54,7 +54,7 @@
                     controls></video>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Abs-Background.jpg' ?>" alt="">
-                    <div class="text-block">
+                    <div class="text-block" style="position: relative; bottom: 500px; left: 350px">
                         <ol id="instruction">
                             <li>Lay straight on your back with your arms and hands flat down on both sides.</li>
                             <li>Keep your legs close together and as straight as possible.</li>
@@ -73,7 +73,7 @@
                     controls></video>
                 <div class="container" id="last-section">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Abs-Background.jpg' ?>" alt="">
-                    <div class="text-block">
+                    <div class="text-block" style="position: relative; bottom: 500px; left: 350px">
                         <ol id="instruction">
                             <li>Find two chairs or any objects that you can lift youself up with.</li>
                             <li>Starts by raise your legs foward in order to touch your chest.</li>

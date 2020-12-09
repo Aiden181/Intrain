@@ -24,6 +24,86 @@
 </head>
 
 <body>
+    <div class="container-sm">
+        <div class="row">
+            <!--Section 1 -->
+            <section class="col" id="first-section">
+                <h2><b>Dumbbell Row</b></h2>
+                <video src="<?php echo VID_LOCATION . '/Dumbbell Row.mp4'?>" width="1000px" height="500px"
+                    controls></video>
+                <div class="container" id="content">
+                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>" alt="">
+                    <div class="text-block" style="position: relative; bottom: 540px; left: 180px;">
+                        <ol id="instruction">
+                            <li>Place your leg on the bench so that your knee can rest on the bench.</li>
+                            <li>Bend your torso foward to the floor and support yourself with your arm by putting your
+                                hand against the bench.</li>
+                            <li>Hold the weight with your other hand, pull it straight up to the side of your chest.
+                                Repeat the motion.</li>
+                            <li>Change the supporting leg and arm to work on the other side.</li>
+                        </ol>
+                    </div>
+                </div>
+
+            </section>
+
+            <!--Section 2 -->
+            <section class="col">
+                <h2><b>Supermans</b></h2>
+                <video src="<?php echo VID_LOCATION . '/Supermans.mp4'?>" width="1000px" height="500px"
+                    controls></video>
+                <div class="container" id="content">
+                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>" alt="">
+                    <div class="text-block" style="position: relative; bottom: 540px; left: 180px">
+                        <ol id="instruction">
+                            <li>Lay face down on the floor with your arms and legs straighten out in front of you.</li>
+                            <li>Raise your arms, legs and chest off of the floor and hold the position as long as you
+                                can.</li>
+                            <li>Steadily lower your arms, legs and chest back to the original position. Repeat.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!--Section 3 -->
+            <section class="col">
+                <h2><b>Good Morning</b></h2>
+                <video src="<?php echo VID_LOCATION . '/Good Mornings.mp4'?>" width="1000px" height="500px"
+                    controls></video>
+                <div class="container" id="content">
+                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>" alt="">
+                    <div class="text-block" style="position: relative; bottom: 540px; left: 180px">
+                        <ol id="instruction">
+                            <li>Stand up straight with your feet a little past shoulder a. Place your hands at the
+                                center of your chest.</li>
+                            <li>Keep your back straight, move foward your hips to bring your shoulder down towards the
+                                floor as much as you can.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!--Section 4 -->
+            <section class="col">
+                <h2><b>Elevated Pike Press</b></h2>
+                <video src="<?php echo VID_LOCATION . '/Elevated Pike Press.mp4'?>" width="1000px" height="500px"
+                    controls></video>
+                <div class="container" id="last-section">
+                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>" alt="">
+                    <div class="text-block" style="position: relative; bottom: 540px; left: 180px">
+                        <ol id="instruction">
+                            <li>Use a bench or anything to support your feet off the ground.</li>
+                            <li>Lower your head as much as you can by using your elbows.</li>
+                            <li>Push hard to tense up your arms and neck to return to original position.</li>
+                        </ol>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
 </body>
 
 </html>

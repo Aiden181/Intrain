@@ -33,13 +33,11 @@ video{
 
 #content-background{
     width: 1000px;
+    height: 530px;
     opacity: 0.5;
 }
 
 .text-block{
-    position: relative;
-    bottom: 350px;
-    left: 80px;
     width: 620px;
     background-color: white;
 }
