@@ -42,8 +42,20 @@
             // drop-down menu items
             echo "<div class=\"dropdown-menu\">";
             echo "<a class=\"dropdown-item\" href=\"index.php?p=admineditdetails\">Edit account details</a>";
-            echo "<a class=\"dropdown-item\" href=\"index.php?p=admin&c=users\">Manage customers</a>";
-            echo "<a class=\"dropdown-item\" href=\"index.php?p=admin&c=admins\">Manage admins</a>";
+            // loop through each character in admin flag string to check flag
+            $flags = $_SESSION['flag'];
+            for ($i = 0; $i < strlen($flags); $i++) {
+                // if flag is root or in CRUD customers
+                if ($flags[$i] === ROOT_ADMIN || stristr(CRUD_CUSTOMERS, $flags[$i])) {
+                    // show "Manage customer" in list
+                    echo "<a class=\"dropdown-item\" href=\"index.php?p=admin&c=users\">Manage customers</a>";
+                }
+                // if flag is root or in CRUD admins
+                if ($flags[$i] === ROOT_ADMIN || stristr(CRUD_ADMINS, $flags[$i])) {
+                    // show "Manage admin" in list
+                    echo "<a class=\"dropdown-item\" href=\"index.php?p=admin&c=admins\">Manage admins</a>";
+                }
+            }
             echo "</div>";
             echo "</li>";
             // log out button

@@ -98,17 +98,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $password = test_input($_POST['password']);
             
             // GET username and password from user's inputs from admin table
-            $sql = "SELECT `username`, `password` FROM `admin` WHERE username=? AND password=PASSWORD(?)";
+            $sql = "SELECT `username`, `password`, `flag` FROM `admin` WHERE username=? AND password=PASSWORD(?)";
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                $stmt->bind_param('ss', $username, $password);
+                $temp = $stmt->bind_param('ss', $username, $password);
+                // bind_param() can fail because the number of parameter doesn't match 
+                // the placeholders in the statement or there's a type conflict(?), or ....
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
+                
                 // execute query
-                $stmt->execute();
+                $temp = $stmt->execute();
+                // execute() can fail for various reasons.
+                // And may it be as stupid as someone tripping over the network cable
+                // 2006 "server gone away" is always an option
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
                 // store result in $result
                 if ($result = $stmt->get_result()) {
                     if ($result->num_rows > 0) {
                         // add admin to session
                         $_SESSION['Admin'] = $username;
+                        while ($row = $result->fetch_assoc()) {
+                            $_SESSION['flag'] = $row['flag'];
+                        }
 
                         // Free memory
                         $result->free_result();
@@ -125,20 +140,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                 }
                 else {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                 }
             }
             else {
-                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                echo test_input($conn->error);
             }
             
             // GET username and password from user's inputs customer table
             $sql = "SELECT `username`, `password` FROM `customer` WHERE username=? AND password=PASSWORD(?)";
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                $stmt->bind_param('ss', $username, $password);
+                $temp = $stmt->bind_param('ss', $username, $password);
+                // bind_param() can fail because the number of parameter doesn't match 
+                // the placeholders in the statement or there's a type conflict(?), or ....
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
+                
                 // execute query
-                $stmt->execute();
+                $temp = $stmt->execute();
+                // execute() can fail for various reasons.
+                // And may it be as stupid as someone tripping over the network cable
+                // 2006 "server gone away" is always an option
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
                 // store result in $result
                 if ($result = $stmt->get_result()) {
                     if ($result->num_rows > 0) {
@@ -160,11 +187,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                 }
                 else {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                 }
             }
             else {
-                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                echo test_input($conn->error);
             }
         }
         // fields empty
@@ -236,9 +263,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $sql = "SELECT `email` FROM `customer` WHERE username=?";
                     if ($stmt = $conn->prepare($sql)) {
                         // Bind variables to the prepared statement as parameters
-                        $stmt->bind_param('s', $username);
+                        $temp = $stmt->bind_param('s', $username);
+                        // bind_param() can fail because the number of parameter doesn't match 
+                        // the placeholders in the statement or there's a type conflict(?), or ....
+                        if (false === $temp) {
+                            echo test_input($stmt->error);
+                        }
+
                         // execute query
-                        $stmt->execute();
+                        $temp = $stmt->execute();
+                        // execute() can fail for various reasons.
+                        // And may it be as stupid as someone tripping over the network cable
+                        // 2006 "server gone away" is always an option
+                        if (false === $temp) {
+                            echo test_input($stmt->error);
+                        }
                         // store result in $result
                         if ($result = $stmt->get_result()) {
                             if ($result->num_rows > 0) {
@@ -252,11 +291,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $stmt->close();
                         }
                         else {
-                            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                            echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                         }
                     }
                     else {
-                        echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                        echo test_input($conn->error);
                     }
                 }
             }
@@ -289,9 +328,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $sql = "SELECT `username` FROM `customer` WHERE username=?";
                 if ($stmt = $conn->prepare($sql)) {
                     // Bind variables to the prepared statement as parameters
-                    $stmt->bind_param('s', $username);
+                    $temp = $stmt->bind_param('s', $username);
+                    // bind_param() can fail because the number of parameter doesn't match 
+                    // the placeholders in the statement or there's a type conflict(?), or ....
+                    if (false === $temp) {
+                        echo test_input($stmt->error);
+                    }
+                    
                     // execute query
-                    $stmt->execute();
+                    $temp = $stmt->execute();
+                    // execute() can fail for various reasons.
+                    // And may it be as stupid as someone tripping over the network cable
+                    // 2006 "server gone away" is always an option
+                    if (false === $temp) {
+                        echo test_input($stmt->error);
+                    }
                     // store result in $result
                     if ($result = $stmt->get_result()) {
                         if ($result->num_rows > 0) {
@@ -306,11 +357,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $stmt->close();
                     }
                     else {
-                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                        echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                     }
                 }
                 else {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                 }
             }
         }
@@ -330,17 +381,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql = "INSERT INTO `customer`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) VALUES (?, ?, ?, ?,?, PASSWORD(?))";
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                $stmt->bind_param('ssssss', $last_name, $first_name, $email, $phone_number, $username, $password);
+                $temp = $stmt->bind_param('ssssss', $last_name, $first_name, $email, $phone_number, $username, $password);
+                // bind_param() can fail because the number of parameter doesn't match 
+                // the placeholders in the statement or there's a type conflict(?), or ....
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
+
                 // execute query
-                $status = $stmt->execute();
+                $status = $temp = $stmt->execute();
+                // execute() can fail for various reasons.
+                // And may it be as stupid as someone tripping over the network cable
+                // 2006 "server gone away" is always an option
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
                 if (!$status) {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                 }
                 // Close statement
                 $stmt->close();
             }
             else {
-                echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
             }
             
             if (isset($_POST['add-customer'])) {
@@ -428,9 +491,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $sql = "SELECT `username` FROM `admin` WHERE username=?";
                 if ($stmt = $conn->prepare($sql)) {
                     // Bind variables to the prepared statement as parameters
-                    $stmt->bind_param('s', $username);
+                    $temp = $stmt->bind_param('s', $username);
+                    // bind_param() can fail because the number of parameter doesn't match 
+                    // the placeholders in the statement or there's a type conflict(?), or ....
+                    if (false === $temp) {
+                        echo test_input($stmt->error);
+                    }
+                    
                     // execute query
-                    $stmt->execute();
+                    $temp = $stmt->execute();
+                    // execute() can fail for various reasons.
+                    // And may it be as stupid as someone tripping over the network cable
+                    // 2006 "server gone away" is always an option
+                    if (false === $temp) {
+                        echo test_input($stmt->error);
+                    }
                     // store result in $result
                     if ($result = $stmt->get_result()) {
                         if ($result->num_rows > 0) {
@@ -444,11 +519,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $stmt->close();
                     }
                     else {
-                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                        echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                     }
                 }
                 else {
-                    echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                    echo test_input($conn->error);
                 }
             }
         }
@@ -506,7 +581,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit();
             }
             else {
-                echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
             }
         }
     }
@@ -533,9 +608,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         if ($stmt = $conn->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
-            $stmt->bind_param('s', $username);
+            $temp = $stmt->bind_param('s', $username);
+            // bind_param() can fail because the number of parameter doesn't match 
+            // the placeholders in the statement or there's a type conflict(?), or ....
+            if (false === $temp) {
+                echo test_input($stmt->error);
+            }
             // execute query
-            $stmt->execute();
+            $temp = $stmt->execute();
+            // execute() can fail for various reasons.
+            // And may it be as stupid as someone tripping over the network cable
+            // 2006 "server gone away" is always an option
+            if (false === $temp) {
+                echo test_input($stmt->error);
+            }
             // store result in $result
             if ($result = $stmt->get_result()) {
                 if ($result->num_rows > 0) {
@@ -555,11 +641,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo "<p><em>$sql: No records were found.</em></p>";
                 }
             } else {
-                echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
             }
         }
         else {
-            echo trigger_error($this->mysqli->error, E_USER_ERROR);
+            echo test_input($conn->error);
         }
         
         if (isset($_POST['update-admin'])) {
@@ -637,9 +723,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                $stmt->bind_param('ss', $username, $currentpassword);
+                $temp = $stmt->bind_param('ss', $username, $currentpassword);
+                // bind_param() can fail because the number of parameter doesn't match 
+                // the placeholders in the statement or there's a type conflict(?), or ....
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
+
                 // execute query
-                $stmt->execute();
+                $temp = $stmt->execute();
+                // execute() can fail for various reasons.
+                // And may it be as stupid as someone tripping over the network cable
+                // 2006 "server gone away" is always an option
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
                 // store result in $result
                 if ($result = $stmt->get_result()) {
                     // no rows returned, 'current password' field is incorrect
@@ -694,11 +792,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $stmt->close();
                 }
                 else {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                 }
             }
             else {
-                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                echo test_input($conn->error);
             }
         }
         // only 'new password' field is filled
@@ -717,18 +815,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $sql = "UPDATE `admin` SET `first_name`=? WHERE username=?;";
                 if ($stmt = $conn->prepare($sql)) {
                     // Bind variables to the prepared statement as parameters
-                    $stmt->bind_param('ss', $first_name_new, $username);
+                    $temp = $stmt->bind_param('ss', $first_name_new, $username);
+                    // bind_param() can fail because the number of parameter doesn't match 
+                    // the placeholders in the statement or there's a type conflict(?), or ....
+                    if (false === $temp) {
+                        echo test_input($stmt->error);
+                    }
 
                     // execute query
-                    $status = $stmt->execute();
+                    $status = $temp = $stmt->execute();
+                    // execute() can fail for various reasons.
+                    // And may it be as stupid as someone tripping over the network cable
+                    // 2006 "server gone away" is always an option
+                    if (false === $temp) {
+                        echo test_input($stmt->error);
+                    }
                     if (!$status) {
-                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                        echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                     }
                     // Close statement
                     $stmt->close();
                 }
                 else {
-                    echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                    echo test_input($conn->error);
                 }
             }
             
@@ -736,18 +845,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $sql = "UPDATE `admin` SET `last_name`=? WHERE username=?;";
                 if ($stmt = $conn->prepare($sql)) {
                     // Bind variables to the prepared statement as parameters
-                    $stmt->bind_param('ss', $last_name_new, $username);
+                    $temp = $stmt->bind_param('ss', $last_name_new, $username);
+                    // bind_param() can fail because the number of parameter doesn't match 
+                    // the placeholders in the statement or there's a type conflict(?), or ....
+                    if (false === $temp) {
+                        echo test_input($stmt->error);
+                    }
 
                     // execute query
-                    $status = $stmt->execute();
+                    $status = $temp = $stmt->execute();
+                    // execute() can fail for various reasons.
+                    // And may it be as stupid as someone tripping over the network cable
+                    // 2006 "server gone away" is always an option
+                    if (false === $temp) {
+                        echo test_input($stmt->error);
+                    }
                     if (!$status) {
-                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                        echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                     }
                     // Close statement
                     $stmt->close();
                 }
                 else {
-                    echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                    echo test_input($conn->error);
                 }
             }
         }
@@ -760,19 +880,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                $stmt->bind_param('ss', $email_new, $username);
+                $temp = $stmt->bind_param('ss', $email_new, $username);
+                // bind_param() can fail because the number of parameter doesn't match 
+                // the placeholders in the statement or there's a type conflict(?), or ....
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
 
                 // execute query
-                $status = $stmt->execute();
+                $status = $temp = $stmt->execute();
+                // execute() can fail for various reasons.
+                // And may it be as stupid as someone tripping over the network cable
+                // 2006 "server gone away" is always an option
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
                 // Attempt to execute the prepared statement
                 if (!$status) {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                 }
                 // Close statement
                 $stmt->close();
             }
             else {
-                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                echo test_input($conn->error);
             }
         }
         if ($phone_valid) {
@@ -783,19 +914,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                $stmt->bind_param('ss', $phone_number_new, $username);
+                $temp = $stmt->bind_param('ss', $phone_number_new, $username);
+                // bind_param() can fail because the number of parameter doesn't match 
+                // the placeholders in the statement or there's a type conflict(?), or ....
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
 
                 // execute query
-                $status = $stmt->execute();
+                $status = $temp = $stmt->execute();
+                // execute() can fail for various reasons.
+                // And may it be as stupid as someone tripping over the network cable
+                // 2006 "server gone away" is always an option
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
                 // Attempt to execute the prepared statement
                 if (!$status) {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                 }
                 // Close statement
                 $stmt->close();
             }
             else {
-                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                echo test_input($conn->error);
             }
         }
 
@@ -807,18 +949,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                $stmt->bind_param('ss', $renewpassword, $username);
+                $temp = $stmt->bind_param('ss', $renewpassword, $username);
+                // bind_param() can fail because the number of parameter doesn't match 
+                // the placeholders in the statement or there's a type conflict(?), or ....
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
 
                 // execute query
-                $status = $stmt->execute();
+                $status = $temp = $stmt->execute();
+                // execute() can fail for various reasons.
+                // And may it be as stupid as someone tripping over the network cable
+                // 2006 "server gone away" is always an option
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
                 if (!$status) {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                 }
                 // Close statement
                 $stmt->close();
             }
             else {
-                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                echo test_input($conn->error);
             }
         }
     }
@@ -842,9 +995,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                $stmt->bind_param('i', $id);
+                $temp = $stmt->bind_param('i', $id);
+                // bind_param() can fail because the number of parameter doesn't match 
+                // the placeholders in the statement or there's a type conflict(?), or ....
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
+
                 // execute query
-                $stmt->execute();
+                $temp = $stmt->execute();
+                // execute() can fail for various reasons.
+                // And may it be as stupid as someone tripping over the network cable
+                // 2006 "server gone away" is always an option
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
                 // store result in $result
                 if ($result = $stmt->get_result()) {
                     if ($result->num_rows > 0) {
@@ -862,7 +1027,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         echo "<p><em>$sql: No records were found.</em></p>";
                     }
                 } else {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                 }
             }
         }
@@ -940,9 +1105,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                $stmt->bind_param('is', $id, $currentpassword);
+                $temp = $stmt->bind_param('is', $id, $currentpassword);
+                // bind_param() can fail because the number of parameter doesn't match 
+                // the placeholders in the statement or there's a type conflict(?), or ....
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
+
                 // execute query
-                $stmt->execute();
+                $temp = $stmt->execute();
+                // execute() can fail for various reasons.
+                // And may it be as stupid as someone tripping over the network cable
+                // 2006 "server gone away" is always an option
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
                 // store result in $result
                 if ($result = $stmt->get_result()) {
                     // no rows returned, 'current password' field is incorrect
@@ -997,11 +1174,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $stmt->close();
                 }
                 else {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                 }
             }
             else {
-                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                echo test_input($conn->error);
             }
         }
         // only 'new password' field is filled
@@ -1022,18 +1199,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $sql = "UPDATE `admin` SET `first_name`=? WHERE id=?;";
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                $stmt->bind_param('si', $first_name_new, $id);
+                $temp = $stmt->bind_param('si', $first_name_new, $id);
+                // bind_param() can fail because the number of parameter doesn't match 
+                // the placeholders in the statement or there's a type conflict(?), or ....
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
 
                 // execute query
-                $status = $stmt->execute();
+                $status = $temp = $stmt->execute();
+                // execute() can fail for various reasons.
+                // And may it be as stupid as someone tripping over the network cable
+                // 2006 "server gone away" is always an option
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
                 if (!$status) {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                 }
                 // Close statement
                 $stmt->close();
             }
             else {
-                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                echo test_input($conn->error);
             }
         }
         
@@ -1044,18 +1232,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $sql = "UPDATE `admin` SET `last_name`=? WHERE id=?;";
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                $stmt->bind_param('si', $last_name_new, $id);
+                $temp = $stmt->bind_param('si', $last_name_new, $id);
+                // bind_param() can fail because the number of parameter doesn't match 
+                // the placeholders in the statement or there's a type conflict(?), or ....
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
 
                 // execute query
-                $status = $stmt->execute();
+                $status = $temp = $stmt->execute();
+                // execute() can fail for various reasons.
+                // And may it be as stupid as someone tripping over the network cable
+                // 2006 "server gone away" is always an option
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
                 if (!$status) {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                 }
                 // Close statement
                 $stmt->close();
             }
             else {
-                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                echo test_input($conn->error);
             }
         }
         
@@ -1066,18 +1265,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $sql = "UPDATE `admin` SET `email`=? WHERE id=?;";
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                $stmt->bind_param('si', $email_new, $id);
+                $temp = $stmt->bind_param('si', $email_new, $id);
+                // bind_param() can fail because the number of parameter doesn't match 
+                // the placeholders in the statement or there's a type conflict(?), or ....
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
 
                 // execute query
-                $status = $stmt->execute();
+                $status = $temp = $stmt->execute();
+                // execute() can fail for various reasons.
+                // And may it be as stupid as someone tripping over the network cable
+                // 2006 "server gone away" is always an option
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
                 if (!$status) {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                 }
                 // Close statement
                 $stmt->close();
             }
             else {
-                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                echo test_input($conn->error);
             }
         }
         if ($phone_valid) {
@@ -1087,18 +1297,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $sql = "UPDATE `admin` SET `phone_number`=? WHERE id=?";
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                $stmt->bind_param('si', $phone_number_new, $id);
+                $temp = $stmt->bind_param('si', $phone_number_new, $id);
+                // bind_param() can fail because the number of parameter doesn't match 
+                // the placeholders in the statement or there's a type conflict(?), or ....
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
 
                 // execute query
-                $status = $stmt->execute();
+                $status = $temp = $stmt->execute();
+                // execute() can fail for various reasons.
+                // And may it be as stupid as someone tripping over the network cable
+                // 2006 "server gone away" is always an option
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
                 if (!$status) {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                 }
                 // Close statement
                 $stmt->close();
             }
             else {
-                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                echo test_input($conn->error);
             }
         }
 
@@ -1109,18 +1330,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $sql = "UPDATE `admin` SET `password`=PASSWORD(?) WHERE id=?;";
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                $stmt->bind_param('si', $renewpassword, $id);
+                $temp = $stmt->bind_param('si', $renewpassword, $id);
+                // bind_param() can fail because the number of parameter doesn't match 
+                // the placeholders in the statement or there's a type conflict(?), or ....
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
 
                 // execute query
-                $status = $stmt->execute();
+                $status = $temp = $stmt->execute();
+                // execute() can fail for various reasons.
+                // And may it be as stupid as someone tripping over the network cable
+                // 2006 "server gone away" is always an option
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
                 if (!$status) {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                 }
                 // Close statement
                 $stmt->close();
             }
             else {
-                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                echo test_input($conn->error);
             }
         }
     }
@@ -1140,18 +1372,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $sql = "DELETE FROM `customer` WHERE id=?;";
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
-                $stmt->bind_param('i', $id);
+                $temp = $stmt->bind_param('i', $id);
+                // bind_param() can fail because the number of parameter doesn't match 
+                // the placeholders in the statement or there's a type conflict(?), or ....
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
 
                 // execute query
-                $status = $stmt->execute();
+                $status = $temp = $stmt->execute();
+                // execute() can fail for various reasons.
+                // And may it be as stupid as someone tripping over the network cable
+                // 2006 "server gone away" is always an option
+                if (false === $temp) {
+                    echo test_input($stmt->error);
+                }
                 if (!$status) {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                    echo "ERROR: Could not able to execute $sql. " . test_input($conn->error);
                 }
                 // Close statement
                 $stmt->close();
             }
             else {
-                echo trigger_error($this->mysqli->error, E_USER_ERROR);
+                echo test_input($conn->error);
             }
         }
     }
