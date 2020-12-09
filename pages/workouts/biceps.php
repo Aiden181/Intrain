@@ -24,6 +24,46 @@
 </head>
 
 <body>
+    <div class="container-sm">
+        <div class="row">
+            <!--Section 1 -->
+            <section class="col" id="first-section">
+                <h2><b>Hammer Curl</b></h2>
+                <video src="<?php echo VID_LOCATION . '/Hammer Curl.mp4'?>" width="1000px" height="500px" controls></video>
+                <div class="container" id="content">
+                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Biceps-Background.jpg' ?>" alt="">
+                    <div class="text-block" style="width: 380px; position: relative; bottom: 500px; left: 70px">
+                        <ol id="instruction">
+                            <li>Hold the dumbbells with your thumbs facing the ceiling.</li>
+                            <li>Steadily raise the dumbbell to chest height.</li>
+                            <li>Lower the weights to the original position and repeat.</li>
+                        </ol>
+                    </div>
+                </div>
+
+            </section>
+
+            <!--Section 2 -->
+            <section class="col">
+                <h2><b>Dumbbell Curl</b></h2>
+                <video src="<?php echo VID_LOCATION . '/Dumbbell Curl.mp4'?>" width="1000px" height="500px"
+                    controls></video>
+                <div class="container" id="last-section">
+                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Biceps-Background.jpg' ?>" alt="">
+                    <div class="text-block" style="width: 380px; position: relative; bottom: 500px; left: 70px">
+                        <ol id="instruction">
+                            <li>Find two chairs or any objects that you can lift youself up with.</li>
+                            <li>Starts by raise your legs foward in order to touch your chest.</li>
+                            <li>Move your belly your spine to engage the muscles, then raise your head and shoulders off
+                                the
+                                floor.</li>
+                            <li>Slowly lower your legs to the original position.</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 </body>
 
 </html>
