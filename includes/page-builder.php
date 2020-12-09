@@ -1,6 +1,6 @@
 <?php
 $_GET['p'] = isset($_GET['p']) ? $_GET['p'] : 'default';
-$_GET['p'] = trim($_GET['p']);
+$_GET['p'] = test_input($_GET['p']);
 switch ($_GET['p']) {
     case "login":
         $page = PAGES_PATH . "/login.php";
@@ -80,7 +80,7 @@ switch ($_GET['p']) {
 // customer management pages
 if(isset($_GET['b'])) {
     // customer management pages
-    $_GET['b'] = trim($_GET['b']);
+    $_GET['b'] = test_input($_GET['b']);
     switch ($_GET['b']) {
         case "edit":
             $page = PAGES_PATH . "/user.edit.php";
@@ -97,7 +97,7 @@ if(isset($_GET['b'])) {
 
 // admin management pages
 else if (isset($_GET['c'])) {
-    $_GET['c'] = trim($_GET['c']);
+    $_GET['c'] = test_input($_GET['c']);
     switch ($_GET['c']) {
         case "admins":
             $page = PAGES_PATH . "/admin.admin.php";
@@ -113,7 +113,7 @@ else if (isset($_GET['c'])) {
 
     if (isset($_GET['o'])) {
         // admin management pages
-        $_GET['o'] = trim($_GET['o']);
+        $_GET['o'] = test_input($_GET['o']);
         switch ($_GET['o']) {
             case "create":
                 if ($_GET['c'] == 'admins') {
@@ -157,33 +157,83 @@ if (!empty($page)) {
             $page = PAGES_PATH . "/admin.php";
             $_GET['p'] = "admin";
             Header("Location: index.php?p=admin");
+            die();
         }
         // redirect to home page if they try to access customer management pages
         else if (isset($_GET['p']) && ($_GET['p'] == "user" || isset($_GET['b']))) {
             Header("Location: index.php?p=home");
+            die();
         }
         
-        // flag authentication
-        // loop through each character in admin flag string to check flag
-        $flags = $_SESSION['flag'];
-        for ($i = 0; $i < strlen($flags); $i++) {
-            // if flag is not root and not add admins
-            if ($flags[$i] != ROOT_ADMIN && $flags[$i] != ADD_ADMINS) {
-                if ((isset($_GET['c']) && isset($_GET['o'])) && ($_GET['c'] == "admins" && $_GET['o'] == "create")) {
-                    $page = PAGES_PATH . "/admin.php";
-                    $_GET['p'] = "admin";
-                    Header("Location: index.php?p=admin");
+        // ----------------------------------------- //
+        // ------- ADMIN FLAG AUTHENTICATION ------- //
+        // ----------------------------------------- //
+        // if flag is not root
+        if ($_SESSION['flag'] != ROOT_ADMIN) {
+            $is_crud_admin = false;
+            $is_crud_customer = false;
+
+            // loop through each character in admin flag string to check flag
+            for ($i = 0; $i < strlen($_SESSION['flag']); $i++) {
+                // flag is in in CRUD admins
+                if (stristr(CRUD_ADMINS, $_SESSION['flag'][$i])) {
+                    $is_crud_admin = true;  // set is crud admin to true
+                }
+                // flag is in CRUD customers
+                else if (stristr(CRUD_CUSTOMERS, $_SESSION['flag'][$i])) {
+                    $is_crud_customer = true;  // set is crud customer to true
                 }
             }
-            // if flag is not root and not add customers
-            else if ($flags[$i] != ROOT_ADMIN && $flags[$i] != ADD_CUSTOMERS) {
-                if ((isset($_GET['c']) && isset($_GET['o'])) && ($_GET['c'] == "users" && $_GET['o'] == "create")) {
-                    $page = PAGES_PATH . "/admin.php";
-                    $_GET['p'] = "admin";
-                    Header("Location: index.php?p=admin");
+            // deny access to admin management pages if flag is not in CRUD admins
+            if (!$is_crud_admin) {
+                if (isset($_GET['c'])) {
+                    $_GET['c'] = test_input($_GET['c']);
+                    if ($_GET['c'] == "admins") {
+                        $page = PAGES_PATH . "/admin.php";
+                        $_GET['p'] = "admin";
+                        Header("Location: index.php?p=admin");
+                        die();
+                    }
+                }
+            }
+            // deny access to customer management pages if flag is not in CRUD customers
+            if (!$is_crud_customer) {
+                if (isset($_GET['c'])) {
+                    $_GET['c'] = test_input($_GET['c']);
+                    if ($_GET['c'] == "users") {
+                        $page = PAGES_PATH . "/admin.php";
+                        $_GET['p'] = "admin";
+                        Header("Location: index.php?p=admin");
+                        die();
+                    }
+                }
+            }
+            
+            if (isset($_GET['c']) && isset($_GET['o'])) {
+                $_GET['c'] = test_input($_GET['c']);
+                $_GET['o'] = test_input($_GET['o']);
+                if ($_GET['c'] == "users" && $_GET['o'] == "create") {
+                    if (!stristr($_SESSION['flag'], ADD_CUSTOMERS)) {
+                        $page = PAGES_PATH . "/admin.php";
+                        $_GET['p'] = "admin";
+                        Header("Location: index.php?p=admin");
+                        die();
+                    }
+                }
+                else if ($_GET['c'] == "admins" && $_GET['o'] == "create") {
+                    if (!stristr($_SESSION['flag'], ADD_ADMINS)) {
+                        $page = PAGES_PATH . "/admin.php";
+                        $_GET['p'] = "admin";
+                        Header("Location: index.php?p=admin");
+                        die();
+                    }
                 }
             }
         }
+        // ------------------------------------------------ //
+        // ------- END OF ADMIN FLAG AUTHENTICATION ------- //
+        // ------------------------------------------------ //
+
         // other pages, build page like normal
         include_once(PAGES_PATH . "/header.php");
         include $page;
@@ -196,10 +246,12 @@ if (!empty($page)) {
             $page = PAGES_PATH . "/user.php";
             $_GET['p'] = "user";
             Header("Location: index.php?p=user");
+            die();
         }
         // redirect to home page if they try to access admin management pages
         else if (isset($_GET['p']) && ($_GET['p'] == "admin" || isset($_GET['c']))) {
             Header("Location: index.php?p=home");
+            die();
         }
         // other pages, build page like normal
         else {
@@ -217,15 +269,19 @@ if (!empty($page)) {
         // redirect to home page if they try to access customer and admin management pages
         else if (isset($_GET['p']) && ($_GET['p'] == "user")) {
             Header("Location: index.php?p=home");
+            die();
         }
         else if (isset($_GET['b'])) {
             Header("Location: index.php?p=home");
+            die();
         }
         else if (isset($_GET['p']) && ($_GET['p'] == "admin")) {
             Header("Location: index.php?p=home");
+            die();
         }
         else if (isset($_GET['c'])) {
             Header("Location: index.php?p=home");
+            die();
         }
         // other pages, build page like normal
         else {
