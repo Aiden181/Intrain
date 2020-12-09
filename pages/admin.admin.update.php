@@ -109,7 +109,7 @@
                         echo "</div>";
                         echo "<br>";
                         echo "<div id=\"signup-form\">";
-                        echo "    <form action=\"index.php?p=admin&c=admins&o=edit&id=$id?>\" method=\"post\" id=\"admin-update-admin-details\">";
+                        echo "    <form action=\"index.php?p=admin&c=admins&o=edit&id=$id\" method=\"post\" id=\"admin-update-admin-details\">";
                         echo "        <table>";
                         echo "            <div class=\"row\">";
                         echo "                <div class=\"col-lg-4 mb-2\">Admin id:</div>";
@@ -132,7 +132,7 @@
                         echo "            <div class=\"row\">";
                         echo "                <div class=\"col-lg-4 mb-2\">Admin email:</div>";
                         echo "                <div class=\"col-lg-4 mb-2\">";
-                        echo "                    <input type=\"email\" name=\"email\" id=\"email\" class=\"form-control\" placeholder=\"Email\" value=\"$email\" pattern=\"^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$\" required>";
+                        echo "                    <input type=\"email\" name=\"email\" id=\"email\" class=\"form-control\" placeholder=\"Email\" value=\"$email\" pattern=\"^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$\" required>";
                         echo "                </div>";
                         echo "            </div>";
                         echo "            <div class=\"row\">";
