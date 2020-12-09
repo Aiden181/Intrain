@@ -122,8 +122,8 @@
                         </th>
                     </table>
                 </div>
-                <br>
-                <div>
+                <div style="background-color: rgba(0,0,0,0.2);"><br></div>
+                <div style="background-color: rgba(0,0,0,0.2); padding-bottom: 30px;">
                     <tr>
                         <td>
                             <table width="95%" style="margin-left: auto; margin-right: auto;">
@@ -189,7 +189,7 @@
                 </div>
                 <br>
                 <br>
-                    <input type="submit" name="add-admin" class="btn" id="sign-up-btn" value="Add admin">
+                <input type="submit" name="add-admin" class="btn" id="sign-up-btn" value="Add admin">
                 </form>
             </div>
         </div>

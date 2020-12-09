@@ -21,8 +21,8 @@ $editEmailSuccess = $editPhoneSuccess = $editPasswordSuccess = true;
 $emailSuccess = $phoneSuccess = $passwordSuccess = "";
 
 // admin update accounts error variables
-$editFirstNameSuccess = $editLastNameSuccess = true;
-$lastNameSuccess = $firstNameSuccess = "";
+$editFirstNameSuccess = $editLastNameSuccess = $editFlagSuccess = true;
+$lastNameSuccess = $firstNameSuccess = $flagSuccess = "";
 
 // when a POST form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -328,11 +328,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $password_valid = true;
             }
         }
-
-        $flag = array();
-        $flag_string = "";
         
         // Validate flag
+        $flag_string = "";
         if (empty($_POST["flag"])) {
             $flagError = "Flag is required!";
         } else {
@@ -344,15 +342,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $flag_string .= $flag[$i];
                 }
                 // all flags selected, set flag string to root admin flag
-                if ($flag_string == "abcdefgh") {
+                if ($flag_string == ALL_FLAGS) {
                     $flag_string = ROOT_ADMIN;
                     $flag_valid = true;
                 }
                 // custom set of flags
                 else {
                     // check if each flag is in the flag list
-                    for ($i = 0; $i < sizeof($flag); $i++) {
-                        if (stristr(ALL_FLAGS, $flag[$i])) {
+                    for ($i = 0; $i < strlen($flag_string); $i++) {
+                        if (stristr(ALL_FLAGS, $flag_string[$i])) {
                             $flag_valid = true;
                         } else {
                             $flagError = "Invalid flag!";
@@ -595,20 +593,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Get id
         if (!empty($_GET["id"]) && isset($_GET["id"])) {
             $id =  test_input($_GET["id"]);
-            $first_name = $last_name = $email = $phone_number = $username = "";
-            if (isset($_POST['admin-update-customer-details']))
-                $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number`, `username` FROM `customer` WHERE id=?";
-            if (isset($_POST['admin-update-admin-details']))
-                $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number`, `username` FROM `admin` WHERE id=?";
-            
-            $db->query($sql, $id);
-            if ($db->numRows() > 0) {
-                $result = $db->fetchAll();
-                foreach ($result as $row) {
-                    $first_name = $row['first_name'];
-                    $last_name = $row['last_name'];
-                    $email = $row['email'];
-                    $phone_number = $row['phone_number'];
+            $first_name = $last_name = $email = $phone_number = $flag_string_old = "";
+            if (isset($_POST['admin-update-customer-details'])) {
+                $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number` FROM `customer` WHERE id=?";
+                $db->query($sql, $id);
+                if ($db->numRows() > 0) {
+                    $result = $db->fetchAll();
+                    foreach ($result as $row) {
+                        $first_name = $row['first_name'];
+                        $last_name = $row['last_name'];
+                        $email = $row['email'];
+                        $phone_number = $row['phone_number'];
+                    }
+                }
+            }
+            else if (isset($_POST['admin-update-admin-details'])) {
+                $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number`, `flag` FROM `admin` WHERE id=?";
+                $db->query($sql, $id);
+                if ($db->numRows() > 0) {
+                    $result = $db->fetchAll();
+                    foreach ($result as $row) {
+                        $first_name = $row['first_name'];
+                        $last_name = $row['last_name'];
+                        $email = $row['email'];
+                        $phone_number = $row['phone_number'];
+                        $flag_string_old = $row['flag'];
+                    }
                 }
             }
         }
@@ -752,6 +762,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         else if (!empty($_POST["renewpassword"]) && isset($_POST["renewpassword"])) {
             $passwordError = "Please enter your current and new password!";
             $editPasswordSuccess = false;
+        }
+
+        // Validate flag if is admin updating an admin's details
+        if (isset($_POST['admin-update-admin-details'])) {
+            $flag_string_new = "";
+            if (empty($_POST["flag"])) {
+                $flagSuccess = false;
+                $flagError = "Flag is required!";
+            } else {
+                // field not empty, check if data is not null
+                if (isset($_POST["flag"])) {
+                    // remove malicious characters and add each data to $flag array
+                    for ($i = 0; $i < sizeof($_POST["flag"]); $i++) {
+                        $flag[$i] = test_input($_POST["flag"][$i]);
+                        $flag_string_new .= $flag[$i];
+                    }
+                    if ($flag_string_new != $flag_string_old) {
+                        // all flags selected, set flag string to root admin flag
+                        if ($flag_string_new == ALL_FLAGS) {
+                            $flag_string_new = ROOT_ADMIN;
+                            $flagSuccess = "Flag updated.";
+                            $flag_valid = true;
+                        }
+                        // custom set of flags
+                        else {
+                            // check if each flag is in the flag list
+                            for ($i = 0; $i < strlen($flag_string_new); $i++) {
+                                if (stristr(ALL_FLAGS, $flag_string_new[$i])) {
+                                    $flagSuccess = "Flag updated.";
+                                    $flag_valid = true;
+                                } else {
+                                    $flagSuccess = false;
+                                    $flagError = "Invalid flag!";
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if ($flag_valid) {
+                $sql = "UPDATE `admin` SET `flag`=? WHERE id=?;";
+                $db->query($sql, $flag_string_new, $id);
+            }
         }
 
         if ($first_name_valid) {
