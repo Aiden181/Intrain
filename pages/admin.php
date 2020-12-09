@@ -30,48 +30,29 @@
     // Get accout information
     $last_name = $first_name = $email = $phone_number = $username = "";
     $username = $_SESSION['Admin'];
-    $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number` FROM `admin` WHERE username='$username'";
+    $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number` FROM `admin` WHERE username=?";
     
-    // run mysql query and store results to $result
-    if ($result = mysqli_query($conn, $sql)) {
-        // has at least 1 result
-        if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_array($result)) {
-                $last_name = $row['last_name'];
-                $first_name = $row['first_name'];
-                $email = $row['email'];
-                $phone_number = $row['phone_number'];
-            }
-
-            // Free result set (free up memory)
-            mysqli_free_result($result);
+    $db->query($sql, $username);
+    if ($db->numRows() > 0) {
+        $result = $db->fetchAll();
+        foreach ($result as $row) {
+            $last_name = $row['last_name'];
+            $first_name = $row['first_name'];
+            $email = $row['email'];
+            $phone_number = $row['phone_number'];
         }
     }
 
     // get total amount of admins
     // not using count(*) because can't echo $result
     $total_admins = $total_users = 0;
-    $sql = "SELECT * FROM `admin`";
-    if ($result = mysqli_query($conn, $sql)) {
-        // has at least 1 result
-        if (mysqli_num_rows($result) > 0) {
-            $total_admins = mysqli_num_rows($result);
-        }
+    $sql = "SELECT `id` FROM `admin`";
+    $db->query($sql);
+    $total_admins = $db->numRows();
 
-        // Free result set (free up memory)
-        mysqli_free_result($result);
-    }
-    
-    $sql = "SELECT * FROM `customer`";
-    if ($result = mysqli_query($conn, $sql)) {
-        // has at least 1 result
-        if (mysqli_num_rows($result) > 0) {
-            $total_users = mysqli_num_rows($result);
-        }
-
-        // Free result set (free up memory)
-        mysqli_free_result($result);
-    }
+    $sql = "SELECT `id` FROM `customer`";
+    $db->query($sql);
+    $total_users = $db->numRows();
     ?>
     
     <br>

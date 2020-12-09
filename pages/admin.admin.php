@@ -48,78 +48,78 @@
                     </ul>
                 </div>
             </div>
-
+            <?php
+            // loop through each character in admin flag string to check flag
+            $flags = $_SESSION['flag'];
+            for ($i = 0; $i < strlen($flags); $i++) {
+                // if flag is root or list admins
+                if ($flags[$i] === ROOT_ADMIN || $flags[$i] === LIST_ADMINS) {
+                    // select all from admin to get information
+                    $sql = "SELECT * FROM `admin`";
+                }
+                // not root or list admins
+                else {
+                    // only get id and username
+                    $sql = "SELECT `id`, `username` FROM `admin`";
+                }
+            }
+                
+            $db->query($sql);
+            ?>
             <!-- right column content -->
             <div class="column right" style="background-color: #3e3e3e; padding: 20px;">
                 <div class="page-header clearfix">
-                <?php
-                $sql = "SELECT * FROM `admin`";
-                // execute query and store results in $result
-                if ($result = mysqli_query($conn, $sql)) {
-                ?>
                 <table style="width: 100%; background-color: #565656; border: 2px solid white">
                     <th style="padding: 10px 10px 6px 10px; max-height: 100px;">
-                        <h5 class="pull-left" style="color: white; font-weight: bold">Admins (<?php echo mysqli_num_rows($result) ?>)</h2>
+                        <h5 class="pull-left" style="color: white; font-weight: bold">Admins (<?php echo $db->numRows(); ?>)</h2>
                     </th>
                 </table>
                 </div>
                 <br>
-                <?php
-                    if (mysqli_num_rows($result) > 0) {
-                ?>
-                    <table class="table table-hover table-striped">
-                            <thead>
-                                <tr id="table-headers" class="table-bordered">
-                                    <th>ID</th>
-                                    <th>Username</th>
-                                    <?php
-                                    // loop through each character in admin flag string to check flag
-                                    $flags = $_SESSION['flag'];
-                                    for ($i = 0; $i < strlen($flags); $i++) {
-                                        // if flag is root or list admins
-                                        if ($flags[$i] === ROOT_ADMIN || $flags[$i] === LIST_ADMINS) {
-                                            // show more information
-                                            echo "<th>Name</th>\n";
-                                            echo "<th>Email</th>\n";
-                                            echo "<th>Phone number</th>\n";
-                                            echo "<th>Flags</th>";
-                                        }
-                                    }
-                                    ?>
-                                </tr>
-                            </thead>
-                        <tbody>
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr id="table-headers" class="table-bordered">
+                            <th>ID</th>
+                            <th>Username</th>
+                            <?php
+                            // loop through each character in admin flag string to check flag
+                            $flags = $_SESSION['flag'];
+                            for ($i = 0; $i < strlen($flags); $i++) {
+                                // if flag is root or list admins
+                                if ($flags[$i] === ROOT_ADMIN || $flags[$i] === LIST_ADMINS) {
+                                    // show more information
+                                    echo "<th>Name</th>\n";
+                                    echo "<th>Email</th>\n";
+                                    echo "<th>Phone number</th>\n";
+                                    echo "<th>Flags</th>";
+                                }
+                            }
+                            ?>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <?php
-                        while ($row = mysqli_fetch_array($result)) {
+                        if ($db->numRows() > 0) {
+                            $result = $db->fetchAll();
+                            foreach ($result as $row) {
                                 echo "<tr class=\"info-row\" onclick=\"window.location='index.php?p=admin&c=admins&o=edit&id=" . $row['id'] . "'\">";
                                 echo "<td>" . $row['id'] . "</td>";
                                 echo "<td>" . $row['username'] . "</td>";
-                                // loop through each character in admin flag string to check flag
-                                $flags = $_SESSION['flag'];
-                                for ($i = 0; $i < strlen($flags); $i++) {
-                                    // if flag is root or list admins
-                                    if ($flags[$i] === ROOT_ADMIN || $flags[$i] === LIST_ADMINS) {
-                                        // show more information
-                                        echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
-                                        echo "<td>" . $row['email'] . "</td>";
-                                        echo "<td>" . $row['phone_number'] . "</td>";
-                                        echo "<td>" . $row['flag'] . "</td>";
-                                    }
+
+                                if ($_SESSION['flag'] === ROOT_ADMIN || stristr($_SESSION['flag'], LIST_ADMINS)) {
+                                    // show more information
+                                    echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
+                                    echo "<td>" . $row['email'] . "</td>";
+                                    echo "<td>" . $row['phone_number'] . "</td>";
+                                    echo "<td>" . $row['flag'] . "</td>";
                                 }
-                            echo "</tr>";
+                                echo "</tr>";
+                            }
+                            echo "</tbody>";
+                            echo "</table>";
                         }
-                    echo "</tbody>";
-                echo "</table>";
-                        // Free result set
-                        mysqli_free_result($result);
-                    } else {
-                        echo "<p class='lead'><em>No records were found.</em></p>";
-                    }
-                } else {
-                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-                }
-                echo "<br>";
-                ?>
+                        echo "<br>";
+                        ?>
             </div>
             <!-- end of right column content -->
         </div>

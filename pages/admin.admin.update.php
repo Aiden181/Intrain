@@ -54,37 +54,22 @@
                 $id =  test_input($_GET["id"]);
                 $last_name = $first_name = $email = $phone_number = $username = "";
                 $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number`, `username` FROM `admin` WHERE id=?";
-                // execute query and store results in $result
-                if ($stmt = $conn->prepare($sql)) {
-                    // Bind variables to the prepared statement as parameters
-                    $stmt->bind_param('i', $id);
-                    // execute query
-                    $stmt->execute();
-                    // store result in $result
-                    if ($result = $stmt->get_result()) {
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                $last_name = $row["last_name"];
-                                $first_name = $row["first_name"];
-                                $email = $row["email"];
-                                $phone_number = $row["phone_number"];
-                                $username = $row["username"];
-                            }
-                        }
-                        else {
-                            // no admin with id found, redirect to admin management page
-                            Header('Location: index.php?p=admin&c=admins');
-                            exit();
-                        }
+                // execute query
+                $db->query($sql, $id);
+                if ($db->numRows() > 0) {
+                    $result = $db->fetchAll();
+                    foreach ($result as $row) {
+                        $last_name = $row["last_name"];
+                        $first_name = $row["first_name"];
+                        $email = $row["email"];
+                        $phone_number = $row["phone_number"];
+                        $username = $row["username"];
                     }
-                    else {
-                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-                    }
-                    
-                    // Free memory
-                    $result->free_result();
-                    // Close statement
-                    $stmt->close();
+                }
+                else {
+                    // no admin with id found, redirect to admin management page
+                    Header('Location: index.php?p=admin&c=admins');
+                    exit();
                 }
             }
             else {

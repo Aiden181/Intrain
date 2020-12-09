@@ -32,26 +32,18 @@
             <?php
             $last_name = $first_name = $email = $phone_number = "";
             $username = $_SESSION['Admin'];
-            $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number` FROM `admin` WHERE username='$username'";
-            // execute query and store results in $result
-            if ($result = mysqli_query($conn, $sql)) {
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_array($result)) {
-                        $last_name = $row['last_name'];
-                        $first_name = $row['first_name'];
-                        $email = $row['email'];
-                        $phone_number = $row['phone_number'];
+            $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number` FROM `admin` WHERE username=?;";
+            // execute query
+            $db->query($sql, $username);
+            if ($db->numRows() > 0) {
+                $result = $db->fetchAll();
+                foreach ($result as $row) {
+                    $first_name = $row['first_name'];
+                    $email = $row['email'];
+                    $phone_number = $row['phone_number'];
                 }
-                } else {
-                    echo "<p><em>No records were found.</em></p>";
-                }
-                // Free result set
-                mysqli_free_result($result);
-            } else {
-                echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
             }
             ?>
-
             <div class="container" style="margin-left: auto; margin-right: auto; width: 80%; background-color: #3e3e3e; padding: 20px;">
                 <form action="index.php?p=admineditdetails" method="post" onsubmit="checkSignup(event)" id="admin-signup">
                     <table>
