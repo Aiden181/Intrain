@@ -24,6 +24,46 @@
 </head>
 
 <body>
+    <div class="container-sm">
+        <div class="row">
+            <!--Section 1 -->
+            <section class="col" id="first-section">
+                <h2><b>Seated Dumbbell Shrugs</b></h2>
+                <video src="<?php echo VID_LOCATION . '/Seated Dumbell Shrugs.mp4'?>" width="1000px" height="500px"
+                    controls></video>
+                <div class="container" id="content">
+                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Traps-Background.jpg' ?>" alt="">
+                    <div class="text-block" style="width: 350px; position: relative; bottom: 350px; left: 280px;">
+                        <ol id="instruction">
+                            <li>Sit on a chair or any thing higher than your back height with dumbbells in both hands,
+                                palms facing towards your body, back straight up.</li>
+                            <li>Lift your shoulders and hold at the highest point of the motion.
+                            </li>
+                            <li>Low your shoulders slowly and keep balance back to starting position.</li>
+                        </ol>
+                    </div>
+                </div>
+
+            </section>
+
+            <!--Section 2 -->
+            <section class="col">
+                <h2><b>Elevated Pike Press</b></h2>
+                <video src="<?php echo VID_LOCATION . '/Elevated Pike Press.mp4'?>" width="1000px" height="500px"
+                    controls></video>
+                <div class="container" id="last-section">
+                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Traps-Background.jpg' ?>" alt="">
+                    <div class="text-block" style="width: 320px; position: relative; bottom: 400px; left: 250px;">
+                        <ol id="instruction">
+                            <li>Use a bench or anything to support your feet off the ground.</li>
+                            <li>Lower your head as much as you can by using your elbows.</li>
+                            <li>Push hard to tense up your arms and neck to return to original position.</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 </body>
 
 </html>
