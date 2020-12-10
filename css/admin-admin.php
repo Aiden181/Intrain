@@ -138,9 +138,7 @@
     padding-right: 15px;
     text-decoration: none;
 }
-/* *********************************** */
-/* * End of admin list accounts page * */
-/* *********************************** */
+
 .info-row, .info-row td {
     font-size: 16px;
     color: white;
@@ -152,3 +150,19 @@
 /* *********************************** */
 /* * End of admin list accounts page * */
 /* *********************************** */
+
+
+.delete-button {
+  display: none;
+  opacity: 0;
+  width: 100%;
+  overflow: auto;
+  z-index: 1;
+}
+#dropdown:hover {
+  cursor: pointer;
+}
+.show {
+    display: block;
+    opacity: 1;
+}
