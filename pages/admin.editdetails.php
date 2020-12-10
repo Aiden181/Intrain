@@ -39,6 +39,7 @@
                 $result = $db->fetchAll();
                 foreach ($result as $row) {
                     $first_name = $row['first_name'];
+                    $last_name = $row['last_name'];
                     $email = $row['email'];
                     $phone_number = $row['phone_number'];
                 }
