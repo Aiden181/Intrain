@@ -64,18 +64,23 @@
                 <?php
                 // loop through each character in admin flag string to check flag
                 $flags = $_SESSION['flag'];
+                $shown_crud_admin = $shown_crud_customers = false;
                 for ($i = 0; $i < strlen($flags); $i++) {
                     // if flag is root or in CRUD admins list
-                    if ($flags[$i] === ROOT_ADMIN || stristr(CRUD_ADMINS, $flags[$i])) {
-                        // show manage admins
-                        echo "<th>Manage admins</th>";
-                        break;
+                    if (!$shown_crud_admin) {
+                        if ($flags[$i] == ROOT_ADMIN || stristr(CRUD_ADMINS, $flags[$i])) {
+                            // show manage admins
+                            echo "<th>Manage admins</th>";
+                            $shown_crud_admin = true;
+                        }
                     }
-                    // if flag is root or in CRUD customers list
-                    if ($flags[$i] === ROOT_ADMIN || stristr(CRUD_CUSTOMERS, $flags[$i])) {
-                        // show manage customers
-                        echo "<th>Manage customers</th>";
-                        break;
+                    if (!$shown_crud_customers) {
+                        // if flag is root or in CRUD customers list
+                        if ($flags[$i] == ROOT_ADMIN || stristr(CRUD_CUSTOMERS, $flags[$i])) {
+                            // show manage customers
+                            echo "<th>Manage customers</th>";
+                            $shown_crud_customers = true;
+                        }
                     }
                 }
                 ?>
@@ -93,7 +98,7 @@
                 </td>
                 
                 <?php
-                if ($_SESSION['flag'] === ROOT_ADMIN || stristr($_SESSION['flag'], CRUD_ADMINS)) {
+                if ($_SESSION['flag'] == ROOT_ADMIN || stristr($_SESSION['flag'], CRUD_ADMINS)) {
                     // Manage admin table cells
                     echo "<td style=\"text-align: center;\">\n";
                     echo "    <a href=\"index.php?p=admin&c=admins\">\n";
@@ -105,7 +110,7 @@
                     echo "</td>\n";
                     echo "\n";
                 }
-                if ($_SESSION['flag'] === ROOT_ADMIN || stristr($_SESSION['flag'], CRUD_CUSTOMERS)) {
+                if ($_SESSION['flag'] == ROOT_ADMIN || stristr($_SESSION['flag'], CRUD_CUSTOMERS)) {
                     // Manage customers table cells
                     echo "<td style=\"text-align: center;\">\n";
                     echo "    <a href=\"index.php?p=admin&c=users\">\n";
