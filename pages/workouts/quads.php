@@ -49,7 +49,7 @@
 
             <!--Section 2 -->
             <section class="col">
-                <h2><b>Forward Lunges</b></h2>
+                <h2 style="padding-top: 100px;"><b>Forward Lunges</b></h2>
                 <video src="<?php echo VID_LOCATION . '/Forward Lunges.mp4'?>" width="1000px" height="500px"
                     controls></video>
                 <div class="container" id="content">
@@ -69,7 +69,7 @@
 
             <!--Section 3 -->
             <section class="col">
-                <h2><b>Bulgarian Split Squat</b></h2>
+                <h2 style="padding-top: 100px;"><b>Bulgarian Split Squat</b></h2>
                 <video src="<?php echo VID_LOCATION . '/Bulgarian Split Squat.mp4'?>" width="1000px"
                     height="500px" controls></video>
                 <div class="container" id="last-section">

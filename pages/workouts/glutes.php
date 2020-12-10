@@ -33,7 +33,7 @@
                     controls></video>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Glute-Background.jpg' ?>" alt="">
-                    <div class="text-block" style="width: 350px; position: relative; bottom: 350px; left: 280px;">
+                    <div class="text-block" style="width: 350px; position: relative; bottom: 350px; left: 30px;">
                         <ol id="instruction">
                             <li>Laying flat on the floor with your knees bent in and feet firmly touching the floor.
                             </li>
