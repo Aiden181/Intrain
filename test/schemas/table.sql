@@ -1,7 +1,6 @@
 
-CREATE DATABASE intrain_test;
-
-USE intrain_test;
+-- CREATE DATABASE IF NOT EXISTS `intrain_test`;
+-- USE `intrain_test`;
 
 DROP TABLE IF EXISTS `customer`;
 DROP TABLE IF EXISTS `admin`;
@@ -47,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 -- add root admin
 INSERT INTO `admin`
 (`id`, `last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) VALUES 
-(1, 'lastroot', 'firstroot', 'root@root.com', '0907654321','root', PASSWORD('1ntrainr00t!'), 'z');
+(1, 'lastroot', 'firstroot', 'root@root.com', '0907654321','root1', PASSWORD('1ntrainr00t!'), 'z');
 
 -- add customer
 INSERT INTO `customer`(`id`, `last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) 
