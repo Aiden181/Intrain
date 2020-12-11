@@ -222,6 +222,17 @@
                         echo "                        <td class=\"tablerow\">Delete Admins</td>";
                         echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" id=\"p12\" value=\"h\""; if (stristr($flag, 'h') || $flag == 'z') { echo "checked"; } echo "></td>";
                         echo "                    </tr>";
+                        echo "                    <!-- add space between sections -->\n";
+                        echo "                    <tr><td style=\"visibility: hidden;\">a</td></tr>\n";
+                        echo "                    <tr>\n";
+                        echo "                        <td colspan=\"2\" class=\"tableheader\">Database</td>\n";
+                        echo "                        <td class=\"tableheader\"><input type=\"checkbox\" id=\"p13\" onclick=\"UpdateCheckBox(13, 14, 14);\" value=\"\""; if ($flag == 'z' || stristr($flag, 'x')) { echo "checked"; } echo "></td>";
+                        echo "                    </tr>\n";
+                        echo "                    <tr class=\"tablerow\">\n";
+                        echo "                        <td width=\"15%\"> </td>\n";
+                        echo "                        <td class=\"tablerow\">Test database</td>\n";
+                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" id=\"p14\" value=\"x\""; if (stristr($flag, 'x') || $flag == 'z') { echo "checked"; } echo "></td>";
+                        echo "                    </tr>";
                         echo "                </tbody>";
                         echo "            </table>";
                         echo "        </td>";

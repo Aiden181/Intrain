@@ -130,7 +130,7 @@
                                 <tbody>
                                     <tr>
                                         <td colspan="2" class="tablerow-root">Root Admin (Full Admin Access)</td>
-                                        <td class="tablerow-root"><input type="checkbox" id="p2" onclick="UpdateCheckBox(2, 3, 12);" value=""></td>
+                                        <td class="tablerow-root"><input type="checkbox" id="p2" onclick="UpdateCheckBox(2, 3, 14);" value=""></td>
                                     </tr>
                                     <tr class="tableheader">
                                         <td colspan="2" class="tableheader">Manage Customers </td>
@@ -181,6 +181,17 @@
                                         <td width="15%">&nbsp;</td>
                                         <td class="tablerow">Delete Admins</td>
                                         <td class="tablerow"><input type="checkbox" name="flag[]" id="p12" value="h"></td>
+                                    </tr>
+                                    <!-- add space between sections -->
+                                    <tr><td style="visibility: hidden;">a</td></tr>
+                                    <tr>
+                                        <td colspan="2" class="tableheader">Database</td>
+                                        <td class="tableheader"><input type="checkbox" id="p13" onclick="UpdateCheckBox(13, 14, 14);" value=""></td>
+                                    </tr>
+                                    <tr class="tablerow">
+                                        <td width="15%">&nbsp;</td>
+                                        <td class="tablerow">Test database</td>
+                                        <td class="tablerow"><input type="checkbox" name="flag[]" id="p14" value="x"></td>
                                     </tr>
                                 </tbody>
                             </table>
