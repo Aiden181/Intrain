@@ -39,7 +39,7 @@
                         $flags = $_SESSION['flag'];
                         for ($i = 0; $i < strlen($flags); $i++) {
                             // if flag is root or add admins
-                            if ($flags[$i] === ROOT_ADMIN || $flags[$i] === ADD_ADMINS) {
+                            if ($flags[$i] == ROOT_ADMIN || $flags[$i] == ADD_ADMINS) {
                                 echo "<li><a href=\"index.php?p=admin&c=admins&o=create\"> Add new admin</a></li>";
                                 break;
                             }
@@ -49,21 +49,7 @@
                 </div>
             </div>
             <?php
-            // loop through each character in admin flag string to check flag
-            $flags = $_SESSION['flag'];
-            for ($i = 0; $i < strlen($flags); $i++) {
-                // if flag is root or list admins
-                if ($flags[$i] === ROOT_ADMIN || $flags[$i] === LIST_ADMINS) {
-                    // select all from admin to get information
-                    $sql = "SELECT * FROM `admin`";
-                }
-                // not root or list admins
-                else {
-                    // only get id and username
-                    $sql = "SELECT `id`, `username` FROM `admin`";
-                }
-            }
-                
+            $sql = "SELECT * FROM `admin`";
             $db->query($sql);
             ?>
             <!-- right column content -->
@@ -86,12 +72,13 @@
                             $flags = $_SESSION['flag'];
                             for ($i = 0; $i < strlen($flags); $i++) {
                                 // if flag is root or list admins
-                                if ($flags[$i] === ROOT_ADMIN || $flags[$i] === LIST_ADMINS) {
+                                if ($flags[$i] == ROOT_ADMIN || $flags[$i] == LIST_ADMINS) {
                                     // show more information
                                     echo "<th>Name</th>\n";
                                     echo "<th>Email</th>\n";
                                     echo "<th>Phone number</th>\n";
                                     echo "<th>Flags</th>";
+                                    break;
                                 }
                             }
                             ?>
@@ -106,7 +93,7 @@
                                 echo "<td>" . $row['id'] . "</td>";
                                 echo "<td>" . $row['username'] . "</td>";
 
-                                if ($_SESSION['flag'] === ROOT_ADMIN || stristr($_SESSION['flag'], LIST_ADMINS)) {
+                                if ($_SESSION['flag'] == ROOT_ADMIN || stristr($_SESSION['flag'], LIST_ADMINS)) {
                                     // show more information
                                     echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
                                     echo "<td>" . $row['email'] . "</td>";
