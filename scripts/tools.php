@@ -59,8 +59,8 @@ function prePrintArray($arr, $returnAsString=false ) {
 // prePrintArray($_FILES);
 // echo '$_GET array';
 // prePrintArray($_GET);
-echo '$_POST array';
-prePrintArray($_POST);
-echo '$_SESSION array';
-prePrintArray($_SESSION);
+// echo '$_POST array';
+// prePrintArray($_POST);
+// echo '$_SESSION array';
+// prePrintArray($_SESSION);
 ?>
