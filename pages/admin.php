@@ -152,6 +152,25 @@
                 <td>Total customer accounts: <?php echo $total_users; ?></td>
             </tr>
         </table>
+        <?php
+        // loop through each character in admin flag string to check flag
+        if (stristr($_SESSION['flag'], ROOT_ADMIN) || stristr($_SESSION['flag'], TEST_DATABASE)) {
+            echo "<p></p>";
+            echo "<table style=\"margin-left: auto; margin-right: auto; width:100%; text-align: center;\">";
+            echo "    <tr>";
+            echo "        <th style=\"border: none;\">Test database</th>";
+            echo "    </tr>";
+            echo "    <tr>";
+            //Test database table cell
+            echo "        <td>";
+            echo "            <a href=\"index.php?p=admin&c=database\">";
+            echo "                <i class=\"fa fa-database\" id=\"database-icon\" aria-hidden=\"true\"></i>";
+            echo "            </a>";
+            echo "        </td>";
+            echo "    </tr>";
+            echo "</table>";
+        }
+        ?>
     </div>
 
     <br>

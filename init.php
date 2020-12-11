@@ -31,6 +31,8 @@ define('URL_FORMAT', "/^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2
 // --------------------- //
 // root admin, have all powers
 define('ROOT_ADMIN', "z");
+// test database admin
+define('TEST_DATABASE', "x");
 // CRUD users
 define('LIST_CUSTOMERS', "a");
 define('ADD_CUSTOMERS', "b");
@@ -44,7 +46,7 @@ define('EDIT_ADMINS', "g");
 define('DELETE_ADMINS', "h");
 define('CRUD_ADMINS', LIST_ADMINS.ADD_ADMINS.EDIT_ADMINS.DELETE_ADMINS);
 // all flags
-define('ALL_FLAGS', LIST_CUSTOMERS.ADD_CUSTOMERS.EDIT_CUSTOMERS.DELETE_CUSTOMERS.LIST_ADMINS.ADD_ADMINS.EDIT_ADMINS.DELETE_ADMINS);
+define('ALL_FLAGS', TEST_DATABASE.LIST_CUSTOMERS.ADD_CUSTOMERS.EDIT_CUSTOMERS.DELETE_CUSTOMERS.LIST_ADMINS.ADD_ADMINS.EDIT_ADMINS.DELETE_ADMINS);
 
 
 // ----------------- //

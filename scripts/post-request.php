@@ -24,6 +24,9 @@ $emailSuccess = $phoneSuccess = $passwordSuccess = "";
 $editFirstNameSuccess = $editLastNameSuccess = $editFlagSuccess = true;
 $lastNameSuccess = $firstNameSuccess = $flagSuccess = "";
 
+// database test page message
+$testSuccessMsg = "";
+
 // when a POST form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ------------------------------------ //
@@ -870,5 +873,75 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ---------------------------------------- //
     // --- END OF ADMIN DELETE USER SECTION --- //
     // ---------------------------------------- //
+    
+    // -------------------------------- //
+    // --- DATABASE TESTING SECTION --- //
+    // -------------------------------- //
+    else if (isset($_POST['database-test'])) {
+        $testdb = new PDO("mysql:host=localhost;port=3306;", $user, $pass);
+
+        if (!$stmt = $testdb->prepare("CREATE DATABASE IF NOT EXISTS intrain_test")) {
+            prePrintArray($testdb->errorInfo());
+        }
+        if (!$stmt->execute()) {
+            echo "\ntable.sql PDO::errorInfo():\n";
+            prePrintArray($stmt->errorInfo());
+        }
+
+        if (!$stmt = $testdb->prepare("USE intrain_test")) {
+            prePrintArray($testdb->errorInfo());
+        }
+        if (!$stmt->execute()) {
+            echo "\ntable.sql PDO::errorInfo():\n";
+            prePrintArray($stmt->errorInfo());
+        }
+
+        // works not with the following set to 0. You can comment this line as 1 is default
+        $testdb->setAttribute(PDO::ATTR_EMULATE_PREPARES, 1);
+
+        $sql = file_get_contents("./test/schemas/table.sql");
+        if (!$stmt = $testdb->prepare($sql)) {
+            prePrintArray($testdb->errorInfo());
+        }
+        if (!$stmt->execute()) {
+            echo "\ntable.sql PDO::errorInfo():\n";
+            prePrintArray($stmt->errorInfo());
+        }
+
+        $sql = file_get_contents("./test/schemas/insert.sql");
+        if (!$stmt = $testdb->prepare($sql)) {
+            prePrintArray($testdb->errorInfo());
+        }
+        if (!$stmt->execute()) {
+            echo "\ninsert.sql query PDO::errorInfo():\n";
+            prePrintArray($stmt->errorInfo());
+        }
+
+        $sql = file_get_contents("./test/schemas/update.sql");
+        if (!$stmt = $testdb->prepare($sql)) {
+            prePrintArray($testdb->errorInfo());
+        }
+        if (!$stmt->execute()) {
+            echo "\nupdate.sql query PDO::errorInfo():\n";
+            prePrintArray($stmt->errorInfo());
+        }
+
+        $sql = file_get_contents("./test/schemas/delete.sql");
+        if (!$stmt = $testdb->prepare($sql)) {
+            prePrintArray($testdb->errorInfo());
+        }
+        if (!$stmt->execute()) {
+            echo "\ndelete.sqlPDO::errorInfo():\n";
+            prePrintArray($stmt->errorInfo());
+        }
+
+        // test finished, close connection
+        $testdb=null;
+
+        $testSuccessMsg = "<h1 style='font-weight: bold;'>Tests ran successfully!</h1>";
+    }
+    // --------------------------------------- //
+    // --- END OF DATABASE TESTING SECTION --- //
+    // --------------------------------------- //
 }
 ?>

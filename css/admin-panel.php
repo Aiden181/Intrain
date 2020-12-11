@@ -52,3 +52,8 @@ tr > td {
 #admin-icon {
     color: cyan;
 }
+
+#database-icon {
+    font-size: 80px;
+    color: white;
+}

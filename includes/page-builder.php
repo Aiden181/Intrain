@@ -105,6 +105,9 @@ else if (isset($_GET['c'])) {
         case "users":
             $page = PAGES_PATH . "/admin.user.php";
             break;
+        case "database":
+            $page = PAGES_PATH . "/database-test.php";
+            break;
         default:
             $page = PAGES_PATH . "/admin.php";
             $_GET['p'] = "admin";
