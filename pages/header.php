@@ -42,20 +42,26 @@
             // drop-down menu items
             echo "<div class=\"dropdown-menu\">";
             echo "<a class=\"dropdown-item\" href=\"index.php?p=admineditdetails\">Edit account details</a>";
+            
             // loop through each character in admin flag string to check flag
             $flags = $_SESSION['flag'];
+            $shown_crud_admin = $shown_crud_customers = false;
             for ($i = 0; $i < strlen($flags); $i++) {
-                // if flag is root or in CRUD customers
-                if ($flags[$i] === ROOT_ADMIN || stristr(CRUD_CUSTOMERS, $flags[$i])) {
-                    // show "Manage customer" in list
-                    echo "<a class=\"dropdown-item\" href=\"index.php?p=admin&c=users\">Manage customers</a>";
-                    break;
+                // if flag is root or in CRUD admins list
+                if (!$shown_crud_admin) {
+                    if ($flags[$i] == ROOT_ADMIN || stristr(CRUD_ADMINS, $flags[$i])) {
+                        // show "Manage admin" in list
+                        echo "<a class=\"dropdown-item\" href=\"index.php?p=admin&c=admins\">Manage admins</a>";
+                        $shown_crud_admin = true;
+                    }
                 }
-                // if flag is root or in CRUD admins
-                if ($flags[$i] === ROOT_ADMIN || stristr(CRUD_ADMINS, $flags[$i])) {
-                    // show "Manage admin" in list
-                    echo "<a class=\"dropdown-item\" href=\"index.php?p=admin&c=admins\">Manage admins</a>";
-                    break;
+                if (!$shown_crud_customers) {
+                    // if flag is root or in CRUD customers list
+                    if ($flags[$i] == ROOT_ADMIN || stristr(CRUD_CUSTOMERS, $flags[$i])) {
+                        // show "Manage customer" in list
+                        echo "<a class=\"dropdown-item\" href=\"index.php?p=admin&c=users\">Manage customers</a>";
+                        $shown_crud_customers = true;
+                    }
                 }
             }
             echo "</div>";
