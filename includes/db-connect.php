@@ -72,4 +72,18 @@ $db->query($sql);
 $sql = "ALTER TABLE `admin` MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;";
 $db->query($sql);
 
+
+// add admins with other flags for debug
+$sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) 
+VALUES ('last', 'first', 'email@mail.com', '0900000000','admin_db', PASSWORD('12345'), 'x') ON DUPLICATE KEY UPDATE username=username;";
+$db->query($sql);
+$sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) 
+VALUES ('last', 'first', 'email@mail.com', '0900000000','admin_ccust', PASSWORD('12345'), 'abcd') ON DUPLICATE KEY UPDATE username=username;";
+$db->query($sql);
+$sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) 
+VALUES ('last', 'first', 'email@mail.com', '0900000000','admin_cadmin', PASSWORD('12345'), 'efgh') ON DUPLICATE KEY UPDATE username=username;";
+$db->query($sql);
+$sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) 
+VALUES ('last', 'first', 'email@mail.com', '0900000000','admin_custom1', PASSWORD('12345'), 'abcefg') ON DUPLICATE KEY UPDATE username=username;";
+$db->query($sql);
 ?>
