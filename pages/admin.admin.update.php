@@ -272,21 +272,25 @@
                     
                     // if flag is root or delete admins
                     if ($flags[$i] === ROOT_ADMIN || $flags[$i] === DELETE_ADMINS) {
-                        echo "<div class=\"page-header\" style=\"background: rgba(0,0,0, 0.25);\">";
-                        echo "    <table style=\"width: 100%; background-color: rgba(255,25,25); border: 2px solid white\">";
-                        echo "        <th id=\"dropdown\" onclick=\"showButton()\" style=\"padding: 10px 10px 6px 10px; max-height: 100px;\">";
-                        echo "            <h5 class=\"pull-left\" style=\"color: white; font-weight: bold\">Danger zone</h2>";
-                        echo "        </th>";
-                        echo "    </table>";
-                        echo "    <p class=\"delete-button\"></p>";
-                        echo "    <table class=\"delete-button\">";
-                        echo "        <th style=\"padding: 0 0 0 10px;\">";
-                        echo "            <form action=\"index.php?p=admin&c=admins&o=edit&id=$id\" method=\"post\">";
-                        echo "                <button type=\"button\" class=\"delete-user-button\" name=\"delete-user\" onclick=\"confirmDeleteUser(event)\" value=\"Delete user\">Delete user</button>";
-                        echo "            </form>";
-                        echo "        </th>";
-                        echo "    </table>";
-                        echo "</div>";
+                        // don't show delete section to logged in admin 
+                        // to prevent current logged in admin from deleting themselves
+                        if ($_SESSION['Admin'] != $username) {
+                            echo "<div class=\"page-header\" style=\"background: rgba(0,0,0, 0.25);\">";
+                            echo "    <table style=\"width: 100%; background-color: rgba(255,25,25); border: 2px solid white\">";
+                            echo "        <th id=\"dropdown\" onclick=\"showButton()\" style=\"padding: 10px 10px 6px 10px; max-height: 100px;\">";
+                            echo "            <h5 class=\"pull-left\" style=\"color: white; font-weight: bold\">Danger zone</h2>";
+                            echo "        </th>";
+                            echo "    </table>";
+                            echo "    <p class=\"delete-button\"></p>";
+                            echo "    <table class=\"delete-button\">";
+                            echo "        <th style=\"padding: 0 0 0 10px;\">";
+                            echo "            <form action=\"index.php?p=admin&c=admins&o=edit&id=$id\" method=\"post\">";
+                            echo "                <button type=\"button\" class=\"delete-user-button\" name=\"delete-user\" onclick=\"confirmDeleteUser(event)\" value=\"Delete user\">Delete user</button>";
+                            echo "            </form>";
+                            echo "        </th>";
+                            echo "    </table>";
+                            echo "</div>";
+                        }
                     }
                 }
                 ?>
