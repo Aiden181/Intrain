@@ -212,9 +212,25 @@ if (!empty($page)) {
                 }
             }
             
+            // deny access to database automation testing page if flag 
+            // doesn't have TEST_DATABASE flag
+            if (!stristr($_SESSION['flag'], TEST_DATABASE)) {
+                if (isset($_GET['c'])) {
+                    $_GET['c'] = test_input($_GET['c']);
+                    if ($_GET['c'] == "database") {
+                        $page = PAGES_PATH . "/admin.php";
+                        $_GET['p'] = "admin";
+                        Header("Location: index.php?p=admin");
+                        die();
+                    }
+                }
+            }
+            
             if (isset($_GET['c']) && isset($_GET['o'])) {
                 $_GET['c'] = test_input($_GET['c']);
                 $_GET['o'] = test_input($_GET['o']);
+                // deny access to customer management pages if flag doesn't 
+                // have create customers flag
                 if ($_GET['c'] == "users" && $_GET['o'] == "create") {
                     if (!stristr($_SESSION['flag'], ADD_CUSTOMERS)) {
                         $page = PAGES_PATH . "/admin.php";
@@ -223,6 +239,8 @@ if (!empty($page)) {
                         die();
                     }
                 }
+                // deny access to customer management pages if flag doesn't 
+                // have create admins flag
                 else if ($_GET['c'] == "admins" && $_GET['o'] == "create") {
                     if (!stristr($_SESSION['flag'], ADD_ADMINS)) {
                         $page = PAGES_PATH . "/admin.php";
