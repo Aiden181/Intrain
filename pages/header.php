@@ -7,8 +7,8 @@
 
 <!--Navigation Bar-->
 <nav class="navbar navbar-expand-sm">
-    <div class="container">
-        <div class="navbar-nav">
+    <div class="container" style="min-width: 80%">
+        <div class="navbar-nav row">
             <a class="nav-item nav-link active" href="index.php?p=about">About</a>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
