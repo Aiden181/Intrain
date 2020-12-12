@@ -28,7 +28,7 @@ $sql = "CREATE TABLE IF NOT EXISTS `customer` (
     `email` VARCHAR(64) NOT NULL,
     `phone_number` VARCHAR(32) NOT NULL,
     `username` VARCHAR(32) NOT NULL UNIQUE,
-    `password` VARCHAR(128) NOT NULL,
+    `password` VARCHAR(255) NOT NULL,
     PRIMARY KEY (`id`)
 )";
 $db->query($sql);
@@ -51,7 +51,7 @@ $sql = "CREATE TABLE IF NOT EXISTS `admin` (
     `email` VARCHAR(64) NOT NULL,
     `phone_number` VARCHAR(32) NOT NULL,
     `username` VARCHAR(32) NOT NULL UNIQUE,
-    `password` VARCHAR(128) NOT NULL,
+    `password` VARCHAR(255) NOT NULL,
     `flag` VARCHAR(16) NOT NULL,
     PRIMARY KEY (`id`)
 )";
@@ -59,12 +59,16 @@ $db->query($sql);
 
 
 // automatically add root admin
-$sql = "INSERT INTO `admin`(`id`, `last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) VALUES (1, '', '', '', '','root', PASSWORD('1ntrainr00t!'), 'z') ON DUPLICATE KEY UPDATE username=username;";
-$db->query($sql);
+$rootpasswd = password_hash("1ntrainr00t!", PASSWORD_DEFAULT);
+$passwd = password_hash("12345", PASSWORD_DEFAULT);
+
+
+$sql = "INSERT INTO `admin`(`id`, `last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) VALUES (1, '', '', '', '','root', ?, 'z') ON DUPLICATE KEY UPDATE username=username;";
+$db->query($sql, $rootpasswd);
 
 // add a user for debug
-$sql = "INSERT INTO `customer`(`id`, `last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) VALUES (1, 'john', 'doe', 'john.doe@ahamail.com', '0901234567','user1', PASSWORD('12345')) ON DUPLICATE KEY UPDATE username=username;";
-$db->query($sql);
+$sql = "INSERT INTO `customer`(`id`, `last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) VALUES (1, 'john', 'doe', 'john.doe@ahamail.com', '0901234567','user1', ?) ON DUPLICATE KEY UPDATE username=username;";
+$db->query($sql, $passwd);
 
 $sql = "ALTER TABLE `customer` MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;";
 $db->query($sql);
@@ -75,15 +79,15 @@ $db->query($sql);
 
 // add admins with other flags for debug
 $sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) 
-VALUES ('last', 'first', 'email@mail.com', '0900000000','admin_db', PASSWORD('12345'), 'x') ON DUPLICATE KEY UPDATE username=username;";
-$db->query($sql);
+VALUES ('last', 'first', 'email@mail.com', '0900000000','admin_db', ?, 'x') ON DUPLICATE KEY UPDATE username=username;";
+$db->query($sql, $passwd);
 $sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) 
-VALUES ('last', 'first', 'email@mail.com', '0900000000','admin_ccust', PASSWORD('12345'), 'abcd') ON DUPLICATE KEY UPDATE username=username;";
-$db->query($sql);
+VALUES ('last', 'first', 'email@mail.com', '0900000000','admin_ccust', ?, 'abcd') ON DUPLICATE KEY UPDATE username=username;";
+$db->query($sql, $passwd);
 $sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) 
-VALUES ('last', 'first', 'email@mail.com', '0900000000','admin_cadmin', PASSWORD('12345'), 'efgh') ON DUPLICATE KEY UPDATE username=username;";
-$db->query($sql);
+VALUES ('last', 'first', 'email@mail.com', '0900000000','admin_cadmin', ?, 'efgh') ON DUPLICATE KEY UPDATE username=username;";
+$db->query($sql, $passwd);
 $sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) 
-VALUES ('last', 'first', 'email@mail.com', '0900000000','admin_custom1', PASSWORD('12345'), 'abcefg') ON DUPLICATE KEY UPDATE username=username;";
-$db->query($sql);
+VALUES ('last', 'first', 'email@mail.com', '0900000000','admin_custom1', ?, 'abcefg') ON DUPLICATE KEY UPDATE username=username;";
+$db->query($sql, $passwd);
 ?>
