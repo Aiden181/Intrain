@@ -49,8 +49,12 @@
                 </div>
             </div>
             <?php
-            // select all from admin to get information
-            $sql = "SELECT * FROM `customer`";    
+            if (stristr($_SESSION['flag'], ROOT_ADMIN) ||  stristr($_SESSION['flag'], LIST_CUSTOMERS)) {
+                $sql = "SELECT * FROM `customer`";
+            }
+            else {
+                $sql = "SELECT `id`, `username` FROM `customer`";
+            }
             $db->query($sql);
             ?>
             <!-- right column content -->
@@ -69,17 +73,11 @@
                                 <th>ID</th>
                                 <th>Username</th>
                                 <?php
-                                // loop through each character in admin flag string to check flag
-                                $flags = $_SESSION['flag'];
-                                for ($i = 0; $i < strlen($flags); $i++) {
-                                    // if flag is root or list customers
-                                    if ($flags[$i] === ROOT_ADMIN || $flags[$i] === LIST_CUSTOMERS) {
-                                        // show more information
-                                        echo "<th>Name</th>\n";
-                                        echo "<th>Email</th>\n";
-                                        echo "<th>Phone number</th>\n";
-                                        break;
-                                    }
+                                if (stristr($_SESSION['flag'], ROOT_ADMIN) ||  stristr($_SESSION['flag'], LIST_CUSTOMERS)) {
+                                    // show more information
+                                    echo "<th>Name</th>\n";
+                                    echo "<th>Email</th>\n";
+                                    echo "<th>Phone number</th>\n";
                                 }
                                 ?>
                             </tr>
@@ -93,7 +91,7 @@
                                 echo "<td>" . $row['id'] . "</td>";
                                 echo "<td>" . $row['username'] . "</td>";
 
-                                if ($_SESSION['flag'] === ROOT_ADMIN || stristr($_SESSION['flag'], LIST_CUSTOMERS)) {
+                                if (stristr($_SESSION['flag'], ROOT_ADMIN) || stristr($_SESSION['flag'], LIST_CUSTOMERS)) {
                                     // show more information
                                     echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
                                     echo "<td>" . $row['email'] . "</td>";
