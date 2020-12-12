@@ -2,6 +2,11 @@
     header("Content-type: text/css");
 ?>
 
+/* footer spacing */
+footer {
+    margin-top: 300px;
+}
+
 .column {
   float: left;
 }
@@ -61,6 +66,121 @@
 }
 #admin-page-menu ul li.active {}
 
+/* ********************************** */
+/* * Admin list admin accounts page * */
+/* ********************************** */
+.section-header {
+    width: 100%;
+    background-color: #565656;
+    border: 2px solid white;
+}
+
+.info-row, .info-row td {
+    font-size: 16px;
+    color: white;
+}
+.info-row:hover {
+    color:white;
+    cursor: pointer;
+}
+
+.advanced-search {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    background-color: rgba(0,0,0,0.4);
+    text-align: center;
+    cursor: pointer;
+}
+
+.advanced-search:hover {
+}
+
+.advanced-search th {
+    padding: 10px 10px 6px 10px;
+    text-align: center;
+    color: white;
+    font-size: 
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.search-checkbox {
+    position: relative;
+    top: 10px;
+}
+
+.search-input {
+    float: left;
+    font-size: 16px;
+    height: 95%;
+    width: 130%;
+    padding: 5px 10px 5px 10px;
+    border: 0px solid;
+    border-radius: 5px;
+}
+
+.search-btn {
+    background-color: green;
+    color: white;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0px solid;
+    border-radius: 5px;
+    position: relative;
+    right: 10px;
+}
+
+.search-form {
+    position: relative;
+    left: 10px;
+    font-size: 18px;
+    display: none;
+    opacity: 0;
+    z-index: 1;
+}
+
+/* animated drop down for search form */
+.hideform {
+    display: none;
+    animation-name: hide-form;
+    animation-duration: 200ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.showform {
+    display: block;
+    animation-name: show-form;
+    animation-duration: 200ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hide-form {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes show-form {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* end of animated drop down code */
+/* ***************************************** */
+/* * End of admin list admin accounts page * */
+/* ***************************************** */
+
 
 /* ***************************** */
 /* * Admin create account page * */
@@ -107,7 +227,9 @@
 /* ************************************ */
 
 
-/* Admin edit account details page */
+/* *********************************** */
+/* * Admin edit account details page * */
+/* *********************************** */
 #admin-panel-button {
     float: right;
     display: inline;
@@ -138,20 +260,14 @@
     padding-right: 15px;
     text-decoration: none;
 }
+/* ****************************************** */
+/* * End of admin edit account details page * */
+/* ****************************************** */
 
-.info-row, .info-row td {
-    font-size: 16px;
-    color: white;
-}
-.info-row:hover {
-    color:white;
-    cursor: pointer;
-}
+
 /* *********************************** */
-/* * End of admin list accounts page * */
+/* * Admin edit account details page * */
 /* *********************************** */
-
-
 .delete-button {
   display: none;
   opacity: 0;
@@ -166,8 +282,6 @@
     display: block;
     opacity: 1;
 }
-
-/* footer spacing */
-footer {
-    margin-top: 300px;
-}
+/* ****************************************** */
+/* * End of admin edit account details page * */
+/* ****************************************** */

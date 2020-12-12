@@ -139,4 +139,19 @@
             delButtonOpen.classList.toggle("show");
         }
     }
+
+    // toggle search form in admin's admin and customer listing page
+    function toggleSearchSection() {
+        var formElms = document.getElementsByClassName("search-form");
+        for (i = 0; i < formElms.length; i++) {
+            var form = formElms[i];
+            if (form.classList.contains("showform")) {
+                form.classList.remove("showform");
+                form.classList.add("hideform");
+            } else {
+                form.classList.remove("hideform");
+                form.classList.add("showform");
+            }
+        }
+    }
 </script>
