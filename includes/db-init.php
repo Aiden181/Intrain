@@ -72,13 +72,11 @@ $db->query($sql);
 
 // automatically add root admin
 $rootpasswd = password_hash("1ntrainr00t!", PASSWORD_DEFAULT);
-$passwd = password_hash("12345", PASSWORD_DEFAULT);
-
-
 $sql = "INSERT INTO `admin`(`id`, `last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) VALUES (1, '', '', '', '','root', ?, 'z') ON DUPLICATE KEY UPDATE username=username;";
 $db->query($sql, $rootpasswd);
 
 // add a user for debug
+$passwd = password_hash("12345", PASSWORD_DEFAULT);
 $sql = "INSERT INTO `customer`(`id`, `last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) VALUES (1, 'john', 'doe', 'john.doe@ahamail.com', '0901234567','user1', ?) ON DUPLICATE KEY UPDATE username=username;";
 $db->query($sql, $passwd);
 
@@ -92,14 +90,18 @@ $db->query($sql);
 // add admins with other flags for debug
 $sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) 
 VALUES ('last', 'first', 'email@mail.com', '0900000000','admin_db', ?, 'x') ON DUPLICATE KEY UPDATE username=username;";
+$passwd = password_hash("12345", PASSWORD_DEFAULT);
 $db->query($sql, $passwd);
 $sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) 
 VALUES ('last', 'first', 'email@mail.com', '0900000000','admin_ccust', ?, 'abcd') ON DUPLICATE KEY UPDATE username=username;";
+$passwd = password_hash("12345", PASSWORD_DEFAULT);
 $db->query($sql, $passwd);
 $sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) 
 VALUES ('last', 'first', 'email@mail.com', '0900000000','admin_cadmin', ?, 'efgh') ON DUPLICATE KEY UPDATE username=username;";
+$passwd = password_hash("12345", PASSWORD_DEFAULT);
 $db->query($sql, $passwd);
 $sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) 
 VALUES ('last', 'first', 'email@mail.com', '0900000000','admin_custom1', ?, 'abcefg') ON DUPLICATE KEY UPDATE username=username;";
+$passwd = password_hash("12345", PASSWORD_DEFAULT);
 $db->query($sql, $passwd);
 ?>
