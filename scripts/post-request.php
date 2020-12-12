@@ -47,36 +47,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // remove malicious characters then assign those values to the variable
             $username = test_input($_POST['username']);
             $password = test_input($_POST['password']);
+            $password_current = $flag = "";
             
             // attempt to get a record from user inputted username and password
             // if row returns, continues with the login
             // otherwise, show error message
             // search in admin table first
-            $sql = "SELECT `id`, `flag` FROM `admin` WHERE username=? AND password=PASSWORD(?)";
-            $db->query($sql, $username, $password);
+            $sql = "SELECT `flag`, `password` FROM `admin` WHERE username=?";
+            $db->query($sql, $username);
             if ($db->numRows() > 0) {
-                // add admin to session
-                $_SESSION['Admin'] = $username;
-                // add admin flag(s) to session
                 $result = $db->fetchAll();
                 foreach ($result as $row) {
-                    $_SESSION['flag'] = $row['flag'];
+                    $password_current = $row['password'];
+                    $flag = $row['flag'];
                 }
-
-                // redirects to index.php upon successful login
-                header("Location: index.php?p=home");
-                exit;
+                if (password_verify($password, $password_current)) {
+                    // add admin to session
+                    $_SESSION['Admin'] = $username;
+                    // add admin flag(s) to session
+                    $_SESSION['flag'] = $flag;
+    
+                    // redirects to index.php upon successful login
+                    header("Location: index.php?p=home");
+                    exit;
+                }
             }
             // search in customer table
-            $sql = "SELECT `id` FROM `customer` WHERE username=? AND password=PASSWORD(?)";
-            $db->query($sql, $username, $password);
+            $sql = "SELECT `password` FROM `customer` WHERE username=?";
+            $db->query($sql, $username);
             if ($db->numRows() > 0) {
-                // add customer to session
-                $_SESSION['Customer'] = $username;
+                $result = $db->fetchAll();
+                foreach ($result as $row) {
+                    $password_current = $row['password'];
+                }
+                if (password_verify($password, $password_current)) {
+                    // add customer to session
+                    $_SESSION['Customer'] = $username;
 
-                // redirects to index.php upon successful login
-                header("Location: index.php?p=home");
-                exit;
+                    // redirects to index.php upon successful login
+                    header("Location: index.php?p=home");
+                    exit;
+                }
             }
             
             // nothing found, display error message
@@ -209,8 +220,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         if ($first_name_valid && $last_name_valid && $email_valid && $phone_valid && $username_valid && $password_valid) {
-            $sql = "INSERT INTO `customer`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) VALUES (?, ?, ?, ?,?, PASSWORD(?))";
-            $db->query($sql, $last_name, $first_name, $email, $phone_number, $username, $password);
+            $sql = "INSERT INTO `customer`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) VALUES (?, ?, ?, ?,?, ?)";
+            $db->query($sql, $last_name, $first_name, $email, $phone_number, $username, password_hash($password, PASSWORD_DEFAULT));
             
             // if is admin adding a customer, redirect to admin user management page
             if (isset($_POST['add-customer'])) {
@@ -365,8 +376,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         if ($first_name_valid && $last_name_valid && $email_valid && $phone_valid && $username_valid && $password_valid && $flag_valid) {
-            $sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) VALUES (?, ?, ?, ?, ?, PASSWORD(?), ?)";
-            $db->query($sql, $last_name, $first_name, $email, $phone_number,$username, $password, $flag_string);
+            $sql = "INSERT INTO `admin`(`last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $db->query($sql, $last_name, $first_name, $email, $phone_number,$username, password_hash($password, PASSWORD_DEFAULT), $flag_string);
             Header("Location: index.php?p=admin&c=admins");
             exit();
         }
@@ -387,21 +398,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $username = $_SESSION['Admin'];
 
         $last_name = $first_name = $email = $phone_number = $password = "";
-        if (isset($_POST['update-user']))
+        if (isset($_POST['update-user'])) {
             $sql = "SELECT `email`, `phone_number`, `password` FROM `customer` WHERE username=?";
-        if (isset($_POST['update-admin']))
+            $db->query($sql, $username);
+            // query returned at least 1 row
+            if ($db->numRows() > 0) {
+                $result = $db->fetchAll();
+                foreach ($result as $row) {
+                    $email = $row['email'];
+                    $phone_number = $row['phone_number'];
+                    $password = $row['password'];
+                }
+            }
+        }
+        else if (isset($_POST['update-admin'])) {
             $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number`, `password` FROM `admin` WHERE username=?";
-        
-        $db->query($sql, $username);
-        // query returned at least 1 row
-        if ($db->numRows() > 0) {
-            $result = $db->fetchAll();
-            foreach ($result as $row) {
-                $last_name = $row['last_name'];
-                $first_name = $row['first_name'];
-                $email = $row['email'];
-                $phone_number = $row['phone_number'];
-                $password = $row['password'];
+            $db->query($sql, $username);
+            // query returned at least 1 row
+            if ($db->numRows() > 0) {
+                $result = $db->fetchAll();
+                foreach ($result as $row) {
+                    $last_name = $row['last_name'];
+                    $first_name = $row['first_name'];
+                    $email = $row['email'];
+                    $phone_number = $row['phone_number'];
+                    $password = $row['password'];
+                }
             }
         }
         
@@ -481,21 +503,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // if 'current password' field has value
         if (!empty($_POST["oldpassword"]) && isset($_POST["oldpassword"])) {
             $currentpassword = test_input($_POST["oldpassword"]);
-
-            // prepare a SELECT sql query to validate 'current password' field
-            if (isset($_POST['admin-update-customer-details']))
-                $sql = "SELECT `password` FROM `customer` WHERE username=? AND password=PASSWORD(?)";
-            if (isset($_POST['admin-update-admin-details']))
-                $sql = "SELECT `password` FROM `admin` WHERE username=? AND password=PASSWORD(?)";
-            
-            // execute query
-            $db->query($sql, $username, $currentpassword);
-            // no rows returned, password does not match the one in database
-            if ($db->numRows() == 0) {
+            if (!password_verify($currentpassword, $password)) {
                 $passwordError = "Current password is incorrect!";
                 $editPasswordSuccess = false;
             }
-            // has row returned
             else {
                 $currentpassword_valid = true;
                 // 'new password' field has value
@@ -577,11 +588,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         if ($currentpassword_valid && $newpassword_valid && $renewpassword_valid) {
             if (isset($_POST['update-user']))
-                $sql = "UPDATE `customer` SET `password`=PASSWORD(?) WHERE username=?;";
+                $sql = "UPDATE `customer` SET `password`=? WHERE username=?;";
             else if (isset($_POST['update-admin']))
-                $sql = "UPDATE `admin` SET `password`=PASSWORD(?) WHERE username=?;";
+                $sql = "UPDATE `admin` SET `password`=? WHERE username=?;";
             
-            $db->query($sql, $renewpassword, $username);
+            $db->query($sql, password_hash($renewpassword, PASSWORD_DEFAULT), $username);
         }
     }
     // --------------------------------------------------------- //
@@ -596,7 +607,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Get id
         if (!empty($_GET["id"]) && isset($_GET["id"])) {
             $id =  test_input($_GET["id"]);
-            $first_name = $last_name = $email = $phone_number = $flag_string_old = "";
+            $first_name = $last_name = $email = $phone_number = $password = $flag_string_old = "";
             if (isset($_POST['admin-update-customer-details'])) {
                 $sql = "SELECT `last_name`, `first_name`, `email`, `phone_number` FROM `customer` WHERE id=?";
                 $db->query($sql, $id);
@@ -696,74 +707,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         
         // Validate password
-        // if 'current password' field has value
-        if (!empty($_POST["oldpassword"]) && isset($_POST["oldpassword"])) {
-            $currentpassword = test_input($_POST["oldpassword"]);
+        // 'new password' field has value
+        if (!empty($_POST["newpassword"]) && isset($_POST["newpassword"])) {
+            $newpassword = test_input($_POST["newpassword"]);
+            $newpassword_valid = true;
+            // field not empty, check if data is not null
+            if (!empty($_POST["renewpassword"]) && isset($_POST["renewpassword"])) {
+                $renewpassword = test_input($_POST["renewpassword"]);
 
-            // prepare a SELECT sql query to validate 'current password' field
-            if (isset($_POST['admin-update-customer-details']))
-                $sql = "SELECT `password` FROM `customer` WHERE id=? AND password=PASSWORD(?)";
-            if (isset($_POST['admin-update-admin-details']))
-                $sql = "SELECT `password` FROM `admin` WHERE id=? AND password=PASSWORD(?)";
-            
-            // execute query
-            $db->query($sql, $id, $currentpassword);
-            // no rows returned, password does not match the one in database
-            if ($db->numRows() == 0) {
-                $passwordError = "Current password is incorrect!";
-                $editPasswordSuccess = false;
-            }
-            // has row returned
-            else {
-                $currentpassword_valid = true;
-                // 'new password' field has value
-                if (!empty($_POST["newpassword"]) && isset($_POST["newpassword"])) {
-                    $newpassword = test_input($_POST["newpassword"]);
-                    $newpassword_valid = true;
-                    // field not empty, check if data is not null
-                    if (!empty($_POST["renewpassword"]) && isset($_POST["renewpassword"])) {
-                        $renewpassword = test_input($_POST["renewpassword"]);
-
-                        // 're-type new password' field and 'new password' field are the same
-                        if ($renewpassword == $newpassword) {
-                            // new password same as old password
-                            if ($renewpassword == $currentpassword) {
-                                $passwordError = "New password is the same as old password";
-                                $editPasswordSuccess = false;
-                            }
-                            // update password
-                            else {
-                                $passwordSuccess = "Password updated.";
-                                $renewpassword_valid = true;
-                            }
-                        }
-                        // 'new password' and 're-type new password' fields don't match, store error message
-                        else {
-                            $passwordError = "New password in fields don't match!";
-                            $editPasswordSuccess = false;
-                        }
-                    }
-                    // no value in 're-type new password' field, store error message
-                    else {
-                        $passwordError = "Please re-type your new password!";
-                        $editPasswordSuccess = false;
-                    }
+                // 're-type new password' field and 'new password' field are the same
+                if ($renewpassword == $newpassword) {
+                    // update password
+                    $passwordSuccess = "Password updated.";
+                    $renewpassword_valid = true;
                 }
-                // no value in 'new password' field, store error message
+                // 'new password' and 're-type new password' fields don't match, store error message
                 else {
-                    $passwordError = "New password is required!";
+                    $passwordError = "Passwords don't match!";
                     $editPasswordSuccess = false;
                 }
             }
-        }
-        // only 'new password' field is filled
-        else if (!empty($_POST["newpassword"]) && isset($_POST["newpassword"])) {
-            $passwordError = "Please enter your current password!";
-            $editPasswordSuccess = false;
+            // no value in 're-type new password' field, store error message
+            else {
+                $passwordError = "Please re-type the new password!";
+                $editPasswordSuccess = false;
+            }
         }
         // only 're-type new password' field is filled
         else if (!empty($_POST["renewpassword"]) && isset($_POST["renewpassword"])) {
-            $passwordError = "Please enter your current and new password!";
+            $passwordError = "Please enter the new password!";
             $editPasswordSuccess = false;
         }
 
@@ -843,13 +815,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             $db->query($sql, $phone_number_new, $id);
         }
-        if ($currentpassword_valid && $newpassword_valid && $renewpassword_valid) {
+        if ($newpassword_valid && $renewpassword_valid) {
             if (isset($_POST['admin-update-customer-details']))
-                $sql = "UPDATE `customer` SET `password`=PASSWORD(?) WHERE id=?;";
+                $sql = "UPDATE `customer` SET `password`=? WHERE id=?;";
             else if (isset($_POST['admin-update-admin-details']))
-                $sql = "UPDATE `admin` SET `password`=PASSWORD(?) WHERE id=?;";
+                $sql = "UPDATE `admin` SET `password`=? WHERE id=?;";
             
-            $db->query($sql, $renewpassword, $id);
+            $db->query($sql, password_hash($renewpassword, PASSWORD_DEFAULT), $id);
         }
     }
     // ------------------------------------------------------------------------- //
