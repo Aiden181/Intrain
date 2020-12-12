@@ -61,27 +61,27 @@
             <div class="column right" style="background-color: #3e3e3e; padding: 20px;">
                 <div class="page-header clearfix">
                 <table style="width: 100%; background-color: #565656; border: 2px solid white">
-                    <th style="padding: 10px; max-height: 100px;">
+                    <th style="padding: 10px 10px 6px 10px; max-height: 100px;">
                         <h5 class="pull-left" style="color: white; font-weight: bold">Customers (<?php echo $db->numRows(); ?>)</h2>
                     </th>
                 </table>
                 </div>
                 <br>
-                <table class="table table-hover">
-                        <thead>
-                            <tr id="table-headers" class="table-bordered">
-                                <th>ID</th>
-                                <th>Username</th>
-                                <?php
-                                if (stristr($_SESSION['flag'], ROOT_ADMIN) ||  stristr($_SESSION['flag'], LIST_CUSTOMERS)) {
-                                    // show more information
-                                    echo "<th>Name</th>\n";
-                                    echo "<th>Email</th>\n";
-                                    echo "<th>Phone number</th>\n";
-                                }
-                                ?>
-                            </tr>
-                        </thead>
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr id="table-headers" class="table-bordered">
+                            <th>ID</th>
+                            <th>Username</th>
+                            <?php
+                            if (stristr($_SESSION['flag'], ROOT_ADMIN) ||  stristr($_SESSION['flag'], LIST_CUSTOMERS)) {
+                                // show more information
+                                echo "<th>Name</th>\n";
+                                echo "<th>Email</th>\n";
+                                echo "<th>Phone number</th>\n";
+                            }
+                            ?>
+                        </tr>
+                    </thead>
                     <tbody>
                         <?php
                         if ($db->numRows() > 0) {
