@@ -93,7 +93,7 @@
                     // if flag is root or edit admins
                     if ($flags[$i] === ROOT_ADMIN || $flags[$i] === EDIT_ADMINS) {
                         echo "<div class=\"page-header\">";
-                        echo "    <table style=\"width: 100%; background-color: #565656; border: 2px solid white\">";
+                        echo "    <table class=\"section-header\">";
                         echo "        <th style=\"padding: 10px 10px 6px 10px; max-height: 100px;\">";
                         echo "            <h5 class=\"pull-left\" style=\"color: white; font-weight: bold\">Admin details</h2>";
                         echo "        </th>";
@@ -150,7 +150,7 @@
                         
                         // Flags
                         echo "<div class=\"page-header clearfix\">";
-                        echo "    <table style=\"width: 100%; background-color: #565656; border: 2px solid white\">";
+                        echo "    <table class=\"section-header\">";
                         echo "        <th style=\"padding: 10px 10px 6px 10px; max-height: 100px;\">";
                         echo "            <h5 class=\"pull-left\" style=\"color: white; font-weight: bold\">Admin access</h2>";
                         echo "        </th>";
