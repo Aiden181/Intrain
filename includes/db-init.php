@@ -4,6 +4,18 @@ $user = "root";
 $pass = "root";
 $dbname = "intrain";
 
+$temp = new PDO("mysql:host=localhost;port=3306;", $user, $pass);
+
+if (!$stmt = $temp->prepare("CREATE DATABASE IF NOT EXISTS intrain CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")) {
+	prePrintArray($temp->errorInfo());
+}
+if (!$stmt->execute()) {
+	echo "\nCREATE DATABASE PDO::errorInfo():\n";
+	prePrintArray($stmt->errorInfo());
+}
+
+$temp = null;
+
 $db = new Database($host, $user, $pass, $dbname);
 
 
