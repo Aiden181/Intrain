@@ -57,3 +57,8 @@ tr > td {
     font-size: 80px;
     color: white;
 }
+
+/* footer spacing */
+footer {
+    margin-top: 300px;
+}

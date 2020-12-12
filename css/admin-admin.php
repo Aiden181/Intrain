@@ -166,3 +166,8 @@
     display: block;
     opacity: 1;
 }
+
+/* footer spacing */
+footer {
+    margin-top: 300px;
+}
