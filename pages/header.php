@@ -37,6 +37,17 @@
             echo "<li class=\"nav-item dropdown\">";
             // user icon and account name as drop-down list
             echo "<a class=\"nav-item nav-link dropdown-toggle active\" href=\"\" style=\"position: relative; top: 9px; left: 20px;\" id=\"navbardrop\" data-toggle=\"dropdown\"><i class=\"fas fa-user\"></i>";
+            // $name = "";
+            // // username longer than 13 characters
+            // if (strlen($_SESSION['Admin']) > 11) {
+            //     for ($i = 0; $i < strlen($_SESSION['Admin']); $i++)
+            //     if ($i < 10) {
+            //         $name .= $_SESSION['Admin'][$i];
+            //     }
+            //     else if ($i == 11 || $i == 12 || $i == 13) {
+            //         $name .= ".";
+            //     }
+            // }
             echo " " . $_SESSION['Admin'];
             echo "</a>";
             // drop-down menu items
