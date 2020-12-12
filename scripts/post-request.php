@@ -852,7 +852,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else if (isset($_POST['database-test'])) {
         $testdb = new PDO("mysql:host=localhost;port=3306;", $user, $pass);
 
-        if (!$stmt = $testdb->prepare("CREATE DATABASE IF NOT EXISTS intrain_test")) {
+        if (!$stmt = $testdb->prepare("CREATE DATABASE IF NOT EXISTS intrain_test CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")) {
             prePrintArray($testdb->errorInfo());
         }
         if (!$stmt->execute()) {

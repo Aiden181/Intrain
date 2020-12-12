@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
     `email` VARCHAR(64) NOT NULL,
     `phone_number` VARCHAR(32) NOT NULL,
     `username` VARCHAR(32) NOT NULL UNIQUE,
-    `password` VARCHAR(128) NOT NULL,
+    `password` VARCHAR(255) NOT NULL,
     PRIMARY KEY (`id`)
 );
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
     `email` VARCHAR(64) NOT NULL,
     `phone_number` VARCHAR(32) NOT NULL,
     `username` VARCHAR(32) NOT NULL UNIQUE,
-    `password` VARCHAR(128) NOT NULL,
+    `password` VARCHAR(255) NOT NULL,
     `flag` VARCHAR(16) NOT NULL,
     PRIMARY KEY (`id`)
 );
@@ -46,11 +46,11 @@ CREATE TABLE IF NOT EXISTS `admin` (
 -- add root admin
 INSERT INTO `admin`
 (`id`, `last_name`, `first_name`, `email`, `phone_number`, `username`, `password`, `flag`) VALUES 
-(1, 'lastroot', 'firstroot', 'root@root.com', '0907654321','root1', PASSWORD('1ntrainr00t!'), 'z');
+(1, 'lastroot', 'firstroot', 'root@root.com', '0907654321','root1', '12345', 'z');
 
 -- add customer
 INSERT INTO `customer`(`id`, `last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) 
-VALUES (1, 'john', 'doe', 'john.doe@gmail.com', '0901234567','user1', PASSWORD('12345'));
+VALUES (1, 'john', 'doe', 'john.doe@gmail.com', '0901234567','user1', '12345');
 
 -- alter table to auto increment
 ALTER TABLE `customer` MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;

@@ -4,7 +4,7 @@ UPDATE `admin` SET
 `email`='root@update.com', 
 `phone_number`='0907654369', 
 `username`='rootupdate', 
-`password`=PASSWORD('1ntrainr00t!update'), 
+`password`='12345update', 
 `flag`='abcdefgh' 
 WHERE `id`=2;
 
@@ -14,5 +14,5 @@ UPDATE `customer` SET
 `email`='john.doe@update.com', 
 `phone_number`='0901234569', 
 `username`='user1update', 
-`password`=PASSWORD('12345update') 
+`password`='12345update' 
 WHERE `id`=2;
