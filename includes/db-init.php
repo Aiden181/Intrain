@@ -20,8 +20,8 @@ $db = new Database($host, $user, $pass, $dbname);
 
 
 // drop table query for testing
-// $db->query("DROP TABLE IF EXISTS ?", "customer");
-// $db->query("DROP TABLE IF EXISTS ?", "admin");
+// $db->query("DROP TABLE IF EXISTS admin");
+// $db->query("DROP TABLE IF EXISTS customer");
 
 // --------------------------------- //
 // ----- create customer table ----- //
