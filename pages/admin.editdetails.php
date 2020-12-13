@@ -82,9 +82,9 @@
                             </div>
                         </div>
                         <div class="row" style="color: white;">
-                            <div class="col-lg-4 mb-2">Re-type new password:</div>
+                            <div class="col-lg-4 mb-2">Retype new password:</div>
                             <div class="col-lg-4 mb-2">
-                                <input type="password" class="form-control" id="password" name="renewpassword" placeholder="Re-type new Password" oninput="">
+                                <input type="password" class="form-control" id="password" name="renewpassword" placeholder="Retype new Password" oninput="">
                             </div>
                         </div>
                     </table>

@@ -140,9 +140,9 @@
                         echo "                </div>";
                         echo "            </div>";
                         echo "            <div class=\"row\">";
-                        echo "                <div class=\"col-lg-4 mb-2\">Re-type new password:</div>";
+                        echo "                <div class=\"col-lg-4 mb-2\">Retype new password:</div>";
                         echo "                <div class=\"col-lg-4 mb-2\">";
-                        echo "                    <input type=\"password\" class=\"form-control\" id=\"password_new_retype\" name=\"renewpassword\" placeholder=\"Re-type new Password\" oninput=\"\">";
+                        echo "                    <input type=\"password\" class=\"form-control\" id=\"password_new_retype\" name=\"renewpassword\" placeholder=\"Retype new Password\" oninput=\"\">";
                         echo "                </div>";
                         echo "            </div>";
                         echo "        </table>";
