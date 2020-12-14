@@ -60,13 +60,13 @@
                         <div class="row" style="color: white;">
                             <div class="col-lg-4 mb-2">Email:</div>
                             <div class="col-lg-4 mb-2">
-                                <input type="email" name="email" id="email" class="form-control" placeholder="Email" value="<?php echo $email ?>" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Email" value="<?php echo $email ?>" pattern="^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$" required>
                             </div>
                         </div>
                         <div class="row" style="color: white;">
                             <div class="col-lg-4 mb-2">Phone number:</div>
                             <div class="col-lg-4 mb-2">
-                                <input type="phone_number" name="phone" id="phone" class="form-control" placeholder="Phone number" value="<?php echo $phone_number ?>" pattern="^\+?\d{0,13}" required>
+                                <input type="phone_number" name="phone" id="phone" class="form-control" placeholder="Phone number" value="<?php echo $phone_number ?>" pattern="^[0-9\-\(\)\/\+\s]*$" required>
                             </div>
                         </div>
                         <div class="row" style="color: white;">

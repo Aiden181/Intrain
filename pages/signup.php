@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <!-- <label for="lastName">Phone number</label> -->
-                    <input type="phone_number" name="phone" id="phone" class="form-control fadeIn second" placeholder="Enter your phone number" value="<?php echo isset($_POST['phone']) ? test_input($_POST['phone']) : ''; ?>" pattern="^\+?\d{0,13}" required>
+                    <input type="phone_number" name="phone" id="phone" class="form-control fadeIn second" placeholder="Enter your phone number" value="<?php echo isset($_POST['phone']) ? test_input($_POST['phone']) : ''; ?>" pattern="^[0-9\-\(\)\/\+\s]*$" required>
                 </div>
             </div>
 

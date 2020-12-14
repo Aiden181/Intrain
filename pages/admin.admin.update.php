@@ -130,7 +130,7 @@
                         echo "            <div class=\"row\">";
                         echo "                <div class=\"col-lg-4 mb-2\">Admin phone number:</div>";
                         echo "                <div class=\"col-lg-4 mb-2\">";
-                        echo "                    <input type=\"phone_number\" name=\"phone\" id=\"phone_number\" class=\"form-control\" placeholder=\"Phone number\" value=\"$phone_number\" pattern=\"^\+?\d{0,13}\" required>";
+                        echo "                    <input type=\"phone_number\" name=\"phone\" id=\"phone_number\" class=\"form-control\" placeholder=\"Phone number\" value=\"$phone_number\" pattern=\"^[0-9\-\(\)\/\+\s]*$\" required>";
                         echo "                </div>";
                         echo "            </div>";
                         echo "            <div class=\"row\">";

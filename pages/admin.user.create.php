@@ -67,14 +67,14 @@
                         <div class="row">
                             <div class="col-lg-4 mb-2">Customer email:</div>
                             <div class="col-lg-4 mb-2">
-                                <input type="email" name="email" id="email" class="form-control" placeholder="Email" value="<?php echo isset($_POST['email']) ? test_input($_POST['email']) : ''; ?>" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Email" value="<?php echo isset($_POST['email']) ? test_input($_POST['email']) : ''; ?>" pattern="^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$" required>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-lg-4 mb-2">Customer phone number:</div>
                             <div class="col-lg-4 mb-2">
-                                <input type="phone_number" name="phone" id="phone" class="form-control" placeholder="Phone number" value="<?php echo isset($_POST['phone']) ? test_input($_POST['phone']) : ''; ?>" pattern="^\+?\d{0,13}" required>
+                                <input type="phone_number" name="phone" id="phone" class="form-control" placeholder="Phone number" value="<?php echo isset($_POST['phone']) ? test_input($_POST['phone']) : ''; ?>" pattern="^[0-9\-\(\)\/\+\s]*$" required>
                             </div>
                         </div>
 

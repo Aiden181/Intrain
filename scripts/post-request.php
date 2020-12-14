@@ -157,7 +157,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if (isset($_POST["email"])) {
                 $email = test_input($_POST["email"]);
                 // check if e-mail address is well-formed
-                if (!is_valid_email($email)) {
+                if (!is_valid_email($email) || !preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/', $email)) {
                     $emailError = "Invalid email format!";
                 } else {
                     // attempt to get email query result from user to check if email is registered
@@ -181,7 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (isset($_POST["phone"])) {
                 $phone_number = test_input($_POST["phone"]);
                 // not matching regex, format error message
-                if (!preg_match("/^\+?\d{0,13}/", $phone_number)) {
+                if (!preg_match("/^[0-9\-\(\)\/\+\s]*$/", $phone_number)) {
                     $phoneError = "Invalid phone number";
                 } else {
                     $phone_valid = true;
@@ -281,7 +281,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if (isset($_POST["email"])) {
                 $email = test_input($_POST["email"]);
                 // check if e-mail address is well-formed
-                if (!is_valid_email($email)) {
+                if (!is_valid_email($email) || !preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/', $email)) {
                     $emailError = "Invalid email format!";
                 } else {
                     // attempt to get email query result from user to check if email is registered
@@ -305,7 +305,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (isset($_POST["phone"])) {
                 $phone_number = test_input($_POST["phone"]);
                 // not matching regex, format error message
-                if (!preg_match("/^\+?\d{0,13}/", $phone_number)) {
+                if (!preg_match("/^[0-9\-\(\)\/\+\s]*$/", $phone_number)) {
                     $phoneError = "Invalid phone number";
                 } else {
                     $phone_valid = true;
@@ -672,7 +672,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $email_new = test_input($_POST["email"]);
             if ($email_new != $email) {
                 // check if e-mail address is well-formed
-                if (!is_valid_email($email_new)) {
+                if (!is_valid_email($email_new) || !preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/', $email_new)) {
                     $emailError = "Invalid email format!";
                     $editEmailSuccess = false;
                 } else {
@@ -696,7 +696,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $phone_number_new = test_input($_POST["phone"]);
             if ($phone_number_new != $phone_number) {
                 // not matching regex, format error message
-                if (!preg_match("/^\+?\d{0,13}/", $phone_number_new)) {
+                if (!preg_match("/^[0-9\-\(\)\/\+\s]*$/", $phone_number_new)) {
                     $phoneError = "Invalid phone number";
                     $editPhoneSuccess = false;
                 } else {
