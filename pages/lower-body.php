@@ -41,7 +41,7 @@
             </section>
             <section class="col">
                 <a href="index.php?p=glutes"><img src="<?php echo IMG_LOCATION . '/Glute - Workout.jpg' ?>" alt=""></a>
-                <h3>Glute</h3>
+                <h3>Glutes</h3>
             </section>
         </div>
     </div>

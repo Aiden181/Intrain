@@ -29,8 +29,7 @@
             <!--Section 1 -->
             <section class="col" id="first-section">
                 <h2><b>Dumbbell Row</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Dumbbell Row.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/L2xy9qv73Y8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>" alt="">
                     <div class="text-block" style="position: relative; bottom: 540px; left: 180px;">
@@ -50,8 +49,7 @@
             <!--Section 2 -->
             <section class="col">
                 <h2><b>Supermans</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Supermans.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/r_a6hHbCxgM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>" alt="">
                     <div class="text-block" style="position: relative; bottom: 540px; left: 180px">
@@ -69,8 +67,7 @@
             <!--Section 3 -->
             <section class="col">
                 <h2><b>Good Morning</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Good Mornings.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/LYk9Djw1JME" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>" alt="">
                     <div class="text-block" style="position: relative; bottom: 540px; left: 180px">
@@ -88,8 +85,7 @@
             <!--Section 4 -->
             <section class="col">
                 <h2><b>Elevated Pike Press</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Elevated Pike Press.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/CzvRkETQ1h0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>" alt="">
                     <div class="text-block" style="position: relative; bottom: 540px; left: 180px">

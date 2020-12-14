@@ -29,7 +29,7 @@
             <!--Section 1 -->
             <section class="col" id="first-section">
                 <h2><b>Squats</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Squats.mp4'?>" width="1000px" height="500px" controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/J1R81oLQmZA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Quads-Background.jpg' ?>"
                         style="height: 650px;" alt="">
@@ -50,8 +50,7 @@
             <!--Section 2 -->
             <section class="col">
                 <h2 style="padding-top: 100px;"><b>Forward Lunges</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Forward Lunges.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/hikBzRz3akE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Quads-Background.jpg' ?>"
                         style="height: 650px;" alt="">
@@ -70,8 +69,7 @@
             <!--Section 3 -->
             <section class="col">
                 <h2 style="padding-top: 100px;"><b>Bulgarian Split Squat</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Bulgarian Split Squat.mp4'?>" width="1000px"
-                    height="500px" controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/bGsn_LxS6L4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Quads-Background.jpg' ?>"
                         style="height: 650px;" alt="">

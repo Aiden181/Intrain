@@ -29,8 +29,7 @@
             <!--Section 1 -->
             <section class="col" id="first-section">
                 <h2><b>Seated Calf Raise</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Seated Calf Raise.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/uNmwqaVSfXM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Calves-Background.jpg' ?>" alt="">
                     <div class="text-block" style="position: relative; background-color:black; color:white; bottom: 500px; left: 350px">
@@ -53,8 +52,7 @@
             <!--Section 2 -->
             <section class="col">
                 <h2><b>Walking Calf Raises</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Walking Calf Raises.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/WopXvfsNM7o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Calves-Background.jpg' ?>" alt="">
                     <div class="text-block" style="position: relative; background-color:black; color:white; bottom: 500px; left: 350px">
@@ -70,8 +68,7 @@
             <!--Section 3 -->
             <section class="col">
                 <h2><b>Single Leg Calf Raise</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Single Leg Calf Raise.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/WiWjHipj62I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Calves-Background.jpg' ?>" alt="">
                     <div class="text-block" style="position: relative; background-color:black; color:white; bottom: 500px; left: 350px">

@@ -29,8 +29,7 @@
             <!--Section 1 -->
             <section class="col" id="first-section">
                 <h2><b>Seated Dumbbell Shrugs</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Seated Dumbell Shrugs.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/qxGQJ6m6EJc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Traps-Background.jpg' ?>" alt="">
                     <div class="text-block" style="width: 350px; position: relative; bottom: 350px; left: 280px;">
@@ -43,14 +42,12 @@
                         </ol>
                     </div>
                 </div>
-
             </section>
 
             <!--Section 2 -->
             <section class="col">
                 <h2><b>Elevated Pike Press</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Elevated Pike Press.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/CzvRkETQ1h0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Traps-Background.jpg' ?>" alt="">
                     <div class="text-block" style="width: 320px; position: relative; bottom: 400px; left: 250px;">

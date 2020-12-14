@@ -20,7 +20,7 @@
     <!-- website icon -->
     <link rel="icon" href="./images/Intrain.png">
 
-    <title>Glute Workout</title>
+    <title>Glutes Workout</title>
 </head>
 
 <body>
@@ -29,8 +29,7 @@
             <!--Section 1 -->
             <section class="col" id="first-section">
                 <h2><b>Glute Bridge</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Glute Bridge.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/3Uq8cw1Yi3g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Glute-Background.jpg' ?>" alt="">
                     <div class="text-block" style="width: 350px; position: relative; bottom: 350px; left: 30px;">
@@ -50,7 +49,7 @@
             <!--Section 2 -->
             <section class="col">
                 <h2><b>Squats</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Squats.mp4'?>" width="1000px" height="500px" controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/J1R81oLQmZA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Glute-Background.jpg' ?>" alt="">
                     <div class="text-block" style="width: 320px; position: relative; bottom: 480px; left: 30px;">
@@ -68,8 +67,7 @@
             <!--Section 3 -->
             <section class="col">
                 <h2><b>Barbell Hip Thrust</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Barbell Hip Thrust.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/av4cQOSzDVw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Glute-Background.jpg' ?>" alt="">
                     <div class="text-block" style="width: 400px; position: relative; bottom: 500px; left: 50px;">
@@ -89,8 +87,7 @@
             <!--Section 4 -->
             <section class="col">
                 <h2><b>Forward Lunges</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Forward Lunges.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/hikBzRz3akE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Glute-Background.jpg' ?>" alt="">
                     <div class="text-block" style="width: 320px; position: relative; bottom: 480px; left: 30px;">
@@ -108,8 +105,7 @@
             <!--Section 5 -->
             <section class="col">
                 <h2><b>Good Morning</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Good Mornings.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/87AxUw999rU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Glute-Background.jpg' ?>" alt="">
                     <div class="text-block" style="width: 320px; position: relative; bottom: 400px; left: 80px;">

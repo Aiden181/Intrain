@@ -16,12 +16,14 @@ section h2{
     bottom: 50px;
 }
 
-video{
+.video {
     position: relative;
     left: 45px;
     margin-top: 30px;
     margin-bottom: 50px;
     border-bottom: 12px solid #ff3036;
+    width: 1000px;
+    height: 562.50px;
 }
 
 #content{

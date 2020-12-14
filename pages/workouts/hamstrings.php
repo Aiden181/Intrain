@@ -29,7 +29,7 @@
             <!--Section 1 -->
             <section class="col" id="first-section">
                 <h2 style = "padding-top: 100px"><b>Squats</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Squats.mp4'?>" width="1000px" height="500px" controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/J1R81oLQmZA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Hamstring-Background.jpg' ?>"
                         style="height: 650px;" alt="">
@@ -50,8 +50,7 @@
             <!--Section 2 -->
             <section class="col">
                 <h2 style = "padding-top: 100px"><b>Kickbacks</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Kickbacks.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/F471H7HPsqQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Hamstring-Background.jpg' ?>"
                         style="height: 650px;" alt="">
@@ -71,8 +70,7 @@
             <!--Section 3 -->
             <section class="col">
                 <h2 style = "padding-top: 100px"><b>Hamstring Curl</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Hamstring Curl.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/DZNn8keUtTE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Hamstring-Background.jpg' ?>"
                         style="height: 650px;" alt="">
@@ -90,8 +88,7 @@
             <!--Section 4 -->
             <section class="col">
                 <h2 style="width: 600px; padding-top: 100px"><b>Single Legged Romanian Deadlifts</b></h2>
-                <video src=" <?php echo VID_LOCATION . '/Single Legged Romanian Deadlifts.mp4'?>" width="1000px"
-                    height="500px" controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/ktps7riSkkU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Hamstring-Background.jpg' ?>"
                         style="height: 650px;" alt="">

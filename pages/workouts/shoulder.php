@@ -29,8 +29,7 @@
             <!--Section 1 -->
             <section class="col" id="first-section">
                 <h2><b>Decline Push-Up</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Decline Push-Up.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/GnNJPJFe3fE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Shoulder-Background.jpg' ?>" alt="">
                     <div class="text-block" style="width: 350px; position: relative; bottom: 350px; left: 280px;">
@@ -49,8 +48,7 @@
             <!--Section 2 -->
             <section class="col">
                 <h2><b>Side Lateral Raises</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Side Lateral Raises.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/icos6nUp9Hs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Shoulder-Background.jpg' ?>" alt="">
                     <div class="text-block" style="width: 320px; position: relative; bottom: 400px; left: 250px;">
@@ -66,8 +64,7 @@
             <!--Section 3 -->
             <section class="col">
                 <h2><b>Bench Dips</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Bench Dips.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/9rwMtc9569Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Shoulder-Background.jpg' ?>" alt="">
                     <div class="text-block" style="width: 320px; position: relative; bottom: 400px; left: 250px;">
@@ -84,8 +81,7 @@
             <!--Section 4 -->
             <section class="col">
                 <h2 style="width: 510px;"><b>Seated Dumbbell Shoulder Press</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Seated Dumbbell Shoulder Press.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/bgyn8R1sNi4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Shoulder-Background.jpg' ?>" alt="">
                     <div class="text-block" style="width: 320px; position: relative; bottom: 400px; left: 250px;">
@@ -103,8 +99,7 @@
             <!--Section 5 -->
             <section class="col">
                 <h2><b>Front Raises</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Front Raises.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/aBkm6jQYDkY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Shoulder-Background.jpg' ?>" alt="">
                     <div class="text-block" style="width: 320px; position: relative; bottom: 400px; left: 250px;">

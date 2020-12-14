@@ -29,8 +29,7 @@
             <!--Section 1 -->
             <section class="col" id="first-section">
                 <h2><b>Wrist Curl</b></h2>
-                <video src="<?php echo VID_LOCATION . '/Decline Push-Up.mp4'?>" width="1000px" height="500px"
-                    controls></video>
+                <iframe class="video" src="https://www.youtube.com/embed/Y7KqBQDvkKE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" style="width:1000px; height: 700px;" src="<?php echo IMG_LOCATION . '/Forearm-Background.jpg' ?>" alt="">
                     <div class="text-block" style="width: 350px; position: relative; bottom: 300px; left: 600px;">
