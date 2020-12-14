@@ -28,18 +28,16 @@
         <div class="row">
             <!--Section 1 -->
             <section class="col" id="first-section">
-                <h2><b>Decline Push-Up</b></h2>
+                <h2><b>Wrist Curl</b></h2>
                 <video src="<?php echo VID_LOCATION . '/Decline Push-Up.mp4'?>" width="1000px" height="500px"
                     controls></video>
                 <div class="container" id="content">
                     <img id="content-background" style="width:1000px; height: 700px;" src="<?php echo IMG_LOCATION . '/Forearm-Background.jpg' ?>" alt="">
                     <div class="text-block" style="width: 350px; position: relative; bottom: 300px; left: 600px;">
                         <ol id="instruction">
-                            <li>Use a bench or any item to lift your feet.</li>
-                            <li>Place your hands slightly wider than your shoulders.
-                            </li>
-                            <li>Slowly and steadily lower your body as much as you can.</li>
-                            <li>Raise your body back until original position.</li>
+                            <li>Hold the dumbbell with your hand facing upwards with your forearm rested against your leg.</li>
+                            <li>Steadily curl up your wrist upwards in a semicircular motion.</li>
+                            <li>Return to original position and repeat.</li>
                         </ol>
                     </div>
                 </div>

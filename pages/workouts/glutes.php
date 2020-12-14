@@ -20,7 +20,7 @@
     <!-- website icon -->
     <link rel="icon" href="./images/Intrain.png">
 
-    <title>Shoulder Workout</title>
+    <title>Glute Workout</title>
 </head>
 
 <body>
