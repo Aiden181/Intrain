@@ -206,26 +206,51 @@
                     </thead>
                     <tbody>
                         <?php
-                        if ($db->numRows() > 0) {
-                            $result = $db->fetchAll();
-                            foreach ($result as $row) {
-                            echo "<tr class=\"info-row\" onclick=\"window.location='index.php?p=admin&c=users&o=edit&id=" . $row['id'] . "'\">";
-                                echo "<td>" . $row['id'] . "</td>";
-                                echo "<td>" . $row['username'] . "</td>";
-
-                                if (stristr($_SESSION['flag'], ROOT_ADMIN) || stristr($_SESSION['flag'], LIST_CUSTOMERS)) {
-                                    // show more information
-                                    echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
-                                    echo "<td>" . $row['email'] . "</td>";
-                                    echo "<td>" . $row['phone_number'] . "</td>";
-                                }
-                            echo "</tr>";
+                        if (isset($_POST['checkbox']) && sizeof($_POST['checkbox']) > 0) {
+                            if ($db->numRows() === 0) {
+                                echo "<tr style=\"color: white;\">";
+                                    echo "<td> No results found!</td>";
+                                echo "</tr>";
                             }
-                            echo "</tbody>";
-                            echo "</table>";
+                            else {
+                                $result = $db->fetchAll();
+                                foreach ($result as $row) {
+                                echo "<tr class=\"info-row\" onclick=\"window.location='index.php?p=admin&c=users&o=edit&id=" . $row['id'] . "'\">";
+                                    echo "<td>" . $row['id'] . "</td>";
+                                    echo "<td>" . $row['username'] . "</td>";
+
+                                    if (stristr($_SESSION['flag'], ROOT_ADMIN) || stristr($_SESSION['flag'], LIST_CUSTOMERS)) {
+                                        // show more information
+                                        echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
+                                        echo "<td>" . $row['email'] . "</td>";
+                                        echo "<td>" . $row['phone_number'] . "</td>";
+                                    }
+                                echo "</tr>";
+                                }
+                            }
                         }
-                    echo "<br>";
-                ?>
+                        else {
+                            if ($db->numRows() > 0) {
+                                $result = $db->fetchAll();
+                                foreach ($result as $row) {
+                                echo "<tr class=\"info-row\" onclick=\"window.location='index.php?p=admin&c=users&o=edit&id=" . $row['id'] . "'\">";
+                                    echo "<td>" . $row['id'] . "</td>";
+                                    echo "<td>" . $row['username'] . "</td>";
+
+                                    if (stristr($_SESSION['flag'], ROOT_ADMIN) || stristr($_SESSION['flag'], LIST_CUSTOMERS)) {
+                                        // show more information
+                                        echo "<td>" . $row['first_name'] . " " . $row['last_name'] . "</td>";
+                                        echo "<td>" . $row['email'] . "</td>";
+                                        echo "<td>" . $row['phone_number'] . "</td>";
+                                    }
+                                echo "</tr>";
+                                }
+                            }
+                        }
+                        ?>
+                    </tbody>
+                </table>
+                <br>
             </div>
             <!-- end of right column content -->
         </div>
