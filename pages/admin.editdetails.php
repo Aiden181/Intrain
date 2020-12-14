@@ -110,7 +110,7 @@
                             echo "<div style=\"color: green\"> $passwordSuccess </div>";
                     ?>
                     <br>
-                    <input type="submit" name="update-admin" class="btn" id="sign-up-btn" value="Update details">
+                    <input type="submit" name="update-admin" class="btn" id="update-btn" value="Update details">
                     <a href="index.php?p=admin" class="button" id="admin-panel-button">Admin panel</a>
                 </form>
             </div>

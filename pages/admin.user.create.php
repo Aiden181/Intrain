@@ -51,7 +51,7 @@
                     </table>
                 </div>
                 <br>
-                <div id="signup-form">
+                <div id="admin-form">
                     <form action="index.php?p=admin&c=users&o=create" method="post" onsubmit="checkSignup(event)" id="customer-signup">
                         <table>
                         <div class="row">
@@ -93,7 +93,7 @@
                         </div>
                         </table>
                         <br>
-                        <input type="submit" name="add-customer" class="btn" id="sign-up-btn" value="Add customer">
+                        <input type="submit" name="add-customer" class="btn" id="update-btn" value="Add customer">
                     </form>
                     <?php
                         if (!$first_name_valid || !$last_name_valid)

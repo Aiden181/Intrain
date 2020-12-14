@@ -100,7 +100,7 @@
                         echo "    </table>";
                         echo "</div>";
                         echo "<br>";
-                        echo "<div id=\"signup-form\">";
+                        echo "<div id=\"admin-form\">";
                         echo "    <form action=\"index.php?p=admin&c=admins&o=edit&id=$id&flag=$flag\" method=\"post\" id=\"admin-update-admin-details\">";
                         echo "        <table>";
                         echo "            <div class=\"row\">";
@@ -233,7 +233,7 @@
                         echo "    </tr>";
                         echo "</div>";
                         echo "<p></p>";
-                        echo "<input type=\"submit\" name=\"admin-update-admin-details\" class=\"btn\" id=\"sign-up-btn\" value=\"Update admin details\">";
+                        echo "<input type=\"submit\" name=\"admin-update-admin-details\" class=\"btn\" id=\"update-btn\" value=\"Update admin details\">";
                         echo "</form>";
 
                         if (!$first_name_valid || !$last_name_valid)

@@ -185,7 +185,7 @@ footer {
 /* ***************************** */
 /* * Admin create account page * */
 /* ***************************** */
-#sign-up-btn {
+#update-btn {
     background-color: green;
     color: white;
     width: 210px;
@@ -194,7 +194,7 @@ footer {
     margin-right: auto;
 }
 
-#signup-form {
+#admin-form {
     color: white;
     margin-left: 15px;
     align-items: center;

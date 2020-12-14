@@ -94,7 +94,7 @@
                         echo "    </table>";
                         echo "</div>";
                         echo "<br>";
-                        echo "<div id=\"signup-form\">";
+                        echo "<div id=\"admin-form\">";
                         echo "    <form action=\"index.php?p=admin&c=users&o=edit&id=$id\" method=\"post\" id=\"admin-update-customer-details\">";
                         echo "        <table>";
                         echo "            <div class=\"row\">";
@@ -141,7 +141,7 @@
                         echo "            </div>";
                         echo "        </table>";
                         echo "        <br>";
-                        echo "        <input type=\"submit\" name=\"admin-update-customer-details\" class=\"btn\" id=\"sign-up-btn\" value=\"Update customer details\">";
+                        echo "        <input type=\"submit\" name=\"admin-update-customer-details\" class=\"btn\" id=\"update-btn\" value=\"Update customer details\">";
                         echo "        </form>";
                         
                         if (!$first_name_valid || !$last_name_valid)

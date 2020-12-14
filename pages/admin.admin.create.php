@@ -52,7 +52,7 @@
                 <br>
 
                 <!-- credentials -->
-                <div id="signup-form">
+                <div id="admin-form">
                     <form action="index.php?p=admin&c=admins&o=create" method="post" onsubmit="checkSignup(event)" id="customer-signup">
                         <table>
     
@@ -200,7 +200,7 @@
                 </div>
                 <br>
                 <br>
-                <input type="submit" name="add-admin" class="btn" id="sign-up-btn" value="Add admin">
+                <input type="submit" name="add-admin" class="btn" id="update-btn" value="Add admin">
                 </form>
             </div>
         </div>
