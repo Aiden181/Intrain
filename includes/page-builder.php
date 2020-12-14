@@ -274,6 +274,11 @@ if (!empty($page)) {
             Header("Location: index.php?p=home");
             die();
         }
+        // redirect to home page if they try to access admin edit details page
+        else if (isset($_GET['p']) && (test_input($_GET['p']) === "admineditdetails")) {
+            Header("Location: index.php?p=home");
+            die();
+        }
         // other pages, build page like normal
         else {
             include_once(PAGES_PATH . '/header.php');
@@ -286,6 +291,11 @@ if (!empty($page)) {
         // login and signup pages don't have header and footer
         if (isset($_GET['p']) && (test_input($_GET['p']) === "login" || test_input($_GET['p']) === "signup")) {
             include $page;
+        }
+        // redirect to home page if they try to access admin edit details page
+        else if (isset($_GET['p']) && (test_input($_GET['p']) === "admineditdetails")) {
+            Header("Location: index.php?p=home");
+            die();
         }
         // redirect to home page if they try to access customer and admin management pages
         else if (isset($_GET['p']) && (test_input($_GET['p']) === "user")) {
