@@ -28,7 +28,7 @@ $lastNameSuccess = $firstNameSuccess = $flagSuccess = "";
 $testSuccessMsg = "";
 
 // when a POST form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // ------------------------------------ //
     // --- LOGIN AUTHENTICATION SECTION --- //
     // ------------------------------------ //
@@ -356,7 +356,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $flag_string .= $flag[$i];
                 }
                 // all flags selected, set flag string to root admin flag
-                if ($flag_string == ALL_FLAGS) {
+                if ($flag_string === ALL_FLAGS) {
                     $flag_string = ROOT_ADMIN;
                     $flag_valid = true;
                 }
@@ -518,9 +518,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $renewpassword = test_input($_POST["renewpassword"]);
 
                         // 're-type new password' field and 'new password' field are the same
-                        if ($renewpassword == $newpassword) {
+                        if ($renewpassword === $newpassword) {
                             // new password same as old password
-                            if ($renewpassword == $currentpassword) {
+                            if ($renewpassword === $currentpassword) {
                                 $passwordError = "New password is the same as old password";
                                 $editPasswordSuccess = false;
                             }
@@ -716,7 +716,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $renewpassword = test_input($_POST["renewpassword"]);
 
                 // 're-type new password' field and 'new password' field are the same
-                if ($renewpassword == $newpassword) {
+                if ($renewpassword === $newpassword) {
                     // update password
                     $passwordSuccess = "Password updated.";
                     $renewpassword_valid = true;
@@ -755,7 +755,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                     if ($flag_string_new != $flag_string_old) {
                         // all flags selected, set flag string to root admin flag
-                        if ($flag_string_new == ALL_FLAGS) {
+                        if ($flag_string_new === ALL_FLAGS) {
                             $flag_string_new = ROOT_ADMIN;
                             $flagSuccess = "Flag updated.";
                             $flag_valid = true;
@@ -834,9 +834,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else if (isset($_POST['delete-user'])) {
         if (!empty($_GET["id"]) && isset($_GET["id"])) {
             $id =  test_input($_GET["id"]);
-            if ($_GET["c"] == "admins")
+            if ($_GET["c"] === "admins")
                 $sql = "DELETE FROM `admin` WHERE id=?;";
-            if ($_GET["c"] == "users")
+            if ($_GET["c"] === "users")
                 $sql = "DELETE FROM `customer` WHERE id=?;";
             
             $db->query($sql, $id);

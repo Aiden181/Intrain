@@ -55,31 +55,31 @@
                     $username_valid = $first_name_valid = $last_name_valid = $email_valid = $phone_valid = $flag_valid = true;
                     if (isset($_POST['username'])) {
                         $username = test_input($_POST['username']);
-                        if ($username == "") {
+                        if ($username === "") {
                             $username_valid = false;
                         }
                     }
                     if (isset($_POST['first_name'])) {
                         $first_name = test_input($_POST['first_name']);
-                        if ($first_name == "") {
+                        if ($first_name === "") {
                             $first_name_valid = false;
                         }
                     }
                     if (isset($_POST['last_name'])) {
                         $last_name = test_input($_POST['last_name']);
-                        if ($last_name == "") {
+                        if ($last_name === "") {
                             $last_name_valid = false;
                         }
                     }
                     if (isset($_POST['email'])) {
                         $email = test_input($_POST['email']);
-                        if ($email == "") {
+                        if ($email === "") {
                             $email_valid = false;
                         }
                     }
                     if (isset($_POST['phone'])) {
                         $phone_number = test_input($_POST['phone']);
-                        if ($phone_number == "") {
+                        if ($phone_number === "") {
                             $phone_valid = false;
                         }
                     }

@@ -39,7 +39,7 @@
                         $flags = $_SESSION['flag'];
                         for ($i = 0; $i < strlen($flags); $i++) {
                             // if flag is root or add admins
-                            if ($flags[$i] == ROOT_ADMIN || $flags[$i] == ADD_ADMINS) {
+                            if ($flags[$i] === ROOT_ADMIN || $flags[$i] === ADD_ADMINS) {
                                 echo "<li><a href=\"index.php?p=admin&c=admins&o=create\"> Add new admin</a></li>";
                                 break;
                             }
@@ -55,37 +55,37 @@
                     $username_valid = $first_name_valid = $last_name_valid = $email_valid = $phone_valid = $flag_valid = true;
                     if (isset($_POST['username'])) {
                         $username = test_input($_POST['username']);
-                        if ($username == "") {
+                        if ($username === "") {
                             $username_valid = false;
                         }
                     }
                     if (isset($_POST['first_name'])) {
                         $first_name = test_input($_POST['first_name']);
-                        if ($first_name == "") {
+                        if ($first_name === "") {
                             $first_name_valid = false;
                         }
                     }
                     if (isset($_POST['last_name'])) {
                         $last_name = test_input($_POST['last_name']);
-                        if ($last_name == "") {
+                        if ($last_name === "") {
                             $last_name_valid = false;
                         }
                     }
                     if (isset($_POST['email'])) {
                         $email = test_input($_POST['email']);
-                        if ($email == "") {
+                        if ($email === "") {
                             $email_valid = false;
                         }
                     }
                     if (isset($_POST['phone'])) {
                         $phone_number = test_input($_POST['phone']);
-                        if ($phone_number == "") {
+                        if ($phone_number === "") {
                             $phone_valid = false;
                         }
                     }
                     if (isset($_POST['flag'])) {
                         $flag = test_input($_POST['flag']);
-                        if ($flag == "") {
+                        if ($flag === "") {
                             $flag_valid = false;
                         }
                     }
@@ -224,12 +224,12 @@
                     <tbody>
                         <?php
                         if (isset($_POST['checkbox']) && sizeof($_POST['checkbox']) > 0) {
-                            if ($db->numRows() == 0) {
+                            if ($db->numRows() === 0) {
                                 echo "<tr style=\"color: white;\">";
                                     echo "<td> No results found!</td>";
                                 echo "</tr>";
                             }
-                            else if ($db->numRows() > 0) {
+                            else {
                                 $result = $db->fetchAll();
                                 foreach ($result as $row) {
                                     echo "<tr class=\"info-row\" onclick=\"window.location='index.php?p=admin&c=admins&o=edit&id=" . $row['id'] . "&flag=" . $row['flag'] . "'\">";
