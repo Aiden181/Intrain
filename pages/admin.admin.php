@@ -251,7 +251,7 @@
                             if ($db->numRows() > 0) {
                                 $result = $db->fetchAll();
                                 foreach ($result as $row) {
-                                    echo "<tr class=\"info-row\" onclick=\"window.location='index.php?p=admin&c=admins&o=edit&id=" . $row['id'] . "&flag=" . $row['flag'] . "'\">";
+                                    echo "<tr class=\"info-row\" onclick=\"window.location='index.php?p=admin&c=admins&o=edit&id=" . $row['id'] . "'\">";
                                     echo "<td>" . $row['id'] . "</td>";
                                     echo "<td>" . $row['username'] . "</td>";
                                     // admin is root admin or has list admin flag

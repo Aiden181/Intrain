@@ -78,11 +78,6 @@
                 Header('Location: index.php?p=admin&c=admins');
                 die();
             }
-            if (!isset($_GET["flag"]) || empty($_GET["flag"])) {
-                // no id or flag in link, redirect to admin management page
-                Header('Location: index.php?p=admin&c=admins');
-                die();
-            }
             ?>
             <!-- right column content -->
             <div class="column right" style="background-color: #3e3e3e; padding: 20px;">
