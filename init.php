@@ -23,6 +23,7 @@ define('VID_LOCATION', 'videos');
 // ---- Regex definitions ---- //
 // --------------------------- //
 define('EMAIL_FORMAT', "/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/");
+define('PHONE_NUMBER_FORMAT', "/^[0-9\-\(\)\/\+\s]*$/");
 define('URL_FORMAT', "/^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}((:[0-9]{1,5})?\/.*)?$/i");
 
 

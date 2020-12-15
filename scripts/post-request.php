@@ -157,7 +157,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if (isset($_POST["email"])) {
                 $email = test_input($_POST["email"]);
                 // check if e-mail address is well-formed
-                if (!is_valid_email($email) || !preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/', $email)) {
+                if (!is_valid_email($email) || !preg_match(EMAIL_FORMAT, $email)) {
                     $emailError = "Invalid email format!";
                 } else {
                     // attempt to get email query result from user to check if email is registered
@@ -181,7 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (isset($_POST["phone"])) {
                 $phone_number = test_input($_POST["phone"]);
                 // not matching regex, format error message
-                if (!preg_match("/^[0-9\-\(\)\/\+\s]*$/", $phone_number)) {
+                if (!preg_match(PHONE_NUMBER_FORMAT, $phone_number)) {
                     $phoneError = "Invalid phone number";
                 } else {
                     $phone_valid = true;
@@ -281,7 +281,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if (isset($_POST["email"])) {
                 $email = test_input($_POST["email"]);
                 // check if e-mail address is well-formed
-                if (!is_valid_email($email) || !preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/', $email)) {
+                if (!is_valid_email($email) || !preg_match(EMAIL_FORMAT, $email)) {
                     $emailError = "Invalid email format!";
                 } else {
                     // attempt to get email query result from user to check if email is registered
@@ -305,7 +305,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (isset($_POST["phone"])) {
                 $phone_number = test_input($_POST["phone"]);
                 // not matching regex, format error message
-                if (!preg_match("/^[0-9\-\(\)\/\+\s]*$/", $phone_number)) {
+                if (!preg_match(PHONE_NUMBER_FORMAT, $phone_number)) {
                     $phoneError = "Invalid phone number";
                 } else {
                     $phone_valid = true;
