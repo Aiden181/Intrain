@@ -1,3 +1,4 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script>
     function goBack() {
         window.history.back();
@@ -154,4 +155,363 @@
             }
         }
     }
+
+    // AJAX POST form processing
+    $(document).ready(function() {
+        // process admin updates own account details form
+        $('#admin-editdetails').submit(function(event) {
+            // get the form data
+            // there are many ways to get this data using jQuery (you can use the class or id also)
+            var formData = {
+                'first_name'        : $('input[name=first_name]').val(),
+                'last_name'         : $('input[name=last_name]').val(),
+                'email'             : $('input[name=email]').val(),
+                'phone'             : $('input[name=phone]').val(),
+                'oldpassword'       : $('input[name=oldpassword]').val(),
+                'newpassword'       : $('input[name=newpassword]').val(),
+                'renewpassword'     : $('input[name=renewpassword]').val(),
+                'update-admin'      : $('input[name=update-admin]').val()
+            };
+
+            // process the form
+            $.ajax({
+                type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                url         : './scripts/ajax-form.php', // the url where we want to POST
+                data        : formData, // our data object
+                dataType    : 'json', // what type of data do we expect back from the server
+                encode      : true
+            })
+
+            // using the done promise callback
+            .done(function(data) {
+                // log data to the console so we can see (for debug)
+                console.log(data);
+
+                // here we will handle errors and validation messages
+                if (!data.success) {
+                    if (data.errors.name) {
+                        $('#first-name-success').html("");
+                        $('#last-name-success').html("");
+                        $('#name-error').html(data.errors.name);
+                    }
+                    if (data.errors.email) {
+                        $('#email-success').html("");
+                        $('#email-error').html(data.errors.email);
+                    }
+                    if (data.errors.phone) {
+                        $('#phone-success').html("");
+                        $('#phone-error').html(data.errors.phone);
+                    }
+                    if (data.errors.password) {
+                        $('#password-success').html("");
+                        $('#password-error').html(data.errors.password);
+                    }
+                } else {
+                    // ALL GOOD! show successful messages
+                    if (data.sucessMsg.first_name) {
+                        $('#name-error').html("");
+                        $('#first-name-success').html(data.sucessMsg.first_name);
+                    }
+                    if (data.sucessMsg.last_name) {
+                        $('#name-error').html("");
+                        $('#last-name-success').html(data.sucessMsg.last_name);
+                    }
+                    if (data.sucessMsg.email) {
+                        $('#email-error').html("");
+                        $('#email-success').html(data.sucessMsg.email);
+                    }
+                    if (data.sucessMsg.phone) {
+                        $('#phone-error').html("");
+                        $('#phone-success').html(data.sucessMsg.phone);
+                    }
+                    if (data.sucessMsg.password) {
+                        $('#password-error').html("");
+                        $('#password-success').html(data.sucessMsg.password);
+                    }
+                }
+            })
+
+            // error encountered
+            .error(function(data, textStatus, errorThrown) {
+                // print data
+                console.warn(data.responseText)
+                // print error
+                console.warn('ERRORS: ' + textStatus, errorThrown);
+            });
+
+            // stop the form from submitting the normal way and refreshing the page
+            event.preventDefault();
+        });
+
+        // process customer updates own account details form
+        $('#customer-editdetails').submit(function(event) {
+            // get the form data
+            // there are many ways to get this data using jQuery (you can use the class or id also)
+            var formData = {
+                'email'             : $('input[name=email]').val(),
+                'phone'             : $('input[name=phone]').val(),
+                'oldpassword'       : $('input[name=oldpassword]').val(),
+                'newpassword'       : $('input[name=newpassword]').val(),
+                'renewpassword'     : $('input[name=renewpassword]').val(),
+                'update-user'      : $('input[name=update-user]').val()
+            };
+
+            // process the form
+            $.ajax({
+                type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                url         : './scripts/ajax-form.php', // the url where we want to POST
+                data        : formData, // our data object
+                dataType    : 'json', // what type of data do we expect back from the server
+                encode      : true
+            })
+
+            // using the done promise callback
+            .done(function(data) {
+                // log data to the console so we can see (for debug)
+                console.log(data);
+
+                // here we will handle errors and validation messages
+                if (!data.success) {
+                    if (data.errors.name) {
+                        $('#first-name-success').html("");
+                        $('#last-name-success').html("");
+                        $('#name-error').html(data.errors.name);
+                    }
+                    if (data.errors.email) {
+                        $('#email-success').html("");
+                        $('#email-error').html(data.errors.email);
+                    }
+                    if (data.errors.phone) {
+                        $('#phone-success').html("");
+                        $('#phone-error').html(data.errors.phone);
+                    }
+                    if (data.errors.password) {
+                        $('#password-success').html("");
+                        $('#password-error').html(data.errors.password);
+                    }
+                } else {
+                    // ALL GOOD! show successful messages
+                    if (data.sucessMsg.first_name) {
+                        $('#name-error').html("");
+                        $('#first-name-success').html(data.sucessMsg.first_name);
+                    }
+                    if (data.sucessMsg.last_name) {
+                        $('#name-error').html("");
+                        $('#last-name-success').html(data.sucessMsg.last_name);
+                    }
+                    if (data.sucessMsg.email) {
+                        $('#email-error').html("");
+                        $('#email-success').html(data.sucessMsg.email);
+                    }
+                    if (data.sucessMsg.phone) {
+                        $('#phone-error').html("");
+                        $('#phone-success').html(data.sucessMsg.phone);
+                    }
+                    if (data.sucessMsg.password) {
+                        $('#password-error').html("");
+                        $('#password-success').html(data.sucessMsg.password);
+                    }
+                }
+            })
+
+            // error encountered
+            .error(function(data, textStatus, errorThrown) {
+                // print data
+                console.warn(data.responseText)
+                // print error
+                console.warn('ERRORS: ' + textStatus, errorThrown);
+            });
+
+            // stop the form from submitting the normal way and refreshing the page
+            event.preventDefault();
+        });
+
+        // process admin updates admin account details form
+        $('#admin-update-admin-details').submit(function(event) {
+            // get the form data
+            // there are many ways to get this data using jQuery (you can use the class or id also)
+            var formData = {
+                'first_name'        : $('input[name=first_name]').val(),
+                'last_name'         : $('input[name=last_name]').val(),
+                'email'             : $('input[name=email]').val(),
+                'phone'             : $('input[name=phone]').val(),
+                'newpassword'       : $('input[name=newpassword]').val(),
+                'renewpassword'     : $('input[name=renewpassword]').val(),
+                'flag'              : $('input:checkbox.flags').serializeArray(),
+                'update-admin-details'      : $('input[name=update-admin-details]').attr('id')
+            };
+
+            // process the form
+            $.ajax({
+                type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                url         : './scripts/ajax-form.php', // the url where we want to POST
+                data        : formData, // our data object
+                dataType    : 'json', // what type of data do we expect back from the server
+                encode      : true
+            })
+
+            // using the done promise callback
+            .done(function(data) {
+                // log data to the console so we can see (for debug)
+                console.log(data);
+
+                // here we will handle errors and validation messages
+                if (!data.success) {
+                    if (data.errors.name) {
+                        $('#first-name-success').html("");
+                        $('#last-name-success').html("");
+                        $('#name-error').html(data.errors.name);
+                    }
+                    if (data.errors.email) {
+                        $('#email-success').html("");
+                        $('#email-error').html(data.errors.email);
+                    }
+                    if (data.errors.phone) {
+                        $('#phone-success').html("");
+                        $('#phone-error').html(data.errors.phone);
+                    }
+                    if (data.errors.password) {
+                        $('#password-success').html("");
+                        $('#password-error').html(data.errors.password);
+                    }
+                    if (data.errors.flag) {
+                        $('#flag-success').html("");
+                        $('#flag-error').html(data.errors.flag);
+                    }
+                } else {
+                    // ALL GOOD! show successful messages
+                    if (data.sucessMsg.first_name) {
+                        $('#name-error').html("");
+                        $('#first-name-success').html(data.sucessMsg.first_name);
+                    }
+                    if (data.sucessMsg.last_name) {
+                        $('#name-error').html("");
+                        $('#last-name-success').html(data.sucessMsg.last_name);
+                    }
+                    if (data.sucessMsg.email) {
+                        $('#email-error').html("");
+                        $('#email-success').html(data.sucessMsg.email);
+                    }
+                    if (data.sucessMsg.phone) {
+                        $('#phone-error').html("");
+                        $('#phone-success').html(data.sucessMsg.phone);
+                    }
+                    if (data.sucessMsg.password) {
+                        $('#password-error').html("");
+                        $('#password-success').html(data.sucessMsg.password);
+                    }
+                    if (data.sucessMsg.flag) {
+                        $('#flag-error').html("");
+                        $('#flag-success').html(data.sucessMsg.flag);
+                    }
+                }
+            })
+
+            // error encountered
+            .error(function(data, textStatus, errorThrown) {
+                // print data
+                // console.warn(data)
+                console.warn(data.responseText)
+                // print error
+                console.warn('ERRORS: ' + textStatus, errorThrown);
+            });
+
+            // stop the form from submitting the normal way and refreshing the page
+            event.preventDefault();
+        });
+        
+
+        // process admin updates customer account details form
+        $('#admin-update-customer-details').submit(function(event) {
+            // get the form data
+            // there are many ways to get this data using jQuery (you can use the class or id also)
+            var formData = {
+                'first_name'        : $('input[name=first_name]').val(),
+                'last_name'         : $('input[name=last_name]').val(),
+                'email'             : $('input[name=email]').val(),
+                'phone'             : $('input[name=phone]').val(),
+                'newpassword'       : $('input[name=newpassword]').val(),
+                'renewpassword'     : $('input[name=renewpassword]').val(),
+                'update-customer-details'      : $('input[name=update-customer-details]').attr('id')
+            };
+
+            // process the form
+            $.ajax({
+                type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                url         : './scripts/ajax-form.php', // the url where we want to POST
+                data        : formData, // our data object
+                dataType    : 'json', // what type of data do we expect back from the server
+                encode      : true
+            })
+
+            // using the done promise callback
+            .done(function(data) {
+                // log data to the console so we can see (for debug)
+                console.log(data);
+
+                // here we will handle errors and validation messages
+                if (!data.success) {
+                    if (data.errors.name) {
+                        $('#first-name-success').html("");
+                        $('#last-name-success').html("");
+                        $('#name-error').html(data.errors.name);
+                    }
+                    if (data.errors.email) {
+                        $('#email-success').html("");
+                        $('#email-error').html(data.errors.email);
+                    }
+                    if (data.errors.phone) {
+                        $('#phone-success').html("");
+                        $('#phone-error').html(data.errors.phone);
+                    }
+                    if (data.errors.password) {
+                        $('#password-success').html("");
+                        $('#password-error').html(data.errors.password);
+                    }
+                    if (data.errors.flag) {
+                        $('#flag-success').html("");
+                        $('#flag-error').html(data.errors.flag);
+                    }
+                } else {
+                    // ALL GOOD! show successful messages
+                    if (data.sucessMsg.first_name) {
+                        $('#name-error').html("");
+                        $('#first-name-success').html(data.sucessMsg.first_name);
+                    }
+                    if (data.sucessMsg.last_name) {
+                        $('#name-error').html("");
+                        $('#last-name-success').html(data.sucessMsg.last_name);
+                    }
+                    if (data.sucessMsg.email) {
+                        $('#email-error').html("");
+                        $('#email-success').html(data.sucessMsg.email);
+                    }
+                    if (data.sucessMsg.phone) {
+                        $('#phone-error').html("");
+                        $('#phone-success').html(data.sucessMsg.phone);
+                    }
+                    if (data.sucessMsg.password) {
+                        $('#password-error').html("");
+                        $('#password-success').html(data.sucessMsg.password);
+                    }
+                    if (data.sucessMsg.flag) {
+                        $('#flag-error').html("");
+                        $('#flag-success').html(data.sucessMsg.flag);
+                    }
+                }
+            })
+
+            // error encountered
+            .error(function(data, textStatus, errorThrown) {
+                // print data
+                // console.warn(data)
+                console.warn(data.responseText)
+                // print error
+                console.warn('ERRORS: ' + textStatus, errorThrown);
+            });
+
+            // stop the form from submitting the normal way and refreshing the page
+            event.preventDefault();
+        });
+    });
 </script>

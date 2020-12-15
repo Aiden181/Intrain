@@ -10,6 +10,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
@@ -57,7 +59,7 @@
 
             <!-- right column content -->
             <div class="column right" style="background-color: #3e3e3e; padding: 20px;">
-                <form action="index.php?p=user&b=edit" method="post" onsubmit="checkSignup(event)" id="customer-signup">
+                <form action="./scripts/ajax-form.php" method="post" id="customer-editdetails">
                     <table>
                         <div class="row" style="color: white;">
                             <div class="col-lg-4 mb-2">Name:</div>
@@ -87,41 +89,39 @@
                         <div class="row" style="color: white;">
                             <div class="col-lg-4 mb-2">Current password:</div>
                             <div class="col-lg-4 mb-2">
-                                <input type="password" class="form-control" id="password" name="oldpassword" placeholder="Current Password">
+                                <input type="password" class="form-control" id="oldpassword" name="oldpassword" placeholder="Current Password">
                             </div>
                         </div>
 
                         <div class="row" style="color: white;">
                             <div class="col-lg-4 mb-2">New password:</div>
                             <div class="col-lg-4 mb-2">
-                                <input type="password" class="form-control" id="password" name="newpassword" placeholder="New Password">
+                                <input type="password" class="form-control" id="newpassword" name="newpassword" placeholder="New Password">
                             </div>
                         </div>
 
                         <div class="row" style="color: white;">
                             <div class="col-lg-4 mb-2">Retype new password:</div>
                             <div class="col-lg-4 mb-2">
-                                <input type="password" class="form-control" id="password" name="renewpassword" placeholder="Retype new Password" oninput="">
+                                <input type="password" class="form-control" id="renewpassword" name="renewpassword" placeholder="Retype new Password">
                             </div>
                         </div>
                     </table>
-                    <?php
-                        if (!$email_valid)
-                            echo "<div style=\"color: red\"> $emailError </div>";
-                        if (!$phone_valid)
-                            echo "<div style=\"color: red\"> $phoneError </div>";
-                        if (!$password_valid)
-                            echo "<div style=\"color: red\"> $passwordError </div>";
-                        
-                        if ($editEmailSuccess)
-                            echo "<div style=\"color: green\"> $emailSuccess </div>";
-                        if ($editPhoneSuccess)
-                            echo "<div style=\"color: green\"> $phoneSuccess </div>";
-                        if ($editPasswordSuccess)
-                            echo "<div style=\"color: green\"> $passwordSuccess </div>";
-                    ?>
+                    <span style="color: red">
+                        <div id="name-error"></div>
+                        <div id="email-error"></div>
+                        <div id="phone-error"></div>
+                        <div id="password-error"></div>
+                    </span>
+                    <span style="color: green">
+                        <div id="first-name-success"></div>
+                        <div id="last-name-success"></div>
+                        <div id="email-success"></div>
+                        <div id="phone-success"></div>
+                        <div id="password-success"></div>
+                    </span>
                     <br>
-                    <input type="submit" name="update-user" class="btn" id="sign-up-btn" value="Update details">
+                    <input type="submit" name="update-user" class="btn" id="update-btn" value="Update details">
                 </form>
             </div>
             <!-- end of right column content -->

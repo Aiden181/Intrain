@@ -11,6 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
@@ -96,7 +98,7 @@
                         echo "</div>";
                         echo "<br>";
                         echo "<div id=\"admin-form\">";
-                        echo "    <form action=\"index.php?p=admin&c=admins&o=edit&id=$id&flag=$flag\" method=\"post\" id=\"admin-update-admin-details\">";
+                        echo "    <form action=\"./scripts/ajax-form.php\" method=\"post\" id=\"admin-update-admin-details\">";
                         echo "        <table>";
                         echo "            <div class=\"row\">";
                         echo "                <div class=\"col-lg-4 mb-2\">Admin id:</div>";
@@ -125,19 +127,19 @@
                         echo "            <div class=\"row\">";
                         echo "                <div class=\"col-lg-4 mb-2\">Admin phone number:</div>";
                         echo "                <div class=\"col-lg-4 mb-2\">";
-                        echo "                    <input type=\"phone_number\" name=\"phone\" id=\"phone_number\" class=\"form-control\" placeholder=\"Phone number\" value=\"$phone_number\" pattern=\"^[0-9\-\(\)\/\+\s]*$\" required>";
+                        echo "                    <input type=\"phone_number\" name=\"phone\" id=\"phone\" class=\"form-control\" placeholder=\"Phone number\" value=\"$phone_number\" pattern=\"^[0-9\-\(\)\/\+\s]*$\" required>";
                         echo "                </div>";
                         echo "            </div>";
                         echo "            <div class=\"row\">";
                         echo "                <div class=\"col-lg-4 mb-2\">New password:</div>";
                         echo "                <div class=\"col-lg-4 mb-2\">";
-                        echo "                    <input type=\"password\" class=\"form-control\" id=\"password_new\" name=\"newpassword\" placeholder=\"New Password\">";
+                        echo "                    <input type=\"password\" class=\"form-control\" id=\"newpassword\" name=\"newpassword\" placeholder=\"New Password\">";
                         echo "                </div>";
                         echo "            </div>";
                         echo "            <div class=\"row\">";
                         echo "                <div class=\"col-lg-4 mb-2\">Retype new password:</div>";
                         echo "                <div class=\"col-lg-4 mb-2\">";
-                        echo "                    <input type=\"password\" class=\"form-control\" id=\"password_new_retype\" name=\"renewpassword\" placeholder=\"Retype new Password\" oninput=\"\">";
+                        echo "                    <input type=\"password\" class=\"form-control\" id=\"renewpassword\" name=\"renewpassword\" placeholder=\"Retype new Password\" oninput=\"\">";
                         echo "                </div>";
                         echo "            </div>";
                         echo "        </table>";
@@ -159,7 +161,7 @@
                         echo "                <tbody>";
                         echo "                    <tr>";
                         echo "                        <td colspan=\"2\" class=\"tablerow-root\">Root Admin (Full Admin Access)</td>";
-                        echo "                        <td class=\"tablerow-root\"><input type=\"checkbox\" id=\"p2\" onclick=\"UpdateCheckBox(2, 3, 12);\" value=\"\""; if (stristr($flag, 'z')) { echo "checked"; } echo "></td>";
+                        echo "                        <td class=\"tablerow-root\"><input type=\"checkbox\" id=\"p2\" onclick=\"UpdateCheckBox(2, 3, 14);\" value=\"\""; if (stristr($flag, 'z')) { echo "checked"; } echo "></td>";
                         echo "                    </tr>";
                         echo "                    <tr class=\"tableheader\">";
                         echo "                        <td colspan=\"2\" class=\"tableheader\">Manage Customers </td>";
@@ -168,22 +170,22 @@
                         echo "                    <tr class=\"tablerow\">";
                         echo "                        <td width=\"15%\"> </td>";
                         echo "                        <td class=\"tablerow\">List Customers </td>";
-                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" id=\"p4\" value=\"a\""; if (stristr($flag, 'a') || $flag == 'z') { echo "checked"; } echo "></td>";
+                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" class=\"flags\"id=\"p4\" value=\"a\""; if (stristr($flag, 'a') || $flag == 'z') { echo "checked"; } echo "></td>";
                         echo "                    </tr>";
                         echo "                    <tr class=\"tablerow\">";
                         echo "                        <td width=\"15%\"> </td>";
                         echo "                        <td class=\"tablerow\">Add New Customers </td>";
-                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" id=\"p5\" value=\"b\""; if (stristr($flag, 'b') || $flag == 'z') { echo "checked"; } echo "></td>";
+                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" class=\"flags\"id=\"p5\" value=\"b\""; if (stristr($flag, 'b') || $flag == 'z') { echo "checked"; } echo "></td>";
                         echo "                    </tr>";
                         echo "                    <tr class=\"tablerow\">";
                         echo "                        <td width=\"15%\"> </td>";
                         echo "                        <td class=\"tablerow\">Edit Customers </td>";
-                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" id=\"p6\" value=\"c\""; if (stristr($flag, 'c') || $flag == 'z') { echo "checked"; } echo "></td>";
+                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" class=\"flags\"id=\"p6\" value=\"c\""; if (stristr($flag, 'c') || $flag == 'z') { echo "checked"; } echo "></td>";
                         echo "                    </tr>";
                         echo "                    <tr class=\"tablerow\">";
                         echo "                        <td width=\"15%\"> </td>";
                         echo "                        <td class=\"tablerow\">Delete Customers </td>";
-                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" id=\"p7\" value=\"d\""; if (stristr($flag, 'd') || $flag == 'z') { echo "checked"; } echo "></td>";
+                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" class=\"flags\"id=\"p7\" value=\"d\""; if (stristr($flag, 'd') || $flag == 'z') { echo "checked"; } echo "></td>";
                         echo "                    </tr>";
                         echo "                    <!-- add space between sections -->";
                         echo "                    <tr><td style=\"visibility: hidden;\">a</td></tr>";
@@ -194,33 +196,33 @@
                         echo "                    <tr class=\"tablerow\">";
                         echo "                        <td width=\"15%\"> </td>";
                         echo "                        <td class=\"tablerow\">List Admins </td>";
-                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" id=\"p9\" value=\"e\""; if (stristr($flag, 'e') || $flag == 'z') { echo "checked"; } echo "></td>";
+                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" class=\"flags\"id=\"p9\" value=\"e\""; if (stristr($flag, 'e') || $flag == 'z') { echo "checked"; } echo "></td>";
                         echo "                    </tr>";
                         echo "                    <tr class=\"tablerow\">";
                         echo "                        <td width=\"15%\"> </td>";
                         echo "                        <td class=\"tablerow\">Add New Admins</td>";
-                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" id=\"p10\" value=\"f\""; if (stristr($flag, 'f') || $flag == 'z') { echo "checked"; } echo "></td>";
+                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" class=\"flags\"id=\"p10\" value=\"f\""; if (stristr($flag, 'f') || $flag == 'z') { echo "checked"; } echo "></td>";
                         echo "                    </tr>";
                         echo "                    <tr class=\"tablerow\">";
                         echo "                        <td width=\"15%\"> </td>";
                         echo "                        <td class=\"tablerow\">Edit Admins</td>";
-                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" id=\"p11\" value=\"g\""; if (stristr($flag, 'g') || $flag == 'z') { echo "checked"; } echo "></td>";
+                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" class=\"flags\"id=\"p11\" value=\"g\""; if (stristr($flag, 'g') || $flag == 'z') { echo "checked"; } echo "></td>";
                         echo "                    </tr>";
                         echo "                    <tr class=\"tablerow\">";
                         echo "                        <td width=\"15%\"> </td>";
                         echo "                        <td class=\"tablerow\">Delete Admins</td>";
-                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" id=\"p12\" value=\"h\""; if (stristr($flag, 'h') || $flag == 'z') { echo "checked"; } echo "></td>";
+                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" class=\"flags\"id=\"p12\" value=\"h\""; if (stristr($flag, 'h') || $flag == 'z') { echo "checked"; } echo "></td>";
                         echo "                    </tr>";
-                        echo "                    <!-- add space between sections -->\n";
-                        echo "                    <tr><td style=\"visibility: hidden;\">a</td></tr>\n";
-                        echo "                    <tr>\n";
-                        echo "                        <td colspan=\"2\" class=\"tableheader\">Database</td>\n";
+                        echo "                    <!-- add space between sections -->";
+                        echo "                    <tr><td style=\"visibility: hidden;\">a</td></tr>";
+                        echo "                    <tr>";
+                        echo "                        <td colspan=\"2\" class=\"tableheader\">Database</td>";
                         echo "                        <td class=\"tableheader\"><input type=\"checkbox\" id=\"p13\" onclick=\"UpdateCheckBox(13, 14, 14);\" value=\"\""; if ($flag == 'z' || stristr($flag, 'x')) { echo "checked"; } echo "></td>";
-                        echo "                    </tr>\n";
-                        echo "                    <tr class=\"tablerow\">\n";
-                        echo "                        <td width=\"15%\"> </td>\n";
-                        echo "                        <td class=\"tablerow\">Test database</td>\n";
-                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" id=\"p14\" value=\"x\""; if (stristr($flag, 'x') || $flag == 'z') { echo "checked"; } echo "></td>";
+                        echo "                    </tr>";
+                        echo "                    <tr class=\"tablerow\">";
+                        echo "                        <td width=\"15%\"> </td>";
+                        echo "                        <td class=\"tablerow\">Test database</td>";
+                        echo "                        <td class=\"tablerow\"><input type=\"checkbox\" name=\"flag[]\" class=\"flags\"id=\"p14\" value=\"x\""; if (stristr($flag, 'x') || $flag == 'z') { echo "checked"; } echo "></td>";
                         echo "                    </tr>";
                         echo "                </tbody>";
                         echo "            </table>";
@@ -228,35 +230,26 @@
                         echo "    </tr>";
                         echo "</div>";
                         echo "<p></p>";
-                        echo "<input type=\"submit\" name=\"admin-update-admin-details\" class=\"btn\" id=\"update-btn\" value=\"Update admin details\">";
+                        echo "<input type=\"submit\" name=\"update-admin-details\" class=\"update-user-btn\" id=\"$id\" value=\"Update admin details\">";
                         echo "</form>";
 
-                        if (!$first_name_valid || !$last_name_valid)
-                            echo "<div style=\"color: red\"> $nameError </div>";
-                        if (!$email_valid)
-                            echo "<div style=\"color: red\"> $emailError </div>";
-                        if (!$phone_valid)
-                            echo "<div style=\"color: red\"> $phoneError </div>";
-                        if (!$password_valid)
-                            echo "<div style=\"color: red\"> $passwordError </div>";
-                        if (!$flag_valid)
-                            echo "<div style=\"color: red\"> $flagError </div>";
-                        
-                        if ($editFirstNameSuccess)
-                            echo "<div style=\"color: green\"> $firstNameSuccess </div>";
-                        if ($editLastNameSuccess)
-                            echo "<div style=\"color: green\"> $lastNameSuccess </div>";
-                        if ($editEmailSuccess)
-                            echo "<div style=\"color: green\"> $emailSuccess </div>";
-                        if ($editPhoneSuccess)
-                            echo "<div style=\"color: green\"> $phoneSuccess </div>";
-                        if ($editPasswordSuccess)
-                            echo "<div style=\"color: green\"> $passwordSuccess </div>";
-                        if ($editFlagSuccess)
-                            echo "<div style=\"color: green\"> $flagSuccess </div>";
-
-                        echo "<br>";
-                        echo "<br>";
+                        echo '<span style="color: red">';
+                        echo '    <div id="name-error"></div>';
+                        echo '    <div id="email-error"></div>';
+                        echo '    <div id="phone-error"></div>';
+                        echo '    <div id="password-error"></div>';
+                        echo '    <div id="flag-error"></div>';
+                        echo '</span>';
+                        echo '<span style="color: green">';
+                        echo '    <div id="first-name-success"></div>';
+                        echo '    <div id="last-name-success"></div>';
+                        echo '    <div id="email-success"></div>';
+                        echo '    <div id="phone-success"></div>';
+                        echo '    <div id="password-success"></div>';
+                        echo '    <div id="flag-success"></div>';
+                        echo '</span>';
+                        echo '<br>';
+                        echo '<br>';
                     }
                     
                     // if flag is root or delete admins

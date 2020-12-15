@@ -11,6 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
@@ -95,7 +97,7 @@
                         echo "</div>";
                         echo "<br>";
                         echo "<div id=\"admin-form\">";
-                        echo "    <form action=\"index.php?p=admin&c=users&o=edit&id=$id\" method=\"post\" id=\"admin-update-customer-details\">";
+                        echo "    <form action=\"./scripts/ajax-form.php\" method=\"post\" id=\"admin-update-customer-details\">";
                         echo "        <table>";
                         echo "            <div class=\"row\">";
                         echo "                <div class=\"col-lg-4 mb-2\">Customer id:</div>";
@@ -130,39 +132,33 @@
                         echo "            <div class=\"row\">";
                         echo "                <div class=\"col-lg-4 mb-2\">New password:</div>";
                         echo "                <div class=\"col-lg-4 mb-2\">";
-                        echo "                    <input type=\"password\" class=\"form-control\" id=\"password_new\" name=\"newpassword\" placeholder=\"New Password\">";
+                        echo "                    <input type=\"password\" class=\"form-control\" id=\"newpassword\" name=\"newpassword\" placeholder=\"New Password\">";
                         echo "                </div>";
                         echo "            </div>";
                         echo "            <div class=\"row\">";
                         echo "                <div class=\"col-lg-4 mb-2\">Retype new password:</div>";
                         echo "                <div class=\"col-lg-4 mb-2\">";
-                        echo "                    <input type=\"password\" class=\"form-control\" id=\"password_new_retype\" name=\"renewpassword\" placeholder=\"Retype new Password\" oninput=\"\">";
+                        echo "                    <input type=\"password\" class=\"form-control\" id=\"renewpassword\" name=\"renewpassword\" placeholder=\"Retype new Password\" oninput=\"\">";
                         echo "                </div>";
                         echo "            </div>";
                         echo "        </table>";
                         echo "        <br>";
-                        echo "        <input type=\"submit\" name=\"admin-update-customer-details\" class=\"btn\" id=\"update-btn\" value=\"Update customer details\">";
+                        echo "        <input type=\"submit\" name=\"update-customer-details\" class=\"update-user-btn\" id=\"$id\" value=\"Update customer details\">";
                         echo "        </form>";
-                        
-                        if (!$first_name_valid || !$last_name_valid)
-                            echo "<div style=\"color: red\"> $nameError </div>";
-                        if (!$email_valid)
-                            echo "<div style=\"color: red\"> $emailError </div>";
-                        if (!$phone_valid)
-                            echo "<div style=\"color: red\"> $phoneError </div>";
-                        if (!$password_valid)
-                            echo "<div style=\"color: red\"> $passwordError </div>";
-                        
-                        if ($editFirstNameSuccess)
-                            echo "<div style=\"color: green\"> $firstNameSuccess </div>";
-                        if ($editLastNameSuccess)
-                            echo "<div style=\"color: green\"> $lastNameSuccess </div>";
-                        if ($editEmailSuccess)
-                            echo "<div style=\"color: green\"> $emailSuccess </div>";
-                        if ($editPhoneSuccess)
-                            echo "<div style=\"color: green\"> $phoneSuccess </div>";
-                        if ($editPasswordSuccess)
-                            echo "<div style=\"color: green\"> $passwordSuccess </div>";
+
+                        echo '<span style="color: red">';
+                        echo '    <div id="name-error"></div>';
+                        echo '    <div id="email-error"></div>';
+                        echo '    <div id="phone-error"></div>';
+                        echo '    <div id="password-error"></div>';
+                        echo '</span>';
+                        echo '<span style="color: green">';
+                        echo '    <div id="first-name-success"></div>';
+                        echo '    <div id="last-name-success"></div>';
+                        echo '    <div id="email-success"></div>';
+                        echo '    <div id="phone-success"></div>';
+                        echo '    <div id="password-success"></div>';
+                        echo '</span>';
 
                         echo "<br>";
                         echo "<br>";

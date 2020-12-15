@@ -68,7 +68,6 @@ footer {
 
 /* ********************************** */
 /* * Admin list admin accounts page * */
-/* ********************************** */
 .section-header {
     width: 100%;
     background-color: #565656;
@@ -177,14 +176,12 @@ footer {
     }
 }
 /* end of animated drop down code */
-/* ***************************************** */
 /* * End of admin list admin accounts page * */
 /* ***************************************** */
 
 
 /* ***************************** */
 /* * Admin create account page * */
-/* ***************************** */
 #update-btn {
     background-color: green;
     color: white;
@@ -222,14 +219,12 @@ footer {
     padding: 6px;
     color: #fff;
 }
-/* ************************************ */
 /* * End of admin create account page * */
 /* ************************************ */
 
 
 /* *********************************** */
 /* * Admin edit account details page * */
-/* *********************************** */
 #admin-panel-button {
     float: right;
     display: inline;
@@ -260,14 +255,7 @@ footer {
     padding-right: 15px;
     text-decoration: none;
 }
-/* ****************************************** */
-/* * End of admin edit account details page * */
-/* ****************************************** */
 
-
-/* *********************************** */
-/* * Admin edit account details page * */
-/* *********************************** */
 .delete-button {
   display: none;
   opacity: 0;
@@ -282,6 +270,18 @@ footer {
     display: block;
     opacity: 1;
 }
-/* ****************************************** */
 /* * End of admin edit account details page * */
 /* ****************************************** */
+
+.update-user-btn {
+    background-color: green;
+    color: white;
+    font-size: 16px;
+    width: 210px;
+    height: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    border-radius: 4px;
+}
