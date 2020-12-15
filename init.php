@@ -18,6 +18,8 @@ define('IMG_LOCATION', 'images');
 define('CSS_LOCATION', 'css');
 define('VID_LOCATION', 'videos');
 
+define('IN_INTRAIN', true);
+
 
 // --------------------------- //
 // ---- Regex definitions ---- //

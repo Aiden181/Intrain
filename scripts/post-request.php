@@ -1,4 +1,8 @@
 <?php
+if (!defined('IN_INTRAIN')) {
+    exit("You're not supposed to be here!");
+}
+
 // this file contains all POST requests
 
 // login auth variables

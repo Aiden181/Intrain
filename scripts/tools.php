@@ -1,4 +1,8 @@
 <?php
+if (!defined('IN_INTRAIN')) {
+    exit("You're not supposed to be here!");
+}
+
 /**
  * Logs out the admin by removing cookies and killing the session
  *
