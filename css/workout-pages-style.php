@@ -5,6 +5,18 @@
     margin-top: 150px;
 }
 
+#first-bookmark{
+    position: relative;
+    left: 27cm;
+    top: 210px;
+}
+
+#bookmarks{
+    position: relative;
+    left: 27cm;
+    top: 90px;
+}
+
 section h2{
     margin-top: 30px;
 }

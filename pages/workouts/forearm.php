@@ -28,6 +28,7 @@
         <div class="row">
             <!--Section 1 -->
             <section class="col" id="first-section">
+                <i class="fas fa-bookmark" id="first-bookmark"></i>
                 <h2><b>Wrist Curl</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/Y7KqBQDvkKE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">

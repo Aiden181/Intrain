@@ -28,6 +28,7 @@
         <div class="row">
             <!--Section 1 -->
             <section class="col" id="first-section">
+                <i class="fas fa-bookmark" id="first-bookmark"></i>
                 <h2><b>Crunches</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/BHQ6fpjPPRg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
@@ -49,6 +50,7 @@
 
             <!--Section 2 -->
             <section class="col">
+                <i class="fas fa-bookmark" id="bookmarks"></i>
                 <h2><b>Laying Leg Raises</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/_Axz_9p61DA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
@@ -67,6 +69,7 @@
 
             <!--Section 3 -->
             <section class="col">
+                <i class="fas fa-bookmark" id="bookmarks"></i>
                 <h2><b>Knee Raises</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/JYOG0Y9kma4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">

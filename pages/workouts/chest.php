@@ -28,6 +28,7 @@
         <div class="row">
             <!--Section 1 -->
             <section class="col" id="first-section">
+                <i class="fas fa-bookmark" id="first-bookmark"></i>
                 <h2><b>Push Up</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/BE_JFHgYvds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
@@ -46,6 +47,7 @@
 
             <!--Section 2 -->
             <section class="col">
+                <i class="fas fa-bookmark" id="bookmarks"></i>
                 <h2><b>Dumbbell Flys</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/tRL8IrPTLcc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
@@ -63,6 +65,7 @@
 
             <!--Section 3 -->
             <section class="col">
+                <i class="fas fa-bookmark" id="bookmarks"></i>
                 <h2><b>Incline Push-Up</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/1ZKnbqBJ4Ts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
@@ -80,6 +83,7 @@
 
             <!--Section 4 -->
             <section class="col">
+                <i class="fas fa-bookmark" id="bookmarks"></i>
                 <h2><b>Dumbbell Bench Press</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/UfQtf1KC81I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">

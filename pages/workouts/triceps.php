@@ -28,6 +28,7 @@
         <div class="row">
             <!--Section 1 -->
             <section class="col" id="first-section">
+                <i class="fas fa-bookmark" id="first-bookmark"></i>
                 <h2><b>Push Up</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/BE_JFHgYvds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
@@ -48,6 +49,7 @@
 
             <!--Section 2 -->
             <section class="col">
+                <i class="fas fa-bookmark" id="bookmarks"></i>
                 <h2><b>Bench Dips</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/9rwMtc9569Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
@@ -65,6 +67,7 @@
 
             <!--Section 3 -->
             <section class="col">
+                <i class="fas fa-bookmark" id="bookmarks"></i>
                 <h2><b>Seated Triceps Extensions</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/ht85I-yPowU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
@@ -83,6 +86,7 @@
 
             <!--Section 4 -->
             <section class="col">
+                <i class="fas fa-bookmark" id="bookmarks"></i>
                 <h2><b>Elevated Pike Press</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/CzvRkETQ1h0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">

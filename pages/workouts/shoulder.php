@@ -28,6 +28,7 @@
         <div class="row">
             <!--Section 1 -->
             <section class="col" id="first-section">
+                <i class="fas fa-bookmark" id="first-bookmark"></i>
                 <h2><b>Decline Push-Up</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/GnNJPJFe3fE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
@@ -47,6 +48,7 @@
 
             <!--Section 2 -->
             <section class="col">
+                <i class="fas fa-bookmark" id="bookmarks"></i>
                 <h2><b>Side Lateral Raises</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/icos6nUp9Hs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
@@ -63,6 +65,7 @@
 
             <!--Section 3 -->
             <section class="col">
+                <i class="fas fa-bookmark" id="bookmarks"></i>
                 <h2><b>Bench Dips</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/9rwMtc9569Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
@@ -80,6 +83,7 @@
 
             <!--Section 4 -->
             <section class="col">
+                <i class="fas fa-bookmark" id="bookmarks"></i>
                 <h2 style="width: 510px;"><b>Seated Dumbbell Shoulder Press</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/bgyn8R1sNi4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
@@ -98,6 +102,7 @@
 
             <!--Section 5 -->
             <section class="col">
+                <i class="fas fa-bookmark" id="bookmarks"></i>
                 <h2><b>Front Raises</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/aBkm6jQYDkY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">

@@ -28,6 +28,7 @@
         <div class="row">
             <!--Section 1 -->
             <section class="col" id="first-section">
+            <i class="fas fa-bookmark" id="first-bookmark"></i>
                 <h2><b>Seated Dumbbell Shrugs</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/qxGQJ6m6EJc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
@@ -46,6 +47,7 @@
 
             <!--Section 2 -->
             <section class="col">
+            <i class="fas fa-bookmark" id="bookmarks"></i>
                 <h2><b>Elevated Pike Press</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/CzvRkETQ1h0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">

@@ -28,6 +28,7 @@
         <div class="row">
             <!--Section 1 -->
             <section class="col" id="first-section">
+                <i class="fas fa-bookmark" id="first-bookmark"></i>
                 <h2><b>Glute Bridge</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/3Uq8cw1Yi3g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
@@ -48,6 +49,7 @@
 
             <!--Section 2 -->
             <section class="col">
+                <i class="fas fa-bookmark" id="bookmarks"></i>
                 <h2><b>Squats</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/J1R81oLQmZA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">

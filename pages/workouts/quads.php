@@ -28,13 +28,12 @@
         <div class="row">
             <!--Section 1 -->
             <section class="col" id="first-section">
+                <i class="fas fa-bookmark" id="first-bookmark"></i>
                 <h2><b>Squats</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/J1R81oLQmZA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Quads-Background.jpg' ?>"
-                        style="height: 650px;" alt="">
-                    <div class="text-block"
-                        style="width: 320px; background-color:black; color:white; position: relative; bottom: 480px; left: 30px;">
+                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Quads-Background.jpg' ?>" style="height: 650px;" alt="">
+                    <div class="text-block" style="width: 320px; background-color:black; color:white; position: relative; bottom: 480px; left: 30px;">
                         <ol id="instruction">
                             <li>Stand up straight with your feet shoulder width apart.</li>
                             <li>Flex your knees and hips and sit back into the squat while lowering your body as low as
@@ -49,13 +48,12 @@
 
             <!--Section 2 -->
             <section class="col">
+                <i class="fas fa-bookmark" id="bookmarks"></i>
                 <h2 style="padding-top: 100px;"><b>Forward Lunges</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/hikBzRz3akE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Quads-Background.jpg' ?>"
-                        style="height: 650px;" alt="">
-                    <div class="text-block"
-                        style="width: 320px; background-color:black; color:white; position: relative; bottom: 550px; left: 30px;">
+                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Quads-Background.jpg' ?>" style="height: 650px;" alt="">
+                    <div class="text-block" style="width: 320px; background-color:black; color:white; position: relative; bottom: 550px; left: 30px;">
                         <ol id="instruction">
                             <li>Move forward with one leg.</li>
                             <li>Lower your body until your other knee nearly touches the ground.</li>
@@ -68,13 +66,12 @@
 
             <!--Section 3 -->
             <section class="col">
+                <i class="fas fa-bookmark" id="bookmarks"></i>
                 <h2 style="padding-top: 100px;"><b>Bulgarian Split Squat</b></h2>
                 <iframe class="video" src="https://www.youtube.com/embed/bGsn_LxS6L4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Quads-Background.jpg' ?>"
-                        style="height: 650px;" alt="">
-                    <div class="text-block"
-                        style="width: 320px; background-color:black; color:white; position: relative; bottom: 480px; left: 30px;">
+                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Quads-Background.jpg' ?>" style="height: 650px;" alt="">
+                    <div class="text-block" style="width: 320px; background-color:black; color:white; position: relative; bottom: 480px; left: 30px;">
                         <ol id="instruction">
                             <li> Stand with your back to a bench or anything that can lift your leg and place one of your feet on the bench or the object.</li>
                             <li> Squat down until your front leg touches to the floor..</li>
