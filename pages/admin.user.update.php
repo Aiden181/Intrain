@@ -173,7 +173,7 @@
                         echo "        </th>";
                         echo "    </table>";
                         echo "    <p class=\"delete-button\"></p>";
-                        echo "    <table class=\"delete-button\">";
+                        echo "    <table class=\"hide delete-button\">";
                         echo "        <th style=\"padding: 0 0 0 10px;\">";
                         echo "            <form action=\"index.php?p=admin&c=users&o=edit&id=$id\" method=\"post\">";
                         echo "                <button type=\"button\" class=\"delete-user-button\" name=\"delete-user\" onclick=\"confirmDeleteUser(event)\" value=\"Delete user\">Delete user</button>";

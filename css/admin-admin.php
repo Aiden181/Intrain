@@ -256,9 +256,12 @@ footer {
     text-decoration: none;
 }
 
-.delete-button {
+.hide {
   display: none;
   opacity: 0;
+}
+
+.delete-button {
   width: 100%;
   overflow: auto;
   z-index: 1;
