@@ -5,16 +5,17 @@
     margin-top: 150px;
 }
 
-#first-bookmark{
+.bookmark {
+    font-size: 36px;
+    display: inline;
+    float: right;
     position: relative;
-    left: 27cm;
-    top: 210px;
+    bottom: 40px;
+    right: 80px;
 }
 
-#bookmarks{
-    position: relative;
-    left: 27cm;
-    top: 90px;
+.bookmark:hover {
+    cursor: pointer;
 }
 
 section h2{
@@ -59,4 +60,32 @@ section h2{
 #instruction{
     font-size: 18px;
     margin: 5%;
+}
+
+.cropped {
+    width: 192px; /* width of container */
+    height: 108px; /* height of container */
+    object-fit: cover;
+}
+
+.bookmarked-video {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 800px;
+    height: 450px;
+}
+
+.info-row {
+    background: rgba(0,0,0, 0.5);
+    padding-left: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    cursor: pointer;
+}
+
+.bookmarked-video-section {
+    background: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -147,6 +147,21 @@ if (!defined('IN_INTRAIN')) {
         }
     }
 
+    // When admin clicks on 'Danger zone' bar,toggle between 
+    // hiding and showing the delete button
+    function showBookmarkedVideo(e) {
+        var id = e.id;
+        id = id.replace("-button", "");
+        id = id.concat("-content");
+        var element = document.getElementById(id);
+        // $(id).classList.toggle('show');
+        if (!element.classList.contains('show')) {
+            element.classList.add('show');
+        } else {
+            element.classList.remove('show');
+        }
+    }
+
     // toggle search form in admin's admin and customer listing page
     function toggleSearchSection() {
         var formElms = document.getElementsByClassName("search-form");
@@ -511,6 +526,54 @@ if (!defined('IN_INTRAIN')) {
             .error(function(data, textStatus, errorThrown) {
                 // print data
                 // console.warn(data)
+                console.warn(data.responseText)
+                // print error
+                console.warn('ERRORS: ' + textStatus, errorThrown);
+            });
+
+            // stop the form from submitting the normal way and refreshing the page
+            event.preventDefault();
+        });
+
+        // user bookmarks video
+        $('.bookmark-form').click(function() {
+            var vid = $(this).attr('id');
+            var formData = { 'vid' : vid };
+            // process the form
+            $.ajax({
+                type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                url         : './scripts/ajax-form.php', // the url where we want to POST
+                data        : formData, // our data object
+                dataType    : 'json', // what type of data do we expect back from the server
+                encode      : true
+            })
+
+            // using the done promise callback
+            .done(function(data) {
+                // log data to the console so we can see (for debug)
+                console.log(data);
+
+                // here we will handle errors and validation messages
+                if (data.success) {
+                    vid_icon = '#'+vid+'-icon';
+                    if (data.in) {
+                        if (!$(vid_icon).hasClass('fas')) {
+                            $(vid_icon).removeClass('far');
+                            $(vid_icon).addClass('fas');
+                        }
+                    }
+                    else if (data.notin) {
+                        if (!$(vid_icon).hasClass('far')) {
+                            $(vid_icon).removeClass('fas');
+                            $(vid_icon).addClass('far');
+                        }
+                    }
+                }
+            })
+
+            // error encountered
+            .error(function(data, textStatus, errorThrown) {
+                // print data
                 console.warn(data.responseText)
                 // print error
                 console.warn('ERRORS: ' + textStatus, errorThrown);

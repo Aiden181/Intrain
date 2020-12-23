@@ -35,7 +35,7 @@
                     <ul>
                         <li class="active"><a href="index.php?p=user">View account info</a></li>
                         <li><a href="index.php?p=user&b=edit">Edit account details</a></li>
-                        <li><a href="index.php?p=user&b=video">View videos</a></li>
+                        <li><a href="index.php?p=user&b=video">View bookmarked videos</a></li>
                     </ul>
                 </div>
             </div>

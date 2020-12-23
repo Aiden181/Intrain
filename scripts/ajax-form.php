@@ -466,3 +466,67 @@ else if (isset($_POST['update-customer-details']) || isset($_POST['update-admin-
 }
 // --- END OF ADMIN UPDATE CUSTOMER AND ADMIN DETAILS VALIDATION SECTION --- //
 // ------------------------------------------------------------------------- //
+
+
+// ----------------------------------- //
+// --- USER BOOKMARK VIDEO SECTION --- //
+else if (isset($_POST['vid'])) {
+    $vid_valid = false;
+    $errors = array(); // array to hold validation errors
+    $data = array(); // array to pass back data
+    
+    // Validate video id
+    if (!empty($_POST["vid"]) && isset($_POST["vid"])) {
+        $vid = test_input($_POST["vid"]);
+        // not matching regex, format error message
+        if (!preg_match("/[a-zA-Z0-9_-]{11}/", $vid)) {
+            $errors['vid'] = "Invalid Youtube video id!";
+        } else {
+            $vid_valid = true;
+        }
+    }
+
+    // if there are any errors in our errors array, return a success boolean of false
+    if (!empty($errors)) {
+        // if there are items in our errors array, return those errors
+        $data['success'] = false;
+        $data['errors']  = $errors;
+    }
+    // no errors, proceed with updating details
+    else {
+        if ($vid_valid) {
+            $username = $_SESSION['Customer'];
+            $sql = "SELECT `video` FROM `customer` WHERE username=?";
+            $db->query($sql, $username);
+            if ($db->numRows() > 0) {
+                $result = $db->fetchAll();
+                foreach ($result as $row) {
+                    $video = $row['video'];
+                }
+            }
+            // video id not in table,
+            // insert it
+            if (!stristr($video, $vid)) {
+                $vid = $video . $vid . ", ";
+                $sql = "UPDATE `customer` SET `video`=? WHERE username=?";
+                $db->query($sql, $vid, $username);
+                $data['in'] = true;
+            }
+            // video id  in table,
+            // remove it
+            else {
+                $vid = $vid . ", ";
+                $vid = str_replace($vid, "", $video);
+                $sql = "UPDATE `customer` SET `video`=? WHERE username=?";
+                $db->query($sql, $vid, $username);
+                $data['notin'] = true;
+            }
+        }
+        $data['success'] = true;
+    }
+
+    // return all our data to an AJAX call
+    echo json_encode($data);
+}
+// --- END OF USER BOOKMARK VIDEO SECTION --- //
+// ------------------------------------------ //

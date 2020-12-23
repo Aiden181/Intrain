@@ -39,6 +39,7 @@ $sql = "CREATE TABLE IF NOT EXISTS `customer` (
     `first_name` VARCHAR(64) NOT NULL,
     `email` VARCHAR(64) NOT NULL,
     `phone_number` VARCHAR(32) NOT NULL,
+    `video` VARCHAR(1024) NOT NULL,
     `username` VARCHAR(32) NOT NULL UNIQUE,
     `password` VARCHAR(255) NOT NULL,
     PRIMARY KEY (`id`)
@@ -77,7 +78,7 @@ $db->query($sql, $rootpasswd);
 
 // add a user for debug
 $passwd = password_hash("12345", PASSWORD_DEFAULT);
-$sql = "INSERT INTO `customer`(`id`, `last_name`, `first_name`, `email`, `phone_number`, `username`, `password`) VALUES (1, 'john', 'doe', 'john.doe@ahamail.com', '0901234567','user1', ?) ON DUPLICATE KEY UPDATE username=username;";
+$sql = "INSERT INTO `customer`(`id`, `last_name`, `first_name`, `email`, `phone_number`, `video`, `username`, `password`) VALUES (1, 'doe', 'john', 'john.doe@ahamail.com', '0901234567', '','user1', ?) ON DUPLICATE KEY UPDATE username=username;";
 $db->query($sql, $passwd);
 
 $sql = "ALTER TABLE `customer` MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;";

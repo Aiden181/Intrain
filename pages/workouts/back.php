@@ -11,11 +11,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.php" type="text/css" media="screen">
-    <link rel="stylesheet" href="./css/workout-pages-style.php" type="text/css" media="screen">
+    <link rel="stylesheet" href="<?php echo CSS_LOCATION ?>/style.php" type="text/css" media="screen">
+    <link rel="stylesheet" href="<?php echo CSS_LOCATION ?>/workout-pages-style.php" type="text/css" media="screen">
 
     <!-- website icon -->
     <link rel="icon" href="./images/Intrain.png">
@@ -25,11 +27,37 @@
 
 <body>
     <div class="container-sm">
+        <?php
+        if (isset($_SESSION['Customer'])) {
+            $username = $_SESSION['Customer'];
+            $sql = "SELECT `video` FROM `customer` WHERE username=?";
+            $db->query($sql, $username);
+            if ($db->numRows() > 0) {
+                $result = $db->fetchAll();
+                foreach ($result as $row) {
+                    $video = $row['video'];
+                }
+            }
+        }
+        ?>
         <div class="row">
             <!--Section 1 -->
             <section class="col" id="first-section">
-                <i class="fas fa-bookmark" id="first-bookmark"></i>
-                <h2><b>Dumbbell Row</b></h2>
+                <div>
+                    <h2><b>Dumbbell Row</b></h2>
+                    <?php
+                    $vid = "L2xy9qv73Y8";
+                    if (isset($_SESSION['Customer'])) {
+                        echo "<form action=\"./scripts/ajax-form.php\" method=\"POST\" class=\"bookmark-form\" id =\"$vid\">";
+                        if (stristr($video, $vid)) {
+                            echo "<i class=\"fas fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
+                        } else {
+                            echo "<i class=\"far fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
+                        }
+                        echo "</form>";
+                    }
+                    ?>
+                </div>
                 <iframe class="video" src="https://www.youtube.com/embed/L2xy9qv73Y8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>" alt="">
@@ -49,8 +77,21 @@
 
             <!--Section 2 -->
             <section class="col">
-                <i class="fas fa-bookmark" id="bookmarks"></i>
-                <h2><b>Supermans</b></h2>
+                <div>
+                    <h2><b>Supermans</b></h2>
+                    <?php
+                    $vid = "r_a6hHbCxgM";
+                    if (isset($_SESSION['Customer'])) {
+                        echo "<form action=\"./scripts/ajax-form.php\" method=\"POST\" class=\"bookmark-form\" id =\"$vid\">";
+                        if (stristr($video, $vid)) {
+                            echo "<i class=\"fas fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
+                        } else {
+                            echo "<i class=\"far fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
+                        }
+                        echo "</form>";
+                    }
+                    ?>
+                </div>
                 <iframe class="video" src="https://www.youtube.com/embed/r_a6hHbCxgM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>" alt="">
@@ -68,8 +109,21 @@
 
             <!--Section 3 -->
             <section class="col">
-                <i class="fas fa-bookmark" id="bookmarks"></i>
-                <h2><b>Good Morning</b></h2>
+                <div>
+                    <h2><b>Good Morning</b></h2>
+                    <?php
+                    $vid = "LYk9Djw1JME";
+                    if (isset($_SESSION['Customer'])) {
+                        echo "<form action=\"./scripts/ajax-form.php\" method=\"POST\" class=\"bookmark-form\" id =\"$vid\">";
+                        if (stristr($video, $vid)) {
+                            echo "<i class=\"fas fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
+                        } else {
+                            echo "<i class=\"far fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
+                        }
+                        echo "</form>";
+                    }
+                    ?>
+                </div>
                 <iframe class="video" src="https://www.youtube.com/embed/LYk9Djw1JME" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>" alt="">
@@ -87,8 +141,21 @@
 
             <!--Section 4 -->
             <section class="col">
-                <i class="fas fa-bookmark" id="bookmarks"></i>
-                <h2><b>Elevated Pike Press</b></h2>
+                <div>
+                    <h2><b>Elevated Pike Press</b></h2>
+                    <?php
+                    $vid = "CzvRkETQ1h0";
+                    if (isset($_SESSION['Customer'])) {
+                        echo "<form action=\"./scripts/ajax-form.php\" method=\"POST\" class=\"bookmark-form\" id =\"$vid\">";
+                        if (stristr($video, $vid)) {
+                            echo "<i class=\"fas fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
+                        } else {
+                            echo "<i class=\"far fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
+                        }
+                        echo "</form>";
+                    }
+                    ?>
+                </div>
                 <iframe class="video" src="https://www.youtube.com/embed/CzvRkETQ1h0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
                     <img id="content-background" src="<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>" alt="">

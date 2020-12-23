@@ -57,6 +57,20 @@ function prePrintArray($arr, $returnAsString=false ) {
         echo $ret;
 }
 
+function get_youtube_title($id) {
+    $API_KEY   = "AIzaSyAugeihvFJPlSusdplkcqbprRm7awCvJMQ";
+    $videoList = json_decode(file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=snippet&id={$id}&key={$API_KEY}"));
+    
+    return $videoList->items[0]->snippet->title;
+}
+
+function get_youtube_thumbnail($id) {
+    $API_KEY   = "AIzaSyAugeihvFJPlSusdplkcqbprRm7awCvJMQ";
+    $videoList = json_decode(file_get_contents("https://www.googleapis.com/youtube/v3/videos?part=snippet&id={$id}&key={$API_KEY}"));
+
+    $videoList->items[0]->snippet->thumbnails->default;
+}
+
 
 // debug print outs
 // echo '$_FILES array';
