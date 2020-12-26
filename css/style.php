@@ -124,3 +124,67 @@ footer div {
     padding: 10px;
     margin: 5px;
 }
+
+.promo {
+    opacity: 0;
+}
+
+.promo-fadein {
+    animation: fadeInPromo 1s ease-out forwards;
+    animation-fill-mode: forwards;
+
+    /* Safari and Chrome */
+    -webkit-animation: fadeInPromo 1s;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.promo-fadeout {
+    animation: fadeoutPromo 1s ease-out forwards;
+    animation-fill-mode: forwards;
+
+    /* Safari and Chrome */
+    -webkit-animation: fadeoutPromo 1s;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes fadeInPromo {
+    from { transform: translateY(-100px); opacity: 0; }
+    to { transform: translateY(0px); opacity: 1; }
+}
+
+@keyframes fadeoutPromo {
+    from { transform: translateY(0px); opacity: 1; }
+    to { transform: translateY(-100px); opacity: 0; }
+}
+
+.intro {
+    opacity: 0;
+}
+
+.left-content-anim {
+    animation: leftIntroAnim 1s ease-out forwards;
+    animation-fill-mode: forwards;
+
+    /* Safari and Chrome */
+    -webkit-animation: leftIntroAnim 1s;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes leftIntroAnim {
+    from { transform: translateX(500px); opacity: 0; }
+    to { transform: translateX(0px); opacity: 1; }
+}
+
+.right-content-anim {
+    animation: rightIntroAnim 1s ease-out forwards;
+    animation-fill-mode: forwards;
+
+    /* Safari and Chrome */
+    -webkit-animation: rightIntroAnim 1s;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes rightIntroAnim {
+    from { transform: translateX(-500px); opacity: 0; }
+    to { transform: translateX(0px); opacity: 1; }
+}

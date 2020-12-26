@@ -28,23 +28,32 @@
     <!--Top Three Reason to choose Intrain-->
     <div class="container-sm" id="promotion-box">
         <div class="row row-cols-3">
-            <section class="col">
+            <section class="col promo">
                 <img src="<?php echo IMG_LOCATION?>/Pic01.jpg" style="width: 300px; height: 300px;" alt="">
                 <h4>Workout During LockDown</h4>
                 <p></p>
             </section>
-            <section class="col">
+            <section class="col promo">
                 <img src="<?php echo IMG_LOCATION?>/Pic02.jpg" style="width: 300px; height: 300px;" alt="">
                 <h4>Anywhere, anytime you want</h4>
                 <p></p>
             </section>
-            <section class="col">
+            <section class="col promo">
                 <img src="<?php echo IMG_LOCATION?>/Pic03.jpg" style="width: 300px; height: 300px;" alt="">
                 <h4>Huge Lessons Library</h4>
                 <p></p>
             </section>
         </div>
     </div>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <!--Section 2-->
     <section>
@@ -60,9 +69,22 @@
         </div>
     </section>
 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
     <!--Section 3-->
     <section>
-        <div class="container-sm" id="right-content">
+        <div class="container-sm intro" id="right-content">
             <h2>Fun Facts</h2>
             <p>Through many websites that contain serious programs, videos, and deadlines. We can see that many users
                 who have started the program can find themselves under pressure and decided to quit after 2 or 3 three
@@ -73,9 +95,26 @@
         </div>    
     </section>
 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
     <!--Section 4-->
     <section>
-        <div class="container-sm" id="left-content-2">
+        <div class="container-sm intro" id="left-content-2">
             <h2>Not sure where to start?
             </h2>
             <p>Many people have asked this question. But before you start your own intense workout routine, burn some
