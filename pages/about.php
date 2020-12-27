@@ -29,7 +29,7 @@
     <br>
     <br>
     <br>
-    <div class="about-us-container">
+    <div class="about-us-container promo">
         <h1><b><u>About Us</u></b></h1>
         <div class="container-sm">
             <p>

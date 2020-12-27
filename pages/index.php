@@ -22,45 +22,12 @@
     <link rel="icon" href="./images/Intrain.png">
 
     <title>Intrain Home</title>
-    
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            font-size: 22px;
-            background: linear-gradient(-45deg, #eeaa52, #eb5b93, #73d3f5, #77edd1);
-            background-size: 800% 800%;
-            animation: gradient 10s ease infinite;
-            -webkit-animation: gradient 10s ease infinite;
-        }
 
-        @-webkit-keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
 
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-    </style>
 </head>
 
 <body>
-    
+
     <br>
     <br>
     <br>
@@ -68,23 +35,23 @@
     <div class="container-sm">
         <div class="row row-cols-3">
             <section class="col promo">
-                <img src="<?php echo IMG_LOCATION?>/Pic01.jpg" style="width: 300px; height: 300px;" alt="">
+                <img src="<?php echo IMG_LOCATION ?>/Pic01.jpg" style="width: 300px; height: 300px;" alt="">
                 <h4>Workout During LockDown</h4>
                 <p></p>
             </section>
             <section class="col promo">
-                <img src="<?php echo IMG_LOCATION?>/Pic02.jpg" style="width: 300px; height: 300px;" alt="">
+                <img src="<?php echo IMG_LOCATION ?>/Pic02.jpg" style="width: 300px; height: 300px;" alt="">
                 <h4>Anywhere, anytime you want</h4>
                 <p></p>
             </section>
             <section class="col promo">
-                <img src="<?php echo IMG_LOCATION?>/Pic03.jpg" style="width: 300px; height: 300px;" alt="">
+                <img src="<?php echo IMG_LOCATION ?>/Pic03.jpg" style="width: 300px; height: 300px;" alt="">
                 <h4>Huge Lessons Library</h4>
                 <p></p>
             </section>
         </div>
     </div>
-    
+
     <br>
     <br>
     <br>
@@ -98,22 +65,20 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
+
 
     <!--Section 2-->
     <section>
         <div class="container" id="middle-text">
             <p class="header">Workout At Home For Free</p>
-            <p>We believe that workout and fitness should be accessible to everyone, at any given moment and no matter the environment. 
-            With the correct workout knowledge and perhaps some dumbbells on your hand. You can transform your body to the next level at any time, anywhere.
+            <p>We believe that workout and fitness should be accessible to everyone, at any given moment and no matter
+                the environment.
+                With the correct workout knowledge and perhaps some dumbbells on your hand. You can transform your body
+                to the next level at any time, anywhere.
             </p>
         </div>
     </section>
 
-    <br>
-    <br>
     <br>
     <br>
     <br>
@@ -126,11 +91,13 @@
         <div class="container-sm intro" id="right-content">
             <h2>Our goal</h2>
             <p>We have observed that many websites contain serious and harsh programs for beginners, and many users
-            who have started the program can find themselves under immense pressure and decided to quit after 2 or 3 weeks. 
-            We have set out to remedy that problem and make exercising accessible to even the newest of beginners.
+                who have started the program can find themselves under immense pressure and decided to quit after 2 or 3
+                weeks.
+                We have set out to remedy that problem and make exercising accessible to even the newest of beginners.
             </p>
-            <img class="img-fluid" src="<?php echo IMG_LOCATION?>/Pic05.jpg" id="left-img" alt="" style="width: 530px; height: 320px;">
-        </div>    
+            <img class="img-fluid" src="<?php echo IMG_LOCATION ?>/Pic05.jpg" id="left-img" alt=""
+                style="width: 530px; height: 320px;">
+        </div>
     </section>
 
     <br>
@@ -143,29 +110,24 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
 
     <!--Section 4-->
     <section>
         <div class="container-sm intro" id="left-content-2">
             <h2>Not sure where to start?
             </h2>
-            <p>Many people have asked this question. But before you start your own workout routine. You must first know how to exercise your body, 
-            if you do your exercises without the proper form, you will end up damaging your body rather than building up the physique and strength. 
-            But fret not! Our program has been engineered to guide you how each exercise is performed.
+            <p>Many people have asked this question. But before you start your own workout routine. You must first know
+                how to exercise your body,
+                if you do your exercises without the proper form, you will end up damaging your body rather than
+                building up the physique and strength.
+                But fret not! Our program has been engineered to guide you how each exercise is performed.
             </p>
-            <img class="img-fluid" src="<?php echo IMG_LOCATION?>/Pic06.jpg" style="width: 530px; height: 350px;" alt="" id="right-img">
-        </div>   
+            <img class="img-fluid" src="<?php echo IMG_LOCATION ?>/Pic06.jpg" style="width: 530px; height: 350px;"
+                alt="" id="right-img">
+        </div>
     </section>
 
-    <br>
-    <br>
-    <br>
     <br>
     <br>
     <br>

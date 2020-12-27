@@ -164,6 +164,11 @@ footer div {
     opacity: 0;
 }
 
+.left-nut, .right-nut {
+    opacity: 0;
+}
+
+
 .left-content-anim {
     animation: leftIntroAnim 1s ease-out forwards;
     animation-fill-mode: forwards;

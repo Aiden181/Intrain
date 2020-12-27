@@ -10,79 +10,108 @@ if (!defined('IN_INTRAIN')) {
     $(window).on('DOMContentLoaded load resize scroll', animatePromo);
     $(window).on('DOMContentLoaded load resize scroll', animateLeftContent);
     $(window).on('DOMContentLoaded load resize scroll', animateRightContent);
-    
+    $(window).on('DOMContentLoaded load resize scroll', animateRightContentNut);
+    $(window).on('DOMContentLoaded load resize scroll', animateLeftContentNut);
+
     // check if element is in viewport, from
     // https://stackoverflow.com/questions/123999/how-can-i-tell-if-a-dom-element-is-visible-in-the-current-viewport/7557433#7557433
     function isElementInViewport(el) {
-        // Special bonus for those using jQuery
-        if (typeof jQuery === "function" && el instanceof jQuery) {
-            el = el[0];
-        }
+        if (typeof(el) != 'undefined' && el != null) {
+            // Special bonus for those using jQuery
+            if (typeof jQuery === "function" && el instanceof jQuery) {
+                el = el[0];
+            }
 
-        var rect = el.getBoundingClientRect();
-        return (
-            rect.bottom > 0 && 
-            // rect.bottom >= 0 && /* original code */
-            rect.right >= 0 && 
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) && 
-            rect.left <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-        // These calculations assume that the element is smaller than the screen. 
-        // If you have high or wide elements, it might be more accurate to use the above.
-        // return (
-        //     rect.top >= 0 &&
-        //     rect.left >= 0 &&
-        //     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
-        //     rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
-        // );
+            var rect = el.getBoundingClientRect();
+            return (
+                rect.bottom > 0 &&
+                // rect.bottom >= 0 && /* original code */
+                rect.right >= 0 &&
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+            // These calculations assume that the element is smaller than the screen. 
+            // If you have high or wide elements, it might be more accurate to use the above.
+            // return (
+            //     rect.top >= 0 &&
+            //     rect.left >= 0 &&
+            //     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
+            //     rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
+            // );
+        }
     }
 
     // fade + 2D transition for home page's promo sections
     function animatePromo() {
         var promos = document.getElementsByClassName("promo");
         for (var i = 0; i < promos.length; i++) {
+            if (typeof(promos[i]) != 'undefined' && promos[i] != null) {
                 if (isElementInViewport(promos[i])) {
                     promos[i].classList.add("promo-fadein");
                     promos[i].classList.remove("promo-fadeout");
-                }
-                else {
+                } else {
                     promos[i].classList.add("promo-fadeout");
                     promos[i].classList.remove("promo-fadein");
                 }
+            }
         }
     }
 
     // fade + 2D transition for home page's intro sections
     function animateRightContent() {
         var rightIntro = document.getElementById("right-content");
-        if (isElementInViewport(rightIntro)) {
-            rightIntro.classList.add("right-content-anim");
-        }
-        else {
-            rightIntro.classList.remove("right-content-anim");
+        if (typeof(rightIntro) != 'undefined' && rightIntro != null) {
+            if (isElementInViewport(rightIntro)) {
+                rightIntro.classList.add("right-content-anim");
+            } else {
+                rightIntro.classList.remove("right-content-anim");
+            }
         }
     }
 
     // fade + 2D transition for home page's intro sections
     function animateLeftContent() {
         var leftIntro = document.getElementById("left-content-2");
-        if (isElementInViewport(leftIntro)) {
-            leftIntro.classList.add("left-content-anim");
-        }
-        else {
-            leftIntro.classList.remove("left-content-anim");
+        if (typeof(leftIntro) != 'undefined' && leftIntro != null) {
+            if (isElementInViewport(leftIntro)) {
+                leftIntro.classList.add("left-content-anim");
+            } else {
+                leftIntro.classList.remove("left-content-anim");
+            }
         }
     }
 
-    var isInViewport = function (elem) {
-    var bounding = elem.getBoundingClientRect();
-    return (
-        bounding.top >= 0 &&
-        bounding.left >= 0 &&
-        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-};
+    // fade + 2D transition for nutrition fact page sections
+    function animateRightContentNut() {
+        var rightNut = document.getElementsByClassName("right-nut");
+        for (var i = 0; i < rightNut.length; i++) {
+            if (typeof(rightNut[i]) != 'undefined' && rightNut[i] != null) {
+                if (isElementInViewport(rightNut[i])) {
+                    console.log("in viewport")
+                    rightNut[i].classList.add("right-content-anim");
+                } else {
+                    console.log("not in viewport")
+                    rightNut[i].classList.remove("right-content-anim");
+                }
+            }
+        }
+    }
+
+    // fade + 2D transition for nutrition fact page sections
+    function animateLeftContentNut() {
+        var leftNut = document.getElementsByClassName("left-nut");
+        for (var i = 0; i < leftNut.length; i++) {
+            if (typeof(leftNut[i]) != 'undefined' && leftNut[i] != null) {
+                if (isElementInViewport(leftNut[i])) {
+                    console.log('in viewport');
+                    leftNut[i].classList.add("left-content-anim");
+                } else {
+                    console.log('not in viewport');
+                    leftNut[i].classList.remove("left-content-anim");
+                }
+            }
+        }
+    }
 
     function goBack() {
         window.history.back();
