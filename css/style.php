@@ -44,7 +44,7 @@ a:hover {
 }
 
 /*Introduction*/
-#introduction{
+#introduction {
     position: relative;
     top: 100px;
     padding: 50px;
@@ -54,30 +54,30 @@ a:hover {
     height: auto;
 }
 
-#promotion-box{
-    position: relative;
-    top: 100px;
-}
-
 /*Major Content*/
-#left-content{
-    position: relative;
-    top: 220px;
-    left: 300px;
+#middle-text {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 300px;
+    max-width: 700px;
+    font-size: 30px;
+    text-align: center;
+}
+.header {
+    font-size: 40px;
+    font-weight: bold;
 }
 
-#left-content-2{
+#left-content-2 {
     position: relative;
     padding-top: 80px;
 }
 
-#left-content p, h2{
-    width: 480px;
-    text-align: center;
-}
-
 #left-content-2 p, h2{
-    width: 480px;
+    width: 560px;
+    text-align: justify;
+}
+#left-content-2 p, #left-content h2 {
     text-align: justify;
 }
 
@@ -126,6 +126,9 @@ footer div {
 }
 
 .promo {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     opacity: 0;
 }
 

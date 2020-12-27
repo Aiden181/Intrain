@@ -25,7 +25,9 @@
 </head>
 
 <body>
-    <!--Main Content-->
+    <br>
+    <br>
+    <br>
     <br>
     <div class="about-us-container">
         <h1><b><u>About Us</u></b></h1>
