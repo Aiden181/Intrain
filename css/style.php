@@ -196,3 +196,8 @@ footer div {
     from { transform: translateX(-500px); opacity: 0; }
     to { transform: translateX(0px); opacity: 1; }
 }
+
+/*Smooth Scrolling*/
+html {
+    scroll-behavior: smooth;
+}
