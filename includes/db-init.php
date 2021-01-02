@@ -33,17 +33,18 @@ $db = new Database($host, $user, $pass, $dbname);
 // phone_number : customer phone number
 // username : customer username
 // password : customer password
-$sql = "CREATE TABLE IF NOT EXISTS `customer` (
-    `id` INT(11) NOT NULL,
-    `last_name` VARCHAR(64) NOT NULL,
-    `first_name` VARCHAR(64) NOT NULL,
-    `email` VARCHAR(64) NOT NULL,
-    `phone_number` VARCHAR(32) NOT NULL,
-    `video` VARCHAR(1024) NOT NULL,
-    `username` VARCHAR(32) NOT NULL UNIQUE,
-    `password` VARCHAR(255) NOT NULL,
-    PRIMARY KEY (`id`)
-)";
+$sql = "CREATE TABLE `customer` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `last_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `first_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `email` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `phone_number` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `video` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `username` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `username` (`username`)
+   ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
 $db->query($sql);
 
 // --------------------------------- //
@@ -57,17 +58,18 @@ $db->query($sql);
 // username : admin username
 // password : admin password
 // flag: admin flag (e.g. z = root power, a = create, b = read, c = update, etc...)
-$sql = "CREATE TABLE IF NOT EXISTS `admin` (
-    `id` INT(11) NOT NULL,
-    `last_name` VARCHAR(64) NOT NULL,
-    `first_name` VARCHAR(64) NOT NULL,
-    `email` VARCHAR(64) NOT NULL,
-    `phone_number` VARCHAR(32) NOT NULL,
-    `username` VARCHAR(32) NOT NULL UNIQUE,
-    `password` VARCHAR(255) NOT NULL,
-    `flag` VARCHAR(16) NOT NULL,
-    PRIMARY KEY (`id`)
-)";
+$sql = "CREATE TABLE `admin` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `last_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `first_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `email` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `phone_number` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `username` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `flag` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `username` (`username`)
+   ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
 $db->query($sql);
 
 
