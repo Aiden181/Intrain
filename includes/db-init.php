@@ -33,7 +33,7 @@ $db = new Database($host, $user, $pass, $dbname);
 // phone_number : customer phone number
 // username : customer username
 // password : customer password
-$sql = "CREATE TABLE `customer` (
+$sql = "CREATE TABLE IF NOT EXISTS `customer` (
     `id` int NOT NULL AUTO_INCREMENT,
     `last_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
     `first_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -58,7 +58,7 @@ $db->query($sql);
 // username : admin username
 // password : admin password
 // flag: admin flag (e.g. z = root power, a = create, b = read, c = update, etc...)
-$sql = "CREATE TABLE `admin` (
+$sql = "CREATE TABLE IF NOT EXISTS `admin` (
     `id` int NOT NULL AUTO_INCREMENT,
     `last_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
     `first_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
