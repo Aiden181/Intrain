@@ -101,7 +101,7 @@ a:hover {
 
 #right-img{
     position: relative;
-    left: 600px;
+    left: 310px;
     bottom: 370px;
 }
 
