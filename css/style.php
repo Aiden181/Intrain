@@ -84,7 +84,7 @@ a:hover {
 #left-img{
     position: relative;
     right: 600px;
-    bottom: 345px;
+    bottom: 280px;
 }
 
 #right-content{
@@ -102,7 +102,7 @@ a:hover {
 #right-img{
     position: relative;
     left: 310px;
-    bottom: 370px;
+    bottom: 290px;
 }
 
 /*Footer Section */

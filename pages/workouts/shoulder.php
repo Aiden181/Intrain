@@ -60,7 +60,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/GnNJPJFe3fE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Shoulder-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Shoulder-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 350px; position: relative; bottom: 350px; left: 280px;">
                         <ol id="instruction">
                             <li>Use a bench or any item to lift your feet.</li>
@@ -93,7 +93,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/icos6nUp9Hs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Shoulder-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Shoulder-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; position: relative; bottom: 400px; left: 250px;">
                         <ol id="instruction">
                             <li>Stand with your back straight with dumbbells, palms rotates to your hips.</li>
@@ -123,7 +123,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/9rwMtc9569Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Shoulder-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Shoulder-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; position: relative; bottom: 400px; left: 250px;">
                         <ol id="instruction">
                             <li>Hold the edge of anything that can support your weight with your hands, Keep your feet
@@ -154,7 +154,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/bgyn8R1sNi4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Shoulder-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Shoulder-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; position: relative; bottom: 400px; left: 250px;">
                         <ol id="instruction">
                             <li>Grab a dumbbell or two while standing upright.</li>
@@ -186,7 +186,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/aBkm6jQYDkY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Shoulder-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Shoulder-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; position: relative; bottom: 400px; left: 250px;">
                         <ol id="instruction">
                             <li>Sit on a chair or bench. Raise the dumbbells with your shoulders as high and verticle as

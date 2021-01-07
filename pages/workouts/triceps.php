@@ -60,7 +60,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/BE_JFHgYvds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Triceps-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Triceps-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; position: relative; bottom: 480px; left: 30px;">
                         <ol id="instruction">
                             <li>Place your hands firmly on the ground, directly under shoulders.</li>
@@ -94,7 +94,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/9rwMtc9569Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Triceps-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Triceps-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; position: relative; bottom: 400px; left: 250px;">
                         <ol id="instruction">
                             <li>Hold the edge of anything that can support your weight with your hands, Keep your feet
@@ -125,7 +125,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/ht85I-yPowU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Triceps-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Triceps-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; position: relative; bottom: 480px; left: 30px;">
                         <ol id="instruction">
                             <li>Stand facing bench or anything that can be sturdy to withstand your weight.</li>
@@ -157,7 +157,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/CzvRkETQ1h0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Triceps-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Triceps-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="position: relative; bottom: 540px; left: 180px">
                         <ol id="instruction">
                             <li>Use a bench or anything to support your feet off the ground.</li>

@@ -60,7 +60,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/qxGQJ6m6EJc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Traps-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Traps-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 350px; position: relative; bottom: 350px; left: 280px;">
                         <ol id="instruction">
                             <li>Sit on a chair or any thing higher than your back height with dumbbells in both hands,
@@ -92,7 +92,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/CzvRkETQ1h0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Traps-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Traps-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; position: relative; bottom: 400px; left: 250px;">
                         <ol id="instruction">
                             <li>Use a bench or anything to support your feet off the ground.</li>

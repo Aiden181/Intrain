@@ -60,7 +60,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/J1R81oLQmZA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Quads-Background.jpg' ?>" style="height: 650px;" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Quads-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; background-color:black; color:white; position: relative; bottom: 480px; left: 30px;">
                         <ol id="instruction">
                             <li>Stand up straight with your feet shoulder width apart.</li>
@@ -93,7 +93,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/hikBzRz3akE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Quads-Background.jpg' ?>" style="height: 650px;" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Quads-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; background-color:black; color:white; position: relative; bottom: 550px; left: 30px;">
                         <ol id="instruction">
                             <li>Move forward with one leg.</li>
@@ -124,7 +124,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/bGsn_LxS6L4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Quads-Background.jpg' ?>" style="height: 650px;" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Quads-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; background-color:black; color:white; position: relative; bottom: 480px; left: 30px;">
                         <ol id="instruction">
                             <li> Stand with your back to a bench or anything that can lift your leg and place one of your feet on the bench or the object.</li>

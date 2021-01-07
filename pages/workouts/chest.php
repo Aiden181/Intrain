@@ -60,7 +60,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/BE_JFHgYvds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Chest-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Chest-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; position: relative; bottom: 480px; left: 30px;">
                         <ol id="instruction">
                             <li>Place your hands firmly on the ground, directly under shoulders.</li>
@@ -92,7 +92,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/tRL8IrPTLcc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Chest-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Chest-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; position: relative; bottom: 480px; left: 30px;">
                         <ol id="instruction">
                             <li>Lay flat on the bench or anywhere that can support your weight and place your feet touching the ground.</li>
@@ -123,7 +123,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/1ZKnbqBJ4Ts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Chest-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Chest-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; position: relative; bottom: 480px; left: 30px;">
                         <ol id="instruction">
                             <li>Stand facing bench or anything that can be sturdy to withstand your weight.</li>
@@ -154,7 +154,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/UfQtf1KC81I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Chest-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Chest-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; position: relative; bottom: 480px; left: 30px;">
                         <ol id="instruction">
                             <li>Use a bench or anything to support your feet off the ground.</li>

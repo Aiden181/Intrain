@@ -49,6 +49,7 @@ section h2{
 #content-background{
     width: 1000px;
     height: 530px;
+    background-size: 1000px 530px;
     opacity: 0.5;
 }
 

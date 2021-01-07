@@ -60,7 +60,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/L2xy9qv73Y8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="position: relative; bottom: 540px; left: 180px;">
                         <ol id="instruction">
                             <li>Place your leg on the bench so that your knee can rest on the bench.</li>
@@ -94,7 +94,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/r_a6hHbCxgM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="position: relative; bottom: 540px; left: 180px">
                         <ol id="instruction">
                             <li>Lay face down on the floor with your arms and legs straighten out in front of you.</li>
@@ -126,7 +126,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/LYk9Djw1JME" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="position: relative; bottom: 540px; left: 180px">
                         <ol id="instruction">
                             <li>Stand up straight with your feet a little past shoulder a. Place your hands at the
@@ -158,7 +158,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/CzvRkETQ1h0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Back-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="position: relative; bottom: 540px; left: 180px">
                         <ol id="instruction">
                             <li>Use a bench or anything to support your feet off the ground.</li>

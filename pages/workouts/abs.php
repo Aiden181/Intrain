@@ -60,7 +60,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/BHQ6fpjPPRg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Abs-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Abs-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="position: relative; bottom: 500px; left: 350px">
                         <ol id="instruction">
                             <li>Lay straight on your back with your knees bent and your feet entirely touching the
@@ -94,7 +94,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/_Axz_9p61DA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Abs-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Abs-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="position: relative; bottom: 500px; left: 350px">
                         <ol id="instruction">
                             <li>Lay straight on your back with your arms and hands flat down on both sides.</li>
@@ -126,7 +126,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/JYOG0Y9kma4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Abs-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Abs-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="position: relative; bottom: 500px; left: 350px">
                         <ol id="instruction">
                             <li>Find two chairs or any objects that you can lift youself up with.</li>

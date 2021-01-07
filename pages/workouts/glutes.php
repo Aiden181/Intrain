@@ -60,7 +60,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/3Uq8cw1Yi3g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Glute-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Glute-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 350px; position: relative; bottom: 350px; left: 30px;">
                         <ol id="instruction">
                             <li>Laying flat on the floor with your knees bent in and feet firmly touching the floor.
@@ -93,118 +93,117 @@
                     ?>
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/J1R81oLQmZA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Glute-Background.jpg' ?>" alt="">
-                    <div class="text-block" style="width: 320px; position: relative; bottom: 480px; left: 30px;">
-                        <ol id="instruction">
-                            <li>Stand up straight with your feet shoulder width apart.</li>
-                            <li>Flex your knees and hips and sit back into the squat while lowering your body as low as
-                                you can.</li>
-                            <li>Return to the original position.
-                            </li>
-                        </ol>
-                    </div>
+                <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Glute-Background.jpg' ?>);"> </div>
+                <div class="text-block" style="width: 320px; position: relative; bottom: 480px; left: 30px;">
+                    <ol id="instruction">
+                        <li>Stand up straight with your feet shoulder width apart.</li>
+                        <li>Flex your knees and hips and sit back into the squat while lowering your body as low as
+                            you can.</li>
+                        <li>Return to the original position.
+                        </li>
+                    </ol>
                 </div>
-            </section>
-
-            <!--Section 3 -->
-            <section class="col">
-                <div>
-                    <h2><b>Barbell Hip Thrust</b></h2>
-                    <?php
-                    $vid = "av4cQOSzDVw";
-                    if (isset($_SESSION['Customer'])) {
-                        echo "<form action=\"./scripts/ajax-form.php\" method=\"POST\" class=\"bookmark-form\" id =\"$vid\">";
-                        if (stristr($video, $vid)) {
-                            echo "<i class=\"fas fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
-                        } else {
-                            echo "<i class=\"far fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
-                        }
-                        echo "</form>";
-                    }
-                    ?>
-                </div>
-                <iframe class="video" src="https://www.youtube.com/embed/av4cQOSzDVw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Glute-Background.jpg' ?>" alt="">
-                    <div class="text-block" style="width: 400px; position: relative; bottom: 500px; left: 50px;">
-                        <ol id="instruction">
-                            <li>Sit on the floor with a bench or something behind you. Have the dumbbell on top off your
-                                legs just above your hips.</li>
-                            <li>Lean back against the bench in order to rest your shoulders, extend your arms out to
-                                either side using the bench as support.</li>
-                            <li>Lift the weight by driving through your feet and moving your hips upwards. Support the
-                                weight with your shoulders and feet.</li>
-                            <li>Slowly stretch as far as you can, and then slowly return to the original position.</li>
-                        </ol>
-                    </div>
-                </div>
-            </section>
-
-            <!--Section 4 -->
-            <section class="col">
-                <div>
-                    <h2><b>Forward Lunges</b></h2>
-                    <?php
-                    $vid = "hikBzRz3akE";
-                    if (isset($_SESSION['Customer'])) {
-                        echo "<form action=\"./scripts/ajax-form.php\" method=\"POST\" class=\"bookmark-form\" id =\"$vid\">";
-                        if (stristr($video, $vid)) {
-                            echo "<i class=\"fas fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
-                        } else {
-                            echo "<i class=\"far fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
-                        }
-                        echo "</form>";
-                    }
-                    ?>
-                </div>
-                <iframe class="video" src="https://www.youtube.com/embed/hikBzRz3akE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Glute-Background.jpg' ?>" alt="">
-                    <div class="text-block" style="width: 320px; position: relative; bottom: 480px; left: 30px;">
-                        <ol id="instruction">
-                            <li>Move forward with one leg.</li>
-                            <li>Lower your body until your other knee nearly touches the ground.</li>
-                            <li>Rememeber to remain upright, your front knee also should stay above the front foot.</li>
-                            <li>Push off the floor with your front foot until you return to the original position.
-                                Switch legs.</li>
-                        </ol>
-                    </div>
-                </div>
-            </section>
-
-            <!--Section 5 -->
-            <section class="col">
-                <div>
-                    <h2><b>Good Morning</b></h2>
-                    <?php
-                    $vid = "87AxUw999rU";
-                    if (isset($_SESSION['Customer'])) {
-                        echo "<form action=\"./scripts/ajax-form.php\" method=\"POST\" class=\"bookmark-form\" id =\"$vid\">";
-                        if (stristr($video, $vid)) {
-                            echo "<i class=\"fas fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
-                        } else {
-                            echo "<i class=\"far fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
-                        }
-                        echo "</form>";
-                    }
-                    ?>
-                </div>
-                <iframe class="video" src="https://www.youtube.com/embed/87AxUw999rU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <div class="container" id="last-section">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Glute-Background.jpg' ?>" alt="">
-                    <div class="text-block" style="width: 320px; position: relative; bottom: 400px; left: 80px;">
-                        <ol id="instruction">
-                            <li>Stand up straight with your feet a little past shoulder a. Place your hands at the
-                                center of your chest.</li>
-                            <li>Keep your back straight, move foward your hips to bring your shoulder down towards the
-                                floor as much as you can.
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-            </section>
         </div>
+        </section>
+
+        <!--Section 3 -->
+        <section class="col">
+            <div>
+                <h2><b>Barbell Hip Thrust</b></h2>
+                <?php
+                $vid = "av4cQOSzDVw";
+                if (isset($_SESSION['Customer'])) {
+                    echo "<form action=\"./scripts/ajax-form.php\" method=\"POST\" class=\"bookmark-form\" id =\"$vid\">";
+                    if (stristr($video, $vid)) {
+                        echo "<i class=\"fas fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
+                    } else {
+                        echo "<i class=\"far fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
+                    }
+                    echo "</form>";
+                }
+                ?>
+            </div>
+            <iframe class="video" src="https://www.youtube.com/embed/av4cQOSzDVw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="container" id="content">
+                <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Glute-Background.jpg' ?>);"> </div>
+                <div class="text-block" style="width: 400px; position: relative; bottom: 500px; left: 50px;">
+                    <ol id="instruction">
+                        <li>Sit on the floor with a bench or something behind you. Have the dumbbell on top off your
+                            legs just above your hips.</li>
+                        <li>Lean back against the bench in order to rest your shoulders, extend your arms out to
+                            either side using the bench as support.</li>
+                        <li>Lift the weight by driving through your feet and moving your hips upwards. Support the
+                            weight with your shoulders and feet.</li>
+                        <li>Slowly stretch as far as you can, and then slowly return to the original position.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!--Section 4 -->
+        <section class="col">
+            <div>
+                <h2><b>Forward Lunges</b></h2>
+                <?php
+                $vid = "hikBzRz3akE";
+                if (isset($_SESSION['Customer'])) {
+                    echo "<form action=\"./scripts/ajax-form.php\" method=\"POST\" class=\"bookmark-form\" id =\"$vid\">";
+                    if (stristr($video, $vid)) {
+                        echo "<i class=\"fas fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
+                    } else {
+                        echo "<i class=\"far fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
+                    }
+                    echo "</form>";
+                }
+                ?>
+            </div>
+            <iframe class="video" src="https://www.youtube.com/embed/hikBzRz3akE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="container" id="content">
+                <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Glute-Background.jpg' ?>);"> </div>
+                <div class="text-block" style="width: 320px; position: relative; bottom: 480px; left: 30px;">
+                    <ol id="instruction">
+                        <li>Move forward with one leg.</li>
+                        <li>Lower your body until your other knee nearly touches the ground.</li>
+                        <li>Rememeber to remain upright, your front knee also should stay above the front foot.</li>
+                        <li>Push off the floor with your front foot until you return to the original position.
+                            Switch legs.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!--Section 5 -->
+        <section class="col">
+            <div>
+                <h2><b>Good Morning</b></h2>
+                <?php
+                $vid = "87AxUw999rU";
+                if (isset($_SESSION['Customer'])) {
+                    echo "<form action=\"./scripts/ajax-form.php\" method=\"POST\" class=\"bookmark-form\" id =\"$vid\">";
+                    if (stristr($video, $vid)) {
+                        echo "<i class=\"fas fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
+                    } else {
+                        echo "<i class=\"far fa-bookmark bookmark\" id =\"$vid-icon\"></i>";
+                    }
+                    echo "</form>";
+                }
+                ?>
+            </div>
+            <iframe class="video" src="https://www.youtube.com/embed/87AxUw999rU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="container" id="last-section">
+                <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Glute-Background.jpg' ?>);"> </div>
+                <div class="text-block" style="width: 320px; position: relative; bottom: 400px; left: 80px;">
+                    <ol id="instruction">
+                        <li>Stand up straight with your feet a little past shoulder a. Place your hands at the
+                            center of your chest.</li>
+                        <li>Keep your back straight, move foward your hips to bring your shoulder down towards the
+                            floor as much as you can.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </div>
     </div>
 </body>
 

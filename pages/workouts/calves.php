@@ -60,7 +60,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/uNmwqaVSfXM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Calves-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Calves-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="position: relative; background-color:black; color:white; bottom: 500px; left: 350px">
                         <ol id="instruction">
                             <li>Sitting comfortably on a chair or bench with your core stomach muscles engaged, place
@@ -97,7 +97,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/WopXvfsNM7o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Calves-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Calves-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="position: relative; background-color:black; color:white; bottom: 500px; left: 350px">
                         <ol id="instruction">
                             <li>Walk forward and push your toe into the ground.</li>
@@ -127,7 +127,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/WiWjHipj62I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Calves-Background.jpg' ?>" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Calves-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="position: relative; background-color:black; color:white; bottom: 500px; left: 350px">
                         <ol id="instruction">
                             <li>Standing straight with a dumbbell in one hand, lift the same foot as the side without

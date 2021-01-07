@@ -60,7 +60,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/J1R81oLQmZA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Hamstring-Background.jpg' ?>" style="height: 650px;" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Hamstring-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; background-color:black; color:white; position: relative; bottom: 480px; left: 30px;">
                         <ol id="instruction">
                             <li>Stand up straight with your feet shoulder width apart.</li>
@@ -92,7 +92,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/F471H7HPsqQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Hamstring-Background.jpg' ?>" style="height: 650px;" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Hamstring-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; background-color:black; color:white; position: relative; bottom: 550px; left: 30px;">
                         <ol id="instruction">
                             <li>Get down on all fours and position your hands under your shoulders and your knees under
@@ -124,7 +124,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/DZNn8keUtTE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="content">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Hamstring-Background.jpg' ?>" style="height: 650px;" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Hamstring-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; background-color:black; color:white; position: relative; bottom: 550px; left: 30px;">
                         <ol id="instruction">
                             <li>Lay down on a bench, extend your leg and use your feet you hold the dumbbell.</li>
@@ -154,7 +154,7 @@
                 </div>
                 <iframe class="video" src="https://www.youtube.com/embed/ktps7riSkkU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="container" id="last-section">
-                    <img id="content-background" src="<?php echo IMG_LOCATION . '/Hamstring-Background.jpg' ?>" style="height: 650px;" alt="">
+                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Hamstring-Background.jpg' ?>);"> </div>
                     <div class="text-block" style="width: 320px; background-color:black; color:white; position: relative; bottom: 550px; left: 30px;">
                         <ol id="instruction">
                             <li>Stand straight with your feet shoulder-width apart and knees slightly bent and raise one leg.</li>
