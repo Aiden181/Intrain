@@ -146,22 +146,23 @@
             <section class="col right-nut" id="lf-img">
                 <div class="img-fluid" style="background-image: url(<?php echo IMG_LOCATION ?>/nutrition-6.1.jpg); background-size: 480px 340px; width: 480px; height: 340px;"></div>
                 <div class="img-fluid" style="background-image: url(<?php echo IMG_LOCATION ?>/nutrition-6.2.jpg); background-size: 480px 340px; width: 480px; height: 340px;"></div>
-                <section class="col right-nut" id="rg-bottom-content">
-                    <h2>Neither Fat Nor Carbs Make You Fat</h2>
-                    <p>Fat has often been blamed for obesity, as it has more calories per gram than protein and carbs. Yet, people who eat a diet high in fat — but low in carbs — end up eating fewer calories than people on low-fat, high-carb diets. This has conversely led many people to blame carbs for obesity — which is incorrect as well. Plenty of populations throughout history have eaten high-carb diets but remained healthy. As with almost everything in nutrition science, the issue depends on the context. Both fat and carbs can be fattening — it all depends on the rest of your diet and your overall lifestyle.
-                    </p>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                </section>
+            </section>
+            <section class="col right-nut" id="rg-bottom-content">
+                <h2>Neither Fat Nor Carbs Make You Fat</h2>
+                <p>Fat has often been blamed for obesity, as it has more calories per gram than protein and carbs. Yet, people who eat a diet high in fat — but low in carbs — end up eating fewer calories than people on low-fat, high-carb diets. This has conversely led many people to blame carbs for obesity — which is incorrect as well. Plenty of populations throughout history have eaten high-carb diets but remained healthy. As with almost everything in nutrition science, the issue depends on the context. Both fat and carbs can be fattening — it all depends on the rest of your diet and your overall lifestyle.
+                </p>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </section>
         </div>
     </div>
 </body>
