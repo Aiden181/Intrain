@@ -29,56 +29,49 @@
         <div class="row row-cols-3">
             <section class="col">
                 <a href="index.php?p=chest">
-                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Chest-Workout.jpg' ?>);"> </div>
+                    <div style="background-image: url(<?php echo IMG_LOCATION . '/Chest-Workout.jpg' ?>);"> </div>
                 </a>
                 <h3>Chest</h3>
             </section>
             <section class="col">
                 <a href="index.php?p=forearm">
-                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Forearm-Workout.jpg' ?>);"> </div>
+                    <div style="background-image: url(<?php echo IMG_LOCATION . '/Forearm-Workout.jpg' ?>);"> </div>
                 </a>
-
                 <h3>Forearm</h3>
             </section>
             <section class="col">
                 <a href="index.php?p=biceps">
-                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Biceps-Workout.jpg' ?>);"> </div>
+                    <div style="background-image: url(<?php echo IMG_LOCATION . '/Biceps-Workout.jpg' ?>);"> </div>
                 </a>
-
                 <h3>Biceps</h3>
             </section>
             <section class="col">
-
                 <a href="index.php?p=triceps">
-                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Triceps-Workout.jpg' ?>);"> </div>
+                    <div style="background-image: url(<?php echo IMG_LOCATION . '/Triceps-Workout.jpg' ?>);"> </div>
                 </a>
                 <h3>Triceps</h3>
             </section>
             <section class="col">
-
                 <a href="index.php?p=shoulder">
-                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Shoulder-Workout.jpg' ?>);"> </div>
+                    <div style="background-image: url(<?php echo IMG_LOCATION . '/Shoulder-Workout.jpg' ?>);"> </div>
                 </a>
                 <h3>Shoulder</h3>
             </section>
             <section class="col">
-
-
-
                 <a href="index.php?p=back">
-                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Back-Workout.jpg' ?>);"> </div>
+                    <div style="background-image: url(<?php echo IMG_LOCATION . '/Back-Workout.jpg' ?>);"> </div>
                 </a>
                 <h3>Back</h3>
             </section>
             <section class="col">
                 <a href="index.php?p=abs">
-                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Abs-Workout.jpg' ?>);"> </div>
+                    <div style="background-image: url(<?php echo IMG_LOCATION . '/Abs-Workout.jpg' ?>);"> </div>
                 </a>
                 <h3>Abs</h3>
             </section>
             <section class="col">
                 <a href="index.php?p=traps">
-                    <div id="content-background" style="background-image: url(<?php echo IMG_LOCATION . '/Traps-Workout.jpg' ?>);"> </div>
+                    <div style="background-image: url(<?php echo IMG_LOCATION . '/Traps-Workout.jpg' ?>);"> </div>
                 </a>
                 <h3>Traps</h3>
             </section>
