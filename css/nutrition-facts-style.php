@@ -17,6 +17,9 @@
 #rg-img{
     padding-top: 50px;
     padding-left: 7%;
+    width: 380px;
+    height: 380px;
+    background-size: 380px 380px;
 }
 
 /*Right Content */
@@ -45,6 +48,9 @@
 #lf-img{
     padding-top: 70px;
     padding-left: 5%;
+    width: 480px;
+    height: 340px;
+    background-size: 480px 340px;
 }
 
 

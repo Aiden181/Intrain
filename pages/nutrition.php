@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -54,13 +54,13 @@
                 <br>
             </section>
             <section class="col left-nut" id="rg-img">
-                <img src="<?php echo IMG_LOCATION . '/nutrition-1.jpg' ?>" style="width: 380px; height: 380px;" alt="">
+                <div class="img-fluid" style="background-image: url(<?php echo IMG_LOCATION ?>/nutrition-1.jpg); background-size: 380px 380px; width: 380px; height: 380px;"></div>
             </section>
 
 
             <!--Section 2-->
             <section class="col right-nut" id="lf-img">
-                <img src="<?php echo IMG_LOCATION . '/nutrition-2.jpg' ?>" style="width: 480px; height: 340px;" alt="">
+                <div class="img-fluid" style="background-image: url(<?php echo IMG_LOCATION ?>/nutrition-2.jpg); background-size: 480px 340px; width: 480px; height: 340px;"></div>
             </section>
             <section class="col right-nut" id="rg-content">
                 <h2>Eggs Are One of the Healthiest Foods You Can Eat</h2>
@@ -97,12 +97,12 @@
                 <br>
             </section>
             <section class="col left-nut" id="rg-img">
-                <img src="<?php echo IMG_LOCATION . '/nutrition-3.jpg' ?>" style="width: 380px; height: 380px;" alt="">
+                <div class="img-fluid" style="background-image: url(<?php echo IMG_LOCATION ?>/nutrition-3.jpg); background-size: 380px 380px; width: 380px; height: 380px;"></div>
             </section>
 
             <!--Section 4-->
             <section class="col right-nut" id="lf-img">
-                <img src="<?php echo IMG_LOCATION . '/nutrition-4.jpg' ?>" style="width: 480px; height: 340px;" alt="">
+                <div class="img-fluid" style="background-image: url(<?php echo IMG_LOCATION ?>/nutrition-4.jpg); background-size: 480px 340px; width: 480px; height: 340px;"></div>
             </section>
             <section class="col right-nut" id="rg-content">
                 <h2>Fruit Juice Isn’t That Different From Sugary Soft Drinks</h2>
@@ -139,30 +139,29 @@
                 <br>
             </section>
             <section class="col left-nut" id="rg-img">
-                <img src="<?php echo IMG_LOCATION . '/nutrition-5.jpg' ?>" style="width: 380px; height: 380px;" alt="">
+                <div class="img-fluid" style="background-image: url(<?php echo IMG_LOCATION ?>/nutrition-5.jpg); background-size: 380px 380px; width: 380px; height: 380px;"></div>
             </section>
 
             <!--Section 6-->
             <section class="col right-nut" id="lf-img">
-                <img id="lf-img-6.1" src="<?php echo IMG_LOCATION . '/nutrition-6.1.jpg' ?>" style="width: 480px; height: 300px;" alt="">
-                <img src="<?php echo IMG_LOCATION . '/nutrition-6.2.jpg' ?>" style="width: 480px; height: 300px;" alt="">
-            </section>
-            <section class="col right-nut" id="rg-bottom-content">
-                <h2>Neither Fat Nor Carbs Make You Fat</h2>
-                <p>Fat has often been blamed for obesity, as it has more calories per gram than protein and carbs. Yet, people who eat a diet high in fat — but low in carbs — end up eating fewer calories than people on low-fat, high-carb diets. This has conversely led many people to blame carbs for obesity — which is incorrect as well. Plenty of populations throughout history have eaten high-carb diets but remained healthy. As with almost everything in nutrition science, the issue depends on the context. Both fat and carbs can be fattening — it all depends on the rest of your diet and your overall lifestyle.
-                </p>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-            </section>
+                <div class="img-fluid" style="background-image: url(<?php echo IMG_LOCATION ?>/nutrition-6.1.jpg); background-size: 480px 340px; width: 480px; height: 340px;"></div>
+                <div class="img-fluid" style="background-image: url(<?php echo IMG_LOCATION ?>/nutrition-6.2.jpg); background-size: 480px 340px; width: 480px; height: 340px;"></div>
+                <section class="col right-nut" id="rg-bottom-content">
+                    <h2>Neither Fat Nor Carbs Make You Fat</h2>
+                    <p>Fat has often been blamed for obesity, as it has more calories per gram than protein and carbs. Yet, people who eat a diet high in fat — but low in carbs — end up eating fewer calories than people on low-fat, high-carb diets. This has conversely led many people to blame carbs for obesity — which is incorrect as well. Plenty of populations throughout history have eaten high-carb diets but remained healthy. As with almost everything in nutrition science, the issue depends on the context. Both fat and carbs can be fattening — it all depends on the rest of your diet and your overall lifestyle.
+                    </p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </section>
         </div>
     </div>
 </body>

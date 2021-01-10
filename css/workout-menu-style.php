@@ -17,6 +17,7 @@
     filter: grayscale(100%);
     width: 450px;
     height: 300px;
+    background-size: 450px 300px;
 }
 
 .col > h3
