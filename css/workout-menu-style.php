@@ -13,7 +13,7 @@
     padding-bottom: 30px;
 }
 
-.col img {
+.col div {
     filter: grayscale(100%);
     width: 450px;
     height: 300px;
